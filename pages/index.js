@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from '@emotion/core';
 // import Link from 'next/link';
 import Head from '../components/head';
 import Nav from '../components/nav';
@@ -18,6 +19,16 @@ const Home = () => (
           fanatic & a movie buff.
         </p>
       </Container>
+
+      {/* <div
+        css={css`
+          width: 100%;
+          height: 100px;
+          background-color: #FFD2B0;
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 1185 248'><circle cx='76' cy='121.1' r='20' class='a'/><circle cx='870' cy='201.1' r='11' class='a'/><circle cx='814.5' cy='165.6' r='24.5' class='a'/><path d='M0 0v17.7c22.7 14.8 53 31.9 90.7 51.5 150.8 78 322 116.6 424.8 69.3 102.9-47.4 138-69.3 210.8-69.3s118.3 48.6 219.5 38.3 76.3-59.3 188.7-59.3c18.9 0 35.5 2.6 50.5 6.8V0H0z' class='a'/></svg>");
+          background-repeat: no-repeat;
+        `}
+      /> */}
     </div>
 
     <div className="tools">
@@ -28,37 +39,86 @@ const Home = () => (
         <ul className="mt-4">
           <li>
             <h5>Workstation</h5>
-            <p>MacBook Pro 17" 2018 (home studio) &amp; MacPro 2011 (studio)</p>
+            <p>MacBook Pro 17" 2018 (homestudio) &amp; MacPro 2011 (studio)</p>
+            <div className="flex items-center mt-2 -ml-1">
+              <img
+                src={require('../assets/logos/apple_logo_black.svg')}
+                alt="Apple"
+                className="h-8"
+              />
+            </div>
           </li>
           <li>
             <h5>DAW</h5>
-            <p>
-              Main: Logic Pro X 10.4
-              <br />
-              <small className="block leading-none">Also fluent in Cubase 10 Pro</small>
-            </p>
+            <p>Logic Pro X 10.4 &amp; Cubase 10 Pro</p>
+            <div className="flex items-center mt-2 -ml-1">
+              <img
+                src={require('../assets/logos/apple_logo_black.svg')}
+                alt="Apple"
+                className="h-8 mr-1"
+              />
+              <img
+                src={require('../assets/logos/Steinberg_Media_Technologies_logo.svg')}
+                alt="Steinberg"
+                className="h-8"
+              />
+            </div>
           </li>
           <li>
             <h5>Go-to mix plugins</h5>
             <p>
-              Fabfilter (esp. Pro-Q3 & Pro-R), Waves (esp. C6, Scheps Channel Strip, Abbey Road
-              Plates), MAAG EQ
+              Fabfilter (esp. Pro-Q3 & Pro-R), Waves (esp. C6, API stuff, SSL stuff, Scheps Channel
+              Strip, CLA stuff, Abbey Road Plates), MAAG EQ
             </p>
+            <div className="flex items-center mt-2 -ml-1">
+              <img
+                src={require('../assets/logos/fabfilter-vector-logo.svg')}
+                alt="Fabfilter"
+                className="h-8 mr-1"
+              />
+              <img
+                src={require('../assets/logos/waves-audio-logo-vector.svg')}
+                alt="Waves Audio"
+                className="h-8 mr-1"
+              />
+              <img
+                src={require('../assets/logos/plugin-alliance-vector-logo.svg')}
+                alt="Plugin Alliance"
+                className="h-8 mr-1"
+              />
+            </div>
           </li>
           <li>
             <h5>Gears</h5>
             <p>
-              Apogee Duet 2 (my beloved interface), Focusrite Saffire Liquid 56 (studio), ART ProMPA
-              II preamp (cheap but great), Neumann TLM49, Audio Technica AT2035, Nektar Impakt
-              LX61+, Seaboard Block.
+              Apogee Duet 2 (my beloved interface), Focusrite Saffire Liquid 56 (studio &ndash; old
+              but gold), ART ProMPA II preamp (cheap but great), Neumann TLM49, Audio Technica
+              AT2035, Nektar Impakt LX61+, Seaboard Block.
             </p>
+            <div className="flex items-center mt-2 -ml-1">
+              <img
+                src={require('../assets/logos/Apogee_Electronics_-_logo.svg')}
+                alt="Apogee"
+                className="h-8 mr-1"
+              />
+              <img
+                src={require('../assets/logos/focusrite.png')}
+                alt="Apple"
+                className="h-5 mr-1"
+              />
+              <img
+                src={require('../assets/logos/plugin-alliance-vector-logo.svg')}
+                alt="Apple"
+                className="h-8 mr-1"
+              />
+            </div>
           </li>
           <li>
             <h5>Studio Monitors</h5>
             <p>Yamaha NS10 studio, Yamaha HS8, Tannoy Reveal 501A</p>
           </li>
           <li>
-            <h5>Homestudio Monitors</h5>
+            <h5>Home Studio Monitors</h5>
             <p>Yamaha HS5, Tannoy Reveal 402</p>
           </li>
         </ul>
@@ -74,6 +134,13 @@ const Home = () => (
           <li>
             <h5>Workstation</h5>
             <p>MacBook Pro 17" 2018</p>
+            <div className="flex items-center mt-2 -ml-1">
+              <img
+                src={require('../assets/logos/apple_logo_black.svg')}
+                alt="Apple"
+                className="h-8"
+              />
+            </div>
           </li>
           <li>
             <h5>Code editor</h5>
@@ -109,7 +176,6 @@ const Home = () => (
       {`
         .hero {
           width: 100%;
-          color: #333;
           padding: 10rem 0;
         }
         .title {
@@ -130,10 +196,8 @@ const Home = () => (
         }
 
         ul li h5 {
+          margin-top: 2rem;
           font-weight: 900;
-        }
-        ul li p {
-          margin-bottom: 1rem;
         }
 
         small {
