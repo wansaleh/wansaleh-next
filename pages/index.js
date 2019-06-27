@@ -1,18 +1,30 @@
 import React from 'react';
 import { css } from '@emotion/core';
 // import Link from 'next/link';
+import clsx from 'clsx';
 import Head from '../components/head';
 import Nav from '../components/nav';
 
-const Container = ({ children }) => <div className="max-w-5xl mx-auto">{children}</div>;
+const Container = ({ children, className, ...props }) => (
+  <div className={clsx('max-w-5xl mx-auto', className)} {...props}>
+    {children}
+  </div>
+);
 
 const Home = () => (
   <div className="text-center">
     <Head title="Wan Saleh" />
     <Nav />
 
-    <div className="hero flex flex-col justify-center items-center bg-black text-gray-600">
-      <Container>
+    <div
+      className="hero flex flex-col justify-center items-center bg-black text-gray-600"
+      css={
+        {
+          // background: `url(${require('../assets/images/jeremy-perkins-UgNjyPkphtU-unsplash_result.jpg')}) center/cover no-repeat`
+        }
+      }
+    >
+      <Container css={{ padding: '20rem 0 10rem' }} className="relative z-20">
         <h1 className="title text-white">
           <span role="img" aria-label="Waving Hand">
             👋
@@ -31,7 +43,8 @@ const Home = () => (
           <span role="img" aria-label="Man Technologist">
             👨‍💻
           </span>
-          &nbsp;A web (FTW!) & mobile developer.{' '}
+          &nbsp;A web (FTW!) & mobile developer.
+          <br />
           <span role="img" aria-label="Football">
             ‍⚽
           </span>
@@ -47,7 +60,7 @@ const Home = () => (
         <svg
           className="separator__svg"
           width="100%"
-          height="200"
+          height="300"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
           fill="#f7fafc"
@@ -85,7 +98,10 @@ const Home = () => (
 
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">DAW</h5>
-            <p>Logic Pro X 10.4 &amp; Cubase 10 Pro</p>
+            <p>
+              <a href="https://www.apple.com/logic-pro/">Logic Pro X</a> 10.4 &amp;{' '}
+              <a href="https://new.steinberg.net/cubase/">Cubase 10 Pro</a>
+            </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
                 src={require('../assets/logos/apple_logo_black.svg')}
@@ -103,8 +119,10 @@ const Home = () => (
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Go-to mix plugins</h5>
             <p>
-              Fabfilter (esp. Pro-Q3 & Pro-R), Waves (esp. C6, API stuff, SSL stuff, Scheps Channel
-              Strip, CLA stuff, Abbey Road Plates), MAAG EQ
+              <a href="https://www.fabfilter.com">Fabfilter</a> (esp. Pro-Q3 & Pro-R),{' '}
+              <a href="https://www.waves.com">Waves</a> (esp. C6, API stuff, SSL stuff, Scheps
+              Channel Strip, CLA stuff, Abbey Road Plates),{' '}
+              <a href="https://www.plugin-alliance.com/">MAAG EQ</a>
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
@@ -128,9 +146,26 @@ const Home = () => (
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Gears</h5>
             <p>
-              Apogee Duet 2 (my beloved interface), Focusrite Saffire Liquid 56 (studio &ndash; old
-              but gold), Focusrite OctoPre MkII, ART ProMPA II preamp (cheap but great), Neumann
-              TLM49, Audio Technica AT2035, Nektar Impakt LX61+, Seaboard Block.
+              <a href="https://apogeedigital.com/products/duet">Apogee Duet 2</a> (my beloved
+              interface),{' '}
+              <a href="https://www.sweetwater.com/store/detail/SaffLQ56--focusrite-liquid-saffire-56">
+                Focusrite Saffire Liquid 56
+              </a>{' '}
+              (studio &ndash; old but gold),{' '}
+              <a href="https://www.sweetwater.com/store/detail/OctoPre2--focusrite-octopre-mkii">
+                Focusrite OctoPre MkII
+              </a>
+              ,{' '}
+              <a href="http://artproaudio.com/product/pro-mpa-ii-two-channel-mic-preamp/">
+                ART ProMPA II
+              </a>{' '}
+              preamp (cheap but great), <a href="https://en-de.neumann.com/tlm-49">Neumann TLM49</a>
+              ,{' '}
+              <a href="https://www.audio-technica.com/cms/wired_mics/cebb57a269d232ee/index.html">
+                Audio Technica AT2035
+              </a>
+              , <a href="https://nektartech.com/impact-lx49-61-plus/">Nektar Impakt LX61+</a>,{' '}
+              <a href="https://roli.com/products/blocks/seaboard-block">Seaboard Block</a>.
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
@@ -168,7 +203,16 @@ const Home = () => (
 
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Studio Monitors</h5>
-            <p>Yamaha NS10 studio, Yamaha HS8, Tannoy Reveal 501A</p>
+            <p>
+              <a href="https://en.wikipedia.org/wiki/Yamaha_NS-10">Yamaha NS10 studio</a>,{' '}
+              <a href="https://usa.yamaha.com/products/proaudio/speakers/hs_series/index.html">
+                Yamaha HS8
+              </a>
+              ,{' '}
+              <a href="https://www.sweetwater.com/store/detail/Reveal501a--tannoy-reveal-501a">
+                Tannoy Reveal 501A
+              </a>
+            </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
                 src={require('../assets/logos/yamaha.svg')}
@@ -185,7 +229,15 @@ const Home = () => (
 
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Home Studio Monitors</h5>
-            <p>Yamaha HS5, Tannoy Reveal 402</p>
+            <p>
+              <a href="https://usa.yamaha.com/products/proaudio/speakers/hs_series/index.html">
+                Yamaha HS8
+              </a>
+              ,{' '}
+              <a href="https://www.sweetwater.com/store/detail/Reveal402--tannoy-reveal-402">
+                Tannoy Reveal 402
+              </a>
+            </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
                 src={require('../assets/logos/yamaha.svg')}
@@ -223,7 +275,9 @@ const Home = () => (
 
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Code editor</h5>
-            <p>Visual Studio Code (duh)</p>
+            <p>
+              <a href="https://code.visualstudio.com/">Visual Studio Code</a> (duh)
+            </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
                 src={require('../assets/logos/Visual_Studio_Code_1.35_icon.svg')}
@@ -236,8 +290,11 @@ const Home = () => (
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Frontend stack</h5>
             <p>
-              I love React. It's frameworks Next.js &amp; Gatsby. GraphQL, REST no more. I also like
-              Vue. I really like Svelte&nbsp;3.{' '}
+              I love <a href="https://reactjs.com">React</a>. It's frameworks{' '}
+              <a href="https://nextjs.org">Next.js</a> &amp;{' '}
+              <a href="https://gatsbyjs.org">Gatsby</a>. <a href="https://graphql.com">GraphQL</a>,
+              REST no more. I also like <a href="https://vuejs.org">Vue</a>. I really like{' '}
+              <a href="https://svelte.dev">Svelte&nbsp;3</a>.{' '}
               {/* <small className="block leading-none">This lame site is built using Next.js.</small> */}
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
@@ -277,7 +334,10 @@ const Home = () => (
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Backend stack</h5>
             <p>
-              Node, PostgreSQL + Hasura GraphQL. MongoDB. Old times: PHP + MySQL (I'm rusty). If
+              <a href="https://nodejs.org">Node</a>,{' '}
+              <a href="https://www.postgresql.org/">PostgreSQL</a> +{' '}
+              <a href="https://hasura.io/">Hasura</a> GraphQL.{' '}
+              <a href="https://www.mongodb.com/">MongoDB</a>. Old times: PHP + MySQL (I'm rusty). If
               really needing PHP, SLIM is my go-to micro framework.
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
@@ -312,10 +372,14 @@ const Home = () => (
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">SaaS</h5>
             <p>
-              DigitalOcean &amp; Vultr for VPS. Netlify (how great are Netlify) for static hosting
-              &amp; Now.sh for Next.js deploys. Firebase (generous free tier). Wasabi Cloud Storage
-              (cheap and large S3 alternative). I avoid AWS unless absolutely necessary (too
-              complicated).
+              <a href="https://digitalocean.com">DigitalOcean</a> &amp;{' '}
+              <a href="https://vultr.com">Vultr</a> for VPS.{' '}
+              <a href="https://netlify.com">Netlify</a> (how great are Netlify) for static hosting
+              &amp; <a href="https://now.sh">Now.sh</a> for Next.js deploys.{' '}
+              <a href="https://firebase.com">Firebase</a> (generous free tier).{' '}
+              <a href="https://wasabi.com">Wasabi Cloud Storage</a> (cheap and large S3
+              alternative). I try to avoid <a href="https://aws.amazon.com">AWS</a> unless
+              absolutely necessary (too costly &amp; complicated).
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
@@ -363,8 +427,7 @@ const Home = () => (
       {`
         .hero {
           width: 100%;
-          padding: 10rem 0 0;
-          margin-bottom: 2rem;
+          margin-bottom: 4rem;
         }
         .title {
           margin: 0;
@@ -387,9 +450,6 @@ const Home = () => (
           opacity: 0.5;
           letter-spacing: -0.05em;
           font-weight: 600;
-        }
-        a {
-          color: #304ffe;
         }
       `}
     </style>
