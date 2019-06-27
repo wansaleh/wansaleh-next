@@ -11,7 +11,7 @@ const links = [
 });
 
 const Nav = () => (
-  <nav>
+  <nav className="absolute top-0 right-0">
     <ul>
       <li>{/* <Link prefetch href="/">
           <a>Home</a>
@@ -49,7 +49,7 @@ const Nav = () => (
           padding: 6px 8px;
         }
         a {
-          color: #000;
+          color: #fff;
           text-decoration: none;
           font-size: 13px;
         }
