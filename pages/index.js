@@ -13,10 +13,33 @@ const Home = () => (
 
     <div className="hero flex flex-col justify-center items-center">
       <Container>
-        <h1 className="title">Hello there. I’m Wan Saleh.</h1>
+        <h1 className="title">
+          <span role="img" aria-label="Waving Hand">
+            👋
+          </span>{' '}
+          Hello there. I’m Wan Saleh.
+        </h1>
         <p className="description text-2xl font-light">
-          A proud Malaysian. A music producer. A web & mobile developer (mostly web). Football
-          fanatic & a movie buff.
+          <span role="img" aria-label="Malaysia">
+            🇲🇾
+          </span>{' '}
+          A proud Malaysian.{' '}
+          <span role="img" aria-label="Headphone">
+            🎧
+          </span>{' '}
+          A music producer.{' '}
+          <span role="img" aria-label="Man Technologist">
+            👨‍💻
+          </span>{' '}
+          A web (FTW!) & mobile developer.{' '}
+          <span role="img" aria-label="Football">
+            ‍⚽
+          </span>{' '}
+          Football fanatic &{' '}
+          <span role="img" aria-label="Popcorn">
+            ‍🍿
+          </span>{' '}
+          a movie buff.
         </p>
       </Container>
 
@@ -55,7 +78,7 @@ const Home = () => (
               <img
                 src={require('../assets/logos/apple_logo_black.svg')}
                 alt="Apple"
-                className="h-8 mr-1"
+                className="h-8 mr-3"
               />
               <img
                 src={require('../assets/logos/Steinberg_Media_Technologies_logo.svg')}
@@ -74,17 +97,17 @@ const Home = () => (
               <img
                 src={require('../assets/logos/fabfilter-vector-logo.svg')}
                 alt="Fabfilter"
-                className="h-8 mr-1"
+                className="h-8 mr-3"
               />
               <img
                 src={require('../assets/logos/waves-audio-logo-vector.svg')}
                 alt="Waves Audio"
-                className="h-8 mr-1"
+                className="h-8 mr-3"
               />
               <img
                 src={require('../assets/logos/plugin-alliance-vector-logo.svg')}
                 alt="Plugin Alliance"
-                className="h-8 mr-1"
+                className="h-8 mr-3"
               />
             </div>
           </li>
@@ -99,27 +122,48 @@ const Home = () => (
               <img
                 src={require('../assets/logos/Apogee_Electronics_-_logo.svg')}
                 alt="Apogee"
-                className="h-8 mr-1"
+                className="h-8 mr-3"
               />
               <img
                 src={require('../assets/logos/focusrite.png')}
                 alt="Apple"
-                className="h-5 mr-1"
+                className="h-5 mr-3"
               />
               <img
-                src={require('../assets/logos/plugin-alliance-vector-logo.svg')}
-                alt="Apple"
-                className="h-8 mr-1"
+                src={require('../assets/logos/audiotechnica.png')}
+                alt="Audio Technica"
+                className="h-8 mr-3"
+              />
+              <img
+                src={require('../assets/logos/ROLIMonogramLockupBlack.svg')}
+                alt="ROLI"
+                className="h-8 mr-3"
               />
             </div>
           </li>
           <li>
             <h5>Studio Monitors</h5>
             <p>Yamaha NS10 studio, Yamaha HS8, Tannoy Reveal 501A</p>
+            <div className="flex items-center mt-2 -ml-1">
+              <img src={require('../assets/logos/yamaha.svg')} alt="Yamaha" className="h-8 mr-3" />
+              <img
+                src={require('../assets/logos/tannoy-vector-logo.svg')}
+                alt="Tannoy"
+                className="h-5 mr-3"
+              />
+            </div>
           </li>
           <li>
             <h5>Home Studio Monitors</h5>
             <p>Yamaha HS5, Tannoy Reveal 402</p>
+            <div className="flex items-center mt-2 -ml-1">
+              <img src={require('../assets/logos/yamaha.svg')} alt="Yamaha" className="h-8 mr-3" />
+              <img
+                src={require('../assets/logos/tannoy-vector-logo.svg')}
+                alt="Tannoy"
+                className="h-5 mr-3"
+              />
+            </div>
           </li>
         </ul>
       </Container>
@@ -145,13 +189,53 @@ const Home = () => (
           <li>
             <h5>Code editor</h5>
             <p>Visual Studio Code (duh)</p>
+            <div className="flex items-center mt-2 -ml-1">
+              <img
+                src={require('../assets/logos/Visual_Studio_Code_1.35_icon.svg')}
+                alt="VSCode"
+                className="h-8 mr-3"
+              />
+            </div>
           </li>
           <li>
             <h5>Frontend stack</h5>
             <p>
-              React, Next.js, Gatsby, GraphQL. I also like Vue & Svelte. But dislikes Angular.{' '}
+              I love React. It's frameworks Next.js &amp; Gatsby. GraphQL, REST no more. I also like
+              Vue. I really like Svelte&nbsp;3.{' '}
               <small className="block leading-none">This lame site is built using Next.js.</small>
             </p>
+            <div className="flex items-center mt-2 -ml-1">
+              <img
+                src={require('../assets/logos/React-icon.svg')}
+                alt="React"
+                className="h-8 mr-3"
+              />
+              <img
+                src={require('../assets/logos/next-js.svg')}
+                alt="Next.js"
+                className="h-8 mr-3"
+              />
+              <img
+                src={require('../assets/logos/gatsby.svg')}
+                alt="Gatsby.js"
+                className="h-6 mr-3"
+              />
+              <img
+                src={require('../assets/logos/GraphQL.svg')}
+                alt="GraphQL"
+                className="h-8 mr-3"
+              />
+              <img
+                src={require('../assets/logos/Vue.js_Logo_2.svg')}
+                alt="Vue.js"
+                className="h-6 mr-3"
+              />
+              <img
+                src={require('../assets/logos/svelte-logo-horizontal.svg')}
+                alt="Svelte.js"
+                className="h-6 mr-3"
+              />
+            </div>
           </li>
           <li>
             <h5>Backend stack</h5>
