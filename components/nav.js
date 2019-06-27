@@ -49,7 +49,7 @@ const Nav = () => (
           padding: 6px 8px;
         }
         a {
-          color: #067df7;
+          color: #000;
           text-decoration: none;
           font-size: 13px;
         }
