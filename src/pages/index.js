@@ -4,7 +4,9 @@ import React from 'react';
 import Head from '../components/head';
 import Nav from '../components/nav';
 
-const Container = ({ children }) => <div className="max-w-5xl mx-auto">{children}</div>;
+const Container = ({ children }) => (
+  <div className="max-w-5xl mx-auto">{children}</div>
+);
 
 const Home = () => (
   <div className="text-center">
@@ -63,16 +65,20 @@ const Home = () => (
 
     <div className="tools">
       <Container>
-        <h2 className="text-5xl font-hairline leading-none">My music tools</h2>
-        <h3 className="text-lg tracking-widest font-light">Music things I use daily</h3>
+        <h2 className="text-5xl font-hairline leading-none">Music Tools</h2>
+        <h3 className="text-lg font-light">Music things I use daily</h3>
 
         <ul className="mt-4 flex flex-wrap justify-center -mx-4">
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Workstation</h5>
             <p>
-              <a href="https://www.apple.com/macbook-pro/">MacBook Pro</a> 17" 2018 (homestudio)
-              &amp; <a href="https://en.wikipedia.org/wiki/Mac_Pro#1st_generation">Mac Pro</a> 2010
-              (studio)
+              i9-9900K 32GB Hackintosh (November 2019) &amp;{' '}
+              <a href="https://www.apple.com/macbook-pro/">MacBook Pro</a> 15"
+              2018 (homestudio) &amp;{' '}
+              <a href="https://en.wikipedia.org/wiki/Mac_Pro#1st_generation">
+                Mac Pro
+              </a>{' '}
+              2010 (studio)
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
@@ -103,8 +109,9 @@ const Home = () => (
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Go-to mix plugins</h5>
             <p>
-              Fabfilter (esp. Pro-Q3 & Pro-R), Waves (esp. C6, API stuff, SSL stuff, Scheps Channel
-              Strip, CLA stuff, Abbey Road Plates), UAD (LA-2A, LA-3A, Lexicon 224, EMT140), MAAG EQ
+              Fabfilter (esp. Pro-Q3 & Pro-R), Waves (esp. C6, API stuff, SSL
+              stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates), UAD
+              (LA-2A, LA-3A, Lexicon 224, EMT140), MAAG EQ
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
@@ -133,9 +140,10 @@ const Home = () => (
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Gears</h5>
             <p>
-              UAD Arrow, Apogee Duet 2, Focusrite Saffire Liquid 56 (studio &ndash; old but gold),
-              Focusrite OctoPre MkII, ART ProMPA II preamp (cheap but great), Neumann TLM49, Audio
-              Technica AT2035, Nektar Impakt LX61+, Seaboard Block.
+              UAD Arrow, Apogee Duet 2, Focusrite Saffire Liquid 56 (studio
+              &ndash; old but gold), Focusrite OctoPre MkII, ART ProMPA II
+              preamp (cheap but great), Neumann TLM49, Audio Technica AT2035,
+              Nektar Impakt LX61+, Seaboard Block.
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
@@ -215,13 +223,15 @@ const Home = () => (
 
     <div className="tools">
       <Container>
-        <h2 className="text-5xl font-hairline leading-none">My development tools</h2>
-        <h3 className="text-lg tracking-widest font-light">Devtools I use daily</h3>
+        <h2 className="text-5xl font-hairline leading-none">
+          Development Tools
+        </h2>
+        <h3 className="text-lg font-light">Devtools I use daily</h3>
 
         <ul className="mt-4 flex flex-wrap justify-center -mx-4">
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Workstation</h5>
-            <p>MacBook Pro 17" 2018</p>
+            <p>MacBook Pro 15" 2018</p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
                 src={require('../assets/logos/apple_logo_black.svg')}
@@ -246,8 +256,9 @@ const Home = () => (
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Frontend stack</h5>
             <p>
-              I love React. It's frameworks Next.js &amp; Gatsby. GraphQL, REST no more. I also like
-              Vue. I really like Svelte&nbsp;3.{' '}
+              I love React. It's frameworks Next.js (this site is built with it)
+              &amp; Gatsby. GraphQL, REST no more. I also like Vue. I really
+              like Svelte&nbsp;3.{' '}
               {/* <small className="block leading-none">This lame site is built using Next.js.</small> */}
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
@@ -287,8 +298,9 @@ const Home = () => (
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">Backend stack</h5>
             <p>
-              Node, PostgreSQL + Hasura GraphQL. MongoDB. Old times: PHP + MySQL (I'm rusty). If
-              really needing PHP, SLIM is my go-to micro framework.
+              Node, PostgreSQL + Hasura GraphQL. MongoDB. Old times: PHP + MySQL
+              (I'm rusty). If really needing PHP, SLIM is my go-to micro
+              framework.
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
               <img
@@ -322,9 +334,10 @@ const Home = () => (
           <li className="w-full md:w-1/2 px-4">
             <h5 className="mt-8 font-bold text-xl">SaaS</h5>
             <p>
-              DigitalOcean &amp; Vultr for VPS. Netlify (how great are Netlify) for static hosting
-              &amp; Now.sh for Next.js deploys. Firebase (generous free tier). Wasabi Cloud Storage
-              (cheap and large S3 alternative). I avoid AWS unless absolutely necessary (too
+              DigitalOcean &amp; Vultr for VPS. Netlify (how great are Netlify)
+              for static hosting &amp; Now.sh for Next.js deploys. Firebase
+              (generous free tier). Wasabi Cloud Storage (cheap and large S3
+              alternative). I avoid AWS unless absolutely necessary (too
               complicated).
             </p>
             <div className="flex flex-wrap justify-center items-center my-4">
