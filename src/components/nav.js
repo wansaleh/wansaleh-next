@@ -15,7 +15,12 @@ const Nav = () => (
     <Box as="ul" display="flex" justifyContent="space-between" p="3">
       {links.map(({ key, href, label }) => (
         <li key={key}>
-          <Link href={href} color="white" px="2">
+          <Link
+            href={href}
+            color="white"
+            px="2"
+            _hover={{ color: 'white', textDecoration: 'underline' }}
+          >
             {label}
           </Link>
         </li>
