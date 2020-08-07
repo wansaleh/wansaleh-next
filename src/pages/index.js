@@ -114,7 +114,7 @@ export default Home;
 const Tools = ({ tools }) => (
   <Flex as="ul" mt="4" flexWrap="wrap" justify="center" mx="-1rem">
     {tools.map((tool, i) => (
-      <Box key={i} p="4" flex="1 0 400px">
+      <Box as="li" key={i} p="4" flex="1 0 400px">
         <Heading as="h5" mt="8" fontSize="xl">
           {tool.name}
         </Heading>
