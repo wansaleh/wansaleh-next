@@ -2,7 +2,8 @@ import React from 'react';
 import NextHead from 'next/head';
 import { string } from 'prop-types';
 
-const defaultDescription = '';
+const defaultDescription =
+  'Hello there. I’m Wan Saleh. 🇲🇾 A proud Malaysian. 🎧 A music producer. 👨‍💻 A web (FTW!) & mobile developer. ‍⚽ Football fanatic & ‍🍿 a movie buff.';
 const defaultOGURL = '';
 const defaultOGImage = '';
 
