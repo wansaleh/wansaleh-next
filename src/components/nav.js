@@ -1,61 +1,27 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link, Box } from '@chakra-ui/core';
 
 const links = [
   { href: 'https://github.com/wansaleh', label: 'Github' },
   { href: 'https://twitter.com/wansaleh', label: 'Twitter' },
   { href: 'https://instagram.com/wansaleh', label: 'Instagram' }
-].map(link => {
+].map((link) => {
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;
 });
 
 const Nav = () => (
-  <nav className="absolute top-0 right-0">
-    <ul>
-      <li>{/* <Link prefetch href="/">
-          <a>Home</a>
-        </Link> */}
-      </li>
-      <ul>
-        {links.map(({ key, href, label }) => (
-          <li key={key}>
-            <Link href={href}>
-              <a>{label}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </ul>
-
-    <style jsx>
-      {`
-        :global(body) {
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
-        }
-        nav {
-          text-align: center;
-        }
-        ul {
-          display: flex;
-          justify-content: space-between;
-        }
-        nav > ul {
-          padding: 4px 16px;
-        }
-        li {
-          display: flex;
-          padding: 6px 8px;
-        }
-        a {
-          color: #fff;
-          text-decoration: none;
-          font-size: 13px;
-        }
-      `}
-    </style>
-  </nav>
+  <Box as="nav" pos="absolute" top="0" right="0">
+    <Box as="ul" display="flex" justifyContent="space-between" p="3">
+      {links.map(({ key, href, label }) => (
+        <li key={key}>
+          <Link href={href} color="white" px="2">
+            {label}
+          </Link>
+        </li>
+      ))}
+    </Box>
+  </Box>
 );
 
 export default Nav;

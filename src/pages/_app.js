@@ -1,28 +1,16 @@
-import React from 'react';
-import App, { Container } from 'next/app';
+import { ChakraProvider, CSSReset } from '@chakra-ui/core';
 
+import chakra from '../styles/chakra';
 import '../styles/main.scss';
+import '../styles/font-graphik.css';
 
-class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
-  }
-
-  render() {
-    const { Component, pageProps } = this.props;
-
-    return (
-      <Container>
-        <Component {...pageProps} />
-      </Container>
-    );
-  }
+function App({ Component, pageProps }) {
+  return (
+    <ChakraProvider theme={chakra}>
+      <CSSReset />
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
 }
 
-export default MyApp;
+export default App;
