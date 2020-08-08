@@ -1,7 +1,7 @@
 const tailwindColorPalette = require('@ky-is/tailwind-color-palette');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
-const brand = tailwindColorPalette('#09369F', {
+const brand = tailwindColorPalette('#6D58FF', {
   name: 'brand',
   greyscale: false,
   ui: false
@@ -21,7 +21,7 @@ module.exports = {
         ...brandAlt
       },
       fontFamily: {
-        sans: ['Graphik', ...defaultTheme.fontFamily.sans],
+        sans: ['Nanum Gothic Coding', ...defaultTheme.fontFamily.sans],
         head: ['Graphik', ...defaultTheme.fontFamily.sans],
         serif: ['Merriweather', ...defaultTheme.fontFamily.sans]
       }

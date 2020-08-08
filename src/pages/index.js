@@ -1,5 +1,13 @@
 /* eslint-disable no-sparse-arrays */
-import { Box, Flex, Container, Heading, Text, Image } from '@chakra-ui/core';
+import {
+  Box,
+  Flex,
+  Container,
+  Heading,
+  Text,
+  Image,
+  useTheme
+} from '@chakra-ui/core';
 import MD from 'react-markdown';
 import Head from '../components/head';
 import Nav from '../components/nav';
@@ -7,137 +15,223 @@ import Nav from '../components/nav';
 import musicTools from '../data/music-tools';
 import devTools from '../data/dev-tools';
 
-const Home = () => (
-  <Box textAlign="center">
-    <Head title="Wan Saleh" />
+const marquee = (
+  <>
+    <Text as="span" fontSize="2vw" letterSpacing="tight" px="3vw">
+      <span role="img" aria-label="Malaysia">
+        🇲🇾
+      </span>
+      &nbsp;A proud Malaysian.
+    </Text>
+    <Text as="span" fontSize="2vw" letterSpacing="tight" px="3vw">
+      <span role="img" aria-label="Headphone">
+        🎧
+      </span>
+      &nbsp;A music producer.
+    </Text>
+    <Text as="span" fontSize="2vw" letterSpacing="tight" px="3vw">
+      <span role="img" aria-label="Man Technologist">
+        👨‍💻
+      </span>
+      &nbsp;A web mobile developer.
+    </Text>
+    <Text as="span" fontSize="2vw" letterSpacing="tight" px="3vw">
+      <span role="img" aria-label="Football">
+        ‍⚽
+      </span>
+      &nbsp;Football fanatic.
+    </Text>
+    <Text as="span" fontSize="2vw" letterSpacing="tight" px="3vw">
+      <span role="img" aria-label="Popcorn">
+        ‍🍿
+      </span>
+      &nbsp;A movie buff.
+    </Text>
+  </>
+);
 
-    <Nav />
+const Home = () => {
+  const theme = useTheme();
 
-    <Flex
-      w="full"
-      pt="10rem"
-      flexDir="column"
-      justify="center"
-      align="center"
-      bg="black"
-      color="gray.500"
-      mb="10"
-    >
-      <Container maxW="lg">
-        <Heading
-          as="h1"
-          pb="4"
-          lineHeight="1.2"
-          color="white"
-          fontSize="5xl"
-          fontWeight="200"
-        >
-          <span role="img" aria-label="Waving Hand">
-            👋
-          </span>
-          &nbsp;Hello there. I’m Wan Saleh.
-        </Heading>
+  return (
+    <Box>
+      <Head title="Wan Saleh" />
+      <Nav />
+      <Flex
+        w="full"
+        py={['5rem', , '15rem']}
+        flexDir="column"
+        justify="center"
+        align="center"
+      >
+        <Container maxW="xl">
+          <Heading
+            as="h1"
+            pb="4"
+            fontSize="8vw"
+            fontWeight="700"
+            lineHeight="0.9"
+            letterSpacing="-0.075em"
+          >
+            Hello there.
+            <br />
+            I’m{' '}
+            <Text as="span" color="brand.500">
+              Wan Saleh.
+            </Text>
+          </Heading>
 
-        <Text fontSize="2xl" mb="10">
+          {/* <Text fontSize="3xl" letterSpacing="tight">
           <span role="img" aria-label="Malaysia">
             🇲🇾
           </span>
-          &nbsp;A proud Malaysian.{' '}
+          &nbsp;A proud Malaysian.
+          <br />
           <span role="img" aria-label="Headphone">
             🎧
           </span>
-          &nbsp;A music producer.{' '}
+          &nbsp;A music producer.
+          <br />
           <span role="img" aria-label="Man Technologist">
             👨‍💻
           </span>
-          &nbsp;A web (FTW!) & mobile developer.{' '}
+          &nbsp;A web mobile developer.
+          <br />
           <span role="img" aria-label="Football">
             ‍⚽
           </span>
-          &nbsp;Football fanatic &{' '}
+          &nbsp;Football fanatic.
+          <br />
           <span role="img" aria-label="Popcorn">
             ‍🍿
           </span>
-          &nbsp;a movie buff.
-        </Text>
-      </Container>
+          &nbsp;A movie buff.
+        </Text> */}
+        </Container>
+      </Flex>
 
-      <Box w="full">
-        <svg
-          className="separator__svg"
-          width="100%"
-          height="200"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          fill="#ffffff"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          css={{ transform: 'scaleX(-1)' }}
+      <Box
+        py="8"
+        pos="relative"
+        overflow="hidden"
+        css={{
+          '--offset': '0vw',
+          '--move-initial': 'calc(-25% + var(--offset))',
+          '--move-final': 'calc(-50% + var(--offset))'
+        }}
+      >
+        <Flex
+          ariaHidden="true"
+          w="fit-content"
+          pos="relative"
+          whiteSpace="nowrap"
+          css={{
+            transform: 'translate3d(var(--move-initial), 0, 0)',
+            animation: 'marquee 30s linear infinite',
+            animationPlayState: 'running'
+          }}
         >
-          <path d="M 100 100 V 10 L 0 100" />
-          <path d="M 30 73 L 100 18 V 10 Z" fill="#FFC107" strokeWidth="0" />
-        </svg>
+          {marquee}
+          {marquee}
+          {marquee}
+          {marquee}
+        </Flex>
       </Box>
-    </Flex>
 
-    <Box mb="16">
-      <Container maxW="lg">
-        <Heading as="h2" fontSize="5xl" fontWeight="200" lineHeight="1">
-          Music Tools
-        </Heading>
+      <Box bg={`linear-gradient(to bottom, ${theme.colors.gray[100]}, #fff)`}>
+        <Box py={['5rem', '10rem']}>
+          <Container maxW="xl">
+            <Heading
+              as="h2"
+              fontSize="5xl"
+              fontWeight="700"
+              lineHeight="1"
+              letterSpacing="tighter"
+            >
+              Music Tools
+            </Heading>
 
-        <Heading as="h3" fontSize="lg" fontWeight="600">
-          Music things I use daily
-        </Heading>
+            <Heading
+              as="h3"
+              fontSize="lg"
+              fontWeight="400"
+              letterSpacing="tight"
+            >
+              Music things I use daily
+            </Heading>
 
-        <Tools tools={musicTools} />
-      </Container>
+            <Tools tools={musicTools} />
+          </Container>
+        </Box>
+
+        <Box py={['5rem', '10rem']}>
+          <Container maxW="xl">
+            <Heading
+              as="h2"
+              fontSize="5xl"
+              fontWeight="700"
+              lineHeight="1"
+              letterSpacing="tighter"
+            >
+              Development Tools
+            </Heading>
+            <Heading
+              as="h3"
+              fontSize="lg"
+              fontWeight="400"
+              letterSpacing="tight"
+            >
+              Devtools I use daily
+            </Heading>
+
+            <Tools tools={devTools} />
+          </Container>
+        </Box>
+      </Box>
     </Box>
-
-    <Box mb="16">
-      <Container maxW="lg">
-        <Heading as="h2" fontSize="5xl" fontWeight="200" lineHeight="1">
-          Development Tools
-        </Heading>
-        <Heading as="h3" fontSize="lg" fontWeight="600">
-          Devtools I use daily
-        </Heading>
-
-        <Tools tools={devTools} />
-      </Container>
-    </Box>
-  </Box>
-);
+  );
+};
 
 export default Home;
 
 const Tools = ({ tools }) => (
   <Flex as="ul" mt="4" flexWrap="wrap" justify="center" mx="-1rem">
     {tools.map((tool, i) => (
-      <Box as="li" key={i} p="4" flex="1 0 400px">
-        <Heading as="h5" mt="8" fontSize="xl">
+      <Box as="li" key={i} p="4" w="full">
+        <Heading as="h5" mt="8" mb="3" fontSize="2xl">
           {tool.name}
         </Heading>
 
-        <Box maxW="2xl" mx="auto">
+        <Box maxW="2xl" fontSize="xl" lineHeight="1.5">
           <MD source={tool.desc} />
         </Box>
 
-        <Flex flexWrap="wrap" justify="center" align="center" mt="4">
-          {tool.logos.map((logo, j) => (
-            <Image
-              key={j}
-              src={logo.image}
-              alt={logo.alt}
-              h="8"
-              maxW="100px"
-              mx="3"
-              mb="3"
-              // css={{
-              //   filter: 'grayscale(100%)'
-              // }}
-            />
-          ))}
+        <Flex flexWrap="wrap" justify="flex-start" align="center" mt="8">
+          {tool.logos.map((logo, j) => {
+            const image = (
+              <Image
+                key={j}
+                src={logo.image}
+                alt={logo.alt}
+                h="8"
+                maxW="140px"
+                mr="8"
+                mb="4"
+              />
+            );
+            return logo.link ? (
+              <a
+                key={j}
+                href={logo.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {image}
+              </a>
+            ) : (
+              image
+            );
+          })}
         </Flex>
       </Box>
     ))}

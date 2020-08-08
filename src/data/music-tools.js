@@ -2,19 +2,50 @@ module.exports = [
   {
     name: 'Workstation',
     desc:
-      'i9-9900K 64GB Hackintosh (November 2019 build) & [MacBook Pro](https://www.apple.com/macbook-pro/) 15&quot; 2018 (homestudio) & iMac 2014 (studio)',
+      'i9-9900K 64GB Hackintosh (November 2019 build) & [MacBook Pro](https://www.apple.com/macbook-pro/) 15&quot; 2018 (homestudio) & iMac Retina 2015 (studio)',
     logos: [
-      { image: require('../assets/logos/apple_logo_black.svg'), alt: 'Apple' }
+      {
+        image: require('../assets/logos/apple_logo_black.svg'),
+        alt: 'Apple',
+        link: 'https://apple.com'
+      }
     ]
   },
   {
     name: 'Digital Audio Workstation',
     desc: 'Logic Pro X 10.5 &amp; Cubase Pro 10.5',
     logos: [
-      { image: require('../assets/logos/apple_logo_black.svg'), alt: 'Apple' },
+      {
+        image: require('../assets/logos/apple_logo_black.svg'),
+        alt: 'Apple',
+        link: 'https://apple.com'
+      },
       {
         image: require('../assets/logos/Steinberg_Media_Technologies_logo.svg'),
-        alt: 'Steinberg'
+        alt: 'Steinberg',
+        link: 'https://steinberg.net'
+      }
+    ]
+  },
+  {
+    name: 'Go-to software instruments',
+    desc:
+      'Native Instruments Kontakt 6, Spectrasonics Omnisphere 2, Toontrack Superior Drummer 3, Xfer Serum, LennarDigital Sylenth1, Synapse Audio Dune 3, Logic&apos;s Alchemy',
+    logos: [
+      {
+        image: require('../assets/logos/ni.svg'),
+        alt: 'Native Instruments',
+        link: 'https://native-instruments.com'
+      },
+      {
+        image: require('../assets/logos/spectrasonics.png'),
+        alt: 'Spectrasonics',
+        link: 'https://www.spectrasonics.net'
+      },
+      {
+        image: require('../assets/logos/toontrack-logo.svg'),
+        alt: 'Toontrack',
+        link: 'https://toontrack.com'
       }
     ]
   },
@@ -25,19 +56,28 @@ module.exports = [
     logos: [
       {
         image: require('../assets/logos/fabfilter-vector-logo.svg'),
-        alt: 'Fabfilter'
+        alt: 'Fabfilter',
+        link: 'https://fabfilter.com'
+      },
+      {
+        image: require('../assets/logos/valhalla.svg'),
+        alt: 'ValhallaDSP',
+        link: 'https://valhalladsp.com'
       },
       {
         image: require('../assets/logos/waves-audio-logo-vector.svg'),
-        alt: 'Waves'
+        alt: 'Waves',
+        link: 'https://waves.com'
       },
       {
         image: require('../assets/logos/universalaudio.png'),
-        alt: 'Universal Audio'
+        alt: 'Universal Audio',
+        link: 'https://uaudio.com'
       },
       {
         image: require('../assets/logos/plugin-alliance-vector-logo.svg'),
-        alt: 'Plugin Alliance'
+        alt: 'Plugin Alliance',
+        link: 'https://plugin-alliance.com'
       }
     ]
   },
@@ -48,27 +88,33 @@ module.exports = [
     logos: [
       {
         image: require('../assets/logos/universalaudio.png'),
-        alt: 'Universal Audio'
+        alt: 'Universal Audio',
+        link: 'https://uaudio.com'
       },
       {
         image: require('../assets/logos/Apogee_Electronics_-_logo.svg'),
-        alt: 'Apogee'
+        alt: 'Apogee',
+        link: 'https://apogeedigital.com'
       },
       {
         image: require('../assets/logos/focusrite.svg'),
-        alt: 'Focusrite'
+        alt: 'Focusrite',
+        link: 'https://focusrite.com'
       },
       {
         image: require('../assets/logos/audio-technica.svg'),
-        alt: 'Audio Technica'
+        alt: 'Audio Technica',
+        link: 'https://audio-technica.com'
       },
       {
         image: require('../assets/logos/ROLIMonogramLockupBlack.svg'),
-        alt: 'ROLI'
+        alt: 'ROLI',
+        link: 'https://roli.com'
       },
       {
         image: require('../assets/logos/nektar_logo.png'),
-        alt: 'Nektar'
+        alt: 'Nektar',
+        link: 'https://nektartech.com'
       }
     ]
   },
@@ -79,15 +125,18 @@ module.exports = [
     logos: [
       {
         image: require('../assets/logos/yamaha.svg'),
-        alt: 'Yamaha'
+        alt: 'Yamaha',
+        link: 'https://focusrite.com'
       },
       {
         image: require('../assets/logos/kali-logo-dark-grey-2.png'),
-        alt: 'Kali Audio'
+        alt: 'Kali Audio',
+        link: 'https://kaliaudio.com'
       },
       {
         image: require('../assets/logos/tannoy-vector-logo.svg'),
-        alt: 'Tannoy'
+        alt: 'Tannoy',
+        link: 'https://tannoy.com'
       }
     ]
   }

@@ -6,6 +6,7 @@ const tailwind = resolveConfig(tailwindConfig).theme;
 
 export default {
   ...theme,
+
   colors: {
     ...theme.colors,
     brand: tailwind.colors.brand,
@@ -23,7 +24,4 @@ export default {
     '7xl': '5rem',
     '8xl': '7rem'
   }
-  // sizes: {
-  //   ...theme.sizes
-  // }
 };
