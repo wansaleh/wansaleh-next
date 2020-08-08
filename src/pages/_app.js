@@ -6,6 +6,7 @@ import SmoothScroll from '../lib/smoothscroll';
 import chakra from '../styles/chakra';
 import '../styles/main.scss';
 import '../styles/font-graphik.css';
+import '../styles/font-nanum.css';
 
 function App({ Component, pageProps }) {
   useEffect(() => {
