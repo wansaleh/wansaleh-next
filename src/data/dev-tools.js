@@ -2,12 +2,17 @@ module.exports = [
   {
     name: 'Workstation',
     desc:
-      'i9-9900K 64GB Hackintosh (November 2019 build) & [MacBook Pro](https://www.apple.com/macbook-pro/) 15&quot; 2018 (homestudio) & iMac 2014 (studio)',
+      '**i9-9900K 64GB Hackintosh**s (December 2019 build) & [MacBook Pro](https://www.apple.com/macbook-pro/) 15&quot; 2018 (homestudio) & iMac 2014 (studio)',
     logos: [
       {
         image: require('../assets/logos/apple_logo_black.svg'),
         alt: 'Apple',
         link: 'https://apple.com'
+      },
+      {
+        image: require('../assets/logos/Intel-logo.svg'),
+        alt: 'Intel',
+        link: 'https://intel.com'
       }
     ]
   },
@@ -25,7 +30,7 @@ module.exports = [
   {
     name: 'Frontend Stack',
     desc:
-      'I love React &mdash; Next (this site is built with it) &amp; Gatsby. GraphQL, REST no more. I also like Vue &amp; Svelte&nbsp;3.',
+      'I love **React** &mdash; Next (this site is built with it) &amp; Gatsby. GraphQL, REST no more. I also like Vue &amp; Svelte&nbsp;3.',
     logos: [
       {
         image: require('../assets/logos/React-icon.svg'),
@@ -38,7 +43,7 @@ module.exports = [
         link: 'https://nextjs.org'
       },
       {
-        image: require('../assets/logos/gatsby.svg'),
+        image: require('../assets/logos/Gatsby-Monogram.svg'),
         alt: 'Gatsby.js',
         link: 'https://gatsbyjs.org'
       },
@@ -53,7 +58,7 @@ module.exports = [
         link: 'https://vuejs.org'
       },
       {
-        image: require('../assets/logos/svelte-logo-horizontal.svg'),
+        image: require('../assets/logos/svelte-logo.svg'),
         alt: 'Svelte.js',
         link: 'https://svelte.dev'
       }
@@ -102,12 +107,12 @@ module.exports = [
         link: 'https://netlify.com'
       },
       {
-        image: require('../assets/logos/DigitalOcean_logo.svg'),
+        image: require('../assets/logos/DO_Logo_icon_blue.svg'),
         alt: 'DigitalOcean',
         link: 'https://digitalocean.com'
       },
       {
-        image: require('../assets/logos/vultr.svg'),
+        image: require('../assets/logos/sygnet__on-white.svg'),
         alt: 'Vultr',
         link: 'https://vultr.com'
       },
@@ -117,7 +122,7 @@ module.exports = [
         link: 'https://firebase.com'
       },
       {
-        image: require('../assets/logos/bunnycdn-logo.svg'),
+        image: require('../assets/logos/bunnycdn-icon.svg'),
         alt: 'BunnyCDN',
         link: 'https://bunnycdn.com'
       },

@@ -9,7 +9,11 @@ const defaultOGImage = '';
 
 const Head = (props) => (
   <NextHead>
-    <meta charSet="UTF-8" />
+    <meta charSet="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0"
+    />
     <title>{props.title || ''}</title>
     <meta
       name="description"

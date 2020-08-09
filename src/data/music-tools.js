@@ -2,12 +2,17 @@ module.exports = [
   {
     name: 'Workstation',
     desc:
-      'i9-9900K 64GB Hackintosh (November 2019 build) & [MacBook Pro](https://www.apple.com/macbook-pro/) 15&quot; 2018 (homestudio) & iMac Retina 2015 (studio)',
+      '**i9-9900K 64GB Hackintosh** (December 2019 build) & [MacBook Pro](https://www.apple.com/macbook-pro/) 15&quot; 2018 (homestudio) & iMac Retina 2015 (studio)',
     logos: [
       {
         image: require('../assets/logos/apple_logo_black.svg'),
         alt: 'Apple',
         link: 'https://apple.com'
+      },
+      {
+        image: require('../assets/logos/Intel-logo.svg'),
+        alt: 'Intel',
+        link: 'https://intel.com'
       }
     ]
   },
@@ -52,7 +57,7 @@ module.exports = [
   {
     name: 'Go-to mix plugins',
     desc:
-      'Fabfilter (esp. Pro-Q3 & Pro-R), ValhallaDSP Reverbs, SoundToys (Echoboy, Radiator, Decapitator), Waves (esp. C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates), UAD (LA-2A, LA-3A, Lexicon 224, EMT140), Plugin Alliance (Shadow Hills, MAAG EQ)',
+      'Fabfilter (Pro-Q3, Pro-R & Pro-DS), ValhallaDSP Reverbs, SoundToys (Echoboy, Radiator, Decapitator), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates), UAD (LA-2A, 1176, Fairchild 660/670, Lexicon 224, EMT140), Plugin Alliance (Shadow Hills, MAAG EQ)',
     logos: [
       {
         image: require('../assets/logos/fabfilter-vector-logo.svg'),
@@ -70,7 +75,7 @@ module.exports = [
         link: 'https://waves.com'
       },
       {
-        image: require('../assets/logos/universalaudio.png'),
+        image: require('../assets/logos/universal-audio-vector-logo.svg'),
         alt: 'Universal Audio',
         link: 'https://uaudio.com'
       },

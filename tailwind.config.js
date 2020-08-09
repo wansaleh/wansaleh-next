@@ -21,7 +21,11 @@ module.exports = {
         ...brandAlt
       },
       fontFamily: {
-        sans: ['Nanum Gothic Coding', ...defaultTheme.fontFamily.sans],
+        sans: [
+          'DM Mono',
+          'Nanum Gothic Coding',
+          ...defaultTheme.fontFamily.sans
+        ],
         head: ['Graphik', ...defaultTheme.fontFamily.sans],
         serif: ['Merriweather', ...defaultTheme.fontFamily.sans]
       }

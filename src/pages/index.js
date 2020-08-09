@@ -15,40 +15,22 @@ import Nav from '../components/nav';
 import musicTools from '../data/music-tools';
 import devTools from '../data/dev-tools';
 
-const marquee = (
-  <>
-    <Text as="span" fontSize="2vw" letterSpacing="tight" px="3vw">
-      <span role="img" aria-label="Malaysia">
-        🇲🇾
-      </span>
-      &nbsp;A proud Malaysian.
-    </Text>
-    <Text as="span" fontSize="2vw" letterSpacing="tight" px="3vw">
-      <span role="img" aria-label="Headphone">
-        🎧
-      </span>
-      &nbsp;A music producer.
-    </Text>
-    <Text as="span" fontSize="2vw" letterSpacing="tight" px="3vw">
-      <span role="img" aria-label="Man Technologist">
-        👨‍💻
-      </span>
-      &nbsp;A web mobile developer.
-    </Text>
-    <Text as="span" fontSize="2vw" letterSpacing="tight" px="3vw">
-      <span role="img" aria-label="Football">
-        ‍⚽
-      </span>
-      &nbsp;Football fanatic.
-    </Text>
-    <Text as="span" fontSize="2vw" letterSpacing="tight" px="3vw">
-      <span role="img" aria-label="Popcorn">
-        ‍🍿
-      </span>
-      &nbsp;A movie buff.
-    </Text>
-  </>
-);
+const marqueeItems = [
+  '🇲🇾&nbsp;A proud Malaysian.',
+  '🎧&nbsp;A music producer.',
+  '👨‍💻&nbsp;A web developer.'
+];
+
+const marquee = marqueeItems.map((item, i) => (
+  <Text
+    key={i}
+    as="span"
+    fontSize="2vw"
+    letterSpacing="tight"
+    px="3vw"
+    dangerouslySetInnerHTML={{ __html: item }}
+  />
+));
 
 const Home = () => {
   const theme = useTheme();
@@ -57,6 +39,7 @@ const Home = () => {
     <Box>
       <Head title="Wan Saleh" />
       <Nav />
+
       <Flex
         w="full"
         py={['5rem', , '15rem']}
@@ -153,9 +136,11 @@ const Home = () => {
 
             <Heading
               as="h3"
-              fontSize="lg"
+              fontFamily="mono"
+              fontSize="xs"
               fontWeight="400"
-              letterSpacing="tight"
+              letterSpacing="0.3em"
+              textTransform="uppercase"
             >
               Music things I use daily
             </Heading>
@@ -177,9 +162,11 @@ const Home = () => {
             </Heading>
             <Heading
               as="h3"
-              fontSize="lg"
+              fontFamily="mono"
+              fontSize="xs"
               fontWeight="400"
-              letterSpacing="tight"
+              letterSpacing="0.3em"
+              textTransform="uppercase"
             >
               Devtools I use daily
             </Heading>
@@ -198,7 +185,24 @@ const Tools = ({ tools }) => (
   <Flex as="ul" mt="4" flexWrap="wrap" justify="center" mx="-1rem">
     {tools.map((tool, i) => (
       <Box as="li" key={i} p="4" w="full">
-        <Heading as="h5" mt="8" mb="3" fontSize="2xl">
+        <Heading
+          as="h4"
+          mt="8"
+          mb="3"
+          fontSize="4xl"
+          fontWeight="300"
+          letterSpacing="tight"
+          pos="relative"
+        >
+          <Box
+            pos="absolute"
+            h="2px"
+            w="40px"
+            bg="gray.300"
+            transform="translateX(-100%)"
+            top="45%"
+            left="-10px"
+          />
           {tool.name}
         </Heading>
 
@@ -206,7 +210,13 @@ const Tools = ({ tools }) => (
           <MD source={tool.desc} />
         </Box>
 
-        <Flex flexWrap="wrap" justify="flex-start" align="center" mt="8">
+        <Flex
+          flexWrap="wrap"
+          justify="flex-start"
+          align="center"
+          mt="8"
+          userSelect="none"
+        >
           {tool.logos.map((logo, j) => {
             const image = (
               <Image

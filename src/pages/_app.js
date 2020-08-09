@@ -7,6 +7,7 @@ import chakra from '../styles/chakra';
 import '../styles/main.scss';
 import '../styles/font-graphik.css';
 import '../styles/font-nanum.css';
+import '../styles/font-dm-mono.css';
 
 function App({ Component, pageProps }) {
   useEffect(() => {
