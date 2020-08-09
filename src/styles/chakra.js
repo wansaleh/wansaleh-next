@@ -4,8 +4,6 @@ import tailwindConfig from '../../tailwind.config';
 
 const tailwind = resolveConfig(tailwindConfig).theme;
 
-console.log(theme.styles.global);
-
 export default {
   ...theme,
 
