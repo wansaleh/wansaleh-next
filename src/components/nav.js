@@ -1,5 +1,13 @@
 import React from 'react';
-import { Link, Box } from '@chakra-ui/core';
+import {
+  Link,
+  Box,
+  IconButton,
+  useColorMode,
+  Flex,
+  LightMode
+} from '@chakra-ui/core';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 const links = [
   { href: 'https://github.com/wansaleh', label: 'Github' },
@@ -10,23 +18,41 @@ const links = [
   return link;
 });
 
-const Nav = () => (
-  <Box as="nav" pos="absolute" top="0" right="0">
-    <Box as="ul" display="flex" justifyContent="space-between" p="3">
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <Link
-            href={href}
-            color="white"
-            px="2"
-            _hover={{ color: 'white', textDecoration: 'underline' }}
-          >
-            {label}
-          </Link>
+const Nav = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  return (
+    <Box as="nav" pos="absolute" top="0" right="0">
+      <Flex as="ul" justifyContent="space-between" align="center" p="3">
+        {links.map(({ key, href, label }) => (
+          <li key={key}>
+            <Link
+              fontFamily="mono"
+              fontWeight="600"
+              href={href}
+              // color="gray.900"
+              px="2"
+              // _hover={{ color: 'white', textDecoration: 'underline' }}
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
+
+        <li>
+          <LightMode>
+            <IconButton
+              ml="3"
+              colorScheme="brand"
+              aria-label="Search database"
+              icon={colorMode !== 'dark' ? <MoonIcon /> : <SunIcon />}
+              onClick={toggleColorMode}
+            />
+          </LightMode>
         </li>
-      ))}
+      </Flex>
     </Box>
-  </Box>
-);
+  );
+};
 
 export default Nav;

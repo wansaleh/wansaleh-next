@@ -6,8 +6,13 @@ import {
   Heading,
   Text,
   Image,
-  useTheme
+  // useTheme,
+  // Button,
+  IconButton,
+  useColorMode,
+  useColorModeValue
 } from '@chakra-ui/core';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import MD from 'react-markdown';
 import Head from '../components/head';
 import Nav from '../components/nav';
@@ -33,7 +38,7 @@ const marquee = marqueeItems.map((item, i) => (
 ));
 
 const Home = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
   return (
     <Box>
@@ -97,6 +102,8 @@ const Home = () => {
         py="8"
         pos="relative"
         overflow="hidden"
+        fontFamily="mono"
+        color={useColorModeValue('gray.600', 'gray.700')}
         css={{
           '--offset': '0vw',
           '--move-initial': 'calc(-25% + var(--offset))',
@@ -121,7 +128,10 @@ const Home = () => {
         </Flex>
       </Box>
 
-      <Box bg={`linear-gradient(to bottom, ${theme.colors.gray[100]}, #fff)`}>
+      <Box
+        borderTopWidth="1px"
+        borderColor={useColorModeValue('gray.300', 'gray.900')}
+      >
         <Box py={['5rem', '10rem']}>
           <Container maxW="xl">
             <Heading
@@ -198,15 +208,22 @@ const Tools = ({ tools }) => (
             pos="absolute"
             h="2px"
             w="40px"
-            bg="gray.300"
+            bg="brand.500"
             transform="translateX(-100%)"
             top="45%"
             left="-10px"
           />
+
           {tool.name}
         </Heading>
 
-        <Box maxW="2xl" fontSize="xl" lineHeight="1.5">
+        <Box
+          maxW="2xl"
+          fontSize="xl"
+          lineHeight="1.35"
+          // letterSpacing="-0.025em"
+          fontFamily="mono"
+        >
           <MD source={tool.desc} />
         </Box>
 
@@ -216,18 +233,40 @@ const Tools = ({ tools }) => (
           align="center"
           mt="8"
           userSelect="none"
+          bg="white"
+          borderRadius="md"
+          p="4"
+          // maxW="2xl"
+          display="inline-flex"
+          boxShadow="var(--shadow-large)"
         >
           {tool.logos.map((logo, j) => {
             const image = (
-              <Image
-                key={j}
-                src={logo.image}
-                alt={logo.alt}
-                h="8"
-                maxW="140px"
-                mr="8"
-                mb="4"
-              />
+              <Flex as="span" p="6" flexDir="column" align="center">
+                <Image
+                  key={j}
+                  src={logo.image}
+                  alt={logo.alt}
+                  h="8"
+                  maxW="140px"
+                  // css={{
+                  //   filter: 'grayscale(100%)'
+                  // }}
+                />
+
+                <Text
+                  as="span"
+                  mt="3"
+                  fontFamily="mono"
+                  fontSize="xs"
+                  fontWeight="800"
+                  textTransform="uppercase"
+                  letterSpacing="wider"
+                  color="black"
+                >
+                  {logo.alt}
+                </Text>
+              </Flex>
             );
             return logo.link ? (
               <a

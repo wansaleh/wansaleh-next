@@ -1,21 +1,7 @@
+const musicTools = require('./music-tools');
+
 module.exports = [
-  {
-    name: 'Workstation',
-    desc:
-      '**i9-9900K 64GB Hackintosh**s (December 2019 build) & [MacBook Pro](https://www.apple.com/macbook-pro/) 15&quot; 2018 (homestudio) & iMac 2014 (studio)',
-    logos: [
-      {
-        image: require('../assets/logos/apple_logo_black.svg'),
-        alt: 'Apple',
-        link: 'https://apple.com'
-      },
-      {
-        image: require('../assets/logos/Intel-logo.svg'),
-        alt: 'Intel',
-        link: 'https://intel.com'
-      }
-    ]
-  },
+  musicTools[0],
   {
     name: 'Code Editor',
     desc: 'Visual Studio Code (duh!)',
@@ -133,7 +119,7 @@ module.exports = [
       },
       {
         image: require('../assets/logos/Amazon_Web_Services_Logo.svg'),
-        alt: 'AWS',
+        alt: 'Amazon Web Services',
         link: 'https://aws.amazon.com'
       }
     ]

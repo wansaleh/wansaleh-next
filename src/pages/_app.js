@@ -1,4 +1,4 @@
-import { ChakraProvider, CSSReset } from '@chakra-ui/core';
+import { ChakraProvider, CSSReset, GlobalStyle } from '@chakra-ui/core';
 
 import { useEffect } from 'react';
 import SmoothScroll from '../lib/smoothscroll';
@@ -17,6 +17,7 @@ function App({ Component, pageProps }) {
   return (
     <ChakraProvider theme={chakra}>
       <CSSReset />
+      <GlobalStyle />
       <Component {...pageProps} />
     </ChakraProvider>
   );

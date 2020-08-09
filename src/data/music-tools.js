@@ -26,7 +26,7 @@ module.exports = [
         link: 'https://apple.com'
       },
       {
-        image: require('../assets/logos/Steinberg_Media_Technologies_logo.svg'),
+        image: require('../assets/logos/Steinberg_icon.svg'),
         alt: 'Steinberg',
         link: 'https://steinberg.net'
       }
@@ -38,12 +38,12 @@ module.exports = [
       'Native Instruments Kontakt 6, Spectrasonics Omnisphere 2, Toontrack Superior Drummer 3, Xfer Serum, LennarDigital Sylenth1, Synapse Audio Dune 3, Logic&apos;s Alchemy',
     logos: [
       {
-        image: require('../assets/logos/ni.svg'),
+        image: require('../assets/logos/ni-icon.svg'),
         alt: 'Native Instruments',
         link: 'https://native-instruments.com'
       },
       {
-        image: require('../assets/logos/spectrasonics.png'),
+        image: require('../assets/logos/spectrasonics.svg'),
         alt: 'Spectrasonics',
         link: 'https://www.spectrasonics.net'
       },
@@ -57,7 +57,7 @@ module.exports = [
   {
     name: 'Go-to mix plugins',
     desc:
-      'Fabfilter (Pro-Q3, Pro-R & Pro-DS), ValhallaDSP Reverbs, SoundToys (Echoboy, Radiator, Decapitator), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates), UAD (LA-2A, 1176, Fairchild 660/670, Lexicon 224, EMT140), Plugin Alliance (Shadow Hills, MAAG EQ)',
+      'Fabfilter (Pro-Q3, Pro-R & Pro-DS), ValhallaDSP Reverbs, SoundToys (Echoboy, Radiator, Decapitator), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates), UAD (LA-2A, 1176, Fairchild 660/670), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ)',
     logos: [
       {
         image: require('../assets/logos/fabfilter-vector-logo.svg'),
@@ -92,7 +92,7 @@ module.exports = [
       'UAD Arrow, Apogee Duet 2, Focusrite Clarett 8pre, Presonus Channel Strip, Neumann TLM103, Audio Technica AT2035, Nektar Impakt LX61+, Seaboard Block.',
     logos: [
       {
-        image: require('../assets/logos/universalaudio.png'),
+        image: require('../assets/logos/universal-audio-vector-logo.svg'),
         alt: 'Universal Audio',
         link: 'https://uaudio.com'
       },
@@ -117,7 +117,7 @@ module.exports = [
         link: 'https://roli.com'
       },
       {
-        image: require('../assets/logos/nektar_logo.png'),
+        image: require('../assets/logos/nektar.svg'),
         alt: 'Nektar',
         link: 'https://nektartech.com'
       }
@@ -134,7 +134,7 @@ module.exports = [
         link: 'https://focusrite.com'
       },
       {
-        image: require('../assets/logos/kali-logo-dark-grey-2.png'),
+        image: require('../assets/logos/kali.svg'),
         alt: 'Kali Audio',
         link: 'https://kaliaudio.com'
       },

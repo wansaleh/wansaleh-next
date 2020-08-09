@@ -4,19 +4,40 @@ import tailwindConfig from '../../tailwind.config';
 
 const tailwind = resolveConfig(tailwindConfig).theme;
 
+console.log(theme.styles.global);
+
 export default {
   ...theme,
+
+  styles: {
+    ...theme.styles,
+
+    global: (props) => ({
+      ...theme.styles.global,
+
+      backgroundColor: props.colorMode !== 'dark' ? 'white' : 'black',
+      fontFamily: 'body',
+      color: props.colorMode === 'dark' ? 'white' : 'gray.900',
+
+      a: {
+        color: props.colorMode === 'dark' ? 'brand.300' : 'brand.500'
+      }
+    })
+  },
 
   colors: {
     ...theme.colors,
     brand: tailwind.colors.brand,
-    brandAlt: tailwind.colors.brandAlt
+    brandAlt: tailwind.colors.brandAlt,
+    gray: tailwind.colors.gray,
+    brandGray: tailwind.colors.brandGray
   },
   fonts: {
     ...theme.fonts,
     body: tailwind.fontFamily.sans.join(','),
     heading: tailwind.fontFamily.head.join(','),
-    serif: tailwind.fontFamily.serif.join(',')
+    serif: tailwind.fontFamily.serif.join(','),
+    mono: tailwind.fontFamily.mono.join(',')
   },
   fontSizes: {
     ...theme.fontSizes,
