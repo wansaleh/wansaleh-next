@@ -129,8 +129,12 @@ const Home = () => {
       </Box>
 
       <Box
-        borderTopWidth="1px"
-        borderColor={useColorModeValue('gray.300', 'gray.900')}
+        background={useColorModeValue(
+          'var(--section-gradient)',
+          'var(--section-gradient-dark)'
+        )}
+        // borderTopWidth="1px"
+        // borderColor={useColorModeValue('gray.300', 'gray.900')}
       >
         <Box py={['5rem', '10rem']}>
           <Container maxW="xl">
@@ -147,7 +151,7 @@ const Home = () => {
             <Heading
               as="h3"
               fontFamily="mono"
-              fontSize="xs"
+              fontSize="sm"
               fontWeight="400"
               letterSpacing="0.3em"
               textTransform="uppercase"
@@ -173,7 +177,7 @@ const Home = () => {
             <Heading
               as="h3"
               fontFamily="mono"
-              fontSize="xs"
+              fontSize="sm"
               fontWeight="400"
               letterSpacing="0.3em"
               textTransform="uppercase"
@@ -233,7 +237,7 @@ const Tools = ({ tools }) => (
           align="center"
           mt="8"
           userSelect="none"
-          bg="white"
+          bg={useColorModeValue('white', 'gray.100')}
           borderRadius="md"
           p="4"
           // maxW="2xl"
@@ -247,7 +251,7 @@ const Tools = ({ tools }) => (
                   key={j}
                   src={logo.image}
                   alt={logo.alt}
-                  h="8"
+                  h="10"
                   maxW="140px"
                   // css={{
                   //   filter: 'grayscale(100%)'

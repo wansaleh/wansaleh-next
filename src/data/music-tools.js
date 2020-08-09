@@ -89,7 +89,7 @@ module.exports = [
   {
     name: 'Gears',
     desc:
-      'UAD Arrow, Apogee Duet 2, Focusrite Clarett 8pre, Presonus Channel Strip, Neumann TLM103, Audio Technica AT2035, Nektar Impakt LX61+, Seaboard Block.',
+      'UAD Arrow, Apogee Duet 2, Native Instruments Komplete Kontrol M32, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Neumann TLM103, Warm Audio WA-47jr., Audio Technica AT2035, Mackie Big Knob Studio, Nektar Impakt LX61+, Seaboard Block.',
     logos: [
       {
         image: require('../assets/logos/universal-audio-vector-logo.svg'),
@@ -102,9 +102,39 @@ module.exports = [
         link: 'https://apogeedigital.com'
       },
       {
+        image: require('../assets/logos/ni-icon.svg'),
+        alt: 'Native Instruments',
+        link: 'https://native-instruments.com'
+      },
+      {
         image: require('../assets/logos/focusrite.svg'),
         alt: 'Focusrite',
         link: 'https://focusrite.com'
+      },
+      {
+        image: require('../assets/logos/presonus.svg'),
+        alt: 'PreSonus',
+        link: 'https://presonus.com'
+      },
+      {
+        image: require('../assets/logos/Dbx_Logo.svg'),
+        alt: 'dbx',
+        link: 'https://dbxpro.com'
+      },
+      {
+        image: require('../assets/logos/mackie.svg'),
+        alt: 'Mackie',
+        link: 'https://mackie.com'
+      },
+      {
+        image: require('../assets/logos/neumann.svg'),
+        alt: 'Neumann',
+        link: 'https://en-de.neumann.com/'
+      },
+      {
+        image: require('../assets/logos/warm-audio.svg'),
+        alt: 'Warm Audio',
+        link: 'https://warmaudio.com'
       },
       {
         image: require('../assets/logos/audio-technica.svg'),
