@@ -1,4 +1,4 @@
-import { ChakraProvider, CSSReset, GlobalStyle } from '@chakra-ui/core';
+import { ChakraProvider, cookieStorageManager } from '@chakra-ui/core';
 
 import { useEffect } from 'react';
 import SmoothScroll from '../lib/smoothscroll';
@@ -9,18 +9,26 @@ import '../styles/font-graphik.css';
 import '../styles/font-nanum.css';
 import '../styles/font-dm-mono.css';
 
-function App({ Component, pageProps }) {
+const App = ({ Component, pageProps, cookies }) => {
   useEffect(() => {
     SmoothScroll(document, 50, 8);
   }, []);
 
   return (
-    <ChakraProvider theme={chakra}>
-      <CSSReset />
-      <GlobalStyle />
+    <ChakraProvider
+      resetCSS
+      storageManager={cookieStorageManager(cookies)}
+      theme={chakra}
+    >
       <Component {...pageProps} />
     </ChakraProvider>
   );
-}
+};
+
+App.getInitialProps = async ({ ctx }) => {
+  return {
+    cookies: ctx.req.headers.cookie
+  };
+};
 
 export default App;

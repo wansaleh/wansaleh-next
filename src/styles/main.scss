@@ -30,17 +30,6 @@
   --social-default: theme('colors.gray.900');
   --social-hover: theme('colors.gray.900');
 
-  --section-gradient: linear-gradient(
-    to bottom,
-    theme('colors.gray.200'),
-    rgba(255, 255, 255, 0) 50%
-  );
-  --section-gradient-dark: linear-gradient(
-    to bottom,
-    theme('colors.gray.900'),
-    rgba(255, 255, 255, 0) 50%
-  );
-
   --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
   --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);

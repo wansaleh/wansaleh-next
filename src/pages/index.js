@@ -8,12 +8,11 @@ import {
   Image,
   // useTheme,
   // Button,
-  IconButton,
-  useColorMode,
-  useColorModeValue
+  useColorModeValue,
+  useTheme
 } from '@chakra-ui/core';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import MD from 'react-markdown';
+import { rgba, desaturate, mix } from 'polished';
 import Head from '../components/head';
 import Nav from '../components/nav';
 
@@ -27,18 +26,20 @@ const marqueeItems = [
 ];
 
 const marquee = marqueeItems.map((item, i) => (
-  <Text
-    key={i}
-    as="span"
-    fontSize="2vw"
-    letterSpacing="tight"
-    px="3vw"
-    dangerouslySetInnerHTML={{ __html: item }}
-  />
+  <Text key={i} as="span" px="3vw" dangerouslySetInnerHTML={{ __html: item }} />
 ));
 
 const Home = () => {
-  // const theme = useTheme();
+  const theme = useTheme();
+
+  const gradients = useColorModeValue(
+    `linear-gradient(to bottom, ${theme.colors.gray[200]}, ${rgba('#000', 0)})`,
+    `linear-gradient(to bottom, ${mix(
+      0.5,
+      '#000',
+      desaturate(0.1, theme.colors.brand[900])
+    )}, ${rgba('#000', 0)})`
+  );
 
   return (
     <Box>
@@ -56,9 +57,9 @@ const Home = () => {
           <Heading
             as="h1"
             pb="4"
-            fontSize="8vw"
+            fontSize={['5rem', '7rem', '9rem']}
             fontWeight="700"
-            lineHeight="0.9"
+            lineHeight="0.8"
             letterSpacing="-0.075em"
           >
             Hello there.
@@ -68,33 +69,6 @@ const Home = () => {
               Wan Saleh.
             </Text>
           </Heading>
-
-          {/* <Text fontSize="3xl" letterSpacing="tight">
-          <span role="img" aria-label="Malaysia">
-            🇲🇾
-          </span>
-          &nbsp;A proud Malaysian.
-          <br />
-          <span role="img" aria-label="Headphone">
-            🎧
-          </span>
-          &nbsp;A music producer.
-          <br />
-          <span role="img" aria-label="Man Technologist">
-            👨‍💻
-          </span>
-          &nbsp;A web mobile developer.
-          <br />
-          <span role="img" aria-label="Football">
-            ‍⚽
-          </span>
-          &nbsp;Football fanatic.
-          <br />
-          <span role="img" aria-label="Popcorn">
-            ‍🍿
-          </span>
-          &nbsp;A movie buff.
-        </Text> */}
         </Container>
       </Flex>
 
@@ -103,6 +77,8 @@ const Home = () => {
         pos="relative"
         overflow="hidden"
         fontFamily="mono"
+        fontSize={['xl', '2xl', '3xl']}
+        letterSpacing="tight"
         color={useColorModeValue('gray.600', 'gray.700')}
         css={{
           '--offset': '0vw',
@@ -128,14 +104,7 @@ const Home = () => {
         </Flex>
       </Box>
 
-      <Box
-        background={useColorModeValue(
-          'var(--section-gradient)',
-          'var(--section-gradient-dark)'
-        )}
-        // borderTopWidth="1px"
-        // borderColor={useColorModeValue('gray.300', 'gray.900')}
-      >
+      <Box background={gradients}>
         <Box py={['5rem', '10rem']}>
           <Container maxW="xl">
             <Heading
