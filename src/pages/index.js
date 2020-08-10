@@ -23,7 +23,9 @@ import devTools from '../data/dev-tools';
 const marqueeItems = [
   '🇲🇾&nbsp;A proud Malaysian.',
   '🎧&nbsp;A music producer.',
-  '👨‍💻&nbsp;A web developer.'
+  '👨‍💻&nbsp;A web developer.',
+  '☕️&nbsp;A coffee drinker.',
+  '🍔&nbsp;A food lover.'
 ];
 
 const marquee = marqueeItems.map((item, i) => (
@@ -81,8 +83,8 @@ const Home = () => {
         fontFamily="mono"
         fontSize={['xl', '2xl', '3xl']}
         letterSpacing="tight"
-        // color="gray.500"
-        color={useColorModeValue('gray.600', 'gray.700')}
+        color="gray.600"
+        // color={useColorModeValue('gray.600', 'gray.600')}
         css={{
           '--offset': '0vw',
           '--move-initial': 'calc(-25% + var(--offset))',
