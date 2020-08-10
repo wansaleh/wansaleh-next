@@ -9,7 +9,7 @@ import '../styles/font-graphik.css';
 import '../styles/font-nanum.css';
 import '../styles/font-dm-mono.css';
 
-const App = ({ Component, pageProps, cookies }) => {
+const App = ({ Component, pageProps, cookies = '' }) => {
   useEffect(() => {
     SmoothScroll(document, 50, 8);
   }, []);
@@ -17,8 +17,8 @@ const App = ({ Component, pageProps, cookies }) => {
   return (
     <ChakraProvider
       resetCSS
-      storageManager={cookieStorageManager(cookies)}
       theme={chakra}
+      storageManager={cookieStorageManager(cookies)}
     >
       <Component {...pageProps} />
     </ChakraProvider>

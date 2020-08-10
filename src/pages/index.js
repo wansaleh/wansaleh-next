@@ -9,7 +9,8 @@ import {
   // useTheme,
   // Button,
   useColorModeValue,
-  useTheme
+  useTheme,
+  useColorMode
 } from '@chakra-ui/core';
 import MD from 'react-markdown';
 import { rgba, desaturate, mix } from 'polished';
@@ -31,6 +32,7 @@ const marquee = marqueeItems.map((item, i) => (
 
 const Home = () => {
   const theme = useTheme();
+  const { colorMode } = useColorMode();
 
   const gradients = useColorModeValue(
     `linear-gradient(to bottom, ${theme.colors.gray[200]}, ${rgba('#000', 0)})`,
@@ -79,7 +81,8 @@ const Home = () => {
         fontFamily="mono"
         fontSize={['xl', '2xl', '3xl']}
         letterSpacing="tight"
-        color={useColorModeValue('gray.600', 'gray.700')}
+        color="gray.500"
+        // color={useColorModeValue('gray.600', 'gray.700')}
         css={{
           '--offset': '0vw',
           '--move-initial': 'calc(-25% + var(--offset))',
