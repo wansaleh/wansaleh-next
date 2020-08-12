@@ -36,14 +36,14 @@ const Home = () => {
   const theme = useTheme();
   // const { colorMode } = useColorMode();
 
-  const gradients = useColorModeValue(
-    `linear-gradient(to bottom, ${theme.colors.gray[200]}, ${rgba('#000', 0)})`,
-    `linear-gradient(to bottom, ${mix(
+  const gradients = {
+    light: `linear-gradient(to bottom, ${theme.colors.gray[200]}, #fff)`,
+    dark: `linear-gradient(to bottom, ${mix(
       0.5,
       '#000',
       desaturate(0.1, theme.colors.brand[900])
-    )}, ${rgba('#000', 0)})`
-  );
+    )}, #000)`
+  };
 
   return (
     <Box>
@@ -92,7 +92,7 @@ const Home = () => {
         }}
       >
         <Flex
-          ariaHidden="true"
+          aria-hidden="true"
           w="fit-content"
           pos="relative"
           whiteSpace="nowrap"
@@ -109,7 +109,30 @@ const Home = () => {
         </Flex>
       </Box>
 
-      <Box background={gradients}>
+      <Box pos="relative">
+        <Box
+          pos="absolute"
+          top="0"
+          left="0"
+          right="0"
+          bottom="0"
+          background={gradients.light}
+          zIndex="-1"
+          transition="all 0.25s ease"
+          opacity={useColorModeValue(1, 0)}
+        />
+        <Box
+          pos="absolute"
+          top="0"
+          left="0"
+          right="0"
+          bottom="0"
+          background={gradients.dark}
+          zIndex="-1"
+          transition="all 0.25s ease"
+          opacity={useColorModeValue(0, 1)}
+        />
+
         <Box py={['5rem', '10rem']}>
           <Container maxW="xl">
             <Heading

@@ -16,6 +16,16 @@
   transition: background 0.25s ease, border 0.25s ease;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  transition: color 0.25s ease;
+}
+
 :root {
   --brand: theme('colors.brand.500');
   --brand-alt: theme('colors.brandAlt.500');

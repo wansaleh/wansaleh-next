@@ -10,17 +10,23 @@ export default {
   styles: {
     ...theme.styles,
 
-    global: (props) => ({
-      ...theme.styles.global,
+    global: (props) => {
+      console.log(props);
 
-      backgroundColor: props.colorMode !== 'dark' ? 'white' : 'black',
-      fontFamily: 'body',
-      color: props.colorMode === 'dark' ? 'white' : 'gray.900',
+      return {
+        ...theme.styles.global,
 
-      a: {
-        color: props.colorMode === 'dark' ? 'brand.300' : 'brand.500'
-      }
-    })
+        body: {
+          backgroundColor: props.colorMode !== 'dark' ? 'white' : 'black',
+          fontFamily: 'body',
+          color: props.colorMode === 'dark' ? 'white' : 'gray.900'
+        },
+
+        a: {
+          color: props.colorMode === 'dark' ? 'brand.300' : 'brand.500'
+        }
+      };
+    }
   },
 
   colors: {

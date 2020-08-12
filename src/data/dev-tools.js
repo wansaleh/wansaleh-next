@@ -80,7 +80,7 @@ module.exports = [
   {
     name: 'SaaS',
     desc:
-      'Vercel (how great are they!) for static hosting & Next.js deploys. Netlify for others. DigitalOcean & Vultr for VPS. Firebase (generous free tier). BunnyCDN for extremely cheap content delivery. Wasabi Cloud Storage (cheap and large S3 alternative). I avoid AWS unless absolutely necessary (too complicated).',
+      'Vercel (how great are they!) for static hosting & Next.js deploys. Netlify for others. DigitalOcean & Vultr for VPS. Firebase (generous free tier) for authentication and NoSQL databases. BunnyCDN for extremely cheap content delivery. Wasabi Cloud Storage (cheap and large S3 alternative). I avoid AWS unless absolutely necessary (too complicated).',
     logos: [
       {
         image: require('../assets/logos/vercel.svg'),

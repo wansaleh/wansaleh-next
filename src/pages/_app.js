@@ -11,7 +11,7 @@ import '../styles/font-dm-mono.css';
 
 const App = ({ Component, pageProps, cookies = '' }) => {
   useEffect(() => {
-    SmoothScroll(document, 50, 8);
+    SmoothScroll(document, 80, 12);
   }, []);
 
   return (

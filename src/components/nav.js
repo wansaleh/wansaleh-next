@@ -22,7 +22,18 @@ const Nav = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box as="nav" pos="absolute" top="0" right="0">
+    <Flex
+      as="nav"
+      pos="absolute"
+      justifyContent="space-between"
+      align="center"
+      w="full"
+      top="0"
+      left="0"
+      right="0"
+    >
+      <Box flex="1" />
+
       <Flex as="ul" justifyContent="space-between" align="center" p="3">
         {links.map(({ key, href, label }) => (
           <li key={key}>
@@ -51,7 +62,7 @@ const Nav = () => {
           </LightMode>
         </li>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 
