@@ -8,15 +8,7 @@ import {
   LightMode
 } from '@chakra-ui/core';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-
-const links = [
-  { href: 'https://github.com/wansaleh', label: 'Github' },
-  { href: 'https://twitter.com/wansaleh', label: 'Twitter' },
-  { href: 'https://instagram.com/wansaleh', label: 'Instagram' }
-].map((link) => {
-  link.key = `nav-link-${link.href}-${link.label}`;
-  return link;
-});
+import SocialLinks from './social-links';
 
 const Nav = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -35,20 +27,9 @@ const Nav = () => {
       <Box flex="1" />
 
       <Flex as="ul" justifyContent="space-between" align="center" p="3">
-        {links.map(({ key, href, label }) => (
-          <li key={key}>
-            <Link
-              fontFamily="mono"
-              fontWeight="600"
-              href={href}
-              // color="gray.900"
-              px="2"
-              // _hover={{ color: 'white', textDecoration: 'underline' }}
-            >
-              {label}
-            </Link>
-          </li>
-        ))}
+        <li>
+          <SocialLinks />
+        </li>
 
         <li>
           <LightMode>

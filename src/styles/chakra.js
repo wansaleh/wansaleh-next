@@ -11,8 +11,6 @@ export default {
     ...theme.styles,
 
     global: (props) => {
-      console.log(props);
-
       return {
         ...theme.styles.global,
 

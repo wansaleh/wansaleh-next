@@ -19,6 +19,7 @@ import Nav from '../components/nav';
 
 import musicTools from '../data/music-tools';
 import devTools from '../data/dev-tools';
+import SocialLinks from '../components/social-links';
 
 const marqueeItems = [
   '🇲🇾&nbsp;A proud Malaysian.',
@@ -49,7 +50,6 @@ const Home = () => {
     <Box>
       <Head title="Wan Saleh" />
       <Nav />
-
       <Flex
         w="full"
         py={['5rem', , '15rem']}
@@ -75,7 +75,6 @@ const Home = () => {
           </Heading>
         </Container>
       </Flex>
-
       <Box
         py="8"
         pos="relative"
@@ -108,7 +107,6 @@ const Home = () => {
           {marquee}
         </Flex>
       </Box>
-
       <Box pos="relative">
         <Box
           pos="absolute"
@@ -186,6 +184,24 @@ const Home = () => {
           </Container>
         </Box>
       </Box>
+
+      <Container maxW="xl" mb="10">
+        <Flex
+          as="ul"
+          justifyContent="space-between"
+          align="center"
+          fontFamily="mono"
+          fontWeight="600"
+          fontSize="sm"
+        >
+          <li>
+            <Text as="span" bg="black" color="#fff" py="1" px="2">
+              Copyright © {new Date().getFullYear()} Wan Saleh
+            </Text>
+          </li>
+          <SocialLinks />
+        </Flex>
+      </Container>
     </Box>
   );
 };
