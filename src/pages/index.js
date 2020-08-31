@@ -203,7 +203,9 @@ const Home = () => {
               Copyright © {new Date().getFullYear()} Wan Saleh
             </Text>
           </li>
-          <SocialLinks />
+          <li>
+            <SocialLinks />
+          </li>
         </Flex>
       </Container>
     </Box>
