@@ -49,7 +49,9 @@ const Home = () => {
   return (
     <Box>
       <Head title="Wan Saleh" />
+
       <Nav />
+
       <Flex
         w="full"
         py={['5rem', , '15rem']}
@@ -61,9 +63,9 @@ const Home = () => {
           <Heading
             as="h1"
             pb="4"
-            fontSize={['5rem', '7rem', '9rem']}
-            fontWeight="700"
-            lineHeight="0.8"
+            fontSize={['5rem', '7rem', '8rem']}
+            fontWeight="400"
+            lineHeight="1"
             letterSpacing="-0.075em"
           >
             Hello there.
@@ -75,6 +77,7 @@ const Home = () => {
           </Heading>
         </Container>
       </Flex>
+
       <Box
         py="8"
         pos="relative"
@@ -82,7 +85,7 @@ const Home = () => {
         fontFamily="mono"
         fontSize={['xl', '2xl', '3xl']}
         letterSpacing="tight"
-        color="gray.600"
+        color="brand.500"
         // color={useColorModeValue('gray.600', 'gray.600')}
         css={{
           '--offset': '0vw',
@@ -97,7 +100,7 @@ const Home = () => {
           whiteSpace="nowrap"
           css={{
             transform: 'translate3d(var(--move-initial), 0, 0)',
-            animation: 'marquee 30s linear infinite',
+            animation: 'marquee 40s linear infinite',
             animationPlayState: 'running'
           }}
         >
@@ -107,6 +110,7 @@ const Home = () => {
           {marquee}
         </Flex>
       </Box>
+
       <Box pos="relative">
         <Box
           pos="absolute"
@@ -216,12 +220,13 @@ const Tools = ({ tools }) => (
           as="h4"
           mt="8"
           mb="3"
+          fontFamily="mono"
           fontSize="4xl"
-          fontWeight="300"
-          letterSpacing="tight"
+          fontWeight="500"
+          letterSpacing="tighter"
           pos="relative"
         >
-          <Box
+          {/* <Box
             pos="absolute"
             h="2px"
             w="40px"
@@ -229,17 +234,19 @@ const Tools = ({ tools }) => (
             transform="translateX(-100%)"
             top="45%"
             left="-10px"
-          />
-
+          /> */}
           {tool.name}
+          <Text as="span" color="brand.500">
+            _
+          </Text>
         </Heading>
 
         <Box
           maxW="2xl"
           fontSize="xl"
           lineHeight="1.35"
-          // letterSpacing="-0.025em"
           fontFamily="mono"
+          letterSpacing="tighter"
         >
           <MD source={tool.desc} />
         </Box>
@@ -266,9 +273,6 @@ const Tools = ({ tools }) => (
                   alt={logo.alt}
                   h="10"
                   maxW="140px"
-                  // css={{
-                  //   filter: 'grayscale(100%)'
-                  // }}
                 />
 
                 <Text

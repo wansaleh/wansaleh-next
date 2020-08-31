@@ -1,4 +1,5 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
+import { ColorModeScript } from '@chakra-ui/core';
 
 export default class Document extends NextDocument {
   static async getInitialProps(ctx) {
@@ -9,13 +10,9 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          {/* <link
-            href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap"
-            rel="stylesheet"
-          /> */}
-        </Head>
+        <Head />
         <body>
+          <ColorModeScript defaultMode="light" />
           <Main />
           <NextScript />
         </body>

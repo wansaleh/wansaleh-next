@@ -1,15 +1,15 @@
 {
   "name": "next-start",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 3008",
     "build": "next build",
     "start": "next start",
     "deploy": "git add . && git commit -m 'Updates.' && git push origin master"
   },
   "dependencies": {
-    "@chakra-ui/core": "^1.0.0-rc.2",
-    "@chakra-ui/icons": "^1.0.0-rc.2",
-    "@chakra-ui/theme": "^1.0.0-rc.2",
+    "@chakra-ui/core": "^1.0.0-rc.3",
+    "@chakra-ui/icons": "^1.0.0-rc.3",
+    "@chakra-ui/theme": "^1.0.0-rc.3",
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
@@ -26,11 +26,11 @@
     "next-images": "^1.4.1",
     "next-optimized-images": "^2.6.2",
     "node-sass": "^4.14.1",
-    "polished": "^3.6.5",
+    "polished": "^3.6.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
-    "tailwindcss": "^1.6.2",
+    "tailwindcss": "^1.7.6",
     "typeface-ibm-plex-mono": "0.0.61"
   },
   "devDependencies": {
@@ -38,16 +38,16 @@
     "babel-eslint": "^10.1.0",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-macros": "^2.8.0",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-mdx": "^1.8.1",
+    "eslint-plugin-mdx": "^1.8.2",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.5",
-    "eslint-plugin-react-hooks": "^4.0.8",
-    "prettier": "^2.0.5",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "prettier": "^2.1.1",
     "tailwind.macro": "^0.5.10"
   }
 }

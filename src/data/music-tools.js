@@ -89,7 +89,7 @@ module.exports = [
   {
     name: 'Gears',
     desc:
-      'UAD Arrow, Apogee Duet 2, Native Instruments Komplete Kontrol M32, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Neumann TLM103, Warm Audio WA-47jr., Audio Technica AT2035, Mackie Big Knob Studio, Nektar Impakt LX61+, Seaboard Block.',
+      'UAD Arrow, Apogee Duet 2, Native Instruments Komplete Kontrol M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Neumann TLM103, Warm Audio WA-47jr., Audio Technica AT2035, Mackie Big Knob Studio.',
     logos: [
       {
         image: require('../assets/logos/universal-audio-vector-logo.svg'),
@@ -156,7 +156,7 @@ module.exports = [
   {
     name: 'Studio Monitors',
     desc:
-      'Studio: Yamaha NS10 studio, Yamaha HS8. Home Studio: Kali Audio LP6, Yamaha HS5, Tannoy Reveal 402',
+      'Studio: Yamaha HS8 &amp; NS10 studio (the legend). Home: Kali Audio LP6, Yamaha HS5, Tannoy Reveal 402',
     logos: [
       {
         image: require('../assets/logos/yamaha.svg'),
