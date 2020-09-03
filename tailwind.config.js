@@ -31,10 +31,10 @@ module.exports = {
         brandGray: brandGray.brandGray
       },
       fontFamily: {
-        sans: ['JetBrains Mono', ...defaultTheme.fontFamily.sans],
-        head: ['JetBrains Mono', ...defaultTheme.fontFamily.sans],
+        sans: ['JetBrainsMono', ...defaultTheme.fontFamily.sans],
+        head: ['JetBrainsMono', ...defaultTheme.fontFamily.sans],
         serif: ['Merriweather', ...defaultTheme.fontFamily.sans],
-        mono: ['JetBrains Mono', 'monospace']
+        mono: ['JetBrainsMono', 'monospace']
       }
     }
   },
