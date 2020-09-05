@@ -6,7 +6,7 @@ import SmoothScroll from '../lib/smoothscroll';
 import chakra from '../styles/chakra';
 import '../styles/main.css';
 // import '../styles/font-inter.css';
-import '../styles/font-jetbrains.css';
+// import '../styles/font-jetbrains.css';
 
 const App = ({ Component, pageProps }) => {
   useEffect(() => {

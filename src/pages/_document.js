@@ -10,7 +10,12 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link
+            href="https://wscdn.vercel.app/fonts/jetbrains-mono/style-cdn.css"
+            rel="stylesheet"
+          />
+        </Head>
         <body>
           <ColorModeScript defaultMode="light" />
           <Main />
