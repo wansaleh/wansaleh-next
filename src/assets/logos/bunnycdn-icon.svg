@@ -1,122 +1,127 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 36 41">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0"
+  y="0" viewBox="0 0 36 41" xml:space="preserve">
   <defs>
-    <path id="bunnycdn-a" d="M15.9 11.7l8.3 1.4C18 12 17.6 6.9 9.2 2.3c-.9 3 1 8.5 6.7 9.4" />
+    <path id="bunny_1_" d="M15.9 11.7l8.3 1.4C18 12 17.6 6.9 9.2 2.3c-.9 3 1 8.5 6.7 9.4" />
   </defs>
-  <clipPath id="bunnycdn-b">
-    <use xlink:href="#bunnycdn-a" overflow="visible" />
+  <clipPath id="bunny_2_">
+    <use xlink:href="#bunny_1_" overflow="visible" />
   </clipPath>
-  <linearGradient id="bunnycdn-c" gradientUnits="userSpaceOnUse" x1="-470.274" y1="182.116" x2="-469.593" y2="182.116"
-    gradientTransform="matrix(22.3552 0 0 15.9007 10522.028 -2888.072)">
+  <linearGradient id="bunny_3_" gradientUnits="userSpaceOnUse" x1="-929.758" y1="308.76" x2="-929.077" y2="308.76"
+    gradientTransform="matrix(22.3552 0 0 -15.9007 20793.879 4917.192)">
     <stop offset="0" stop-color="#ffa600" />
     <stop offset=".34" stop-color="#ff9f00" />
     <stop offset=".69" stop-color="#ff7300" />
     <stop offset="1" stop-color="#f52900" />
   </linearGradient>
-  <path d="M8.3 2.3h15.9v10.8H8.3z" clip-path="url(#bunnycdn-b)" fill="url(#bunnycdn-c)" />
+  <path d="M8.3 2.3h15.9v10.8H8.3V2.3z" clip-path="url(#bunny_2_)" fill="url(#bunny_3_)" />
   <defs>
-    <path id="bunnycdn-d" d="M9.2 2.3c8.4 4.6 8.8 9.8 15 10.8 3.1.5.3 5.9-3 5.3 6 2 11.5-3.4 8.3-5.1L9.2 2.3z" />
+    <path id="bunny_4_" d="M9.2 2.3c8.4 4.6 8.8 9.8 15 10.8 3.1.5.3 5.9-3 5.3 6 2 11.5-3.4 8.3-5.1L9.2 2.3z" />
   </defs>
-  <clipPath id="bunnycdn-e">
-    <use xlink:href="#bunnycdn-d" overflow="visible" />
+  <clipPath id="bunny_5_">
+    <use xlink:href="#bunny_4_" overflow="visible" />
   </clipPath>
-  <linearGradient id="bunnycdn-f" gradientUnits="userSpaceOnUse" x1="-475.326" y1="176.356" x2="-474.644" y2="176.356"
-    gradientTransform="matrix(31.1579 0 0 24.3694 14819.342 -4286.3)">
+  <linearGradient id="bunny_6_" gradientUnits="userSpaceOnUse" x1="-940.888" y1="324.988" x2="-940.206" y2="324.988"
+    gradientTransform="matrix(31.1579 0 0 -24.3694 29325.291 7931.158)">
     <stop offset="0" stop-color="#ffa600" />
     <stop offset=".34" stop-color="#ff9f00" />
     <stop offset=".69" stop-color="#ff7300" />
     <stop offset="1" stop-color="#f52900" />
   </linearGradient>
-  <path d="M9.2 2.3h23.5v18.2H9.2z" clip-path="url(#bunnycdn-e)" fill="url(#bunnycdn-f)" />
-  <defs>
-    <path id="bunnycdn-g"
-      d="M21.2 18.5c-.4-.1-.8-.2-1.2-.5-2.5-1.6-5-2.1-7.3-1.8 4.8.6 9.3 6.8 8.8 11.5.1 1.6-.5 3.2-1.7 4.4L17 34.8c2.1 1.4 5.4-.1 6.3-2.1l5.6-11.4c1.4-.3 10.1-2.6 6.1-4.9l-5.5-3c3.1 1.7-2.3 7.1-8.3 5.1" />
-  </defs>
-  <clipPath id="bunnycdn-h">
-    <use xlink:href="#bunnycdn-g" overflow="visible" />
-  </clipPath>
-  <linearGradient id="bunnycdn-i" gradientUnits="userSpaceOnUse" x1="-476.526" y1="173.604" x2="-475.844" y2="173.604"
-    gradientTransform="matrix(34.2867 0 0 32.2475 16351.145 -5573.54)">
-    <stop offset="0" stop-color="#ffa600" />
-    <stop offset=".34" stop-color="#ff9f00" />
-    <stop offset="1" stop-color="#ff6200" />
-  </linearGradient>
-  <path d="M12.6 13.4h26.3v22.8H12.6z" clip-path="url(#bunnycdn-h)" fill="url(#bunnycdn-i)" />
-  <defs>
-    <path id="bunnycdn-j"
-      d="M12.6 16.2C5.2 17 .3 25.8 6.9 32.3l5.6 5.6c-3.7-3.7-4-9-1.7-12.7.2-.4.5-.8.9-1.2 2.2-2.2 5.9-2.2 8.1 0 1 1 1.6 2.3 1.7 3.7.5-4.7-4.1-10.9-8.9-11.5z" />
-  </defs>
-  <clipPath id="bunnycdn-k">
-    <use xlink:href="#bunnycdn-j" overflow="visible" />
-  </clipPath>
-  <linearGradient id="bunnycdn-l" gradientUnits="userSpaceOnUse" x1="-472.61" y1="173.677" x2="-471.928" y2="173.677"
-    gradientTransform="matrix(25.8911 0 0 31.7769 12240.17 -5491.908)">
-    <stop offset="0" stop-color="#ffa600" />
-    <stop offset=".34" stop-color="#ff9f00" />
-    <stop offset=".69" stop-color="#ff7300" />
-    <stop offset="1" stop-color="#f52900" />
-  </linearGradient>
-  <path d="M.3 16.2H22v21.7H.3z" clip-path="url(#bunnycdn-k)" fill="url(#bunnycdn-l)" />
+  <path d="M9.2 2.3h23.5v18.2H9.2V2.3z" clip-path="url(#bunny_5_)" fill="url(#bunny_6_)" />
   <g>
     <defs>
-      <path id="bunnycdn-m"
-        d="M12.5 37.8l3.1 3.1c1-.8 1.7-3.3.1-4.9l-4-4c-1.9-1.9-2.2-4.7-.9-6.9-2.3 3.7-2 9.1 1.7 12.7" />
+      <path id="bunny_7_"
+        d="M21.2 18.5c-.4-.1-.8-.2-1.2-.5-2.5-1.6-5-2.1-7.3-1.8 4.8.6 9.3 6.8 8.8 11.5.1 1.6-.5 3.2-1.7 4.4L17 34.8c2.1 1.4 5.4-.1 6.3-2.1l5.6-11.4c1.4-.3 10.1-2.6 6.1-4.9l-5.5-3c3.1 1.7-2.3 7.1-8.3 5.1" />
     </defs>
-    <clipPath id="bunnycdn-n">
-      <use xlink:href="#bunnycdn-m" overflow="visible" />
+    <clipPath id="bunny_8_">
+      <use xlink:href="#bunny_7_" overflow="visible" />
     </clipPath>
-    <linearGradient id="bunnycdn-o" gradientUnits="userSpaceOnUse" x1="-530.562" y1="173.205" x2="-529.88" y2="173.205"
-      gradientTransform="matrix(-8.0581 -7.2523 7.5379 -8.3754 -5565.215 -2361.562)">
+    <linearGradient id="bunny_9_" gradientUnits="userSpaceOnUse" x1="-943.497" y1="332.541" x2="-942.815" y2="332.541"
+      gradientTransform="matrix(34.2867 0 0 -32.2475 32362.047 10748.408)">
+      <stop offset="0" stop-color="#ffa600" />
+      <stop offset=".34" stop-color="#ff9f00" />
+      <stop offset="1" stop-color="#ff6200" />
+    </linearGradient>
+    <path d="M12.6 13.4h26.3v22.8H12.6V13.4z" clip-path="url(#bunny_8_)" fill="url(#bunny_9_)" />
+  </g>
+  <g>
+    <defs>
+      <path id="bunny_10_"
+        d="M12.6 16.2C5.2 17 .3 25.8 6.9 32.3l5.6 5.6c-3.7-3.7-4-9-1.7-12.7.2-.4.5-.8.9-1.2 2.2-2.2 5.9-2.2 8.1 0 1 1 1.6 2.3 1.7 3.7.5-4.7-4.1-10.9-8.9-11.5z" />
+    </defs>
+    <clipPath id="bunny_11_">
+      <use xlink:href="#bunny_10_" overflow="visible" />
+    </clipPath>
+    <linearGradient id="bunny_12_" gradientUnits="userSpaceOnUse" x1="-935.032" y1="332.248" x2="-934.35" y2="332.248"
+      gradientTransform="matrix(25.8911 0 0 -31.7769 24212.79 10584.856)">
       <stop offset="0" stop-color="#ffa600" />
       <stop offset=".34" stop-color="#ff9f00" />
       <stop offset=".69" stop-color="#ff7300" />
       <stop offset="1" stop-color="#f52900" />
     </linearGradient>
-    <path d="M13.4 45.4L.6 33.9l11.8-13.2 12.8 11.5z" clip-path="url(#bunnycdn-n)" fill="url(#bunnycdn-o)" />
+    <path d="M.3 16.2H22v21.7H.3V16.2z" clip-path="url(#bunny_11_)" fill="url(#bunny_12_)" />
   </g>
   <g>
     <defs>
-      <path id="bunnycdn-p" d="M20.1 6.4l9.4 5.1L20.7 0c-1.1 1.4-1.7 4-.6 6.4" />
+      <path id="bunny_13_"
+        d="M12.5 37.8l3.1 3.1c1-.8 1.7-3.3.1-4.9l-4-4c-1.9-1.9-2.2-4.7-.9-6.9-2.3 3.7-2 9.1 1.7 12.7" />
     </defs>
-    <clipPath id="bunnycdn-q">
-      <use xlink:href="#bunnycdn-p" overflow="visible" />
+    <clipPath id="bunny_14_">
+      <use xlink:href="#bunny_13_" overflow="visible" />
     </clipPath>
-    <linearGradient id="bunnycdn-r" gradientUnits="userSpaceOnUse" x1="-460.974" y1="181.216" x2="-460.292" y2="181.216"
-      gradientTransform="matrix(14.5536 0 0 16.8792 6728.317 -3053.029)">
+    <linearGradient id="bunny_15_" gradientUnits="userSpaceOnUse" x1="-1074.098" y1="350.836" x2="-1073.416"
+      y2="350.836" gradientTransform="matrix(-8.0581 -7.2523 -7.5379 8.3754 -5994.915 -10692.501)">
+      <stop offset="0" stop-color="#ffa600" />
+      <stop offset=".34" stop-color="#ff9f00" />
+      <stop offset=".69" stop-color="#ff7300" />
+      <stop offset="1" stop-color="#f52900" />
+    </linearGradient>
+    <path d="M13.4 45.4L.6 33.9l11.8-13.2 12.8 11.5-11.8 13.2z" clip-path="url(#bunny_14_)" fill="url(#bunny_15_)" />
+  </g>
+  <g>
+    <defs>
+      <path id="bunny_16_" d="M20.1 6.4l9.4 5.1L20.7 0c-1.1 1.4-1.7 4-.6 6.4" />
+    </defs>
+    <clipPath id="bunny_17_">
+      <use xlink:href="#bunny_16_" overflow="visible" />
+    </clipPath>
+    <linearGradient id="bunny_18_" gradientUnits="userSpaceOnUse" x1="-908.924" y1="311.406" x2="-908.242" y2="311.406"
+      gradientTransform="matrix(14.5536 0 0 -16.8792 13247.599 5262.034)">
       <stop offset="0" stop-color="#ffa600" />
       <stop offset=".34" stop-color="#ff9f00" />
       <stop offset="1" stop-color="#ff6200" />
     </linearGradient>
-    <path d="M19 0h10.4v11.5H19z" clip-path="url(#bunnycdn-q)" fill="url(#bunnycdn-r)" />
+    <path d="M19 0h10.4v11.5H19V0z" clip-path="url(#bunny_17_)" fill="url(#bunny_18_)" />
   </g>
   <g>
     <defs>
-      <path id="bunnycdn-s"
+      <path id="bunny_19_"
         d="M13.6 28c0 1.2 1 2.1 2.1 2.1 1.2 0 2.1-1 2.1-2.1 0-1.2-1-2.1-2.1-2.1-1.2 0-2.1.9-2.1 2.1" />
     </defs>
-    <clipPath id="bunnycdn-t">
-      <use xlink:href="#bunnycdn-s" overflow="visible" />
+    <clipPath id="bunny_20_">
+      <use xlink:href="#bunny_19_" overflow="visible" />
     </clipPath>
-    <linearGradient id="bunnycdn-u" gradientUnits="userSpaceOnUse" x1="-424.406" y1="205.721" x2="-423.724" y2="205.721"
-      gradientTransform="translate(2663.636 -1256.571) scale(6.2442)">
+    <linearGradient id="bunny_21_" gradientUnits="userSpaceOnUse" x1="-828.375" y1="238.559" x2="-827.692" y2="238.559"
+      gradientTransform="matrix(6.2442 0 0 -6.2442 5186.096 1517.657)">
       <stop offset="0" stop-color="#ffa600" />
       <stop offset=".34" stop-color="#ff9f00" />
       <stop offset="1" stop-color="#ff6200" />
     </linearGradient>
-    <path d="M13.6 25.9h4.3v4.3h-4.3z" clip-path="url(#bunnycdn-t)" fill="url(#bunnycdn-u)" />
+    <path d="M13.6 25.9h4.3v4.3h-4.3v-4.3z" clip-path="url(#bunny_20_)" fill="url(#bunny_21_)" />
   </g>
   <g>
     <defs>
-      <path id="bunnycdn-v" d="M0 17.7c0 1.2 1 2.1 2.1 2.1 1.2 0 2.1-1 2.1-2.1s-1-2.1-2.1-2.1-2.1.9-2.1 2.1" />
+      <path id="bunny_22_" d="M0 17.7c0 1.2 1 2.1 2.1 2.1 1.2 0 2.1-1 2.1-2.1s-1-2.1-2.1-2.1-2.1.9-2.1 2.1" />
     </defs>
-    <clipPath id="bunnycdn-w">
-      <use xlink:href="#bunnycdn-v" overflow="visible" />
+    <clipPath id="bunny_23_">
+      <use xlink:href="#bunny_22_" overflow="visible" />
     </clipPath>
-    <linearGradient id="bunnycdn-x" gradientUnits="userSpaceOnUse" x1="-423.397" y1="206.549" x2="-422.715" y2="206.549"
-      gradientTransform="matrix(6.2439 0 0 6.2445 2643.65 -1272.1)">
+    <linearGradient id="bunny_24_" gradientUnits="userSpaceOnUse" x1="-827.362" y1="237.735" x2="-826.68" y2="237.735"
+      gradientTransform="matrix(6.2439 0 0 -6.2445 5165.966 1502.285)">
       <stop offset="0" stop-color="#ffa600" />
       <stop offset=".34" stop-color="#ff9f00" />
       <stop offset="1" stop-color="#ff6200" />
     </linearGradient>
-    <path d="M0 15.6h4.3v4.3H0z" clip-path="url(#bunnycdn-w)" fill="url(#bunnycdn-x)" />
+    <path d="M0 15.6h4.3v4.3H0v-4.3z" clip-path="url(#bunny_23_)" fill="url(#bunny_24_)" />
   </g>
 </svg>

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 const musicTools = require('./music-tools');
 
 module.exports = [
