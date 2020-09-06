@@ -30,7 +30,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
-    "tailwindcss": "^1.8.2",
+    "tailwindcss": "^1.8.3",
     "typeface-ibm-plex-mono": "0.0.61"
   },
   "devDependencies": {

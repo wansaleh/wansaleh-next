@@ -269,13 +269,19 @@ const Tools = ({ tools }) => (
           {tool.logos.map((logo, j) => {
             const image = (
               <Flex as="span" p="6" flexDir="column" align="center">
-                <Image
+                <Box
+                  dangerouslySetInnerHTML={{ __html: logo.image }}
+                  maxW="140px"
+                  h="10"
+                  css={{ svg: { width: '100%', height: '100%' } }}
+                />
+                {/* <Image
                   key={j}
                   src={logo.image}
                   alt={logo.alt}
                   h="10"
                   maxW="140px"
-                />
+                /> */}
 
                 <Text
                   as="span"
