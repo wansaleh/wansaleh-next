@@ -1,4 +1,8 @@
-export default function SmoothScroll(target, speed, smooth) {
+export default function SmoothScroll({
+  target = document,
+  speed = 80,
+  smooth = 12
+} = {}) {
   if (target === document)
     target =
       document.scrollingElement ||

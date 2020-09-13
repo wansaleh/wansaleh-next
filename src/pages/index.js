@@ -144,7 +144,21 @@ const Home = () => {
               lineHeight="1"
               letterSpacing="tighter"
             >
-              Music Tools
+              Music Tools{' '}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                css={{ height: '1em', display: 'inline-block' }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                />
+              </svg>
             </Heading>
 
             <Heading
@@ -171,7 +185,21 @@ const Home = () => {
               lineHeight="1"
               letterSpacing="tighter"
             >
-              Development Tools
+              Development Tools{' '}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                css={{ height: '1em', display: 'inline-block' }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
             </Heading>
             <Heading
               as="h3"
@@ -223,10 +251,11 @@ const Tools = ({ tools }) => (
           mt="8"
           mb="3"
           fontFamily="mono"
-          fontSize="4xl"
+          fontSize="3xl"
           fontWeight="500"
           letterSpacing="tighter"
           pos="relative"
+          color={useColorModeValue('gray.600', 'brand.200')}
         >
           {/* <Box
             pos="absolute"
@@ -238,9 +267,9 @@ const Tools = ({ tools }) => (
             left="-10px"
           /> */}
           {tool.name}
-          <Text as="span" color="brand.500">
+          {/* <Text as="span" color="brand.500">
             _
-          </Text>
+          </Text> */}
         </Heading>
 
         <Box
