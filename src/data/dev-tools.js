@@ -26,12 +26,12 @@ module.exports = [
       },
       {
         image: require('../assets/logos/next-js.svg?include'),
-        alt: 'Next.js',
+        alt: 'Next',
         link: 'https://nextjs.org'
       },
       {
         image: require('../assets/logos/Gatsby-Monogram.svg?include'),
-        alt: 'Gatsby.js',
+        alt: 'Gatsby',
         link: 'https://gatsbyjs.org'
       },
       {
@@ -46,7 +46,7 @@ module.exports = [
       },
       {
         image: require('../assets/logos/svelte-logo.svg?include'),
-        alt: 'Svelte.js',
+        alt: 'Svelte',
         link: 'https://svelte.dev'
       }
     ]
