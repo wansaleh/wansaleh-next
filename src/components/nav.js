@@ -6,7 +6,7 @@ import {
   useColorMode,
   Flex,
   LightMode
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import SocialLinks from './social-links';
 

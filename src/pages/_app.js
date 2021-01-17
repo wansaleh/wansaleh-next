@@ -1,4 +1,4 @@
-import { ChakraProvider } from '@chakra-ui/core';
+import { ChakraProvider } from '@chakra-ui/react';
 
 // import { useEffect } from 'react';
 // import SmoothScroll from '../lib/smoothscroll';
@@ -9,19 +9,16 @@ import '../styles/main.css';
 // import '../styles/font-inter.css';
 // import '../styles/font-jetbrains.css';
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }) => (
   // useEffect(() => {
   //   SmoothScroll({ speed: 80 });
   //   // new Butter().init();
   // }, []);
 
-  return (
-    <div id="butter">
-      <ChakraProvider resetCSS theme={chakra}>
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </div>
-  );
-};
-
+  <div id="butter">
+    <ChakraProvider resetCSS theme={chakra}>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  </div>
+);
 export default App;

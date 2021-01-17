@@ -11,7 +11,7 @@ import {
   useColorModeValue,
   useTheme
   // useColorMode
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import MD from 'react-markdown';
 import { rgba, desaturate, mix } from 'polished';
 import Head from '../components/head';
@@ -59,14 +59,14 @@ const Home = () => {
         justify="center"
         align="center"
       >
-        <Container maxW="xl">
+        <Container maxW="5xl">
           <Heading
             as="h1"
             pb="4"
             fontSize={['5rem', '7rem', '8rem']}
-            fontWeight="400"
+            fontWeight="800"
             lineHeight="1"
-            letterSpacing="-0.075em"
+            letterSpacing="-0.1em"
           >
             Hello there.
             <br />
@@ -82,7 +82,7 @@ const Home = () => {
         py="8"
         pos="relative"
         overflow="hidden"
-        fontFamily="mono"
+        // fontFamily="mono"
         fontSize={['xl', '2xl', '3xl']}
         letterSpacing="tight"
         color="brand.500"
@@ -136,7 +136,7 @@ const Home = () => {
         />
 
         <Box py={['5rem', '10rem']}>
-          <Container maxW="xl">
+          <Container maxW="5xl">
             <Heading
               as="h2"
               fontSize="5xl"
@@ -163,10 +163,10 @@ const Home = () => {
 
             <Heading
               as="h3"
-              fontFamily="mono"
+              fontFamily="body"
               fontSize="sm"
-              fontWeight="400"
-              letterSpacing="0.3em"
+              fontWeight="600"
+              letterSpacing="0.2em"
               textTransform="uppercase"
             >
               Music things I use daily
@@ -177,7 +177,7 @@ const Home = () => {
         </Box>
 
         <Box py={['5rem', '10rem']}>
-          <Container maxW="xl">
+          <Container maxW="5xl">
             <Heading
               as="h2"
               fontSize="5xl"
@@ -203,10 +203,10 @@ const Home = () => {
             </Heading>
             <Heading
               as="h3"
-              fontFamily="mono"
+              fontFamily="body"
               fontSize="sm"
-              fontWeight="400"
-              letterSpacing="0.3em"
+              fontWeight="600"
+              letterSpacing="0.2em"
               textTransform="uppercase"
             >
               Devtools I use daily
@@ -217,12 +217,12 @@ const Home = () => {
         </Box>
       </Box>
 
-      <Container maxW="xl" mb="10">
+      <Container maxW="5xl" mb="10">
         <Flex
           as="ul"
           justifyContent="space-between"
           align="center"
-          fontFamily="mono"
+          // fontFamily="mono"
           fontWeight="600"
           fontSize="sm"
         >
@@ -250,7 +250,7 @@ const Tools = ({ tools }) => (
           as="h4"
           mt="8"
           mb="3"
-          fontFamily="mono"
+          // fontFamily="mono"
           fontSize="3xl"
           fontWeight="500"
           letterSpacing="tighter"
@@ -276,8 +276,8 @@ const Tools = ({ tools }) => (
           maxW="2xl"
           fontSize="xl"
           lineHeight="1.35"
-          fontFamily="mono"
-          letterSpacing="tighter"
+          // fontFamily="mono"
+          letterSpacing="tight"
         >
           <MD source={tool.desc} />
         </Box>

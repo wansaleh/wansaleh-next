@@ -22,7 +22,6 @@ const brandGray = tailwindColorPalette(
 );
 
 module.exports = {
-  purge: ['./src/**/*.html', './src/**/*.js'],
   theme: {
     extend: {
       colors: {
@@ -31,8 +30,8 @@ module.exports = {
         brandGray: brandGray.brandGray
       },
       fontFamily: {
-        sans: ['JetBrainsMono', ...defaultTheme.fontFamily.sans],
-        head: ['JetBrainsMono', ...defaultTheme.fontFamily.sans],
+        sans: ['forma-djr-deck', ...defaultTheme.fontFamily.sans],
+        head: ['aktiv-grotesk-extended', ...defaultTheme.fontFamily.sans],
         serif: ['Merriweather', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
       }

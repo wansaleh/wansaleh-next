@@ -1,4 +1,4 @@
-import { Link, useColorMode, Flex } from '@chakra-ui/core';
+import { Link, useColorMode, Flex } from '@chakra-ui/react';
 
 const links = [
   { href: 'https://github.com/wansaleh', label: 'Github' },
@@ -9,29 +9,27 @@ const links = [
   return link;
 });
 
-const SocialLinks = () => {
-  return (
-    <Flex
-      as="ul"
-      justifyContent="space-between"
-      align="center"
-      fontFamily="mono"
-      fontWeight="600"
-    >
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <Link
-            href={href}
-            // color="gray.900"
-            px="2"
-            // _hover={{ color: 'white', textDecoration: 'underline' }}
-          >
-            {label}
-          </Link>
-        </li>
-      ))}
-    </Flex>
-  );
-};
+const SocialLinks = () => (
+  <Flex
+    as="ul"
+    justifyContent="space-between"
+    align="center"
+    // fontFamily="mono"
+    fontWeight="600"
+  >
+    {links.map(({ key, href, label }) => (
+      <li key={key}>
+        <Link
+          href={href}
+          // color="gray.900"
+          px="2"
+          // _hover={{ color: 'white', textDecoration: 'underline' }}
+        >
+          {label}
+        </Link>
+      </li>
+    ))}
+  </Flex>
+);
 
 export default SocialLinks;

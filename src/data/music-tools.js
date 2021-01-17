@@ -19,12 +19,17 @@ module.exports = [
   },
   {
     name: 'Digital Audio Workstation',
-    desc: 'Logic Pro X 10.5 &amp; Cubase Pro 10.5',
+    desc: 'Logic Pro X 10.6, PreSonus Studio One 5 &amp; Cubase Pro 11',
     logos: [
       {
         image: require('../assets/logos/apple_logo_black.svg?include'),
         alt: 'Apple',
         link: 'https://apple.com'
+      },
+      {
+        image: require('../assets/logos/presonus.svg?include'),
+        alt: 'PreSonus',
+        link: 'https://presonus.com'
       },
       {
         image: require('../assets/logos/Steinberg_icon.svg?include'),
@@ -58,7 +63,7 @@ module.exports = [
   {
     name: 'Go-to mix plugins',
     desc:
-      'Fabfilter (Pro-Q3, Pro-R & Pro-DS), ValhallaDSP Reverbs, SoundToys (Echoboy, Radiator, Decapitator), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates), UAD (LA-2A, 1176, Fairchild 660/670), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ)',
+      'Fabfilter (Pro-Q3, Pro-R & Pro-DS), ValhallaDSP Reverbs, Oeksound Soothe 2, SoundToys (Echoboy, Radiator, Decapitator), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates), UAD (LA-2A, 1176, Fairchild 660/670), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ)',
     logos: [
       {
         image: require('../assets/logos/fabfilter-vector-logo.svg?include'),
@@ -90,7 +95,7 @@ module.exports = [
   {
     name: 'Gears',
     desc:
-      'UAD Arrow, Apogee Duet 2, Native Instruments Komplete Kontrol M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Neumann TLM103, Warm Audio WA-47jr., Audio Technica AT2035, Mackie Big Knob Studio.',
+      'UAD Arrow, Apogee Duet 2, Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Neumann TLM103, Warm Audio WA-47jr., Audio Technica AT2035, Mackie Big Knob Studio.',
     logos: [
       {
         image: require('../assets/logos/universal-audio-vector-logo.svg?include'),
@@ -165,9 +170,9 @@ module.exports = [
         link: 'https://focusrite.com'
       },
       {
-        image: require('../assets/logos/kali.svg?include'),
-        alt: 'Kali Audio',
-        link: 'https://kaliaudio.com'
+        image: require('../assets/logos/adam-audio.svg?include'),
+        alt: 'Adam Audio',
+        link: 'https://adam-audio.com'
       },
       {
         image: require('../assets/logos/tannoy-vector-logo.svg?include'),

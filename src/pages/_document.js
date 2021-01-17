@@ -1,10 +1,9 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
-import { ColorModeScript } from '@chakra-ui/core';
+import { ColorModeScript } from '@chakra-ui/react';
 
 export default class Document extends NextDocument {
   static async getInitialProps(ctx) {
-    const initialProps = await NextDocument.getInitialProps(ctx);
-    return { ...initialProps };
+    return NextDocument.getInitialProps(ctx);
   }
 
   render() {
@@ -15,9 +14,10 @@ export default class Document extends NextDocument {
             href="https://wscdn.vercel.app/fonts/jetbrains-mono/style-cdn.css"
             rel="stylesheet"
           />
+          <link rel="stylesheet" href="https://use.typekit.net/mmh1cep.css" />
         </Head>
         <body>
-          <ColorModeScript defaultMode="light" />
+          <ColorModeScript initialColorMode="light" />
           <Main />
           <NextScript />
         </body>
