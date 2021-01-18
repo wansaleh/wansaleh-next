@@ -1,9 +1,9 @@
 import { Link, useColorMode, Flex } from '@chakra-ui/react';
 
 const links = [
-  { href: 'https://github.com/wansaleh', label: 'Github' },
-  { href: 'https://twitter.com/wansaleh', label: 'Twitter' },
-  { href: 'https://instagram.com/wansaleh', label: 'Instagram' }
+  { href: 'https://github.com/wansaleh', label: 'Gh' },
+  { href: 'https://twitter.com/wansaleh', label: 'Tw' },
+  { href: 'https://instagram.com/wansaleh', label: 'In' }
 ].map((link) => {
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;

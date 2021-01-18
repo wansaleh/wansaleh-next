@@ -48,7 +48,7 @@ const Home = () => {
 
   return (
     <Box>
-      <Head title="Wan Saleh" />
+      <Head title="Wan Saleh | WNSLH" />
 
       <Nav />
 
@@ -228,7 +228,7 @@ const Home = () => {
         >
           <li>
             <Text as="span" bg="black" color="#fff" py="1" px="2">
-              Copyright © {new Date().getFullYear()} Wan Saleh
+              Copyright © {new Date().getFullYear()} WNSLH
             </Text>
           </li>
           <li>
@@ -277,7 +277,7 @@ const Tools = ({ tools }) => (
           fontSize="xl"
           lineHeight="1.35"
           // fontFamily="mono"
-          letterSpacing="tight"
+          // letterSpacing="tight"
         >
           <MD source={tool.desc} />
         </Box>

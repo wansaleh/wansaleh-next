@@ -30,7 +30,7 @@ module.exports = {
         brandGray: brandGray.brandGray
       },
       fontFamily: {
-        sans: ['forma-djr-deck', ...defaultTheme.fontFamily.sans],
+        sans: ['roc-grotesk', ...defaultTheme.fontFamily.sans],
         head: ['aktiv-grotesk-extended', ...defaultTheme.fontFamily.sans],
         serif: ['Merriweather', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
