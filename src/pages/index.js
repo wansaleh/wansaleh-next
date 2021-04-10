@@ -250,40 +250,21 @@ const Tools = ({ tools }) => (
           as="h4"
           mt="8"
           mb="3"
-          // fontFamily="mono"
           fontSize="3xl"
           fontWeight="500"
           letterSpacing="tighter"
           pos="relative"
           color={useColorModeValue('gray.600', 'brand.200')}
         >
-          {/* <Box
-            pos="absolute"
-            h="2px"
-            w="40px"
-            bg="brand.500"
-            transform="translateX(-100%)"
-            top="45%"
-            left="-10px"
-          /> */}
           {tool.name}
-          {/* <Text as="span" color="brand.500">
-            _
-          </Text> */}
         </Heading>
 
-        <Box
-          maxW="2xl"
-          fontSize="xl"
-          lineHeight="1.35"
-          // fontFamily="mono"
-          // letterSpacing="tight"
-        >
+        <Box maxW="2xl" fontSize="xl" lineHeight="1.35">
           <MD source={tool.desc} />
         </Box>
 
         <Flex
-          flexWrap="wrap"
+          wrap="wrap"
           justify="flex-start"
           align="center"
           mt="8"
@@ -291,41 +272,35 @@ const Tools = ({ tools }) => (
           bg={useColorModeValue('white', 'gray.100')}
           borderRadius="md"
           p="4"
-          // maxW="2xl"
           display="inline-flex"
           boxShadow="var(--shadow-large)"
         >
           {tool.logos.map((logo, j) => {
             const image = (
-              <Flex as="span" p="6" flexDir="column" align="center">
+              <Flex p="6" flexDir="column" align="center">
                 <Box
                   dangerouslySetInnerHTML={{ __html: logo.image }}
-                  maxW="140px"
-                  h="10"
-                  css={{ svg: { width: '100%', height: '100%' } }}
+                  // maxW="140px"
+                  // h="10"
+                  title={logo.title}
+                  css={{ svg: { height: '3rem', maxWidth: '7rem' } }}
                 />
-                {/* <Image
-                  key={j}
-                  src={logo.image}
-                  alt={logo.alt}
-                  h="10"
-                  maxW="140px"
-                /> */}
 
-                <Text
+                {/* <Text
                   as="span"
-                  mt="3"
+                  mt="6"
                   fontFamily="mono"
-                  fontSize="xs"
+                  fontSize="2xs"
                   fontWeight="800"
                   textTransform="uppercase"
-                  letterSpacing="wider"
+                  letterSpacing="wide"
                   color="black"
                 >
-                  {logo.alt}
-                </Text>
+                  {logo.title}
+                </Text> */}
               </Flex>
             );
+
             return logo.link ? (
               <a
                 key={j}

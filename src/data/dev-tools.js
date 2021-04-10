@@ -9,7 +9,7 @@ module.exports = [
     logos: [
       {
         image: require('../assets/logos/Visual_Studio_Code_1.35_icon.svg?include'),
-        alt: 'Visual Studio Code',
+        title: 'Visual Studio Code',
         link: 'https://code.visualstudio.com'
       }
     ]
@@ -17,36 +17,36 @@ module.exports = [
   {
     name: 'Frontend Stack',
     desc:
-      'I love **React** &mdash; Next (this site is built with it) &amp; Gatsby. GraphQL, REST no more. I also like Vue &amp; Svelte&nbsp;3.',
+      'I love React &mdash; Next.js (this site is built with it) &amp; Gatsby. GraphQL, REST no more. I also like Vue &amp; Svelte&nbsp;3.',
     logos: [
       {
         image: require('../assets/logos/React-icon.svg?include'),
-        alt: 'React',
+        title: 'React',
         link: 'https://reactjs.org'
       },
       {
         image: require('../assets/logos/next-js.svg?include'),
-        alt: 'Next',
+        title: 'Next',
         link: 'https://nextjs.org'
       },
       {
         image: require('../assets/logos/Gatsby-Monogram.svg?include'),
-        alt: 'Gatsby',
+        title: 'Gatsby',
         link: 'https://gatsbyjs.org'
       },
       {
         image: require('../assets/logos/GraphQL.svg?include'),
-        alt: 'GraphQL',
+        title: 'GraphQL',
         link: 'https://graphql.org'
       },
       {
         image: require('../assets/logos/Vue.js_Logo_2.svg?include'),
-        alt: 'Vue.js',
+        title: 'Vue.js',
         link: 'https://vuejs.org'
       },
       {
         image: require('../assets/logos/svelte-logo.svg?include'),
-        alt: 'Svelte',
+        title: 'Svelte',
         link: 'https://svelte.dev'
       }
     ]
@@ -58,22 +58,22 @@ module.exports = [
     logos: [
       {
         image: require('../assets/logos/nodejs-icon.svg?include'),
-        alt: 'NodeJS',
+        title: 'NodeJS',
         link: 'https://nodejs.org'
       },
       {
         image: require('../assets/logos/mongodb.svg?include'),
-        alt: 'MongoDB',
+        title: 'MongoDB',
         link: 'https://mongodb.org'
       },
       {
         image: require('../assets/logos/Postgresql_elephant.svg?include'),
-        alt: 'PostgreSQL',
+        title: 'PostgreSQL',
         link: 'https://postgresql.org'
       },
       {
         image: require('../assets/logos/hasura.svg?include'),
-        alt: 'Hasura',
+        title: 'Hasura',
         link: 'https://hasura.io'
       }
     ]
@@ -85,42 +85,42 @@ module.exports = [
     logos: [
       {
         image: require('../assets/logos/vercel.svg?include'),
-        alt: 'Vercel',
+        title: 'Vercel',
         link: 'https://vercel.com'
       },
       {
         image: require('../assets/logos/netlify.svg?include'),
-        alt: 'Netlify',
+        title: 'Netlify',
         link: 'https://netlify.com'
       },
       {
         image: require('../assets/logos/DO_Logo_icon_blue.svg?include'),
-        alt: 'DigitalOcean',
+        title: 'DigitalOcean',
         link: 'https://digitalocean.com'
       },
       {
         image: require('../assets/logos/sygnet__on-white.svg?include'),
-        alt: 'Vultr',
+        title: 'Vultr',
         link: 'https://vultr.com'
       },
       {
         image: require('../assets/logos/Firebase_Logo_Logomark.svg?include'),
-        alt: 'Firebase',
+        title: 'Firebase',
         link: 'https://firebase.com'
       },
       {
         image: require('../assets/logos/bunnycdn-icon.svg?include'),
-        alt: 'BunnyCDN',
+        title: 'BunnyCDN',
         link: 'https://bunnycdn.com'
       },
       {
         image: require('../assets/logos/wasabi-icon.svg?include'),
-        alt: 'Wasabi',
+        title: 'Wasabi',
         link: 'https://wasabi.com'
       },
       {
         image: require('../assets/logos/Amazon_Web_Services_Logo.svg?include'),
-        alt: 'Amazon Web Services',
+        title: 'Amazon Web Services',
         link: 'https://aws.amazon.com'
       }
     ]

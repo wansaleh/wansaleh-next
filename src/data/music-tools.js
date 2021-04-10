@@ -7,12 +7,12 @@ module.exports = [
     logos: [
       {
         image: require('../assets/logos/apple_logo_black.svg?include'),
-        alt: 'Apple',
+        title: 'Apple',
         link: 'https://apple.com'
       },
       {
         image: require('../assets/logos/Intel-logo.svg?include'),
-        alt: 'Intel',
+        title: 'Intel',
         link: 'https://intel.com'
       }
     ]
@@ -23,17 +23,17 @@ module.exports = [
     logos: [
       {
         image: require('../assets/logos/apple_logo_black.svg?include'),
-        alt: 'Apple',
+        title: 'Apple',
         link: 'https://apple.com'
       },
       {
         image: require('../assets/logos/presonus.svg?include'),
-        alt: 'PreSonus',
+        title: 'PreSonus',
         link: 'https://presonus.com'
       },
       {
         image: require('../assets/logos/Steinberg_icon.svg?include'),
-        alt: 'Steinberg',
+        title: 'Steinberg',
         link: 'https://steinberg.net'
       }
     ]
@@ -45,17 +45,17 @@ module.exports = [
     logos: [
       {
         image: require('../assets/logos/ni-icon.svg?include'),
-        alt: 'Native Instruments',
+        title: 'Native Instruments',
         link: 'https://native-instruments.com'
       },
       {
         image: require('../assets/logos/spectrasonics.svg?include'),
-        alt: 'Spectrasonics',
+        title: 'Spectrasonics',
         link: 'https://www.spectrasonics.net'
       },
       {
         image: require('../assets/logos/toontrack-logo.svg?include'),
-        alt: 'Toontrack',
+        title: 'Toontrack',
         link: 'https://toontrack.com'
       }
     ]
@@ -63,31 +63,31 @@ module.exports = [
   {
     name: 'Go-to mix plugins',
     desc:
-      'Fabfilter (Pro-Q3, Pro-R & Pro-DS), ValhallaDSP Reverbs, Oeksound Soothe 2, SoundToys (Echoboy, Radiator, Decapitator), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates), UAD (LA-2A, 1176, Fairchild 660/670), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ)',
+      'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), ValhallaDSP Reverbs/Delays, Oeksound Soothe 2, SoundToys (Echoboy, Radiator, Decapitator, Microshift), UAD (LA-2A, 1176, Fairchild 660/670, Capitol Chambers, EMT 140), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ)',
     logos: [
       {
         image: require('../assets/logos/fabfilter-vector-logo.svg?include'),
-        alt: 'Fabfilter',
+        title: 'Fabfilter',
         link: 'https://fabfilter.com'
       },
       {
         image: require('../assets/logos/valhalla.svg?include'),
-        alt: 'ValhallaDSP',
+        title: 'ValhallaDSP',
         link: 'https://valhalladsp.com'
       },
       {
-        image: require('../assets/logos/waves-audio-logo-vector.svg?include'),
-        alt: 'Waves',
-        link: 'https://waves.com'
-      },
-      {
         image: require('../assets/logos/universal-audio-vector-logo.svg?include'),
-        alt: 'Universal Audio',
+        title: 'Universal Audio',
         link: 'https://uaudio.com'
       },
       {
+        image: require('../assets/logos/waves-audio-logo-vector.svg?include'),
+        title: 'Waves',
+        link: 'https://waves.com'
+      },
+      {
         image: require('../assets/logos/plugin-alliance-vector-logo.svg?include'),
-        alt: 'Plugin Alliance',
+        title: 'Plugin Alliance',
         link: 'https://plugin-alliance.com'
       }
     ]
@@ -95,66 +95,66 @@ module.exports = [
   {
     name: 'Gears',
     desc:
-      'UAD Arrow, Apogee Duet 2, Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Neumann TLM103, Warm Audio WA-47jr., Audio Technica AT2035, Mackie Big Knob Studio.',
+      'UAD Apollo Twin X Quad, Apogee Duet 2, Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast, Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Neumann TLM103, Warm Audio WA-47jr., Audio Technica AT2035, Mackie Big Knob Studio.',
     logos: [
       {
         image: require('../assets/logos/universal-audio-vector-logo.svg?include'),
-        alt: 'Universal Audio',
+        title: 'Universal Audio',
         link: 'https://uaudio.com'
       },
       {
+        image: require('../assets/logos/warm-audio.svg?include'),
+        title: 'Warm Audio',
+        link: 'https://warmaudio.com'
+      },
+      {
         image: require('../assets/logos/Apogee_Electronics_-_logo.svg?include'),
-        alt: 'Apogee',
+        title: 'Apogee',
         link: 'https://apogeedigital.com'
       },
       {
         image: require('../assets/logos/ni-icon.svg?include'),
-        alt: 'Native Instruments',
+        title: 'Native Instruments',
         link: 'https://native-instruments.com'
       },
       {
         image: require('../assets/logos/focusrite.svg?include'),
-        alt: 'Focusrite',
+        title: 'Focusrite',
         link: 'https://focusrite.com'
       },
       {
         image: require('../assets/logos/presonus.svg?include'),
-        alt: 'PreSonus',
+        title: 'PreSonus',
         link: 'https://presonus.com'
       },
       {
         image: require('../assets/logos/Dbx_Logo.svg?include'),
-        alt: 'dbx',
+        title: 'dbx',
         link: 'https://dbxpro.com'
       },
       {
         image: require('../assets/logos/mackie.svg?include'),
-        alt: 'Mackie',
+        title: 'Mackie',
         link: 'https://mackie.com'
       },
       {
         image: require('../assets/logos/neumann.svg?include'),
-        alt: 'Neumann',
+        title: 'Neumann',
         link: 'https://en-de.neumann.com/'
       },
       {
-        image: require('../assets/logos/warm-audio.svg?include'),
-        alt: 'Warm Audio',
-        link: 'https://warmaudio.com'
-      },
-      {
         image: require('../assets/logos/audio-technica.svg?include'),
-        alt: 'Audio Technica',
+        title: 'Audio Technica',
         link: 'https://audio-technica.com'
       },
       {
         image: require('../assets/logos/ROLIMonogramLockupBlack.svg?include'),
-        alt: 'ROLI',
+        title: 'ROLI',
         link: 'https://roli.com'
       },
       {
         image: require('../assets/logos/nektar.svg?include'),
-        alt: 'Nektar',
+        title: 'Nektar',
         link: 'https://nektartech.com'
       }
     ]
@@ -162,21 +162,21 @@ module.exports = [
   {
     name: 'Studio Monitors',
     desc:
-      'Studio: Yamaha HS8 &amp; NS10 studio (the legend). Home: Kali Audio LP6, Yamaha HS5, Tannoy Reveal 402',
+      'Studio: Yamaha HS8 &amp; NS10 studio (the legend). Home: Adam Audio T7V, Yamaha HS5, IK Multimedia iLoud',
     logos: [
       {
         image: require('../assets/logos/yamaha.svg?include'),
-        alt: 'Yamaha',
+        title: 'Yamaha',
         link: 'https://focusrite.com'
       },
       {
         image: require('../assets/logos/adam-audio.svg?include'),
-        alt: 'Adam Audio',
+        title: 'Adam Audio',
         link: 'https://adam-audio.com'
       },
       {
         image: require('../assets/logos/tannoy-vector-logo.svg?include'),
-        alt: 'Tannoy',
+        title: 'Tannoy',
         link: 'https://tannoy.com'
       }
     ]

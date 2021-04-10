@@ -22,6 +22,7 @@ const brandGray = tailwindColorPalette(
 );
 
 module.exports = {
+  mode: 'jit',
   theme: {
     extend: {
       colors: {
@@ -30,7 +31,7 @@ module.exports = {
         brandGray: brandGray.brandGray
       },
       fontFamily: {
-        sans: ['roc-grotesk', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', 'roc-grotesk', ...defaultTheme.fontFamily.sans],
         head: ['aktiv-grotesk-extended', ...defaultTheme.fontFamily.sans],
         serif: ['Merriweather', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
