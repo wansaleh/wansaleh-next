@@ -9,7 +9,13 @@ import {
   LinkOverlay,
   SimpleGrid
 } from '@chakra-ui/react';
-import { formatDistanceToNowStrict, isAfter, parse, subWeeks } from 'date-fns';
+import {
+  format,
+  formatDistanceToNowStrict,
+  isAfter,
+  parse,
+  subWeeks
+} from 'date-fns';
 
 import TiltCard from './tilt-card';
 
@@ -178,11 +184,8 @@ export default function Discography({ works }) {
                 fontWeight="500"
                 lineHeight="1.2"
               >
-                Released{' '}
-                {formatDistanceToNowStrict(work.releasedate, {
-                  // roundingMethod: 'floor'
-                })}{' '}
-                ago
+                Released {format(work.releasedate, 'MMMM yyy')}
+                {/* {formatDistanceToNowStrict(work.releasedate)} ago */}
               </Box>
             </LinkOverlay>
           </LinkBox>

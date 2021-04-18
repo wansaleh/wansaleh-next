@@ -110,8 +110,8 @@ module.exports = [
       },
       {
         image: require('../assets/logos/bunnycdn-icon.svg?url'),
-        title: 'BunnyCDN',
-        link: 'https://bunnycdn.com'
+        title: 'Bunny',
+        link: 'https://bunny.net'
       },
       {
         image: require('../assets/logos/wasabi-icon.svg?url'),

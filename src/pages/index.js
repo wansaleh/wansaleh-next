@@ -206,7 +206,7 @@ export default function Home({ works }) {
         </Box>
       </Box>
 
-      <Container maxW="6xl" my="10">
+      <Container maxW="6xl" my="10" mt="40">
         <Flex
           as="ul"
           justifyContent="space-between"
