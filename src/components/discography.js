@@ -23,7 +23,7 @@ export default function Discography({ works }) {
     <Box mt="10">
       <SimpleGrid columns={[1, 1, 3]} spacing="20" spacingY="12">
         {allWorks.map((work) => (
-          <LinkBox key={work.youtube} textAlign="center">
+          <LinkBox key={work.youtube} textAlign={['left']}>
             <LinkOverlay
               href={`https://youtube.com/watch?v=${work.youtube}`}
               target="_blank"
@@ -34,7 +34,7 @@ export default function Discography({ works }) {
                 overflow="hidden"
                 borderRadius="md"
                 w="100%"
-                maxW="280px"
+                // maxW="280px"
                 // mt="2"
               >
                 <Image

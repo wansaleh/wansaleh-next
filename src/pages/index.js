@@ -211,7 +211,7 @@ function SectionTitle({ title, subtitle }) {
         as="h2"
         fontSize="5xl"
         fontWeight="700"
-        lineHeight="1"
+        lineHeight="0.9"
         letterSpacing="tight"
       >
         <Box
