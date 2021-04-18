@@ -24,7 +24,6 @@ h6 {
 
 :root {
   --brand: theme('colors.brand.500');
-  --brand-alt: theme('colors.brandAlt.500');
 
   --shadow-smallest: 0px 4px 8px rgba(0, 0, 0, 0.1);
   --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.1);
