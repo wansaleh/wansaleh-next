@@ -1,15 +1,38 @@
 import { ColorModeScript } from '@chakra-ui/react';
-import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
+import { extractCritical } from '@emotion/server';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import React from 'react';
 
-export default class Document extends NextDocument {
+function initializeColorMode() {
+  if (
+    window.localStorage['chakra-ui-color-mode'] === 'dark' ||
+    (!('chakra-ui-color-mode' in window.localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('light');
+  } else {
+    document.documentElement.classList.add('light');
+    document.documentElement.classList.remove('dark');
+  }
+}
+
+export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    return NextDocument.getInitialProps(ctx);
+    const initialProps = await Document.getInitialProps(ctx);
+    const page = await ctx.renderPage();
+    const styles = extractCritical(page.html);
+    return { ...initialProps, ...page, ...styles };
   }
 
   render() {
     return (
       <Html lang="en">
         <Head>
+          <style
+            data-emotion-css={this.props.ids.join(' ')}
+            dangerouslySetInnerHTML={{ __html: this.props.css }}
+          />
           <link
             href="https://wscdn.vercel.app/fonts/jetbrains-mono/style-cdn.css"
             rel="stylesheet"
@@ -27,6 +50,11 @@ export default class Document extends NextDocument {
         </Head>
         <body>
           <ColorModeScript initialColorMode="light" />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(${String(initializeColorMode)})()`
+            }}
+          />
           <Main />
           <NextScript />
         </body>
