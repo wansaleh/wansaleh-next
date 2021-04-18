@@ -48,7 +48,7 @@ export default function Discography({ works }) {
                   }}
                 >
                   <AspectRatio
-                    ratio={2.6}
+                    ratio={2.8}
                     w="100%"
                     // maxW="280px"
                     // mt="2"
