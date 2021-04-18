@@ -95,7 +95,7 @@ module.exports = [
   {
     name: 'Gears',
     desc:
-      'UAD Apollo Twin X Quad, Apogee Duet 2, Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast, Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Neumann TLM103, Warm Audio WA-47jr., Audio Technica AT2035, Mackie Big Knob Studio.',
+      'UAD Apollo Twin X Quad, Apogee Duet 2, Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast, Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Audio Technica AT2035, Mackie Big Knob Studio.',
     logos: [
       {
         image: require('../assets/logos/universal-audio-vector-logo.svg?url'),
@@ -106,6 +106,16 @@ module.exports = [
         image: require('../assets/logos/warm-audio.svg?url'),
         title: 'Warm Audio',
         link: 'https://warmaudio.com'
+      },
+      {
+        image: require('../assets/logos/neumann.svg?url'),
+        title: 'Neumann',
+        link: 'https://en-de.neumann.com/'
+      },
+      {
+        image: require('../assets/logos/slate.svg?url'),
+        title: 'Slate Digital',
+        link: 'https://slatedigital.com/'
       },
       {
         image: require('../assets/logos/Apogee_Electronics_-_logo.svg?url'),
@@ -136,11 +146,6 @@ module.exports = [
         image: require('../assets/logos/mackie.svg?url'),
         title: 'Mackie',
         link: 'https://mackie.com'
-      },
-      {
-        image: require('../assets/logos/neumann.svg?url'),
-        title: 'Neumann',
-        link: 'https://en-de.neumann.com/'
       },
       {
         image: require('../assets/logos/audio-technica.svg?url'),

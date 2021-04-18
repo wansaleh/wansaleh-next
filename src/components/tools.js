@@ -35,16 +35,18 @@ export default function Tools({ tools }) {
             justify="flex-start"
             align="center"
             mt="8"
+            ml="-6"
             userSelect="none"
-            bg={useColorModeValue('white', 'white')}
-            borderRadius="md"
-            p="4"
+            bg="white"
+            // bg={useColorModeValue('white', 'white')}
+            // borderRadius="md"
+            // p="4"
             display="inline-flex"
-            boxShadow="var(--shadow-large)"
+            // boxShadow="var(--shadow-large)"
           >
             {tool.logos.map((logo, j) => {
               const image = (
-                <Flex p="6" flexDir="column" align="center">
+                <Flex p="6" flexDir="column" align="center" role="group">
                   <Image
                     src={logo.image}
                     // maxW="140px"
@@ -62,6 +64,9 @@ export default function Tools({ tools }) {
                     textTransform="uppercase"
                     letterSpacing="wide"
                     color="black"
+                    // opacity="0"
+                    // transition="all 0.3s ease"
+                    // _groupHover={{ opacity: 1 }}
                   >
                     {logo.title}
                   </Text>

@@ -4,11 +4,12 @@ import {
   Container,
   Flex,
   Heading,
-  Text,
-  useColorModeValue,
-  useTheme
+  Text
+  // useColorModeValue,
+  // useTheme
 } from '@chakra-ui/react';
-import { desaturate, mix } from 'polished';
+// import { desaturate, mix } from 'polished';
+import TextLoop from 'react-text-loop';
 
 import Discography from '../components/discography';
 import Head from '../components/head';
@@ -19,30 +20,30 @@ import devTools from '../data/dev-tools';
 import musicTools from '../data/music-tools';
 import getSheetJSON from '../lib/sheet';
 
-const marqueeItems = [
-  '🇲🇾&nbsp;A proud Malaysian.',
-  '🎧&nbsp;A music producer.',
-  '👨‍💻&nbsp;A web developer.',
-  '☕️&nbsp;A coffee drinker.',
-  '🍔&nbsp;A food lover.'
-];
+// const marqueeItems = [
+//   '🇲🇾&nbsp;A proud Malaysian.',
+//   '🎧&nbsp;A music producer.',
+//   '👨‍💻&nbsp;A web developer.',
+//   '☕️&nbsp;A coffee drinker.',
+//   '🍔&nbsp;A food lover.'
+// ];
 
-const marquee = marqueeItems.map((item, i) => (
-  <Text key={i} as="span" px="3vw" dangerouslySetInnerHTML={{ __html: item }} />
-));
+// const marquee = marqueeItems.map((item, i) => (
+//   <Text key={i} as="span" px="3vw" dangerouslySetInnerHTML={{ __html: item }} />
+// ));
 
 export default function Home({ works }) {
-  const theme = useTheme();
+  // const theme = useTheme();
   // const { colorMode } = useColorMode();
 
-  const gradients = {
-    light: `linear-gradient(to bottom, ${theme.colors.gray[100]}, #fff)`,
-    dark: `linear-gradient(to bottom, ${mix(
-      0.36,
-      '#000',
-      desaturate(0.1, theme.colors.brand[900])
-    )}, #000)`
-  };
+  // const gradients = {
+  //   light: `linear-gradient(to bottom, ${theme.colors.gray[100]}, #fff)`,
+  //   dark: `linear-gradient(to bottom, ${mix(
+  //     0.36,
+  //     '#000',
+  //     desaturate(0.1, theme.colors.brand[900])
+  //   )}, #000)`
+  // };
 
   return (
     <Box>
@@ -60,10 +61,10 @@ export default function Home({ works }) {
         <Container maxW="5xl">
           <Heading
             as="h1"
-            pb="4"
-            fontSize={['5rem', '7rem', '8rem']}
+            pb="2"
+            fontSize={['3rem', '6rem', '8rem']}
             fontWeight="800"
-            lineHeight="1"
+            lineHeight="0.9"
             // letterSpacing="-0.1em"
           >
             Hello there.
@@ -73,10 +74,26 @@ export default function Home({ works }) {
               Wan Saleh.
             </Text>
           </Heading>
+
+          <Heading
+            as="h2"
+            pb="4"
+            fontSize={['2rem', '3rem', '5rem']}
+            fontWeight="400"
+            lineHeight="1"
+            // letterSpacing="-0.1em"
+          >
+            <TextLoop>
+              <span>I make music.</span>
+              <span>I code web.</span>
+              <span>I drink soda.</span>
+              <span>I eat food.</span>
+            </TextLoop>
+          </Heading>
         </Container>
       </Flex>
 
-      <Box
+      {/* <Box
         py="8"
         pos="relative"
         overflow="hidden"
@@ -107,10 +124,10 @@ export default function Home({ works }) {
           {marquee}
           {marquee}
         </Flex>
-      </Box>
+      </Box> */}
 
       <Box pos="relative">
-        <Box
+        {/* <Box
           pos="absolute"
           top="0"
           left="0"
@@ -131,7 +148,7 @@ export default function Home({ works }) {
           zIndex="-1"
           transition="all 0.25s ease"
           opacity={useColorModeValue(0, 1)}
-        />
+        /> */}
 
         <Box pt={['5rem', '10rem']}>
           <Container maxW="5xl">
@@ -199,10 +216,10 @@ function SectionTitle({ title, subtitle }) {
       >
         <Box
           as="span"
-          bg={useColorModeValue('black', 'white')}
-          color={useColorModeValue('white', 'black')}
-          px="3"
-          ml="-3"
+          // bg={useColorModeValue('black', 'white')}
+          // color={useColorModeValue('white', 'black')}
+          // px="6"
+          // ml="-6"
         >
           {title}
         </Box>

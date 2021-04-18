@@ -32,7 +32,7 @@ export default function Discography({ works }) {
               <AspectRatio
                 ratio={2.6}
                 overflow="hidden"
-                borderRadius="lg"
+                borderRadius="md"
                 w="100%"
                 maxW="280px"
                 // mt="2"
