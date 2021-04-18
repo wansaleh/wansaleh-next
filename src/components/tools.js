@@ -1,4 +1,11 @@
-import { Box, Flex, Heading, Text, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Heading,
+  Image,
+  Text,
+  useColorModeValue
+} from '@chakra-ui/react';
 import MD from 'react-markdown';
 
 export default function Tools({ tools }) {
@@ -38,12 +45,12 @@ export default function Tools({ tools }) {
             {tool.logos.map((logo, j) => {
               const image = (
                 <Flex p="6" flexDir="column" align="center">
-                  <Box
-                    dangerouslySetInnerHTML={{ __html: logo.image }}
+                  <Image
+                    src={logo.image}
                     // maxW="140px"
                     // h="10"
                     title={logo.title}
-                    css={{ svg: { height: '3rem', maxWidth: '7rem' } }}
+                    css={{ height: '3rem', maxWidth: '7rem' }}
                   />
 
                   <Text
