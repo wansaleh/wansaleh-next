@@ -58,13 +58,29 @@ export default function Home({ works }) {
         flexDir="column"
         justify="center"
         align="center"
+        pos="relative"
+        overflow="hidden"
         borderBottom="1px solid #fff"
         borderColor={useColorModeValue('gray.200', 'gray.800')}
         bgGradient={useColorModeValue(
           'linear(to-t, gray.100, transparent)',
           'linear(to-t, gray.900, transparent)'
         )}
+        zIndex="0"
       >
+        <Box
+          bg={`url(${require('../assets/images/hand.png')}) no-repeat center/cover`}
+          pos="absolute"
+          w={['500px', '700px', '800px', '1000px']}
+          h={['500px', '700px', '800px', '1000px']}
+          left={['10%', '10%', '20%', '50%']}
+          bottom="-40%"
+          // inset="0"
+          // bottom="-100%"
+          // right="-50%"
+          zIndex="-1"
+        />
+
         <Container maxW="6xl">
           <Heading
             as="h1"

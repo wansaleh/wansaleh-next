@@ -157,7 +157,7 @@ export default function Discography({ works }) {
                   )} */}
                 {isAfter(work.releasedate, subWeeks(new Date(), 8)) && (
                   <Badge
-                    colorScheme="green"
+                    colorScheme="yellow"
                     // className="ring-1 ring-black ring-opacity-30"
                     fontSize="0.65em"
                     mt="-0.1em"

@@ -1,13 +1,14 @@
-import React from 'react';
-import {
-  Link,
-  Box,
-  IconButton,
-  useColorMode,
-  Flex,
-  LightMode
-} from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import {
+  Box,
+  Flex,
+  IconButton,
+  LightMode,
+  Link,
+  useColorMode
+} from '@chakra-ui/react';
+import React from 'react';
+
 import SocialLinks from './social-links';
 
 const Nav = () => {
@@ -17,6 +18,7 @@ const Nav = () => {
     <Flex
       as="nav"
       pos="absolute"
+      zIndex="100"
       justifyContent="space-between"
       align="center"
       w="full"
