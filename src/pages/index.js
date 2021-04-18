@@ -254,13 +254,13 @@ const Tools = ({ tools }) => (
           fontWeight="500"
           letterSpacing="tighter"
           pos="relative"
-          color={useColorModeValue('gray.600', 'brand.200')}
+          color={useColorModeValue('gray.600', 'brand.400')}
         >
           {tool.name}
         </Heading>
 
-        <Box maxW="2xl" fontSize="xl" lineHeight="1.35">
-          <MD source={tool.desc} />
+        <Box maxW="2xl" fontSize="md" lineHeight="1.5">
+          <MD>{tool.desc}</MD>
         </Box>
 
         <Flex
@@ -269,7 +269,7 @@ const Tools = ({ tools }) => (
           align="center"
           mt="8"
           userSelect="none"
-          bg={useColorModeValue('white', 'gray.100')}
+          bg={useColorModeValue('white', 'white')}
           borderRadius="md"
           p="4"
           display="inline-flex"
@@ -286,9 +286,9 @@ const Tools = ({ tools }) => (
                   css={{ svg: { height: '3rem', maxWidth: '7rem' } }}
                 />
 
-                {/* <Text
+                <Text
                   as="span"
-                  mt="6"
+                  mt="3"
                   fontFamily="mono"
                   fontSize="2xs"
                   fontWeight="800"
@@ -297,7 +297,7 @@ const Tools = ({ tools }) => (
                   color="black"
                 >
                   {logo.title}
-                </Text> */}
+                </Text>
               </Flex>
             );
 

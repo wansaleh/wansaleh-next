@@ -20,6 +20,10 @@ export default class Document extends NextDocument {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://api.fontshare.com/css?f[]=supreme@1,2&f[]=general-sans@1&f[]=satoshi@1&f[]=clash-grotesk&display=swap"
+            rel="stylesheet"
+          ></link>
         </Head>
         <body>
           <ColorModeScript initialColorMode="light" />
