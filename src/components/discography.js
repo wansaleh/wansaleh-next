@@ -9,7 +9,7 @@ import {
   LinkOverlay,
   SimpleGrid
 } from '@chakra-ui/react';
-import { addWeeks, isAfter, parse, subWeeks } from 'date-fns';
+import { isAfter, parse, subWeeks } from 'date-fns';
 
 export default function Discography({ works }) {
   const allWorks = works
