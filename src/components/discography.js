@@ -9,13 +9,7 @@ import {
   LinkOverlay,
   SimpleGrid
 } from '@chakra-ui/react';
-import {
-  formatDistanceToNow,
-  formatDistanceToNowStrict,
-  isAfter,
-  parse,
-  subWeeks
-} from 'date-fns';
+import { formatDistanceToNowStrict, isAfter, parse, subWeeks } from 'date-fns';
 
 import TiltCard from './tilt-card';
 
@@ -79,16 +73,18 @@ export default function Discography({ works }) {
 
                   <Box
                     pos="absolute"
-                    top="0"
-                    left="0"
-                    px="3"
+                    right="0"
+                    bottom="0"
+                    px="1"
                     py="2"
                     lineHeight="1"
                   >
                     {work.produced === 'y' && (
                       <Badge
+                        bg="rgba(0,0,0,0.7)"
+                        color="white"
                         fontSize="0.65rem"
-                        p="0.1em 0.2em"
+                        p="0.2em 0.3em"
                         letterSpacing="tight"
                         mr="1"
                       >
@@ -97,8 +93,10 @@ export default function Discography({ works }) {
                     )}
                     {work.composer.includes('Wan Saleh') && (
                       <Badge
+                        bg="rgba(0,0,0,0.7)"
+                        color="white"
                         fontSize="0.65rem"
-                        p="0.1em 0.2em"
+                        p="0.2em 0.3em"
                         letterSpacing="tight"
                         mr="1"
                       >
@@ -107,8 +105,10 @@ export default function Discography({ works }) {
                     )}
                     {work.music === 'y' && (
                       <Badge
+                        bg="rgba(0,0,0,0.7)"
+                        color="white"
                         fontSize="0.65rem"
-                        p="0.1em 0.2em"
+                        p="0.2em 0.3em"
                         letterSpacing="tight"
                         mr="1"
                       >
@@ -117,8 +117,10 @@ export default function Discography({ works }) {
                     )}
                     {work.mixed === 'y' && (
                       <Badge
+                        bg="rgba(0,0,0,0.7)"
+                        color="white"
                         fontSize="0.65rem"
-                        p="0.1em 0.2em"
+                        p="0.2em 0.3em"
                         letterSpacing="tight"
                         mr="1"
                       >
@@ -127,8 +129,10 @@ export default function Discography({ works }) {
                     )}
                     {work.mastered === 'y' && (
                       <Badge
+                        bg="rgba(0,0,0,0.7)"
+                        color="white"
                         fontSize="0.65rem"
-                        p="0.1em 0.2em"
+                        p="0.2em 0.3em"
                         letterSpacing="tight"
                         mr="1"
                       >
