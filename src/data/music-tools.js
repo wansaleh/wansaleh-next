@@ -3,7 +3,7 @@ module.exports = [
   {
     name: 'Workstation',
     desc:
-      '**i9-9900K 64GB Hackintosh** (December 2019 build) & [MacBook Pro](https://www.apple.com/macbook-pro/) 15&quot; 2018 (homestudio) & iMac Retina 2015 (studio)',
+      'i9-9900K 64GB Hackintosh (December 2019 build) & [MacBook Pro](https://www.apple.com/macbook-pro/) 15&quot; 2018 (homestudio) & iMac Retina 2015 (studio)',
     logos: [
       {
         image: require('../assets/logos/apple_logo_black.svg?url'),
@@ -39,63 +39,9 @@ module.exports = [
     ]
   },
   {
-    name: 'Go-to software instruments',
-    desc:
-      'Native Instruments Kontakt 6, Spectrasonics Omnisphere 2, Toontrack Superior Drummer 3, Xfer Serum, LennarDigital Sylenth1, Synapse Audio Dune 3, Logic&apos;s Alchemy',
-    logos: [
-      {
-        image: require('../assets/logos/ni-icon.svg?url'),
-        title: 'Native Instruments',
-        link: 'https://native-instruments.com'
-      },
-      {
-        image: require('../assets/logos/spectrasonics.svg?url'),
-        title: 'Spectrasonics',
-        link: 'https://www.spectrasonics.net'
-      },
-      {
-        image: require('../assets/logos/toontrack-logo.svg?url'),
-        title: 'Toontrack',
-        link: 'https://toontrack.com'
-      }
-    ]
-  },
-  {
-    name: 'Go-to mix plugins',
-    desc:
-      'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), ValhallaDSP Reverbs/Delays, Oeksound Soothe 2, SoundToys (Echoboy, Radiator, Decapitator, Microshift), UAD (LA-2A, 1176, Fairchild 660/670, Capitol Chambers, EMT 140), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ)',
-    logos: [
-      {
-        image: require('../assets/logos/fabfilter-vector-logo.svg?url'),
-        title: 'Fabfilter',
-        link: 'https://fabfilter.com'
-      },
-      {
-        image: require('../assets/logos/valhalla.svg?url'),
-        title: 'ValhallaDSP',
-        link: 'https://valhalladsp.com'
-      },
-      {
-        image: require('../assets/logos/universal-audio-vector-logo.svg?url'),
-        title: 'Universal Audio',
-        link: 'https://uaudio.com'
-      },
-      {
-        image: require('../assets/logos/waves-audio-logo-vector.svg?url'),
-        title: 'Waves',
-        link: 'https://waves.com'
-      },
-      {
-        image: require('../assets/logos/plugin-alliance-vector-logo.svg?url'),
-        title: 'Plugin Alliance',
-        link: 'https://plugin-alliance.com'
-      }
-    ]
-  },
-  {
     name: 'Gears',
     desc:
-      'UAD Apollo Twin X Quad, Apogee Duet 2, Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast, Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Audio Technica AT2035, Mackie Big Knob Studio.',
+      'Interfaces: UAD Apollo Twin X Quad, Apogee Duet 2, Focusrit Clarett 8Pre USB. Preamps: Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast. Mics: Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Audio Technica AT2035, Mackie Big Knob Studio.',
     logos: [
       {
         image: require('../assets/logos/universal-audio-vector-logo.svg?url'),
@@ -183,6 +129,70 @@ module.exports = [
         image: require('../assets/logos/tannoy-vector-logo.svg?url'),
         title: 'Tannoy',
         link: 'https://tannoy.com'
+      }
+    ]
+  },
+  {
+    name: 'Go-to software instruments',
+    desc:
+      'Native Instruments Kontakt 6, Spectrasonics Omnisphere 2, Toontrack Superior Drummer 3, Xfer Serum, LennarDigital Sylenth1, Synapse Audio Dune 3, Logic&apos;s Alchemy',
+    logos: [
+      {
+        image: require('../assets/logos/ni-icon.svg?url'),
+        title: 'Native Instruments',
+        link: 'https://native-instruments.com'
+      },
+      {
+        image: require('../assets/logos/spectrasonics.svg?url'),
+        title: 'Spectrasonics',
+        link: 'https://www.spectrasonics.net'
+      },
+      {
+        image: require('../assets/logos/toontrack-logo.svg?url'),
+        title: 'Toontrack',
+        link: 'https://toontrack.com'
+      }
+    ]
+  },
+  {
+    name: 'Go-to mix plugins',
+    desc:
+      'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), ValhallaDSP Reverbs/Delays, Oeksound Soothe 2, SoundToys (Echoboy, Decapitator, Devil-Loc, Radiator, Microshift), UAD (Avalon VT-737sp, Neve 1073, LA-2A, 1176, Fairchild 660/670, Distressor, Capitol Chambers, Lexicon 480L, EMT 140), Slate Digital (VMR, VMC), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ)',
+    logos: [
+      {
+        image: require('../assets/logos/fabfilter-vector-logo.svg?url'),
+        title: 'Fabfilter',
+        link: 'https://fabfilter.com'
+      },
+      {
+        image: require('../assets/logos/valhalla.svg?url'),
+        title: 'ValhallaDSP',
+        link: 'https://valhalladsp.com'
+      },
+      {
+        image: require('../assets/logos/universal-audio-vector-logo.svg?url'),
+        title: 'Universal Audio',
+        link: 'https://uaudio.com'
+      },
+      {
+        image: require('../assets/logos/slate.svg?url'),
+        title: 'Slate Digital',
+        link: 'https://slatedigital.com/'
+      },
+      {
+        image: require('../assets/logos/waves-audio-logo-vector.svg?url'),
+        title: 'Waves',
+        link: 'https://waves.com'
+      },
+      {
+        image: require('../assets/logos/soundtoys.svg?url'),
+        title: 'SoundToys',
+        link: 'https://soundtoys.com/'
+      },
+      {
+        image: require('../assets/logos/plugin-alliance-vector-logo.svg?url'),
+        title: 'Plugin Alliance',
+        link: 'https://plugin-alliance.com'
       }
     ]
   }

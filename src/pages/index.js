@@ -154,8 +154,8 @@ export default function Home({ works }) {
         <Box pt={['5rem', '10rem']}>
           <Container maxW="5xl">
             <SectionTitle
-              title="Selected Discography"
-              subtitle="Works I produced, mixed or mastered"
+              title="Selected Discography."
+              subtitle="Works I produced, mixed or mastered."
             />
             <Discography works={works} />
           </Container>
@@ -164,8 +164,8 @@ export default function Home({ works }) {
         <Box pt={['5rem', '10rem']}>
           <Container maxW="5xl">
             <SectionTitle
-              title="Music Tools"
-              subtitle="Music things I use daily"
+              title="Music Tools."
+              subtitle="Music things I use daily."
             />
             <Tools tools={musicTools} />
           </Container>
@@ -174,8 +174,8 @@ export default function Home({ works }) {
         <Box pt={['5rem', '10rem']}>
           <Container maxW="5xl">
             <SectionTitle
-              title="Development Tools"
-              subtitle="DevTools I use daily"
+              title="Development Tools."
+              subtitle="DevTools I use when I build things."
             />
             <Tools tools={devTools} />
           </Container>
