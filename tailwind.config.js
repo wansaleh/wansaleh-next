@@ -2,7 +2,7 @@ const tailwindColorPalette = require('@ky-is/tailwind-color-palette');
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
-const brand = tailwindColorPalette('#70a9bc', {
+const brand = tailwindColorPalette('#36a0c0', {
   name: 'brand',
   greyscale: false,
   ui: false

@@ -4,7 +4,6 @@ import {
   Flex,
   IconButton,
   LightMode,
-  Link,
   useColorMode
 } from '@chakra-ui/react';
 import React from 'react';
