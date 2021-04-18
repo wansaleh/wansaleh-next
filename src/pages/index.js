@@ -74,11 +74,12 @@ export default function Home({ works }) {
           w={['500px', '700px', '800px', '1000px']}
           h={['500px', '700px', '800px', '1000px']}
           left={['10%', '10%', '20%', '50%']}
-          bottom="-40%"
+          bottom="-50%"
           // inset="0"
           // bottom="-100%"
           // right="-50%"
           zIndex="-1"
+          transform="scaleX(-1) rotate(-10deg)"
         />
 
         <Container maxW="6xl">
