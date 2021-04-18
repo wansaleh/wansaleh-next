@@ -4,7 +4,8 @@ import {
   Container,
   Flex,
   Heading,
-  Text
+  Text,
+  useColorModeValue
   // useColorModeValue,
   // useTheme
 } from '@chakra-ui/react';
@@ -57,8 +58,14 @@ export default function Home({ works }) {
         flexDir="column"
         justify="center"
         align="center"
+        borderBottom="1px solid #fff"
+        borderColor={useColorModeValue('gray.200', 'gray.800')}
+        bgGradient={useColorModeValue(
+          'linear(to-t, gray.100, transparent)',
+          'linear(to-t, gray.900, transparent)'
+        )}
       >
-        <Container maxW="5xl">
+        <Container maxW="6xl">
           <Heading
             as="h1"
             pb="2"
@@ -88,7 +95,8 @@ export default function Home({ works }) {
               <span>I record sounds.</span>
               <span>I code web.</span>
               <span>I drink soda.</span>
-              <span>I eat food.</span>
+              <span>I love mics.</span>
+              <span>I love preamps.</span>
             </TextLoop>
           </Heading>
         </Container>
@@ -152,17 +160,17 @@ export default function Home({ works }) {
         /> */}
 
         <Box pt={['5rem', '10rem']}>
-          <Container maxW="5xl">
+          <Container maxW="6xl">
             <SectionTitle
               title="Selected Discography."
-              subtitle="Works I produced, mixed or mastered."
+              subtitle="Works I produced (PR), composed/written (CO), arranged (AR), mixed (MX) or mastered (MS)."
             />
             <Discography works={works} />
           </Container>
         </Box>
 
         <Box pt={['5rem', '10rem']}>
-          <Container maxW="5xl">
+          <Container maxW="6xl">
             <SectionTitle
               title="Music Tools."
               subtitle="Music things I use daily."
@@ -172,7 +180,7 @@ export default function Home({ works }) {
         </Box>
 
         <Box pt={['5rem', '10rem']}>
-          <Container maxW="5xl">
+          <Container maxW="6xl">
             <SectionTitle
               title="Development Tools."
               subtitle="DevTools I use when I build things."
@@ -182,7 +190,7 @@ export default function Home({ works }) {
         </Box>
       </Box>
 
-      <Container maxW="5xl" my="10">
+      <Container maxW="6xl" my="10">
         <Flex
           as="ul"
           justifyContent="space-between"
@@ -232,7 +240,7 @@ function SectionTitle({ title, subtitle }) {
         fontFamily="body"
         fontSize="sm"
         fontWeight="600"
-        letterSpacing="0.2em"
+        letterSpacing="0.15em"
         textTransform="uppercase"
         // opacity="0.6"
         color="brand.500"

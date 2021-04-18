@@ -19,14 +19,14 @@ export default function Tools({ tools }) {
             mb="3"
             fontSize="3xl"
             fontWeight="500"
-            letterSpacing="tight"
+            // letterSpacing="tight"
             pos="relative"
             color={useColorModeValue('gray.600', 'gray.400')}
           >
             {tool.name}
           </Heading>
 
-          <Box maxW="2xl" fontSize="md" lineHeight="1.5">
+          <Box maxW="2xl" fontSize="md" fontWeight="400" lineHeight="1.5">
             <MD>{tool.desc}</MD>
           </Box>
 
@@ -37,12 +37,13 @@ export default function Tools({ tools }) {
             mt="8"
             ml="-6"
             userSelect="none"
-            bg="white"
+            // bg="white"
             // bg={useColorModeValue('white', 'white')}
             // borderRadius="md"
             // p="4"
             display="inline-flex"
             // boxShadow="var(--shadow-large)"
+            // color={useColorModeValue('black', 'white')}
           >
             {tool.logos.map((logo, j) => {
               const image = (
@@ -52,7 +53,8 @@ export default function Tools({ tools }) {
                     // maxW="140px"
                     // h="10"
                     title={logo.title}
-                    css={{ height: '3rem', maxWidth: '7rem' }}
+                    sx={{ height: '3rem', maxWidth: '7rem' }}
+                    filter={useColorModeValue('invert(0)', 'invert(1)')}
                   />
 
                   <Text
@@ -63,7 +65,6 @@ export default function Tools({ tools }) {
                     fontWeight="800"
                     textTransform="uppercase"
                     letterSpacing="wide"
-                    color="black"
                     // opacity="0"
                     // transition="all 0.3s ease"
                     // _groupHover={{ opacity: 1 }}

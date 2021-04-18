@@ -143,7 +143,7 @@ module.exports = [
         link: 'https://native-instruments.com'
       },
       {
-        image: require('../assets/logos/spectrasonics.svg?url'),
+        image: require('../assets/logos/spectrasonics2.svg?url'),
         title: 'Spectrasonics',
         link: 'https://www.spectrasonics.net'
       },
@@ -157,17 +157,12 @@ module.exports = [
   {
     name: 'Go-to mix plugins',
     desc:
-      'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), ValhallaDSP Reverbs/Delays, Oeksound Soothe 2, SoundToys (Echoboy, Decapitator, Devil-Loc, Radiator, Microshift), UAD (Avalon VT-737sp, Neve 1073, LA-2A, 1176, Fairchild 660/670, Distressor, Capitol Chambers, Lexicon 480L, EMT 140), Slate Digital (VMR, VMC), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ)',
+      'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), UAD (Avalon VT-737sp, Neve 1073, LA-2A, 1176, Fairchild 660/670, Distressor, Capitol Chambers, Lexicon 480L, EMT 140), Slate Digital (VMR, VMC), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), SoundToys (Echoboy, Decapitator, Devil-Loc, Radiator, Microshift), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ), ValhallaDSP Reverbs/Delays, Oeksound Soothe 2',
     logos: [
       {
         image: require('../assets/logos/fabfilter-vector-logo.svg?url'),
         title: 'Fabfilter',
         link: 'https://fabfilter.com'
-      },
-      {
-        image: require('../assets/logos/valhalla.svg?url'),
-        title: 'ValhallaDSP',
-        link: 'https://valhalladsp.com'
       },
       {
         image: require('../assets/logos/universal-audio-vector-logo.svg?url'),
@@ -193,6 +188,16 @@ module.exports = [
         image: require('../assets/logos/plugin-alliance-vector-logo.svg?url'),
         title: 'Plugin Alliance',
         link: 'https://plugin-alliance.com'
+      },
+      {
+        image: require('../assets/logos/valhalla.svg?url'),
+        title: 'ValhallaDSP',
+        link: 'https://valhalladsp.com'
+      },
+      {
+        image: require('../assets/logos/oeksound.svg?url'),
+        title: 'Oeksound',
+        link: 'https://oeksound.com'
       }
     ]
   }

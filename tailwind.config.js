@@ -1,6 +1,6 @@
 const tailwindColorPalette = require('@ky-is/tailwind-color-palette');
 const defaultTheme = require('tailwindcss/defaultTheme');
-const { lighten, desaturate } = require('polished');
+const colors = require('tailwindcss/colors');
 
 const brand = tailwindColorPalette('#2cb67d', {
   name: 'brand',
@@ -12,14 +12,6 @@ const brandAlt = tailwindColorPalette('#078080', {
   greyscale: false,
   ui: false
 });
-const brandGray = tailwindColorPalette(
-  lighten(0.15, desaturate(0, '#f45d48')),
-  {
-    name: 'brandGray',
-    greyscale: true,
-    ui: false
-  }
-);
 
 module.exports = {
   mode: 'jit',
@@ -30,7 +22,7 @@ module.exports = {
       colors: {
         ...brand,
         ...brandAlt,
-        brandGray: brandGray.brandGray
+        gray: colors.trueGray
       },
       fontFamily: {
         sans: ['General Sans', 'roc-grotesk', ...defaultTheme.fontFamily.sans],
