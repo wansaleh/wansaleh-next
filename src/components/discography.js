@@ -9,7 +9,7 @@ import {
   LinkOverlay,
   SimpleGrid
 } from '@chakra-ui/react';
-import { isSameMonth, parse } from 'date-fns';
+import { addWeeks, isAfter, parse, subWeeks } from 'date-fns';
 
 export default function Discography({ works }) {
   const allWorks = works
@@ -64,7 +64,7 @@ export default function Discography({ works }) {
                       {work.genre}
                     </Badge>
                   )} */}
-                {isSameMonth(new Date(), work.releasedate) && (
+                {isAfter(work.releasedate, subWeeks(new Date(), 8)) && (
                   <Badge
                     colorScheme="green"
                     // className="ring-1 ring-black ring-opacity-30"
