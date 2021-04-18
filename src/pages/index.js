@@ -1,25 +1,23 @@
 /* eslint-disable no-sparse-arrays */
 import {
   Box,
-  Flex,
   Container,
+  Flex,
   Heading,
   Text,
-  Image,
-  // useTheme,
-  // Button,
   useColorModeValue,
   useTheme
-  // useColorMode
 } from '@chakra-ui/react';
-import MD from 'react-markdown';
-import { rgba, desaturate, mix } from 'polished';
+import { desaturate, mix } from 'polished';
+
+import Discography from '../components/discography';
 import Head from '../components/head';
 import Nav from '../components/nav';
-
-import musicTools from '../data/music-tools';
-import devTools from '../data/dev-tools';
 import SocialLinks from '../components/social-links';
+import Tools from '../components/tools';
+import devTools from '../data/dev-tools';
+import musicTools from '../data/music-tools';
+import getSheetJSON from '../lib/sheet';
 
 const marqueeItems = [
   '🇲🇾&nbsp;A proud Malaysian.',
@@ -33,14 +31,14 @@ const marquee = marqueeItems.map((item, i) => (
   <Text key={i} as="span" px="3vw" dangerouslySetInnerHTML={{ __html: item }} />
 ));
 
-const Home = () => {
+export default function Home({ works }) {
   const theme = useTheme();
   // const { colorMode } = useColorMode();
 
   const gradients = {
-    light: `linear-gradient(to bottom, ${theme.colors.gray[200]}, #fff)`,
+    light: `linear-gradient(to bottom, ${theme.colors.gray[100]}, #fff)`,
     dark: `linear-gradient(to bottom, ${mix(
-      0.5,
+      0.36,
       '#000',
       desaturate(0.1, theme.colors.brand[900])
     )}, #000)`
@@ -66,7 +64,7 @@ const Home = () => {
             fontSize={['5rem', '7rem', '8rem']}
             fontWeight="800"
             lineHeight="1"
-            letterSpacing="-0.1em"
+            // letterSpacing="-0.1em"
           >
             Hello there.
             <br />
@@ -135,89 +133,38 @@ const Home = () => {
           opacity={useColorModeValue(0, 1)}
         />
 
-        <Box py={['5rem', '10rem']}>
+        <Box pt={['5rem', '10rem']}>
           <Container maxW="5xl">
-            <Heading
-              as="h2"
-              fontSize="5xl"
-              fontWeight="700"
-              lineHeight="1"
-              letterSpacing="tighter"
-            >
-              Music Tools{' '}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                css={{ height: '1em', display: 'inline-block' }}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
-                />
-              </svg>
-            </Heading>
+            <SectionTitle
+              title="Selected Discography"
+              subtitle="Works I produced, mixed or mastered"
+            />
+            <Discography works={works} />
+          </Container>
+        </Box>
 
-            <Heading
-              as="h3"
-              fontFamily="body"
-              fontSize="sm"
-              fontWeight="600"
-              letterSpacing="0.2em"
-              textTransform="uppercase"
-            >
-              Music things I use daily
-            </Heading>
-
+        <Box pt={['5rem', '10rem']}>
+          <Container maxW="5xl">
+            <SectionTitle
+              title="Music Tools"
+              subtitle="Music things I use daily"
+            />
             <Tools tools={musicTools} />
           </Container>
         </Box>
 
-        <Box py={['5rem', '10rem']}>
+        <Box pt={['5rem', '10rem']}>
           <Container maxW="5xl">
-            <Heading
-              as="h2"
-              fontSize="5xl"
-              fontWeight="700"
-              lineHeight="1"
-              letterSpacing="tighter"
-            >
-              Development Tools{' '}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                css={{ height: '1em', display: 'inline-block' }}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-            </Heading>
-            <Heading
-              as="h3"
-              fontFamily="body"
-              fontSize="sm"
-              fontWeight="600"
-              letterSpacing="0.2em"
-              textTransform="uppercase"
-            >
-              Devtools I use daily
-            </Heading>
-
+            <SectionTitle
+              title="Development Tools"
+              subtitle="DevTools I use daily"
+            />
             <Tools tools={devTools} />
           </Container>
         </Box>
       </Box>
 
-      <Container maxW="5xl" mb="10">
+      <Container maxW="5xl" my="10">
         <Flex
           as="ul"
           justifyContent="space-between"
@@ -238,84 +185,54 @@ const Home = () => {
       </Container>
     </Box>
   );
-};
+}
 
-export default Home;
-
-const Tools = ({ tools }) => (
-  <Flex as="ul" mt="4" flexWrap="wrap" justify="center" mx="-1rem">
-    {tools.map((tool, i) => (
-      <Box as="li" key={i} p="4" w="full">
-        <Heading
-          as="h4"
-          mt="8"
-          mb="3"
-          fontSize="3xl"
-          fontWeight="500"
-          letterSpacing="tighter"
-          pos="relative"
-          color={useColorModeValue('gray.600', 'brand.400')}
+function SectionTitle({ title, subtitle }) {
+  return (
+    <>
+      <Heading
+        as="h2"
+        fontSize="5xl"
+        fontWeight="700"
+        lineHeight="1"
+        letterSpacing="tight"
+      >
+        <Box
+          as="span"
+          bg={useColorModeValue('black', 'white')}
+          color={useColorModeValue('white', 'black')}
+          px="3"
+          ml="-3"
         >
-          {tool.name}
-        </Heading>
-
-        <Box maxW="2xl" fontSize="md" lineHeight="1.5">
-          <MD>{tool.desc}</MD>
+          {title}
         </Box>
+      </Heading>
 
-        <Flex
-          wrap="wrap"
-          justify="flex-start"
-          align="center"
-          mt="8"
-          userSelect="none"
-          bg={useColorModeValue('white', 'white')}
-          borderRadius="md"
-          p="4"
-          display="inline-flex"
-          boxShadow="var(--shadow-large)"
-        >
-          {tool.logos.map((logo, j) => {
-            const image = (
-              <Flex p="6" flexDir="column" align="center">
-                <Box
-                  dangerouslySetInnerHTML={{ __html: logo.image }}
-                  // maxW="140px"
-                  // h="10"
-                  title={logo.title}
-                  css={{ svg: { height: '3rem', maxWidth: '7rem' } }}
-                />
+      <Heading
+        as="h3"
+        mt="3"
+        fontFamily="body"
+        fontSize="sm"
+        fontWeight="600"
+        letterSpacing="0.2em"
+        textTransform="uppercase"
+        // opacity="0.6"
+        color="brand.500"
+      >
+        {subtitle}
+      </Heading>
+    </>
+  );
+}
 
-                <Text
-                  as="span"
-                  mt="3"
-                  fontFamily="mono"
-                  fontSize="2xs"
-                  fontWeight="800"
-                  textTransform="uppercase"
-                  letterSpacing="wide"
-                  color="black"
-                >
-                  {logo.title}
-                </Text>
-              </Flex>
-            );
+export async function getStaticProps() {
+  const works = await getSheetJSON({
+    id: '1fNtaqKnsDYEoi9NG8-phPzFH_1Fwbeh0j8SqivlOkjY'
+  });
 
-            return logo.link ? (
-              <a
-                key={j}
-                href={logo.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {image}
-              </a>
-            ) : (
-              image
-            );
-          })}
-        </Flex>
-      </Box>
-    ))}
-  </Flex>
-);
+  return {
+    props: {
+      works: works.rows
+    }
+  };
+}

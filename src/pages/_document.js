@@ -1,5 +1,5 @@
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
+import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
 
 export default class Document extends NextDocument {
   static async getInitialProps(ctx) {
@@ -23,7 +23,7 @@ export default class Document extends NextDocument {
           <link
             href="https://api.fontshare.com/css?f[]=supreme@1,2&f[]=general-sans@1&f[]=satoshi@1&f[]=clash-grotesk&display=swap"
             rel="stylesheet"
-          ></link>
+          />
         </Head>
         <body>
           <ColorModeScript initialColorMode="light" />

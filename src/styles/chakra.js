@@ -1,5 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
 import resolveConfig from 'tailwindcss/resolveConfig';
+
 import tailwindConfig from '../../tailwind.config';
 
 const tailwind = resolveConfig(tailwindConfig).theme;
@@ -13,11 +14,11 @@ export default extendTheme({
         fontWeight: 300,
         // letterSpacing: '-0.0125em',
         color: props.colorMode === 'dark' ? 'white' : 'gray.900'
-      },
-
-      a: {
-        color: props.colorMode === 'dark' ? 'brand.300' : 'brand.500'
       }
+
+      // a: {
+      //   color: props.colorMode === 'dark' ? 'brand.300' : 'brand.500'
+      // }
     })
   },
 

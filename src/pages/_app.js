@@ -1,11 +1,12 @@
+import 'tailwindcss/tailwind.css';
+import '../styles/main.css';
+
 import { ChakraProvider } from '@chakra-ui/react';
 
 // import { useEffect } from 'react';
 // import SmoothScroll from '../lib/smoothscroll';
 // import Butter from '../lib/butter';
-
 import chakra from '../styles/chakra';
-import '../styles/main.css';
 // import '../styles/font-inter.css';
 // import '../styles/font-jetbrains.css';
 
