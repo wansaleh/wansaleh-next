@@ -163,7 +163,7 @@ export default function Home({ works }) {
           <Container maxW="6xl">
             <SectionTitle
               title="Selected Discography."
-              subtitle="Works I produced (PR), composed/written (CO), arranged (AR), mixed (MX) or mastered (MS)."
+              subtitle="Works I produced (PRO), composed/written (COM), arranged (ARR), mixed (MIX) or mastered (MAS)."
             />
             <Discography works={works} />
           </Container>
@@ -240,7 +240,7 @@ function SectionTitle({ title, subtitle }) {
         fontFamily="body"
         fontSize="sm"
         fontWeight="600"
-        letterSpacing="0.15em"
+        letterSpacing="0.1em"
         textTransform="uppercase"
         // opacity="0.6"
         color="brand.500"

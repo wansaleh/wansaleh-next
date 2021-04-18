@@ -17,6 +17,8 @@ import {
   subWeeks
 } from 'date-fns';
 
+import TiltCard from './tilt-card';
+
 export default function Discography({ works }) {
   const allWorks = works
     .map((work) => ({
@@ -27,7 +29,7 @@ export default function Discography({ works }) {
 
   return (
     <Box mt="10">
-      <SimpleGrid columns={[1, 1, 3]} spacing="20" spacingY="12">
+      <SimpleGrid columns={[1, 1, 3]} spacing="10" spacingY="16">
         {allWorks.map((work) => (
           <LinkBox key={work.youtube} textAlign={['left']}>
             <LinkOverlay
@@ -35,36 +37,52 @@ export default function Discography({ works }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <AspectRatio
-                ratio={2.6}
-                overflow="hidden"
-                borderRadius="md"
-                w="100%"
-                // maxW="280px"
-                // mt="2"
-              >
-                <Box>
-                  <Image
-                    srcSet={`https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg 640w`}
-                    sizes="(max-width: 500px) 480px, 640px"
-                    src={`https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg`}
-                    alt={work.title}
-                    position="relative"
-                    zIndex="0"
-                    w="full"
-                    h="full"
-                    objectFit="cover"
-                    objectPosition="50% 35%"
-                    transform={work.inteam === 'y' && 'scale(1.1)'}
-                    pointerEvents="none"
-                  />
+              <Box>
+                <TiltCard
+                  css={{
+                    '.play': {
+                      opacity: 0,
+                      // transform: 'scale(1)',
+                      transition: 'all 0.2s ease'
+                    },
+                    ':hover': {
+                      '.play': {
+                        // transform: 'scale(1.2)',
+                        opacity: 1
+                      }
+                    }
+                  }}
+                >
+                  <AspectRatio
+                    ratio={2.6}
+                    w="100%"
+                    // maxW="280px"
+                    // mt="2"
+                  >
+                    <Box borderRadius="md">
+                      <Image
+                        srcSet={`https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg 640w`}
+                        sizes="(max-width: 500px) 480px, 640px"
+                        src={`https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg`}
+                        alt={work.title}
+                        position="relative"
+                        zIndex="0"
+                        w="full"
+                        h="full"
+                        objectFit="cover"
+                        objectPosition="50% 35%"
+                        transform={work.inteam === 'y' && 'scale(1.1)'}
+                        pointerEvents="none"
+                      />
+                    </Box>
+                  </AspectRatio>
 
                   <Box
                     pos="absolute"
                     top="0"
                     left="0"
-                    px="2"
-                    py="1"
+                    px="3"
+                    py="2"
                     lineHeight="1"
                   >
                     {work.produced === 'y' && (
@@ -74,7 +92,7 @@ export default function Discography({ works }) {
                         letterSpacing="tight"
                         mr="1"
                       >
-                        PR
+                        PRO
                       </Badge>
                     )}
                     {work.composer.includes('Wan Saleh') && (
@@ -84,7 +102,7 @@ export default function Discography({ works }) {
                         letterSpacing="tight"
                         mr="1"
                       >
-                        CO
+                        COM
                       </Badge>
                     )}
                     {work.music === 'y' && (
@@ -94,7 +112,7 @@ export default function Discography({ works }) {
                         letterSpacing="tight"
                         mr="1"
                       >
-                        AR
+                        ARR
                       </Badge>
                     )}
                     {work.mixed === 'y' && (
@@ -104,7 +122,7 @@ export default function Discography({ works }) {
                         letterSpacing="tight"
                         mr="1"
                       >
-                        MX
+                        MIX
                       </Badge>
                     )}
                     {work.mastered === 'y' && (
@@ -114,12 +132,13 @@ export default function Discography({ works }) {
                         letterSpacing="tight"
                         mr="1"
                       >
-                        MS
+                        MAS
                       </Badge>
                     )}
                   </Box>
-                </Box>
-              </AspectRatio>
+                </TiltCard>
+              </Box>
+
               <Heading as="h3" fontSize="xl" fontFamily="serif" mt="3">
                 <span className="mr-2">{work.song}</span>
 
@@ -149,10 +168,15 @@ export default function Discography({ works }) {
                 by {work.artist}
               </Box>
 
-              <Box fontSize="sm" opacity="0.7" fontWeight="500">
+              <Box
+                fontSize="xs"
+                opacity="0.7"
+                fontWeight="500"
+                lineHeight="1.2"
+              >
                 Released{' '}
                 {formatDistanceToNowStrict(work.releasedate, {
-                  roundingMethod: 'floor'
+                  // roundingMethod: 'floor'
                 })}{' '}
                 ago
               </Box>
