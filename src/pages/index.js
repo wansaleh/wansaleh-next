@@ -21,31 +21,7 @@ import devTools from '../data/dev-tools';
 import musicTools from '../data/music-tools';
 import getSheetJSON from '../lib/sheet';
 
-// const marqueeItems = [
-//   '🇲🇾&nbsp;A proud Malaysian.',
-//   '🎧&nbsp;A music producer.',
-//   '👨‍💻&nbsp;A web developer.',
-//   '☕️&nbsp;A coffee drinker.',
-//   '🍔&nbsp;A food lover.'
-// ];
-
-// const marquee = marqueeItems.map((item, i) => (
-//   <Text key={i} as="span" px="3vw" dangerouslySetInnerHTML={{ __html: item }} />
-// ));
-
 export default function Home({ works }) {
-  // const theme = useTheme();
-  // const { colorMode } = useColorMode();
-
-  // const gradients = {
-  //   light: `linear-gradient(to bottom, ${theme.colors.gray[100]}, #fff)`,
-  //   dark: `linear-gradient(to bottom, ${mix(
-  //     0.36,
-  //     '#000',
-  //     desaturate(0.1, theme.colors.brand[900])
-  //   )}, #000)`
-  // };
-
   return (
     <Box>
       <Head title="Wan Saleh | WNSLH" />
@@ -118,63 +94,7 @@ export default function Home({ works }) {
         </Container>
       </Flex>
 
-      {/* <Box
-        py="8"
-        pos="relative"
-        overflow="hidden"
-        // fontFamily="mono"
-        fontSize={['xl', '2xl', '3xl']}
-        letterSpacing="tight"
-        color="brand.500"
-        // color={useColorModeValue('gray.600', 'gray.600')}
-        css={{
-          '--offset': '0vw',
-          '--move-initial': 'calc(-25% + var(--offset))',
-          '--move-final': 'calc(-50% + var(--offset))'
-        }}
-      >
-        <Flex
-          aria-hidden="true"
-          w="fit-content"
-          pos="relative"
-          whiteSpace="nowrap"
-          css={{
-            transform: 'translate3d(var(--move-initial), 0, 0)',
-            animation: 'marquee 40s linear infinite',
-            animationPlayState: 'running'
-          }}
-        >
-          {marquee}
-          {marquee}
-          {marquee}
-          {marquee}
-        </Flex>
-      </Box> */}
-
       <Box pos="relative">
-        {/* <Box
-          pos="absolute"
-          top="0"
-          left="0"
-          right="0"
-          bottom="0"
-          background={gradients.light}
-          zIndex="-1"
-          transition="all 0.25s ease"
-          opacity={useColorModeValue(1, 0)}
-        />
-        <Box
-          pos="absolute"
-          top="0"
-          left="0"
-          right="0"
-          bottom="0"
-          background={gradients.dark}
-          zIndex="-1"
-          transition="all 0.25s ease"
-          opacity={useColorModeValue(0, 1)}
-        /> */}
-
         <Box pt={['5rem', '10rem']}>
           <Container maxW="6xl">
             <SectionTitle

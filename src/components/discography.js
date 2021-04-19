@@ -2,20 +2,13 @@ import {
   AspectRatio,
   Badge,
   Box,
-  Flex,
   Heading,
   Image,
   LinkBox,
   LinkOverlay,
   SimpleGrid
 } from '@chakra-ui/react';
-import {
-  format,
-  formatDistanceToNowStrict,
-  isAfter,
-  parse,
-  subWeeks
-} from 'date-fns';
+import { format, isAfter, parse, subWeeks } from 'date-fns';
 
 import TiltCard from './tilt-card';
 
@@ -60,6 +53,14 @@ export default function Discography({ works }) {
                     // mt="2"
                   >
                     <Box borderRadius="md">
+                      {/* <Box
+                        pos="absolute"
+                        inset="0"
+                        zIndex="1"
+                        bg="brand.500"
+                        opacity="0.75"
+                        sx={{ mixBlendMode: 'lighten' }}
+                      /> */}
                       <Image
                         srcSet={`https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg 640w`}
                         sizes="(max-width: 500px) 480px, 640px"
@@ -73,6 +74,8 @@ export default function Discography({ works }) {
                         objectPosition="50% 35%"
                         transform={work.inteam === 'y' && 'scale(1.1)'}
                         pointerEvents="none"
+                        // filter="grayscale(1)"
+                        // sx={{ mixBlendMode: 'multiply' }}
                       />
                     </Box>
                   </AspectRatio>
@@ -191,11 +194,11 @@ export default function Discography({ works }) {
           </LinkBox>
         ))}
 
-        <Flex>
+        {/* <Flex>
           <Heading as="h3" fontSize="lg" fontFamily="serif">
             And much more
           </Heading>
-        </Flex>
+        </Flex> */}
       </SimpleGrid>
     </Box>
   );
