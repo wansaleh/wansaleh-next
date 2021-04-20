@@ -14,6 +14,7 @@ import TiltCard from './tilt-card';
 
 export default function Discography({ works }) {
   const allWorks = works
+    .filter((work) => !!work.artwork)
     .map((work) => ({
       ...work,
       releasedate: parse(work.releasedate, 'yyyy-MM-dd', new Date())
@@ -47,7 +48,7 @@ export default function Discography({ works }) {
                   }}
                 >
                   <AspectRatio
-                    ratio={2.8}
+                    ratio={1}
                     w="100%"
                     // maxW="280px"
                     // mt="2"
@@ -62,9 +63,10 @@ export default function Discography({ works }) {
                         sx={{ mixBlendMode: 'lighten' }}
                       /> */}
                       <Image
-                        srcSet={`https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg 640w`}
-                        sizes="(max-width: 500px) 480px, 640px"
-                        src={`https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg`}
+                        src={work.artwork}
+                        // srcSet={`https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg 640w`}
+                        // sizes="(max-width: 500px) 480px, 640px"
+                        // src={`https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg`}
                         alt={work.title}
                         position="relative"
                         zIndex="0"
