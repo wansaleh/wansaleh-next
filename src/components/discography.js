@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { format, isAfter, parse, subWeeks } from 'date-fns';
 
+import SmallBadge from './SmallBadge';
 import TiltCard from './tilt-card';
 
 export default function Discography({ works }) {
@@ -91,64 +92,15 @@ export default function Discography({ works }) {
                     lineHeight="1"
                   >
                     {work.produced === 'y' && (
-                      <Badge
-                        bg="rgba(0,0,0,0.7)"
-                        color="white"
-                        fontSize="0.65rem"
-                        p="0.2em 0.3em"
-                        letterSpacing="tight"
-                        mr="1"
-                      >
-                        PRO
-                      </Badge>
+                      <SmallBadge ml="1">PRO</SmallBadge>
                     )}
                     {work.composer.includes('Wan Saleh') && (
-                      <Badge
-                        bg="rgba(0,0,0,0.7)"
-                        color="white"
-                        fontSize="0.65rem"
-                        p="0.2em 0.3em"
-                        letterSpacing="tight"
-                        mr="1"
-                      >
-                        COM
-                      </Badge>
+                      <SmallBadge ml="1">COM</SmallBadge>
                     )}
-                    {work.music === 'y' && (
-                      <Badge
-                        bg="rgba(0,0,0,0.7)"
-                        color="white"
-                        fontSize="0.65rem"
-                        p="0.2em 0.3em"
-                        letterSpacing="tight"
-                        mr="1"
-                      >
-                        ARR
-                      </Badge>
-                    )}
-                    {work.mixed === 'y' && (
-                      <Badge
-                        bg="rgba(0,0,0,0.7)"
-                        color="white"
-                        fontSize="0.65rem"
-                        p="0.2em 0.3em"
-                        letterSpacing="tight"
-                        mr="1"
-                      >
-                        MIX
-                      </Badge>
-                    )}
+                    {work.music === 'y' && <SmallBadge ml="1">ARR</SmallBadge>}
+                    {work.mixed === 'y' && <SmallBadge ml="1">MIX</SmallBadge>}
                     {work.mastered === 'y' && (
-                      <Badge
-                        bg="rgba(0,0,0,0.7)"
-                        color="white"
-                        fontSize="0.65rem"
-                        p="0.2em 0.3em"
-                        letterSpacing="tight"
-                        mr="1"
-                      >
-                        MAS
-                      </Badge>
+                      <SmallBadge ml="1">MAS</SmallBadge>
                     )}
                   </Box>
                 </TiltCard>
@@ -179,13 +131,13 @@ export default function Discography({ works }) {
                 )}
               </Heading>
 
-              <Box fontSize="sm" opacity="0.7" fontWeight="500">
-                by {work.artist}
+              <Box fontSize="sm" fontWeight="500">
+                by <span className="font-semibold">{work.artist}</span>
               </Box>
 
               <Box
-                fontSize="xs"
-                opacity="0.7"
+                fontSize="sm"
+                opacity="0.6"
                 fontWeight="500"
                 lineHeight="1.2"
               >

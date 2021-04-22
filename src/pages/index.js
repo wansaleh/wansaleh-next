@@ -15,6 +15,7 @@ import TextLoop from 'react-text-loop';
 import Discography from '../components/discography';
 import Head from '../components/head';
 import Nav from '../components/nav';
+import SmallBadge from '../components/SmallBadge';
 import SocialLinks from '../components/social-links';
 import Tools from '../components/tools';
 import devTools from '../data/dev-tools';
@@ -85,10 +86,11 @@ export default function Home({ works }) {
           >
             <TextLoop>
               <span>I make music.</span>
+              <span>I mix songs.</span>
               <span>I code web.</span>
               <span>I drink soda.</span>
               <span>I love mics.</span>
-              <span>I love preamps.</span>
+              <span>I adore preamps.</span>
             </TextLoop>
           </Heading>
         </Container>
@@ -99,7 +101,15 @@ export default function Home({ works }) {
           <Container maxW="6xl">
             <SectionTitle
               title="Selected Discography."
-              subtitle="Works I produced (PRO), composed/written (COM), arranged (ARR), mixed (MIX) or mastered (MAS)."
+              subtitle={
+                <>
+                  Works I produced <SmallBadge>PRO</SmallBadge>,
+                  composed/written <SmallBadge>COM</SmallBadge>, arranged{' '}
+                  <SmallBadge>ARR</SmallBadge>, mixed{' '}
+                  <SmallBadge>MIX</SmallBadge> or mastered{' '}
+                  <SmallBadge>MAS</SmallBadge>.
+                </>
+              }
             />
             <Discography works={works} />
           </Container>
