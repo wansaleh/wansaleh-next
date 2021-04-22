@@ -62,7 +62,7 @@ export default function Home({ works }) {
           transform="scaleX(-1) rotate(-10deg)"
         />
 
-        <Container maxW="6xl">
+        <Container maxW="7xl">
           <Heading
             as="h1"
             pb="2"
@@ -101,7 +101,7 @@ export default function Home({ works }) {
 
       <Box pos="relative">
         <Box pt={['5rem', '10rem']}>
-          <Container maxW="6xl">
+          <Container maxW="7xl">
             <SectionTitle
               title="Selected Discography."
               subtitle={
@@ -114,12 +114,14 @@ export default function Home({ works }) {
                 </>
               }
             />
+          </Container>
+          <Container maxW="7xl">
             <Discography works={works} />
           </Container>
         </Box>
 
         <Box pt={['5rem', '10rem']}>
-          <Container maxW="6xl">
+          <Container maxW="7xl">
             <SectionTitle
               title="Music Tools."
               subtitle="Music things I use daily."
@@ -129,7 +131,7 @@ export default function Home({ works }) {
         </Box>
 
         <Box pt={['5rem', '10rem']}>
-          <Container maxW="6xl">
+          <Container maxW="7xl">
             <SectionTitle
               title="Development Tools."
               subtitle="DevTools I use when I build things."
@@ -139,7 +141,7 @@ export default function Home({ works }) {
         </Box>
       </Box>
 
-      <Container maxW="6xl" my="10" mt="40">
+      <Container maxW="7xl" my="10" mt="40">
         <Flex
           as="ul"
           justifyContent="space-between"
