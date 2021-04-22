@@ -40,13 +40,16 @@ export default function Home({ works }) {
         borderBottom="1px solid #fff"
         borderColor={useColorModeValue('gray.200', 'gray.800')}
         bgGradient={useColorModeValue(
-          'linear(to-t, gray.100, transparent)',
-          'linear(to-t, gray.900, transparent)'
+          'linear(to-t, gray.200, rgba(255,255,255,0))',
+          'linear(to-t, gray.900, rgba(0,0,0,0))'
         )}
         zIndex="0"
       >
         <Box
-          bg={`url(${require('../assets/images/hand.png')}) no-repeat center/cover`}
+          bg={useColorModeValue(
+            `url(${require('../assets/images/hand.png')}) no-repeat center/cover`,
+            `url(${require('../assets/images/hand2.png')}) no-repeat center/cover`
+          )}
           pos="absolute"
           w={['500px', '700px', '800px', '1000px']}
           h={['500px', '700px', '800px', '1000px']}
