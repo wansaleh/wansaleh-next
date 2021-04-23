@@ -24,7 +24,7 @@ export default function Discography({ works }) {
 
   return (
     <Box mt="10">
-      <SimpleGrid columns={[1, 1, 3]} spacing="8">
+      <SimpleGrid columns={[1, 1, 2, 3, 4]} spacing="8">
         {allWorks.map((work) => (
           <LinkBox key={work.youtube} textAlign={['left']}>
             <LinkOverlay
@@ -106,7 +106,7 @@ export default function Discography({ works }) {
                 </TiltCard>
               </Box>
 
-              <Heading as="h3" fontSize="xl" fontFamily="serif" mt="3">
+              <Heading as="h3" fontSize="md" fontWeight="600" mt="3">
                 <span className="mr-2">{work.song}</span>
 
                 {/* {work.genre && (
@@ -131,17 +131,17 @@ export default function Discography({ works }) {
                 )}
               </Heading>
 
-              <Box fontSize="sm" fontWeight="500">
+              <Box fontSize="xs" fontWeight="500">
                 by <span className="font-semibold">{work.artist}</span>
               </Box>
 
               <Box
-                fontSize="sm"
+                fontSize="xs"
                 opacity="0.6"
                 fontWeight="500"
                 lineHeight="1.2"
               >
-                Released {format(work.releasedate, 'MMMM yyy')}
+                Released {format(work.releasedate, 'dd MMMM yyy')}
                 {/* {formatDistanceToNowStrict(work.releasedate)} ago */}
               </Box>
             </LinkOverlay>
