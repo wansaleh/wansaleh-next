@@ -4,13 +4,17 @@ import {
   Flex,
   IconButton,
   LightMode,
+  Link,
   useColorMode
 } from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import SocialLinks from './social-links';
 
 const Nav = () => {
+  const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -25,9 +29,21 @@ const Nav = () => {
       left="0"
       right="0"
     >
+      <Flex as="ul" justify="space-between" align="center" p="3">
+        <li>
+          {router.pathname !== '/' && (
+            <NextLink href="/">
+              <Link fontWeight="600" px="2">
+                Home
+              </Link>
+            </NextLink>
+          )}
+        </li>
+      </Flex>
+
       <Box flex="1" />
 
-      <Flex as="ul" justifyContent="space-between" align="center" p="3">
+      <Flex as="ul" justify="space-between" align="center" p="3">
         <li>
           <SocialLinks />
         </li>

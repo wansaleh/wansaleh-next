@@ -13,10 +13,10 @@ import {
 import TextLoop from 'react-text-loop';
 
 import Discography from '../components/discography';
+import Footer from '../components/footer';
 import Head from '../components/head';
 import Nav from '../components/nav';
-import SmallBadge from '../components/SmallBadge';
-import SocialLinks from '../components/social-links';
+import SmallBadge from '../components/small-badge';
 import Tools from '../components/tools';
 import devTools from '../data/dev-tools';
 import musicTools from '../data/music-tools';
@@ -141,25 +141,7 @@ export default function Home({ works }) {
         </Box>
       </Box>
 
-      <Container maxW="7xl" my="10" mt="40">
-        <Flex
-          as="ul"
-          justifyContent="space-between"
-          align="center"
-          // fontFamily="mono"
-          fontWeight="600"
-          fontSize="sm"
-        >
-          <li>
-            <Text as="span" bg="black" color="#fff" py="1" px="2">
-              Copyright © {new Date().getFullYear()} WNSLH
-            </Text>
-          </li>
-          <li>
-            <SocialLinks />
-          </li>
-        </Flex>
-      </Container>
+      <Footer />
     </Box>
   );
 }

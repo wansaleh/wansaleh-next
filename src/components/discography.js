@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { format, isAfter, parse, subWeeks } from 'date-fns';
 
-import SmallBadge from './SmallBadge';
+import SmallBadge from './small-badge';
 import TiltCard from './tilt-card';
 
 export default function Discography({ works }) {
