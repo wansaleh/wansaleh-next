@@ -29,7 +29,7 @@ const CImage = chakra(Image);
 
 export default function Discography({ works }) {
   const allWorks = works
-    .filter((work) => !!work.artwork)
+    .filter((work) => !!work.artwork && work.hide !== 'y')
     .map((work) => ({
       ...work,
       releasedate: parse(work.releasedate, 'yyyy-MM-dd', new Date())
@@ -38,6 +38,16 @@ export default function Discography({ works }) {
 
   return (
     <SimpleGrid columns={[1, 1, 2, 3, 5]} spacing="0">
+      <Box p="8" textAlign="right">
+        <Heading as="h2" lineHeight="0.9" color="brand.500">
+          Selected Discography
+        </Heading>
+        <Box mt="4" lineHeight="1.3" fontSize="sm" fontWeight="500">
+          Works I produced (PRO), composed/written (COM), arranged (ARR), mixed
+          (MIX) or mastered (MAS).
+        </Box>
+      </Box>
+
       {allWorks.map((work) => (
         <Work work={work} key={work.youtube} />
       ))}
@@ -63,9 +73,15 @@ function Work({ work }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Box>
+        <Box
+          bg={data ? data[0] : 'gray.800'}
+          color={data ? readableColor(data[0]) : 'white'}
+          transition="all 0.2s ease"
+          textAlign="center"
+          p="4"
+        >
           <AspectRatio ratio={1} w="100%">
-            <Box>
+            <Box shadow="lg">
               <CImage
                 src={work.artwork}
                 layout="fill"
@@ -77,7 +93,7 @@ function Work({ work }) {
                 zIndex="0"
                 objectFit="cover"
                 objectPosition="50% 35%"
-                transform={work.inteam === 'y' && 'scale(1.1)'}
+                // transform={work.inteam === 'y' && 'scale(1.1)'}
                 pointerEvents="none"
               />
               <HStack
@@ -110,21 +126,14 @@ function Work({ work }) {
               </HStack>
             </Box>
           </AspectRatio>
-        </Box>
 
-        <Box
-          p="3"
-          bg={data ? data[0] : 'gray.800'}
-          color={data ? readableColor(data[0]) : 'white'}
-          transition="all 0.2s ease"
-          textAlign="center"
-        >
-          <Heading as="h3" fontSize="lg" fontWeight="600">
-            <Box as="span" mr="2">
-              {work.song}
-            </Box>
+          <Box px="3" pt="3" lineHeight="1">
+            <Heading as="h3" fontSize="lg" fontWeight="600">
+              <Box as="span" mr="2">
+                {work.song}
+              </Box>
 
-            {/* {work.genre && (
+              {/* {work.genre && (
                 <Badge
                   // className="ring-1 ring-black ring-opacity-30"
                   fontSize="0.65em"
@@ -133,40 +142,42 @@ function Work({ work }) {
                   {work.genre}
                 </Badge>
               )} */}
-            {isAfter(work.releasedate, subWeeks(new Date(), 8)) && (
-              <LightMode>
-                <Badge
-                  colorScheme="yellow"
-                  // className="ring-1 ring-black ring-opacity-30"
-                  fontSize="0.65em"
-                  mt="-0.2em"
-                  // ml="1"
-                >
-                  New
-                </Badge>
-              </LightMode>
-            )}
-          </Heading>
+              {isAfter(work.releasedate, subWeeks(new Date(), 8)) && (
+                <LightMode>
+                  <Badge
+                    colorScheme="yellow"
+                    // className="ring-1 ring-black ring-opacity-30"
+                    fontSize="0.65em"
+                    mt="-0.2em"
+                    // ml="1"
+                  >
+                    New
+                  </Badge>
+                </LightMode>
+              )}
+            </Heading>
 
-          <Box fontSize="xs" fontWeight="500">
-            by <span className="font-semibold">{work.artist}</span>
-          </Box>
+            <Box fontSize="xs" fontWeight="500" mt="1">
+              by <span className="font-semibold">{work.artist}</span>
+            </Box>
 
-          <Box
-            fontSize="xs"
-            fontWeight="400"
-            _groupHover={{
-              '.ago': { display: 'none' },
-              '.abs': { display: 'inline' }
-            }}
-          >
-            Released{' '}
-            <span className="inline ago">
-              {formatDistanceToNow(work.releasedate, { addSuffix: true })}
-            </span>
-            <span className="hidden abs">
-              {format(work.releasedate, 'dd MMMM YYY')}
-            </span>
+            <Box
+              mt="1"
+              fontSize="xs"
+              fontWeight="500"
+              _groupHover={{
+                '.ago': { display: 'none' },
+                '.abs': { display: 'inline' }
+              }}
+            >
+              Released{' '}
+              <span className="inline ago">
+                {formatDistanceToNow(work.releasedate, { addSuffix: true })}
+              </span>
+              <span className="hidden abs">
+                {format(work.releasedate, 'dd MMMM YYY')}
+              </span>
+            </Box>
           </Box>
         </Box>
       </LinkOverlay>
