@@ -2,16 +2,19 @@ import {
   AspectRatio,
   Badge,
   Box,
+  chakra,
   Heading,
-  Image,
   LinkBox,
   LinkOverlay,
   SimpleGrid
 } from '@chakra-ui/react';
 import { format, isAfter, parse, subWeeks } from 'date-fns';
+import Image from 'next/image';
 
 import SmallBadge from './small-badge';
 import TiltCard from './tilt-card';
+
+const CImage = chakra(Image);
 
 export default function Discography({ works }) {
   const allWorks = works
@@ -63,16 +66,15 @@ export default function Discography({ works }) {
                         opacity="0.75"
                         sx={{ mixBlendMode: 'lighten' }}
                       /> */}
-                      <Image
+                      <CImage
                         src={work.artwork}
+                        layout="fill"
                         // srcSet={`https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg 640w`}
                         // sizes="(max-width: 500px) 480px, 640px"
                         // src={`https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg`}
                         alt={work.title}
-                        position="relative"
+                        pos="relative"
                         zIndex="0"
-                        w="full"
-                        h="full"
                         objectFit="cover"
                         objectPosition="50% 35%"
                         transform={work.inteam === 'y' && 'scale(1.1)'}

@@ -41,7 +41,7 @@ module.exports = [
   {
     name: 'Gears',
     desc:
-      'Interfaces: UAD Apollo Twin X Quad, Apogee Duet 2, Focusrit Clarett 8Pre USB. Preamps: Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast. Mics: Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Audio Technica AT2035, Mackie Big Knob Studio.',
+      'Interfaces: UAD Apollo Twin X Quad, Apogee Duet 2, Focusrite Clarett 8Pre USB. Preamps: Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast. Mics: Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Audio Technica AT2035, Mackie Big Knob Studio.',
     logos: [
       {
         image: require('../assets/logos/universal-audio-vector-logo.svg?url'),

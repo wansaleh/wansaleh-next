@@ -1,6 +1,4 @@
 const withPlugins = require('next-compose-plugins');
-// const withCSS = require('@zeit/next-css');
-// const withSASS = require('@zeit/next-sass');
 const withFonts = require('next-fonts');
 const withImages = require('next-optimized-images');
 
@@ -17,6 +15,16 @@ module.exports = withPlugins(
     [withFonts]
   ],
   {
+    images: {
+      domains: [
+        'is1-ssl.mzstatic.com',
+        'is2-ssl.mzstatic.com',
+        'is3-ssl.mzstatic.com',
+        'is4-ssl.mzstatic.com',
+        'is5-ssl.mzstatic.com',
+        'i.scdn.co'
+      ]
+    },
     webpack: (config) => {
       // Fixes npm packages that depend on `fs` module
       config.node = {
