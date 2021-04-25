@@ -13,7 +13,7 @@ import React from 'react';
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('meqvonlv');
 
-  console.log(state);
+  // console.log(state);
 
   if (state.succeeded) {
     return <div>Thank you for signing up!</div>;
