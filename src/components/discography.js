@@ -11,7 +11,13 @@ import {
   SimpleGrid
 } from '@chakra-ui/react';
 import { usePalette } from 'color-thief-react';
-import { format, isAfter, parse, subWeeks } from 'date-fns';
+import {
+  format,
+  formatDistanceToNow,
+  isAfter,
+  parse,
+  subWeeks
+} from 'date-fns';
 import Image from 'next/image';
 import { readableColor } from 'polished';
 
@@ -51,7 +57,7 @@ function Work({ work }) {
   });
 
   return (
-    <LinkBox key={work.youtube} textAlign={['left']}>
+    <LinkBox key={work.youtube} role="group">
       <LinkOverlay
         href={`https://youtube.com/watch?v=${work.youtube}`}
         target="_blank"
@@ -148,13 +154,19 @@ function Work({ work }) {
 
           <Box
             fontSize="xs"
-            opacity="0.6"
-            fontWeight="500"
-            lineHeight="1.2"
-            mt="2"
+            fontWeight="400"
+            _groupHover={{
+              '.ago': { display: 'none' },
+              '.abs': { display: 'inline' }
+            }}
           >
-            Released {format(work.releasedate, 'dd MMMM yyy')}
-            {/* {formatDistanceToNowStrict(work.releasedate)} ago */}
+            Released{' '}
+            <span className="inline ago">
+              {formatDistanceToNow(work.releasedate, { addSuffix: true })}
+            </span>
+            <span className="hidden abs">
+              {format(work.releasedate, 'dd MMMM YYY')}
+            </span>
           </Box>
         </Box>
       </LinkOverlay>
