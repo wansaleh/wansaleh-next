@@ -16,7 +16,7 @@ import Discography from '../components/discography';
 import Footer from '../components/footer';
 import Head from '../components/head';
 import Nav from '../components/nav';
-import SmallBadge from '../components/small-badge';
+// import SmallBadge from '../components/small-badge';
 import Tools from '../components/tools';
 import devTools from '../data/dev-tools';
 import musicTools from '../data/music-tools';
@@ -37,8 +37,8 @@ export default function Home({ works }) {
         align="center"
         pos="relative"
         overflow="hidden"
-        borderBottom="1px solid #fff"
-        borderColor={useColorModeValue('gray.200', 'gray.800')}
+        // borderBottom="1px solid #fff"
+        // borderColor={useColorModeValue('gray.200', 'gray.800')}
         bgGradient={useColorModeValue(
           'linear(to-t, gray.200, rgba(255,255,255,0))',
           'linear(to-t, gray.900, rgba(0,0,0,0))'
@@ -100,8 +100,8 @@ export default function Home({ works }) {
       </Flex>
 
       <Box pos="relative">
-        <Box pt={['5rem', '10rem']}>
-          <Container maxW="7xl">
+        <Box>
+          {/* <Container maxW="7xl">
             <SectionTitle
               title="Selected Discography."
               subtitle={
@@ -114,10 +114,9 @@ export default function Home({ works }) {
                 </>
               }
             />
-          </Container>
-          <Container maxW="7xl">
-            <Discography works={works} />
-          </Container>
+          </Container> */}
+
+          <Discography works={works} />
         </Box>
 
         <Box pt={['5rem', '10rem']}>

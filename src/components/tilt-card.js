@@ -1,12 +1,15 @@
+import { chakra } from '@chakra-ui/react';
 import Tilt from 'react-parallax-tilt';
+
+const CTilt = chakra(Tilt);
 
 export default function TiltCard({ children, innerZ = '20px', ...props }) {
   return (
-    <Tilt
+    <CTilt
       className="tilt-card"
       // onMove={onMove}
       // tiltReverse
-      scale={1.02}
+      // scale={0.95}
       perspective={1000}
       tiltMaxAngleX={3}
       tiltMaxAngleY={3}
@@ -16,11 +19,11 @@ export default function TiltCard({ children, innerZ = '20px', ...props }) {
       // glarePosition="bottom"
       // glareReverse
       {...props}
-      css={{
+      sx={{
         position: 'relative',
         zIndex: 0,
         transformStyle: 'preserve-3d',
-        '> :last-child:not(:first-child)': {
+        '.front': {
           transform: `translateZ(${innerZ}) scale(0.9)`
           // transition: 'transform 0.3s ease'
         }
@@ -30,6 +33,6 @@ export default function TiltCard({ children, innerZ = '20px', ...props }) {
       }}
     >
       {children}
-    </Tilt>
+    </CTilt>
   );
 }

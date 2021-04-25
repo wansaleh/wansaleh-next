@@ -4,15 +4,20 @@ import {
   Box,
   chakra,
   Heading,
+  HStack,
+  LightMode,
   LinkBox,
   LinkOverlay,
   SimpleGrid
 } from '@chakra-ui/react';
+import { usePalette } from 'color-thief-react';
 import { format, isAfter, parse, subWeeks } from 'date-fns';
 import Image from 'next/image';
+import { readableColor } from 'polished';
 
+// import { getDarkest } from '../lib/color-helpers';
 import SmallBadge from './small-badge';
-import TiltCard from './tilt-card';
+// import TiltCard from './tilt-card';
 
 const CImage = chakra(Image);
 
@@ -26,136 +31,133 @@ export default function Discography({ works }) {
     .sort((a, b) => b.releasedate - a.releasedate);
 
   return (
-    <Box mt="10">
-      <SimpleGrid columns={[1, 1, 2, 3, 4]} spacing="8">
-        {allWorks.map((work) => (
-          <LinkBox key={work.youtube} textAlign={['left']}>
-            <LinkOverlay
-              href={`https://youtube.com/watch?v=${work.youtube}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Box>
-                <TiltCard
-                  css={{
-                    '.play': {
-                      opacity: 0,
-                      // transform: 'scale(1)',
-                      transition: 'all 0.2s ease'
-                    },
-                    ':hover': {
-                      '.play': {
-                        // transform: 'scale(1.2)',
-                        opacity: 1
-                      }
-                    }
-                  }}
-                >
-                  <AspectRatio
-                    ratio={1}
-                    w="100%"
-                    // maxW="280px"
-                    // mt="2"
-                  >
-                    <Box borderRadius="sm" shadow="lg">
-                      {/* <Box
-                        pos="absolute"
-                        inset="0"
-                        zIndex="1"
-                        bg="brand.500"
-                        opacity="0.75"
-                        sx={{ mixBlendMode: 'lighten' }}
-                      /> */}
-                      <CImage
-                        src={work.artwork}
-                        layout="fill"
-                        // srcSet={`https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg 640w`}
-                        // sizes="(max-width: 500px) 480px, 640px"
-                        // src={`https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg`}
-                        alt={work.title}
-                        pos="relative"
-                        zIndex="0"
-                        objectFit="cover"
-                        objectPosition="50% 35%"
-                        transform={work.inteam === 'y' && 'scale(1.1)'}
-                        pointerEvents="none"
-                        // filter="grayscale(1)"
-                        // sx={{ mixBlendMode: 'multiply' }}
-                      />
-                    </Box>
-                  </AspectRatio>
+    <SimpleGrid columns={[1, 1, 2, 3, 5]} spacing="0">
+      {allWorks.map((work) => (
+        <Work work={work} key={work.youtube} />
+      ))}
 
-                  <Box
-                    pos="absolute"
-                    right="0"
-                    bottom="0"
-                    px="1"
-                    py="2"
-                    lineHeight="1"
-                  >
-                    {work.produced === 'y' && (
-                      <SmallBadge ml="1">PRO</SmallBadge>
-                    )}
-                    {work.composer.includes('Wan Saleh') && (
-                      <SmallBadge ml="1">COM</SmallBadge>
-                    )}
-                    {work.music === 'y' && <SmallBadge ml="1">ARR</SmallBadge>}
-                    {work.mixed === 'y' && <SmallBadge ml="1">MIX</SmallBadge>}
-                    {work.mastered === 'y' && (
-                      <SmallBadge ml="1">MAS</SmallBadge>
-                    )}
-                  </Box>
-                </TiltCard>
-              </Box>
-
-              <Heading as="h3" fontSize="md" fontWeight="600" mt="3">
-                <span className="mr-2">{work.song}</span>
-
-                {/* {work.genre && (
-                    <Badge
-                      // className="ring-1 ring-black ring-opacity-30"
-                      fontSize="0.65em"
-                      mt="-0.1em"
-                    >
-                      {work.genre}
-                    </Badge>
-                  )} */}
-                {isAfter(work.releasedate, subWeeks(new Date(), 8)) && (
-                  <Badge
-                    colorScheme="yellow"
-                    // className="ring-1 ring-black ring-opacity-30"
-                    fontSize="0.65em"
-                    mt="-0.1em"
-                    // ml="1"
-                  >
-                    New
-                  </Badge>
-                )}
-              </Heading>
-
-              <Box fontSize="xs" fontWeight="500">
-                by <span className="font-semibold">{work.artist}</span>
-              </Box>
-
-              <Box
-                fontSize="xs"
-                opacity="0.6"
-                fontWeight="500"
-                lineHeight="1.2"
-              >
-                Released {format(work.releasedate, 'dd MMMM yyy')}
-                {/* {formatDistanceToNowStrict(work.releasedate)} ago */}
-              </Box>
-            </LinkOverlay>
-          </LinkBox>
-        ))}
-
-        {/* <Flex>
+      {/* <Flex>
           <Heading as="h3" fontSize="lg" fontFamily="serif">
             And much more
           </Heading>
         </Flex> */}
-      </SimpleGrid>
-    </Box>
+    </SimpleGrid>
+  );
+}
+
+function Work({ work }) {
+  const { data } = usePalette(work.artwork, 5, 'hex', {
+    crossOrigin: 'anonymous'
+  });
+
+  return (
+    <LinkBox key={work.youtube} textAlign={['left']}>
+      <LinkOverlay
+        href={`https://youtube.com/watch?v=${work.youtube}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Box>
+          <AspectRatio ratio={1} w="100%">
+            <Box>
+              <CImage
+                src={work.artwork}
+                layout="fill"
+                // srcSet={`https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg 640w`}
+                // sizes="(max-width: 500px) 480px, 640px"
+                // src={`https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg`}
+                alt={work.title}
+                pos="relative"
+                zIndex="0"
+                objectFit="cover"
+                objectPosition="50% 35%"
+                transform={work.inteam === 'y' && 'scale(1.1)'}
+                pointerEvents="none"
+              />
+              <HStack
+                className="front"
+                justify="center"
+                spacing="1"
+                pos="absolute"
+                left="0"
+                right="0"
+                bottom="0"
+                px="3"
+                py="3.5"
+                lineHeight="1"
+              >
+                {work.produced === 'y' && (
+                  <SmallBadge colors={data}>PRO</SmallBadge>
+                )}
+                {work.composer.includes('Wan Saleh') && (
+                  <SmallBadge colors={data}>COM</SmallBadge>
+                )}
+                {work.music === 'y' && (
+                  <SmallBadge colors={data}>ARR</SmallBadge>
+                )}
+                {work.mixed === 'y' && (
+                  <SmallBadge colors={data}>MIX</SmallBadge>
+                )}
+                {work.mastered === 'y' && (
+                  <SmallBadge colors={data}>MAS</SmallBadge>
+                )}
+              </HStack>
+            </Box>
+          </AspectRatio>
+        </Box>
+
+        <Box
+          p="3"
+          bg={data ? data[0] : 'gray.800'}
+          color={data ? readableColor(data[0]) : 'white'}
+          transition="all 0.2s ease"
+          textAlign="center"
+        >
+          <Heading as="h3" fontSize="lg" fontWeight="600">
+            <Box as="span" mr="2">
+              {work.song}
+            </Box>
+
+            {/* {work.genre && (
+                <Badge
+                  // className="ring-1 ring-black ring-opacity-30"
+                  fontSize="0.65em"
+                  mt="-0.1em"
+                >
+                  {work.genre}
+                </Badge>
+              )} */}
+            {isAfter(work.releasedate, subWeeks(new Date(), 8)) && (
+              <LightMode>
+                <Badge
+                  colorScheme="yellow"
+                  // className="ring-1 ring-black ring-opacity-30"
+                  fontSize="0.65em"
+                  mt="-0.2em"
+                  // ml="1"
+                >
+                  New
+                </Badge>
+              </LightMode>
+            )}
+          </Heading>
+
+          <Box fontSize="xs" fontWeight="500">
+            by <span className="font-semibold">{work.artist}</span>
+          </Box>
+
+          <Box
+            fontSize="xs"
+            opacity="0.6"
+            fontWeight="500"
+            lineHeight="1.2"
+            mt="2"
+          >
+            Released {format(work.releasedate, 'dd MMMM yyy')}
+            {/* {formatDistanceToNowStrict(work.releasedate)} ago */}
+          </Box>
+        </Box>
+      </LinkOverlay>
+    </LinkBox>
   );
 }
