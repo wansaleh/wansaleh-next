@@ -44,7 +44,7 @@ export default function Discography({ works }) {
           Selected Discography
         </Heading>
         <Box mt="4" lineHeight="1.3" fontSize="sm" fontWeight="500">
-          Selected works that I have produced <b>(PRO)</b>, composed/written
+          Selected works that I have produced <b>(PRO)</b>, composed/written{' '}
           <b>(COM)</b>, arranged <b>(ARR)</b>, mixed <b>(MIX)</b> or mastered{' '}
           <b>(MAS)</b>.
         </Box>
