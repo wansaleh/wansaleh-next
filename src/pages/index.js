@@ -39,12 +39,18 @@ export default function Home({ works }) {
         overflow="hidden"
         // borderBottom="1px solid #fff"
         // borderColor={useColorModeValue('gray.200', 'gray.800')}
-        bgGradient={useColorModeValue(
-          'linear(to-t, gray.200, rgba(255,255,255,0))',
-          'linear(to-t, gray.900, rgba(0,0,0,0))'
-        )}
         zIndex="0"
       >
+        <Box
+          pos="absolute"
+          inset="0"
+          bgGradient={useColorModeValue(
+            'linear(-20deg, white 30%, brand.500)',
+            'linear(-20deg, black 30%, brand.500)'
+          )}
+          zIndex="-2"
+          opacity="0.45"
+        />
         <Box
           bg={useColorModeValue(
             `url(${require('../assets/images/hand.png')}) no-repeat center/cover`,
