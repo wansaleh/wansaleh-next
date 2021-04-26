@@ -3,6 +3,7 @@ import {
   Badge,
   Box,
   chakra,
+  Flex,
   Heading,
   HStack,
   LightMode,
@@ -37,7 +38,7 @@ export default function Discography({ works }) {
     .sort((a, b) => b.releasedate - a.releasedate);
 
   return (
-    <SimpleGrid columns={[1, 1, 2, 3, 5]} spacing="0">
+    <SimpleGrid columns={[1, 2, 3, 3, 4, 5]} spacing="0">
       <Box p="8" textAlign="right">
         <Heading as="h2" lineHeight="0.9" color="brand.500">
           Selected Discography
@@ -128,38 +129,51 @@ function Work({ work }) {
           </AspectRatio>
 
           <Box px="3" pt="3" lineHeight="1">
-            <Heading as="h3" fontSize="lg" fontWeight="600">
-              <Box as="span" mr="2">
+            <Heading
+              as="h3"
+              fontSize="lg"
+              fontWeight="600"
+              d="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Box
+                as="span"
+                d="inline-block"
+                maxW="90%"
+                whiteSpace="nowrap"
+                overflow="hidden"
+                textOverflow="ellipsis"
+              >
                 {work.song}
               </Box>
 
-              {/* {work.genre && (
-                <Badge
-                  // className="ring-1 ring-black ring-opacity-30"
-                  fontSize="0.65em"
-                  mt="-0.1em"
-                >
-                  {work.genre}
-                </Badge>
-              )} */}
               {isAfter(work.releasedate, subWeeks(new Date(), 8)) && (
-                <LightMode>
-                  <Badge
-                    colorScheme="yellow"
-                    // className="ring-1 ring-black ring-opacity-30"
-                    fontSize="0.65em"
-                    mt="-0.2em"
-                    // ml="1"
-                  >
-                    New
-                  </Badge>
-                </LightMode>
+                <SmallBadge colors={data} ml="1.5" mt="0.5">
+                  New
+                </SmallBadge>
               )}
             </Heading>
 
-            <Box fontSize="xs" fontWeight="500" mt="1">
-              by <span className="font-semibold">{work.artist}</span>
-            </Box>
+            <Flex
+              fontSize="xs"
+              fontWeight="500"
+              mt="1"
+              justify="center"
+              align="center"
+            >
+              <Box
+                as="span"
+                fontWeight="600"
+                d="inline-block"
+                maxW="85%"
+                whiteSpace="nowrap"
+                overflow="hidden"
+                textOverflow="ellipsis"
+              >
+                {work.artist}
+              </Box>
+            </Flex>
 
             <Box
               mt="1"
