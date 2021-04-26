@@ -189,7 +189,7 @@ function Work({ work }) {
                 {formatDistanceToNow(work.releasedate, { addSuffix: true })}
               </span>
               <span className="hidden abs">
-                {format(work.releasedate, 'dd MMMM YYY')}
+                {format(work.releasedate, 'd MMMM YYY')}
               </span>
             </Box>
           </Box>
