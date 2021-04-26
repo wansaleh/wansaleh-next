@@ -5,16 +5,17 @@ import {
   IconButton,
   LightMode,
   Link,
-  useColorMode
+  useColorMode,
+  useColorModeValue,
+  VisuallyHidden
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { useRouter } from 'next/router';
 import React from 'react';
 
+import Logo from '../assets/images/logo';
 import SocialLinks from './social-links';
 
 const Nav = () => {
-  const router = useRouter();
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -22,7 +23,7 @@ const Nav = () => {
       as="nav"
       pos="absolute"
       zIndex="100"
-      justifyContent="space-between"
+      justify="space-between"
       align="center"
       w="full"
       top="0"
@@ -31,13 +32,12 @@ const Nav = () => {
     >
       <Flex as="ul" justify="space-between" align="center" p="3">
         <li>
-          {router.pathname !== '/' && (
-            <NextLink href="/">
-              <Link fontWeight="600" px="2">
-                Home
-              </Link>
-            </NextLink>
-          )}
+          <NextLink href="/">
+            <Link px="2" d="block">
+              <Logo w="30px" fill={useColorModeValue('#000', '#fff')} />
+              <VisuallyHidden>Wan Saleh</VisuallyHidden>
+            </Link>
+          </NextLink>
         </li>
       </Flex>
 

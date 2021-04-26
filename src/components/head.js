@@ -1,6 +1,6 @@
-import React from 'react';
 import NextHead from 'next/head';
 import { string } from 'prop-types';
+import React from 'react';
 
 const defaultDescription =
   'Hello there. I’m Wan Saleh. 🇲🇾 A proud Malaysian. 🎧 A music producer. 👨‍💻 A web (FTW!) & mobile developer. ‍⚽ Football fanatic & ‍🍿 a movie buff.';
@@ -23,7 +23,7 @@ const Head = (props) => (
     {/* <link rel="icon" sizes="192x192" href="/touch-icon.png" />
     <link rel="apple-touch-icon" href="/touch-icon.png" />
     <link rel="mask-icon" href="/favicon-mask.svg" color="#49B882" /> */}
-    <link rel="icon" href="/favicon.png" />
+    <link rel="icon" href="/favicon2.png" />
     <meta property="og:url" content={props.url || defaultOGURL} />
     <meta property="og:title" content={props.title || ''} />
     <meta

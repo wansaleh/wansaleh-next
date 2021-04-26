@@ -41,7 +41,7 @@ module.exports = [
   {
     name: 'Gears',
     desc:
-      'Interfaces: UAD Apollo Twin X Quad, Apogee Duet 2, Focusrite Clarett 8Pre USB. Preamps: Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast. Mics: Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Focusrite Clarett 8pre, PreSonus Channel Strip, dbx 166xs, Audio Technica AT2035, Mackie Big Knob Studio.',
+      'Interfaces: UAD Apollo Twin X Quad, Apogee Duet 2, Focusrite Clarett 8Pre USB. Preamps: Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast. Mics: Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Audio Technica AT2035. Controllers: Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Compressors: Alesis 3630, dbx 166xs. Monitor controller: Mackie Big Knob Studio.',
     logos: [
       {
         image: require('../assets/logos/universal-audio-vector-logo.svg?url'),
@@ -157,7 +157,7 @@ module.exports = [
   {
     name: 'Go-to mix plugins',
     desc:
-      'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), UAD (Avalon VT-737sp, Neve 1073, LA-2A, 1176, Fairchild 660/670, Distressor, Capitol Chambers, Lexicon 480L, EMT 140), Slate Digital (VMR, VMC), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), SoundToys (Echoboy, Decapitator, Devil-Loc, Radiator, Microshift), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ), ValhallaDSP Reverbs/Delays, Oeksound Soothe 2',
+      'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), UAD (Avalon VT-737sp, Neve 1073, LA-2A, 1176, Fairchild 660/670, Distressor, Capitol Chambers, Lexicon 480L, EMT 140), Slate Digital (VMR, VMC), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), SoundToys (Echoboy, Decapitator, Devil-Loc, Radiator, Microshift), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ), ValhallaDSP Reverbs/Delays, Oeksound Soothe 2 & Spiff, Denise Audio Perfect Room.',
     logos: [
       {
         image: require('../assets/logos/fabfilter-vector-logo.svg?url'),
