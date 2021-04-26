@@ -1,12 +1,10 @@
 import {
   AspectRatio,
-  Badge,
   Box,
   chakra,
   Flex,
   Heading,
   HStack,
-  LightMode,
   LinkBox,
   LinkOverlay,
   SimpleGrid
@@ -30,7 +28,7 @@ const CImage = chakra(Image);
 
 export default function Discography({ works }) {
   const allWorks = works
-    .filter((work) => !!work.artwork && work.hide !== 'y')
+    .filter((work) => work.hide !== 'y')
     .map((work) => ({
       ...work,
       releasedate: parse(work.releasedate, 'yyyy-MM-dd', new Date())
@@ -64,9 +62,15 @@ export default function Discography({ works }) {
 }
 
 function Work({ work }) {
-  const { data } = usePalette(work.artwork, 5, 'hex', {
+  const coverURL = work.artwork
+    ? work.artwork
+    : `https://res.cloudinary.com/demo/image/fetch/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
+
+  const { data: palette } = usePalette(coverURL, 4, 'hex', {
     crossOrigin: 'anonymous'
   });
+
+  const PALETTENUM = 2;
 
   return (
     <LinkBox key={work.youtube} role="group">
@@ -76,26 +80,23 @@ function Work({ work }) {
         rel="noopener noreferrer"
       >
         <Box
-          bg={data ? data[0] : 'gray.800'}
-          color={data ? readableColor(data[0]) : 'white'}
+          bg={palette ? palette[PALETTENUM] : 'gray.800'}
+          color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
           transition="all 0.2s ease"
           textAlign="center"
           p="4"
         >
           <AspectRatio ratio={1} w="100%">
-            <Box shadow="lg">
+            <Box shadow="lg" bg="black">
               <CImage
-                src={work.artwork}
+                src={coverURL}
                 layout="fill"
-                // srcSet={`https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg 640w`}
-                // sizes="(max-width: 500px) 480px, 640px"
-                // src={`https://i.ytimg.com/vi/${work.youtube}/sddefault.jpg`}
                 alt={work.title}
                 pos="relative"
                 zIndex="0"
-                objectFit="cover"
+                objectFit="contain"
                 objectPosition="50% 35%"
-                // transform={work.inteam === 'y' && 'scale(1.1)'}
+                // transform={!work.artwork && work.inteam === 'y' && 'scale(1.1)'}
                 pointerEvents="none"
               />
               <HStack
@@ -111,19 +112,29 @@ function Work({ work }) {
                 lineHeight="1"
               >
                 {work.produced === 'y' && (
-                  <SmallBadge colors={data}>PRO</SmallBadge>
+                  <SmallBadge color={palette && palette[PALETTENUM]}>
+                    PRO
+                  </SmallBadge>
                 )}
                 {work.composer.includes('Wan Saleh') && (
-                  <SmallBadge colors={data}>COM</SmallBadge>
+                  <SmallBadge color={palette && palette[PALETTENUM]}>
+                    COM
+                  </SmallBadge>
                 )}
                 {work.music === 'y' && (
-                  <SmallBadge colors={data}>ARR</SmallBadge>
+                  <SmallBadge color={palette && palette[PALETTENUM]}>
+                    ARR
+                  </SmallBadge>
                 )}
                 {work.mixed === 'y' && (
-                  <SmallBadge colors={data}>MIX</SmallBadge>
+                  <SmallBadge color={palette && palette[PALETTENUM]}>
+                    MIX
+                  </SmallBadge>
                 )}
                 {work.mastered === 'y' && (
-                  <SmallBadge colors={data}>MAS</SmallBadge>
+                  <SmallBadge color={palette && palette[PALETTENUM]}>
+                    MAS
+                  </SmallBadge>
                 )}
               </HStack>
             </Box>
@@ -150,7 +161,11 @@ function Work({ work }) {
               </Box>
 
               {isAfter(work.releasedate, subWeeks(new Date(), 8)) && (
-                <SmallBadge colors={data} ml="1.5" mt="0.5">
+                <SmallBadge
+                  color={palette && palette[PALETTENUM]}
+                  ml="1.5"
+                  mt="0.5"
+                >
                   New
                 </SmallBadge>
               )}

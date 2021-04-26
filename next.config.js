@@ -22,7 +22,9 @@ module.exports = withPlugins(
         'is3-ssl.mzstatic.com',
         'is4-ssl.mzstatic.com',
         'is5-ssl.mzstatic.com',
-        'i.scdn.co'
+        'i.scdn.co',
+        'i.ytimg.com',
+        'res.cloudinary.com'
       ]
     },
     webpack: (config) => {
