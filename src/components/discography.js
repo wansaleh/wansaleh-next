@@ -18,7 +18,7 @@ import {
   subWeeks
 } from 'date-fns';
 import Image from 'next/image';
-import { readableColor } from 'polished';
+import { adjustHue, lighten, readableColor } from 'polished';
 
 // import { getDarkest } from '../lib/color-helpers';
 import SmallBadge from './small-badge';
@@ -66,11 +66,11 @@ function Work({ work }) {
     ? work.artwork
     : `https://res.cloudinary.com/demo/image/fetch/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
 
-  const { data: palette } = usePalette(coverURL, 4, 'hex', {
+  const { data: palette } = usePalette(coverURL, 3, 'hex', {
     crossOrigin: 'anonymous'
   });
 
-  const PALETTENUM = 2;
+  const PALETTENUM = 1;
 
   return (
     <LinkBox key={work.youtube} role="group">
@@ -80,11 +80,18 @@ function Work({ work }) {
         rel="noopener noreferrer"
       >
         <Box
-          bg={palette ? palette[PALETTENUM] : 'gray.800'}
+          bg={
+            palette
+              ? `linear-gradient(to bottom right, ${
+                  palette[PALETTENUM]
+                }, ${adjustHue(20, lighten(0.1, palette[PALETTENUM]))})`
+              : 'gray.800'
+          }
           color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
           transition="all 0.2s ease"
           textAlign="center"
           p="4"
+          h="full"
         >
           <AspectRatio ratio={1} w="100%">
             <Box shadow="lg" bg="black">
@@ -171,24 +178,31 @@ function Work({ work }) {
               )}
             </Heading>
 
-            <Flex
-              fontSize="xs"
-              fontWeight="500"
-              mt="1"
-              justify="center"
-              align="center"
-            >
+            <Flex justify="center" align="center" direction="column" w="full">
               <Box
-                as="span"
+                fontSize="xs"
                 fontWeight="600"
-                d="inline-block"
-                maxW="85%"
+                maxW="90%"
                 whiteSpace="nowrap"
                 overflow="hidden"
                 textOverflow="ellipsis"
               >
                 {work.artist}
               </Box>
+
+              {/* {work.composer && work.writer && (
+                <Box
+                  mt="1"
+                  fontSize="xs"
+                  fontWeight="500"
+                  maxW="90%"
+                  whiteSpace="nowrap"
+                  overflow="hidden"
+                  textOverflow="ellipsis"
+                >
+                  {work.composer} / {work.writer}
+                </Box>
+              )} */}
             </Flex>
 
             <Box

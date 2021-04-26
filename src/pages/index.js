@@ -44,10 +44,10 @@ export default function Home({ works }) {
         <Box
           pos="absolute"
           inset="0"
-          bgGradient={useColorModeValue(
-            'linear(-20deg, white 30%, brand.500)',
-            'linear(-20deg, black 30%, brand.500)'
-          )}
+          // bgGradient={useColorModeValue(
+          //   'linear(-20deg, white 30%, brand.500)',
+          //   'linear(-20deg, black 30%, brand.500)'
+          // )}
           zIndex="-2"
           opacity="0.45"
         />
