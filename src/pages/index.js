@@ -131,7 +131,7 @@ export default function Home({ works }) {
                 subtitle="DevTools I use when I build things."
               />
 
-              <Tools tools={devTools} hideIcons />
+              <Tools tools={devTools} />
             </Box>
           </SimpleGrid>
         </Container>

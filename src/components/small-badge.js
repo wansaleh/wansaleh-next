@@ -15,7 +15,7 @@ export default function SmallBadge({ children, color, ...props }) {
       lineHeight="1"
       letterSpacing="tight"
       border="0"
-      shadow={`0 0 0 1px ${rgba(color ? readableColor(color) : '#000', 1)}`}
+      // shadow={`0 0 0 1px ${rgba(color ? readableColor(color) : '#000', 1)}`}
       // mr="1"
       {...props}
     >
