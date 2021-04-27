@@ -6,8 +6,8 @@ import {
   LightMode,
   Link,
   useColorMode,
-  useColorModeValue,
-  VisuallyHidden
+  useColorModeValue
+  // VisuallyHidden
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import React from 'react';
@@ -29,17 +29,24 @@ const Nav = () => {
       top="0"
       left="0"
       right="0"
+      sx={{
+        a: { textDecoration: 'none !important' }
+      }}
     >
       <Flex as="ul" justify="space-between" align="center" p="3">
         <li>
           <NextLink href="/">
             <Link px="2" d="block">
-              <Logo
-                w="30px"
-                fill={useColorModeValue('#000', 'brand.500')}
-                css={{ transition: 'all 1s ease' }}
-              />
-              <VisuallyHidden>Wan Saleh</VisuallyHidden>
+              <Flex align="center">
+                <Logo
+                  w="30px"
+                  fill={useColorModeValue('brand.600', 'brand.500')}
+                  css={{ transition: 'all 1s ease' }}
+                />
+                <Box ml="2" fontWeight="600">
+                  By Wan Saleh
+                </Box>
+              </Flex>
             </Link>
           </NextLink>
         </li>
@@ -60,6 +67,9 @@ const Nav = () => {
               aria-label={colorMode !== 'dark' ? 'Dark' : 'Light'}
               icon={colorMode !== 'dark' ? <MoonIcon /> : <SunIcon />}
               onClick={toggleColorMode}
+              h="auto"
+              minW="unset"
+              p="0.5em"
             />
           </LightMode>
         </li>

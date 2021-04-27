@@ -4,7 +4,8 @@ import {
   Flex,
   Heading,
   Image,
-  SimpleGrid
+  SimpleGrid,
+  useColorModeValue
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
@@ -18,7 +19,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Head title="Contact" />
+      <Head title="By Wan Saleh | Contact" />
 
       <Nav />
 
@@ -87,6 +88,7 @@ export default function ContactPage() {
                 transform="scaleX(-1)"
                 alt="Contact"
                 ml="-100px"
+                filter={useColorModeValue('invert(0)', 'invert(1)')}
               />
             </Box>
           </Box>
