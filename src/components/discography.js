@@ -67,8 +67,8 @@ function Work({ work }) {
   const [ref, { height }] = useMeasure();
 
   const coverURL = work.artwork
-    ? work.artwork
-    : `https://res.cloudinary.com/demo/image/fetch/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
+    ? `https://res.cloudinary.com/wansaleh/image/fetch/w_480/${work.artwork}`
+    : `https://res.cloudinary.com/wansaleh/image/fetch/w_480/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
 
   const { data: palette } = usePalette(coverURL, 3, 'hex', {
     crossOrigin: 'anonymous'
@@ -113,8 +113,8 @@ function Work({ work }) {
                 <Image
                   src={coverURL}
                   layout="intrinsic"
-                  width={500}
-                  height={500}
+                  width={480}
+                  height={work.artwork ? 480 : 360}
                   alt={work.song}
                   css={{
                     position: 'relative',
