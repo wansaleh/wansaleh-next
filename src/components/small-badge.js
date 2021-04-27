@@ -1,5 +1,5 @@
 import { Badge } from '@chakra-ui/react';
-import { readableColor, rgba } from 'polished';
+import { readableColor } from 'polished';
 
 // import { getDarkest } from '../lib/color-helpers';
 

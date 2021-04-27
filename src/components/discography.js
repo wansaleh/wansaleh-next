@@ -74,7 +74,7 @@ function Work({ work }) {
   const PALETTENUM = 1;
 
   return (
-    <LazyLoad height={410} unmountIfInvisible>
+    <LazyLoad height={410} unmountIfInvisible classNamePrefix="ll">
       <LinkBox key={work.youtube} role="group" h="410px">
         <LinkOverlay
           href={`https://youtube.com/watch?v=${work.youtube}`}
