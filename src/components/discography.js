@@ -19,6 +19,7 @@ import {
 } from 'date-fns';
 import Image from 'next/image';
 import { adjustHue, lighten, readableColor } from 'polished';
+import LazyLoad from 'react-lazyload';
 
 // import { getDarkest } from '../lib/color-helpers';
 import SmallBadge from './small-badge';
@@ -73,132 +74,145 @@ function Work({ work }) {
   const PALETTENUM = 1;
 
   return (
-    <LinkBox key={work.youtube} role="group">
-      <LinkOverlay
-        href={`https://youtube.com/watch?v=${work.youtube}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Box
-          bg={
-            palette
-              ? `linear-gradient(to bottom right, ${
-                  palette[PALETTENUM]
-                }, ${adjustHue(20, lighten(0.1, palette[PALETTENUM]))})`
-              : 'gray.800'
-          }
-          color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
-          transition="all 0.2s ease"
-          textAlign="center"
-          p="8"
-          h="full"
+    <LazyLoad height={410} unmountIfInvisible>
+      <LinkBox key={work.youtube} role="group" h="410px">
+        <LinkOverlay
+          href={`https://youtube.com/watch?v=${work.youtube}`}
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <AspectRatio
-            ratio={1}
-            w="100%"
-            transition="all 0.3s ease"
-            transformOrigin="bottom"
-            _groupHover={{
-              transform: 'scale(1.02)'
-            }}
+          <Flex
+            direction="column"
+            bg={
+              palette
+                ? `linear-gradient(to bottom right, ${
+                    palette[PALETTENUM]
+                  }, ${adjustHue(20, lighten(0.1, palette[PALETTENUM]))})`
+                : 'gray.800'
+            }
+            color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
+            transition="all 0.2s ease"
+            textAlign="center"
+            p="5"
+            h="full"
           >
-            <Box shadow="lg" bg="black">
-              <CImage
-                src={coverURL}
-                layout="fill"
-                alt={work.title}
-                pos="relative"
-                zIndex="0"
-                objectFit="contain"
-                objectPosition="50% 35%"
-                // transform={!work.artwork && work.inteam === 'y' && 'scale(1.1)'}
-                pointerEvents="none"
-              />
-              <HStack
-                className="front"
-                justify="center"
-                spacing="1"
-                pos="absolute"
-                left="0"
-                right="0"
-                bottom="0"
-                px="3"
-                py="3.5"
-                lineHeight="1"
-              >
-                {work.pro && (
-                  <SmallBadge color={palette && palette[PALETTENUM]}>
-                    PRO
-                  </SmallBadge>
-                )}
-                {work.com && (
-                  <SmallBadge color={palette && palette[PALETTENUM]}>
-                    COM
-                  </SmallBadge>
-                )}
-                {work.arr && (
-                  <SmallBadge color={palette && palette[PALETTENUM]}>
-                    ARR
-                  </SmallBadge>
-                )}
-                {work.mix && (
-                  <SmallBadge color={palette && palette[PALETTENUM]}>
-                    MIX
-                  </SmallBadge>
-                )}
-                {work.mas && (
-                  <SmallBadge color={palette && palette[PALETTENUM]}>
-                    MAS
-                  </SmallBadge>
-                )}
-              </HStack>
-            </Box>
-          </AspectRatio>
-
-          <Box px="3" pt="3" lineHeight="1">
-            <Heading
-              as="h3"
-              fontSize="lg"
-              fontWeight="600"
-              d="flex"
-              justifyContent="center"
-              alignItems="center"
+            <AspectRatio
+              ratio={1}
+              w="100%"
+              transition="all 0.3s ease"
+              transformOrigin="bottom"
+              _groupHover={{
+                transform: 'scale(1.02)'
+              }}
             >
-              <Box
-                as="span"
-                d="inline-block"
-                maxW="90%"
-                whiteSpace="nowrap"
-                overflow="hidden"
-                textOverflow="ellipsis"
-              >
-                {work.song}
-              </Box>
-
-              {isAfter(work.released, subWeeks(new Date(), 8)) && (
-                <SmallBadge
-                  color={palette && palette[PALETTENUM]}
-                  ml="1.5"
-                  // mt="0.5"
+              <Box shadow="lg" bg="black">
+                <CImage
+                  src={coverURL}
+                  layout="fill"
+                  alt={work.title}
+                  pos="relative"
+                  zIndex="0"
+                  objectFit="contain"
+                  objectPosition="50% 35%"
+                  // transform={!work.artwork && work.inteam === 'y' && 'scale(1.1)'}
+                  pointerEvents="none"
+                />
+                <HStack
+                  className="front"
+                  justify="center"
+                  spacing="1"
+                  pos="absolute"
+                  left="0"
+                  right="0"
+                  bottom="0"
+                  px="3"
+                  py="3.5"
+                  lineHeight="1"
                 >
-                  New
-                </SmallBadge>
-              )}
-            </Heading>
-
-            <Flex justify="center" align="center" direction="column" w="full">
-              <Box
-                fontSize="xs"
-                fontWeight="600"
-                maxW="90%"
-                whiteSpace="nowrap"
-                overflow="hidden"
-                textOverflow="ellipsis"
-              >
-                {work.artist}
+                  {work.pro && (
+                    <SmallBadge color={palette && palette[PALETTENUM]}>
+                      PRO
+                    </SmallBadge>
+                  )}
+                  {work.com && (
+                    <SmallBadge color={palette && palette[PALETTENUM]}>
+                      COM
+                    </SmallBadge>
+                  )}
+                  {work.arr && (
+                    <SmallBadge color={palette && palette[PALETTENUM]}>
+                      ARR
+                    </SmallBadge>
+                  )}
+                  {work.mix && (
+                    <SmallBadge color={palette && palette[PALETTENUM]}>
+                      MIX
+                    </SmallBadge>
+                  )}
+                  {work.mas && (
+                    <SmallBadge color={palette && palette[PALETTENUM]}>
+                      MAS
+                    </SmallBadge>
+                  )}
+                </HStack>
               </Box>
+            </AspectRatio>
 
-              {/* {work.composer && work.writer && (
+            <Box flex="1" />
+
+            <Flex
+              w="full"
+              direction="column"
+              justify="center"
+              align="center"
+              px="3"
+              // py="3"
+              lineHeight="1"
+            >
+              <Heading
+                as="h3"
+                w="full"
+                fontSize="lg"
+                fontWeight="600"
+                d="flex"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Box
+                  as="span"
+                  d="inline-block"
+                  maxW="90%"
+                  whiteSpace="nowrap"
+                  overflow="hidden"
+                  textOverflow="ellipsis"
+                >
+                  {work.song}
+                </Box>
+
+                {isAfter(work.released, subWeeks(new Date(), 8)) && (
+                  <SmallBadge
+                    color={palette && palette[PALETTENUM]}
+                    ml="1.5"
+                    // mt="0.5"
+                  >
+                    New
+                  </SmallBadge>
+                )}
+              </Heading>
+
+              <Flex justify="center" align="center" direction="column" w="full">
+                <Box
+                  fontSize="xs"
+                  fontWeight="600"
+                  maxW="90%"
+                  whiteSpace="nowrap"
+                  overflow="hidden"
+                  textOverflow="ellipsis"
+                >
+                  {work.artist}
+                </Box>
+
+                {/* {work.composer && work.writer && (
                 <Box
                   mt="1"
                   fontSize="xs"
@@ -211,28 +225,29 @@ function Work({ work }) {
                   {work.composer} / {work.writer}
                 </Box>
               )} */}
-            </Flex>
+              </Flex>
 
-            <Box
-              mt="1"
-              fontSize="xs"
-              fontWeight="500"
-              _groupHover={{
-                '.ago': { display: 'none' },
-                '.abs': { display: 'inline' }
-              }}
-            >
-              Released{' '}
-              <span className="inline ago">
-                {formatDistanceToNow(work.released, { addSuffix: true })}
-              </span>
-              <span className="hidden abs">
-                {format(work.released, 'd MMMM yyy')}
-              </span>
-            </Box>
-          </Box>
-        </Box>
-      </LinkOverlay>
-    </LinkBox>
+              <Box
+                mt="1"
+                fontSize="xs"
+                fontWeight="500"
+                _groupHover={{
+                  '.ago': { display: 'none' },
+                  '.abs': { display: 'inline' }
+                }}
+              >
+                Released{' '}
+                <span className="inline ago">
+                  {formatDistanceToNow(work.released, { addSuffix: true })}
+                </span>
+                <span className="hidden abs">
+                  {format(work.released, 'd MMMM yyy')}
+                </span>
+              </Box>
+            </Flex>
+          </Flex>
+        </LinkOverlay>
+      </LinkBox>
+    </LazyLoad>
   );
 }
