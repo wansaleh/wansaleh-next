@@ -1,5 +1,31 @@
+import { formatISO, parse } from 'date-fns';
+
+function boolean(value) {
+  return value === 'y' || value === '1';
+}
+
+export async function fetchDiscograpySheet() {
+  const { rows } = await getSheetJSON({
+    id: '1fNtaqKnsDYEoi9NG8-phPzFH_1Fwbeh0j8SqivlOkjY'
+  });
+
+  return rows
+    .map((work) => ({
+      ...work,
+      released: formatISO(parse(work.released, 'yyyy-MM-dd', new Date())),
+      pro: boolean(work.pro),
+      com: work.composer.includes('Wan Saleh'),
+      arr: boolean(work.arr),
+      mix: boolean(work.mix),
+      mas: boolean(work.mas),
+      inteam: boolean(work.inteam),
+      hide: boolean(work.hide)
+    }))
+    .sort((a, b) => b.released - a.released);
+}
+
 /* eslint-disable no-plusplus */
-export default async function getSheetJSON({
+export async function getSheetJSON({
   id,
   sheet = 1,
   query = '',

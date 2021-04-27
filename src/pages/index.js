@@ -20,7 +20,7 @@ import Nav from '../components/nav';
 import Tools from '../components/tools';
 import devTools from '../data/dev-tools';
 import musicTools from '../data/music-tools';
-import getSheetJSON from '../lib/sheet';
+import { fetchDiscograpySheet } from '../lib/sheet';
 
 export default function Home({ works }) {
   return (
@@ -191,13 +191,11 @@ function SectionTitle({ title, subtitle }) {
 }
 
 export async function getStaticProps() {
-  const { rows } = await getSheetJSON({
-    id: '1fNtaqKnsDYEoi9NG8-phPzFH_1Fwbeh0j8SqivlOkjY'
-  });
+  const works = await fetchDiscograpySheet();
 
   return {
     props: {
-      works: rows
+      works
     },
     revalidate: 1
   };

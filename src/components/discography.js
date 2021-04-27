@@ -15,6 +15,7 @@ import {
   formatDistanceToNow,
   isAfter,
   parse,
+  parseISO,
   subWeeks
 } from 'date-fns';
 import Image from 'next/image';
@@ -30,7 +31,7 @@ export default function Discography({ works }) {
   const allWorks = works
     .map((work) => ({
       ...work,
-      released: parse(work.released, 'yyyy-MM-dd', new Date())
+      released: parseISO(work.released, new Date())
     }))
     .sort((a, b) => b.released - a.released)
     .filter((work) => work.hide !== 'y');
@@ -90,10 +91,18 @@ function Work({ work }) {
           color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
           transition="all 0.2s ease"
           textAlign="center"
-          p="4"
+          p="8"
           h="full"
         >
-          <AspectRatio ratio={1} w="100%">
+          <AspectRatio
+            ratio={1}
+            w="100%"
+            transition="all 0.3s ease"
+            transformOrigin="bottom"
+            _groupHover={{
+              transform: 'scale(1.02)'
+            }}
+          >
             <Box shadow="lg" bg="black">
               <CImage
                 src={coverURL}
