@@ -4,6 +4,7 @@ import {
   Container,
   Flex,
   Heading,
+  SimpleGrid,
   Text,
   useColorModeValue
   // useColorModeValue,
@@ -107,44 +108,33 @@ export default function Home({ works }) {
       </Flex>
 
       <Box pos="relative">
-        <Box>
-          {/* <Container maxW="7xl">
-            <SectionTitle
-              title="Selected Discography."
-              subtitle={
-                <>
-                  Works I produced <SmallBadge>PRO</SmallBadge>,
-                  composed/written <SmallBadge>COM</SmallBadge>, arranged{' '}
-                  <SmallBadge>ARR</SmallBadge>, mixed{' '}
-                  <SmallBadge>MIX</SmallBadge> or mastered{' '}
-                  <SmallBadge>MAS</SmallBadge>.
-                </>
-              }
-            />
-          </Container> */}
+        <Discography works={works} />
 
-          <Discography works={works} />
-        </Box>
+        <Container maxW="8xl">
+          <SimpleGrid
+            pt={['5rem', '10rem']}
+            columns={[1, 1, 1, 2]}
+            spacing="20"
+          >
+            <Box>
+              <SectionTitle
+                title="Music Tools"
+                subtitle="Music things I use daily."
+              />
 
-        <Box pt={['5rem', '10rem']}>
-          <Container maxW="7xl">
-            <SectionTitle
-              title="Music Tools."
-              subtitle="Music things I use daily."
-            />
-            <Tools tools={musicTools} />
-          </Container>
-        </Box>
+              <Tools tools={musicTools} />
+            </Box>
 
-        <Box pt={['5rem', '10rem']}>
-          <Container maxW="7xl">
-            <SectionTitle
-              title="Development Tools."
-              subtitle="DevTools I use when I build things."
-            />
-            <Tools tools={devTools} />
-          </Container>
-        </Box>
+            <Box>
+              <SectionTitle
+                title="Development Tools"
+                subtitle="DevTools I use when I build things."
+              />
+
+              <Tools tools={devTools} hideIcons />
+            </Box>
+          </SimpleGrid>
+        </Container>
       </Box>
 
       <Footer />
