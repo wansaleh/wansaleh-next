@@ -12,7 +12,7 @@ const brand = tailwindColorPalette('#3497b5', {
 module.exports = {
   mode: 'jit',
   darkMode: 'class',
-  purge: ['./src/**/*.html', './src/**/*.js'],
+  purge: ['./src/**/*.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
