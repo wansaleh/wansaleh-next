@@ -7,9 +7,9 @@ import {
   SimpleGrid,
   Text,
   useColorModeValue
-  // useColorModeValue,
   // useTheme
 } from '@chakra-ui/react';
+import Image from 'next/image';
 // import { desaturate, mix } from 'polished';
 import TextLoop from 'react-text-loop';
 
@@ -32,7 +32,8 @@ export default function Home({ works }) {
 
       <Flex
         w="full"
-        py={['5rem', , '15rem']}
+        pt={['5rem', , '15rem']}
+        pb={['3rem', , '15rem']}
         flexDir="column"
         justify="center"
         align="center"
@@ -50,27 +51,38 @@ export default function Home({ works }) {
           opacity="0.2"
         />
         <Box
-          bg={useColorModeValue(
-            `url(${require('../assets/images/hand.png')}) no-repeat center/cover`,
-            `url(${require('../assets/images/hand2.png')}) no-repeat center/cover`
-          )}
           pos="absolute"
-          w={['500px', '700px', '800px', '1000px']}
-          h={['500px', '700px', '800px', '1000px']}
-          left={['10%', '10%', '20%', '50%']}
-          bottom="-50%"
-          // inset="0"
-          // bottom="-100%"
-          // right="-50%"
+          inset="0"
+          // w={['500px', '700px', '800px', '1000px']}
+          // h={['500px', '700px', '800px', '1000px']}
+          // left={['10%', '10%', '20%', '50%']}
           zIndex="-1"
-          transform="scaleX(-1) rotate(-10deg)"
-        />
+          transform="translate(25%, 30%) scaleX(-1) rotate(-10deg)"
+        >
+          <Image
+            layout="fill"
+            alt=""
+            // width={1920}
+            // height={1080}
+            src={useColorModeValue(
+              require('../assets/images/hand.png'),
+              require('../assets/images/hand2.png')
+            )}
+            css={{
+              width: '100%',
+              height: '100%',
+              pointerEvents: 'none',
+              userSelect: 'none',
+              objectFit: 'contain'
+            }}
+          />
+        </Box>
 
         <Container maxW="7xl">
           <Heading
             as="h1"
             pb="2"
-            fontSize={['3rem', '6rem', '8rem']}
+            fontSize={['3rem', '4rem', '5rem', '8rem']}
             fontWeight="800"
             lineHeight="0.9"
             // letterSpacing="-0.1em"

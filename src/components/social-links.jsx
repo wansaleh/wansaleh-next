@@ -70,7 +70,7 @@ export default function SocialLinks() {
             <Link
               href={href}
               // color="gray.900"
-              px="2"
+              px={[1, 1, 1, 2]}
               d="block"
               // _hover={{ color: 'white', textDecoration: 'underline' }}
             >
@@ -81,7 +81,7 @@ export default function SocialLinks() {
             <NextLink href={href}>
               <Link
                 // color="gray.900"
-                px="2"
+                px={[1, 1, 1, 2]}
                 d="block"
                 // _hover={{ color: 'white', textDecoration: 'underline' }}
               >

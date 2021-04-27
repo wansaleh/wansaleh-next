@@ -25,6 +25,7 @@ const Nav = () => {
       zIndex="100"
       justify="space-between"
       align="center"
+      fontSize={['sm', 'sm', 'sm', 'md']}
       w="full"
       top="0"
       left="0"
@@ -33,13 +34,13 @@ const Nav = () => {
         a: { textDecoration: 'none !important' }
       }}
     >
-      <Flex as="ul" justify="space-between" align="center" p="3">
+      <Flex as="ul" justify="space-between" align="center" p="4">
         <li>
           <NextLink href="/">
-            <Link px="2" d="block">
+            <Link d="block">
               <Flex align="center">
                 <Logo
-                  w="30px"
+                  w="1.75em"
                   fill={useColorModeValue('brand.600', 'brand.500')}
                   css={{ transition: 'all 1s ease' }}
                 />
@@ -54,7 +55,7 @@ const Nav = () => {
 
       <Box flex="1" />
 
-      <Flex as="ul" justify="space-between" align="center" p="3">
+      <Flex as="ul" justify="space-between" align="center" p="4">
         <li>
           <SocialLinks />
         </li>
@@ -62,14 +63,15 @@ const Nav = () => {
         <li>
           <LightMode>
             <IconButton
-              ml="3"
+              ml={[1, 1, 1, 2]}
               colorScheme="brand"
               aria-label={colorMode !== 'dark' ? 'Dark' : 'Light'}
               icon={colorMode !== 'dark' ? <MoonIcon /> : <SunIcon />}
               onClick={toggleColorMode}
-              h="auto"
+              w="1.75em"
+              h="1.75em"
               minW="unset"
-              p="0.5em"
+              p="0"
             />
           </LightMode>
         </li>

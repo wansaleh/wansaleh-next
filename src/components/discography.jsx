@@ -38,17 +38,33 @@ export default function Discography({ works }) {
     .filter((work) => work.hide !== 'y');
 
   return (
-    <SimpleGrid columns={[1, 2, 3, 3, 4, 5]} spacing="0">
-      <Box p="8" textAlign="right">
+    <SimpleGrid
+      columns={[1, 2, 3, 3, 4, 5]}
+      spacing="0"
+      shadow="0 -10px 30px rgba(0,0,0,0.07)"
+    >
+      <Flex
+        p="8"
+        textAlign="center"
+        justify="center"
+        align="center"
+        direction="column"
+      >
         <Heading as="h2" lineHeight="0.9" color="brand.500">
           Selected Discography
         </Heading>
-        <Box mt="4" lineHeight="1.3" fontSize="sm" fontWeight="500">
-          Selected works that I have produced <b>(PRO)</b>, composed/written{' '}
-          <b>(COM)</b>, arranged <b>(ARR)</b>, mixed <b>(MIX)</b> or mastered{' '}
-          <b>(MAS)</b>.
+        <Box
+          mt="4"
+          lineHeight="1.3"
+          fontSize="sm"
+          fontWeight="500"
+          sx={{ b: { fontSize: '2xs' } }}
+        >
+          Selected works that I have produced <b>PRO</b>, composed/written{' '}
+          <b>COM</b>, arranged <b>ARR</b>, mixed <b>MIX</b> or mastered{' '}
+          <b>MAS</b>.
         </Box>
-      </Box>
+      </Flex>
 
       {allWorks.map((work) => (
         <Work work={work} key={work.youtube} />
@@ -239,18 +255,22 @@ function Work({ work }) {
                 mt="1"
                 fontSize="xs"
                 fontWeight="500"
-                _groupHover={{
-                  '.ago': { display: 'none' },
-                  '.abs': { display: 'inline' }
-                }}
+                pos="relative"
+                w="full"
               >
-                Released{' '}
-                <span className="inline ago">
+                <Box transition="all 0.5s ease" _groupHover={{ opacity: 0 }}>
+                  Released{' '}
                   {formatDistanceToNow(work.released, { addSuffix: true })}
-                </span>
-                <span className="hidden abs">
-                  {format(work.released, 'd MMMM yyy')}
-                </span>
+                </Box>
+                <Box
+                  opacity="0"
+                  pos="absolute"
+                  inset="0"
+                  transition="all 0.5s ease"
+                  _groupHover={{ opacity: 1 }}
+                >
+                  Released {format(work.released, 'd MMMM yyy')}
+                </Box>
               </Box>
             </Flex>
           </Flex>
