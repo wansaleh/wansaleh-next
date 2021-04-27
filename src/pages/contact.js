@@ -1,4 +1,11 @@
-import { Box, Container, Flex, Heading, SimpleGrid } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Image,
+  SimpleGrid
+} from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 import ContactForm from '../components/contact-form';
@@ -73,13 +80,14 @@ export default function ContactPage() {
 
           <Box zIndex="-1">
             <Box>
-              {/* <NextImage
-                src={require('../assets/images/inteam.png')}
-                width="600"
-                height="809"
-                layout="responsive"
-                alt="Inteam"
-              /> */}
+              <Image
+                src={require('../assets/images/sapiens.svg')}
+                w="1000px"
+                maxW="unset"
+                transform="scaleX(-1)"
+                alt="Contact"
+                ml="-100px"
+              />
             </Box>
           </Box>
         </SimpleGrid>

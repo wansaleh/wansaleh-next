@@ -28,12 +28,12 @@ const CImage = chakra(Image);
 
 export default function Discography({ works }) {
   const allWorks = works
-    .filter((work) => work.hide !== 'y')
     .map((work) => ({
       ...work,
       releasedate: parse(work.releasedate, 'yyyy-MM-dd', new Date())
     }))
-    .sort((a, b) => b.releasedate - a.releasedate);
+    .sort((a, b) => b.releasedate - a.releasedate)
+    .filter((work) => work.hide !== 'y');
 
   return (
     <SimpleGrid columns={[1, 2, 3, 3, 4, 5]} spacing="0">
@@ -219,7 +219,7 @@ function Work({ work }) {
                 {formatDistanceToNow(work.releasedate, { addSuffix: true })}
               </span>
               <span className="hidden abs">
-                {format(work.releasedate, 'd MMMM YYY')}
+                {format(work.releasedate, 'd MMMM yyy')}
               </span>
             </Box>
           </Box>
