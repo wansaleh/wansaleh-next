@@ -30,9 +30,9 @@ export default function Discography({ works }) {
   const allWorks = works
     .map((work) => ({
       ...work,
-      releasedate: parse(work.releasedate, 'yyyy-MM-dd', new Date())
+      released: parse(work.released, 'yyyy-MM-dd', new Date())
     }))
-    .sort((a, b) => b.releasedate - a.releasedate)
+    .sort((a, b) => b.released - a.released)
     .filter((work) => work.hide !== 'y');
 
   return (
@@ -118,7 +118,7 @@ function Work({ work }) {
                 py="3.5"
                 lineHeight="1"
               >
-                {work.produced === 'y' && (
+                {work.pro === 'y' && (
                   <SmallBadge color={palette && palette[PALETTENUM]}>
                     PRO
                   </SmallBadge>
@@ -128,17 +128,17 @@ function Work({ work }) {
                     COM
                   </SmallBadge>
                 )}
-                {work.music === 'y' && (
+                {work.arr === 'y' && (
                   <SmallBadge color={palette && palette[PALETTENUM]}>
                     ARR
                   </SmallBadge>
                 )}
-                {work.mixed === 'y' && (
+                {work.mix === 'y' && (
                   <SmallBadge color={palette && palette[PALETTENUM]}>
                     MIX
                   </SmallBadge>
                 )}
-                {work.mastered === 'y' && (
+                {work.mas === 'y' && (
                   <SmallBadge color={palette && palette[PALETTENUM]}>
                     MAS
                   </SmallBadge>
@@ -167,7 +167,7 @@ function Work({ work }) {
                 {work.song}
               </Box>
 
-              {isAfter(work.releasedate, subWeeks(new Date(), 8)) && (
+              {isAfter(work.released, subWeeks(new Date(), 8)) && (
                 <SmallBadge
                   color={palette && palette[PALETTENUM]}
                   ml="1.5"
@@ -216,10 +216,10 @@ function Work({ work }) {
             >
               Released{' '}
               <span className="inline ago">
-                {formatDistanceToNow(work.releasedate, { addSuffix: true })}
+                {formatDistanceToNow(work.released, { addSuffix: true })}
               </span>
               <span className="hidden abs">
-                {format(work.releasedate, 'd MMMM yyy')}
+                {format(work.released, 'd MMMM yyy')}
               </span>
             </Box>
           </Box>
