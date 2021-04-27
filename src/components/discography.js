@@ -20,6 +20,7 @@ import {
 import Image from 'next/image';
 import { adjustHue, lighten, readableColor } from 'polished';
 import LazyLoad from 'react-lazyload';
+import { useMeasure } from 'react-use';
 
 // import { getDarkest } from '../lib/color-helpers';
 import SmallBadge from './small-badge';
@@ -63,6 +64,8 @@ export default function Discography({ works }) {
 }
 
 function Work({ work }) {
+  const [ref, { height }] = useMeasure();
+
   const coverURL = work.artwork
     ? work.artwork
     : `https://res.cloudinary.com/demo/image/fetch/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
@@ -74,8 +77,8 @@ function Work({ work }) {
   const PALETTENUM = 1;
 
   return (
-    <LazyLoad height={410} unmountIfInvisible classNamePrefix="ll">
-      <LinkBox key={work.youtube} role="group" h="410px">
+    <LazyLoad height={height + 108} unmountIfInvisible classNamePrefix="ll">
+      <LinkBox key={work.youtube} role="group" h={`${height + 108}px`}>
         <LinkOverlay
           href={`https://youtube.com/watch?v=${work.youtube}`}
           target="_blank"
@@ -97,6 +100,7 @@ function Work({ work }) {
             h="full"
           >
             <AspectRatio
+              ref={ref}
               ratio={1}
               w="100%"
               transition="all 0.3s ease"
