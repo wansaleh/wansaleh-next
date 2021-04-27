@@ -14,7 +14,6 @@ import {
   format,
   formatDistanceToNow,
   isAfter,
-  parse,
   parseISO,
   subWeeks
 } from 'date-fns';
@@ -127,27 +126,27 @@ function Work({ work }) {
                 py="3.5"
                 lineHeight="1"
               >
-                {work.pro === 'y' && (
+                {work.pro && (
                   <SmallBadge color={palette && palette[PALETTENUM]}>
                     PRO
                   </SmallBadge>
                 )}
-                {work.composer.includes('Wan Saleh') && (
+                {work.com && (
                   <SmallBadge color={palette && palette[PALETTENUM]}>
                     COM
                   </SmallBadge>
                 )}
-                {work.arr === 'y' && (
+                {work.arr && (
                   <SmallBadge color={palette && palette[PALETTENUM]}>
                     ARR
                   </SmallBadge>
                 )}
-                {work.mix === 'y' && (
+                {work.mix && (
                   <SmallBadge color={palette && palette[PALETTENUM]}>
                     MIX
                   </SmallBadge>
                 )}
-                {work.mas === 'y' && (
+                {work.mas && (
                   <SmallBadge color={palette && palette[PALETTENUM]}>
                     MAS
                   </SmallBadge>
