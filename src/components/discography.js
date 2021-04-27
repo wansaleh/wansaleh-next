@@ -70,11 +70,11 @@ function Work({ work }) {
     ? `https://res.cloudinary.com/wansaleh/image/fetch/w_480/${work.artwork}`
     : `https://res.cloudinary.com/wansaleh/image/fetch/w_480/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
 
-  const { data: palette } = usePalette(coverURL, 3, 'hex', {
+  const { data: palette } = usePalette(coverURL, 4, 'hex', {
     crossOrigin: 'anonymous'
   });
 
-  const PALETTENUM = 1;
+  const PALETTENUM = 0;
 
   return (
     <LazyLoad height={height + 108} unmountIfInvisible classNamePrefix="ll">
