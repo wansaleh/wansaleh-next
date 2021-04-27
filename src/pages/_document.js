@@ -33,16 +33,11 @@ export default class MyDocument extends Document {
             data-emotion-css={this.props.ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: this.props.css }}
           />
-          <link
-            href="https://wscdn.vercel.app/fonts/jetbrains-mono/style-cdn.css"
-            rel="stylesheet"
-          />
-          <link rel="stylesheet" href="https://use.typekit.net/mmh1cep.css" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
+          {/* <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
             rel="stylesheet"
-          />
+          /> */}
           <link
             href="https://api.fontshare.com/css?f[]=supreme@1,2&f[]=general-sans@1&f[]=satoshi@1&f[]=clash-grotesk&display=swap"
             rel="stylesheet"
