@@ -6,7 +6,6 @@ import {
   LightMode,
   Link,
   useColorMode,
-  useColorModeValue,
   VisuallyHidden
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
