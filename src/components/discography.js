@@ -110,16 +110,19 @@ function Work({ work }) {
               }}
             >
               <Box shadow="lg" bg="black">
-                <CImage
+                <Image
                   src={coverURL}
-                  layout="fill"
+                  layout="intrinsic"
+                  width={500}
+                  height={500}
                   alt={work.song}
-                  pos="relative"
-                  zIndex="0"
-                  objectFit="contain"
-                  objectPosition="50% 35%"
-                  // transform={!work.artwork && work.inteam === 'y' && 'scale(1.1)'}
-                  pointerEvents="none"
+                  css={{
+                    position: 'relative',
+                    zIndex: 0,
+                    // objectFit:"contain",
+                    // objectPosition:"50% 35%"
+                    pointerEvents: 'none'
+                  }}
                 />
                 <HStack
                   className="front"
