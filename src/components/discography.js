@@ -179,7 +179,7 @@ function Work({ work }) {
                 <SmallBadge
                   color={palette && palette[PALETTENUM]}
                   ml="1.5"
-                  mt="0.5"
+                  // mt="0.5"
                 >
                   New
                 </SmallBadge>

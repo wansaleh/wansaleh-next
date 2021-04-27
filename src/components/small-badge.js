@@ -11,11 +11,11 @@ export default function SmallBadge({ children, color, ...props }) {
       bg={color || '#fff'}
       color={color ? readableColor(color) : '#000'}
       fontSize="0.65rem"
-      p="0.2em 0.3em"
+      p="0.15em 0.3em"
       lineHeight="1"
       letterSpacing="tight"
       border="0"
-      shadow={`0 0 0 1.5px ${rgba(color ? readableColor(color) : '#000', 0.4)}`}
+      shadow={`0 0 0 1px ${rgba(color ? readableColor(color) : '#000', 1)}`}
       // mr="1"
       {...props}
     >
