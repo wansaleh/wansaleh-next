@@ -1,4 +1,4 @@
-import { Box, Flex, Link } from '@chakra-ui/react';
+import { Box, Flex, Link, VisuallyHidden } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 const links = [
@@ -75,6 +75,7 @@ export default function SocialLinks() {
               // _hover={{ color: 'white', textDecoration: 'underline' }}
             >
               {icon || label}
+              {icon && <VisuallyHidden>{label}</VisuallyHidden>}
             </Link>
           ) : (
             <NextLink href={href}>
@@ -84,7 +85,8 @@ export default function SocialLinks() {
                 d="block"
                 // _hover={{ color: 'white', textDecoration: 'underline' }}
               >
-                {label}
+                {icon || label}
+                {icon && <VisuallyHidden>{label}</VisuallyHidden>}
               </Link>
             </NextLink>
           )}

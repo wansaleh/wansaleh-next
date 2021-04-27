@@ -53,7 +53,7 @@ const Nav = () => {
             <IconButton
               ml="3"
               colorScheme="brand"
-              aria-label="Search database"
+              aria-label={colorMode !== 'dark' ? 'Dark' : 'Light'}
               icon={colorMode !== 'dark' ? <MoonIcon /> : <SunIcon />}
               onClick={toggleColorMode}
             />

@@ -1,7 +1,7 @@
 import {
   AspectRatio,
   Box,
-  chakra,
+  // chakra,
   Flex,
   Heading,
   HStack,
@@ -26,7 +26,7 @@ import { useMeasure } from 'react-use';
 import SmallBadge from './small-badge';
 // import TiltCard from './tilt-card';
 
-const CImage = chakra(Image);
+// const CImage = chakra(Image);
 
 export default function Discography({ works }) {
   const allWorks = works
