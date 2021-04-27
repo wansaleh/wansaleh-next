@@ -34,7 +34,7 @@ const Nav = () => {
         <li>
           <NextLink href="/">
             <Link px="2" d="block">
-              <Logo w="30px" fill={useColorModeValue('#000', '#fff')} />
+              <Logo w="30px" fill="currentColor" />
               <VisuallyHidden>Wan Saleh</VisuallyHidden>
             </Link>
           </NextLink>
