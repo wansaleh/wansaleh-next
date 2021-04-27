@@ -98,7 +98,7 @@ export default function Home({ works }) {
             <TextLoop>
               <span>I make music.</span>
               <span>I mix songs.</span>
-              <span>I code web.</span>
+              <span>I develop web.</span>
               <span>I drink soda.</span>
               <span>I love mics.</span>
               <span>I adore preamps.</span>
