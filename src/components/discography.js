@@ -109,7 +109,7 @@ function Work({ work }) {
                 <CImage
                   src={coverURL}
                   layout="fill"
-                  alt={work.title}
+                  alt={work.song}
                   pos="relative"
                   zIndex="0"
                   objectFit="contain"
