@@ -64,7 +64,7 @@ export default function Discography({ works }) {
 }
 
 function Work({ work }) {
-  const [ref, { height }] = useMeasure();
+  const [ref, { height: coverHeight }] = useMeasure();
 
   const coverURL = work.artwork
     ? `https://res.cloudinary.com/wansaleh/image/fetch/w_500/${work.artwork}`
@@ -75,10 +75,11 @@ function Work({ work }) {
   });
 
   const PALETTENUM = 0;
+  const cellHeight = coverHeight + 108;
 
   return (
-    <LazyLoad height={height + 108} unmountIfInvisible classNamePrefix="ll">
-      <LinkBox key={work.youtube} role="group" h={`${height + 108}px`}>
+    <LazyLoad height={cellHeight} unmountIfInvisible classNamePrefix="ll">
+      <LinkBox key={work.youtube} role="group" h={`${cellHeight}px`}>
         <LinkOverlay
           href={`https://youtube.com/watch?v=${work.youtube}`}
           target="_blank"
