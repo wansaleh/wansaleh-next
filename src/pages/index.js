@@ -110,7 +110,7 @@ export default function Home({ works }) {
       <Box pos="relative">
         <Discography works={works} />
 
-        <Container maxW="8xl">
+        <Container maxW="7xl">
           <SimpleGrid
             pt={['5rem', '10rem']}
             columns={[1, 1, 1, 2]}
