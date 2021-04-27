@@ -6,6 +6,7 @@ import {
   LightMode,
   Link,
   useColorMode,
+  useColorModeValue,
   VisuallyHidden
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
@@ -33,7 +34,11 @@ const Nav = () => {
         <li>
           <NextLink href="/">
             <Link px="2" d="block">
-              <Logo w="30px" fill="currentColor" />
+              <Logo
+                w="30px"
+                fill={useColorModeValue('#000', 'brand.500')}
+                css={{ transition: 'all 1s ease' }}
+              />
               <VisuallyHidden>Wan Saleh</VisuallyHidden>
             </Link>
           </NextLink>
