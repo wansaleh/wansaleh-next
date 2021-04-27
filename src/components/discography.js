@@ -103,11 +103,11 @@ function Work({ work }) {
               ref={ref}
               ratio={1}
               w="100%"
-              transition="all 0.3s ease"
-              transformOrigin="bottom"
-              _groupHover={{
-                transform: 'scale(1.02)'
-              }}
+              // transition="all 0.3s ease"
+              // transformOrigin="bottom"
+              // _groupHover={{
+              //   transform: 'scale(1.02)'
+              // }}
             >
               <Box shadow="lg" bg="black">
                 <Image
