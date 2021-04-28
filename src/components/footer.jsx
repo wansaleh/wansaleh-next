@@ -1,4 +1,4 @@
-import { Container, Flex, Text } from '@chakra-ui/react';
+import { Container, Flex, HStack, Text } from '@chakra-ui/react';
 
 import SocialLinks from './social-links';
 
@@ -19,7 +19,16 @@ export default function Footer() {
           </Text>
         </li>
         <li>
-          <SocialLinks />
+          <HStack
+            as="ul"
+            justify="space-between"
+            align="center"
+            py="4"
+            fontWeight="600"
+            spacing="2"
+          >
+            <SocialLinks />
+          </HStack>
         </li>
       </Flex>
     </Container>

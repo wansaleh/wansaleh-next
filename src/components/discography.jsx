@@ -20,6 +20,7 @@ import {
 import groupBy from 'lodash.groupby';
 import Image from 'next/image';
 import { adjustHue, lighten, readableColor } from 'polished';
+import { Fragment } from 'react';
 import LazyLoad from 'react-lazyload';
 import { useMeasure } from 'react-use';
 
@@ -74,7 +75,7 @@ export default function Discography({ works }) {
       {Object.entries(groupedByYear)
         .sort((a, b) => b[0] - a[0])
         .map(([year, yearWorks]) => (
-          <>
+          <Fragment key={year}>
             <Flex
               key={year}
               p="8"
@@ -92,7 +93,7 @@ export default function Discography({ works }) {
             {yearWorks.map((work) => (
               <Work work={work} key={work.youtube} />
             ))}
-          </>
+          </Fragment>
         ))}
 
       {/* <Flex>

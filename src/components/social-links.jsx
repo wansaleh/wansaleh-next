@@ -1,14 +1,18 @@
-import { Box, Flex, Link, VisuallyHidden } from '@chakra-ui/react';
+import { Box, Link, VisuallyHidden } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 const links = [
   { href: '/contact', label: 'Contact' },
   {
     href: 'https://twitter.com/wansaleh',
-    label: 'Tw',
-    icon: <Twitter mx="1" />
+    label: 'Twitter',
+    icon: <Twitter />
   },
-  { href: 'https://github.com/wansaleh', label: 'Gh', icon: <Github mx="1" /> }
+  {
+    href: 'https://github.com/wansaleh',
+    label: 'Github',
+    icon: <Github />
+  }
   // { href: 'https://instagram.com/wansaleh', label: 'In' }
 ].map((link) => {
   link.key = `nav-link-${link.href}-${link.label}`;
@@ -19,7 +23,6 @@ function Twitter(props) {
   return (
     <Box
       as="svg"
-      className="feather feather-twitter"
       height="1.25em"
       width="1.25em"
       fill="none"
@@ -39,7 +42,6 @@ function Github(props) {
   return (
     <Box
       as="svg"
-      className="feather feather-github"
       height="1.25em"
       width="1.25em"
       fill="none"
@@ -56,42 +58,21 @@ function Github(props) {
 }
 
 export default function SocialLinks() {
-  return (
-    <Flex
-      as="ul"
-      justifyContent="space-between"
-      align="center"
-      // fontFamily="mono"
-      fontWeight="600"
-    >
-      {links.map(({ key, href, label, icon }) => (
-        <li key={key}>
-          {href.startsWith('https://') ? (
-            <Link
-              href={href}
-              // color="gray.900"
-              px={[1, 1, 1, 2]}
-              d="block"
-              // _hover={{ color: 'white', textDecoration: 'underline' }}
-            >
-              {icon || label}
-              {icon && <VisuallyHidden>{label}</VisuallyHidden>}
-            </Link>
-          ) : (
-            <NextLink href={href}>
-              <Link
-                // color="gray.900"
-                px={[1, 1, 1, 2]}
-                d="block"
-                // _hover={{ color: 'white', textDecoration: 'underline' }}
-              >
-                {icon || label}
-                {icon && <VisuallyHidden>{label}</VisuallyHidden>}
-              </Link>
-            </NextLink>
-          )}
-        </li>
-      ))}
-    </Flex>
-  );
+  return links.map(({ key, href, label, icon }) => (
+    <li key={key}>
+      {href.startsWith('https://') ? (
+        <Link href={href} p="1" d="block">
+          {icon || label}
+          {icon && <VisuallyHidden>{label}</VisuallyHidden>}
+        </Link>
+      ) : (
+        <NextLink href={href}>
+          <Link p="1" d="block">
+            {icon || label}
+            {icon && <VisuallyHidden>{label}</VisuallyHidden>}
+          </Link>
+        </NextLink>
+      )}
+    </li>
+  ));
 }

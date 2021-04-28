@@ -6,17 +6,19 @@ import tailwindConfig from '../../tailwind.config';
 
 const tailwind = resolveConfig(tailwindConfig).theme;
 
-const Button = {
+const Link = {
   // The styles all button have in common
   baseStyle: {
-    borderRadius: 'base'
+    textDecoration: 'none',
+    _hover: {
+      textDecoration: 'none'
+    }
   }
 };
 
 export default extendTheme({
   components: {
-    Button,
-    IconButton: Button
+    Link
   },
 
   styles: {
@@ -30,7 +32,11 @@ export default extendTheme({
       },
 
       a: {
-        color: props.colorMode === 'dark' ? 'brand.300' : 'brand.600'
+        color: props.colorMode === 'dark' ? 'brand.300' : 'brand.600',
+        textDecoration: 'none',
+        _hover: {
+          textDecoration: 'none'
+        }
       }
     })
   },
