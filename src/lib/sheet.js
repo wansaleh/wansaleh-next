@@ -1,4 +1,4 @@
-import { formatISO, parse } from 'date-fns';
+import { formatISO, parse, parseISO } from 'date-fns';
 
 function boolean(value) {
   return value === 'y' || value === '1';
@@ -21,7 +21,10 @@ export async function fetchDiscograpySheet() {
       inteam: boolean(work.inteam),
       hide: boolean(work.hide)
     }))
-    .sort((a, b) => b.released - a.released);
+    .sort(
+      (a, b) =>
+        parseISO(b.released, new Date()) - parseISO(a.released, new Date())
+    );
 }
 
 /* eslint-disable no-plusplus */

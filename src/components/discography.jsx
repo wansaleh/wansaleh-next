@@ -17,6 +17,7 @@ import {
   parseISO,
   subWeeks
 } from 'date-fns';
+import groupBy from 'lodash.groupby';
 import Image from 'next/image';
 import { adjustHue, lighten, readableColor } from 'polished';
 import LazyLoad from 'react-lazyload';
@@ -34,8 +35,12 @@ export default function Discography({ works }) {
       ...work,
       released: parseISO(work.released, new Date())
     }))
-    .sort((a, b) => b.released - a.released)
+    // .sort((a, b) => b.released - a.released)
     .filter((work) => work.hide !== 'y');
+
+  const groupedByYear = groupBy(allWorks, (work) =>
+    work.released.getFullYear()
+  );
 
   return (
     <SimpleGrid
@@ -66,9 +71,29 @@ export default function Discography({ works }) {
         </Box>
       </Flex>
 
-      {allWorks.map((work) => (
-        <Work work={work} key={work.youtube} />
-      ))}
+      {Object.entries(groupedByYear)
+        .sort((a, b) => b[0] - a[0])
+        .map(([year, yearWorks]) => (
+          <>
+            <Flex
+              key={year}
+              p="8"
+              textAlign="center"
+              justify="center"
+              align="center"
+              direction="column"
+              bg="brand.500"
+            >
+              <Heading as="h3" lineHeight="0.9" fontSize="7xl" color="white">
+                {year}
+              </Heading>
+            </Flex>
+
+            {yearWorks.map((work) => (
+              <Work work={work} key={work.youtube} />
+            ))}
+          </>
+        ))}
 
       {/* <Flex>
           <Heading as="h3" fontSize="lg" fontFamily="serif">

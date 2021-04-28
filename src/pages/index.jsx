@@ -32,8 +32,8 @@ export default function Home({ works }) {
 
       <Flex
         w="full"
-        pt={['5rem', , '15rem']}
-        pb={['3rem', , '15rem']}
+        pt={['5rem', , '10rem']}
+        pb={['3rem', , '10rem']}
         flexDir="column"
         justify="center"
         align="center"
@@ -53,11 +53,14 @@ export default function Home({ works }) {
         <Box
           pos="absolute"
           inset="0"
+          w="150vw"
+          h="150%"
           // w={['500px', '700px', '800px', '1000px']}
           // h={['500px', '700px', '800px', '1000px']}
           // left={['10%', '10%', '20%', '50%']}
           zIndex="-1"
-          transform="translate(25%, 30%) scaleX(-1) rotate(-10deg)"
+          transform="translate(0%, 0%) scaleX(-1) rotate(-10deg)"
+          d={['none', , 'block']}
         >
           <Image
             layout="fill"
