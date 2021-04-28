@@ -1,4 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
+import { rgba } from 'polished';
 import resolveConfig from 'tailwindcss/resolveConfig';
 
 import tailwindConfig from '../../tailwind.config';
@@ -38,5 +39,8 @@ export default extendTheme({
     '2xs': '11px',
     '7xl': '5rem',
     '8xl': '7rem'
+  },
+  shadows: {
+    outline: `0 0 0 3px ${rgba(tailwind.colors.brand[500], 0.6)}`
   }
 });
