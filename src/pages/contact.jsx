@@ -1,21 +1,20 @@
 import {
   Box,
   Container,
-  Flex,
   Heading,
   Image,
   SimpleGrid,
   useColorModeValue
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React from 'react';
 
-import ContactForm from '../components/contact-form';
+// import ContactForm from '../components/contact-form';
 import Footer from '../components/footer';
 import Head from '../components/head';
 import Nav from '../components/nav';
 
 export default function ContactPage() {
-  const [showThanks, setShowThanks] = useState(false);
+  // const [showThanks, setShowThanks] = useState(false);
 
   return (
     <>
@@ -23,8 +22,8 @@ export default function ContactPage() {
 
       <Nav />
 
-      <Container maxW="7xl" py="20">
-        <SimpleGrid columns={[1, 1, 2]} gap="16" py="16" pos="relative">
+      <Container maxW="7xl">
+        <SimpleGrid columns={[1, 1, 2]} gap="16" py="20" pos="relative">
           <Box zIndex="0">
             <Heading
               fontSize="6xl"
@@ -46,7 +45,21 @@ export default function ContactPage() {
               Let&apos;s get in touch.
             </Heading>
 
-            <Box mt="16" pos="relative">
+            <Box mt="16" pos="relative" fontSize="xl">
+              Drop a line to my email. It&apos;s wansaleh [at] gmail [dot] com.
+              <br />
+              Or DM me on{' '}
+              <a
+                href="https://twitter.com/wansaleh"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Twitter
+              </a>
+              .
+            </Box>
+
+            {/* <Box mt="16" pos="relative">
               <Box
                 opacity={showThanks ? 0 : 1}
                 pointerEvents={showThanks ? 'none' : 'auto'}
@@ -76,7 +89,7 @@ export default function ContactPage() {
               >
                 Thank you!
               </Flex>
-            </Box>
+            </Box> */}
           </Box>
 
           <Box zIndex="-1">
@@ -87,7 +100,7 @@ export default function ContactPage() {
                 maxW="unset"
                 transform="scaleX(-1)"
                 alt="Contact"
-                ml="-100px"
+                ml="-200px"
                 filter={useColorModeValue('invert(0)', 'invert(1)')}
               />
             </Box>

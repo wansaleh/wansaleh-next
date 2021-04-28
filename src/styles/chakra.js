@@ -12,14 +12,14 @@ export default extendTheme({
       body: {
         backgroundColor: props.colorMode !== 'dark' ? 'white' : 'black',
         fontFamily: 'body',
-        fontWeight: 300,
+        fontWeight: 400,
         // letterSpacing: '-0.0125em',
         color: props.colorMode === 'dark' ? 'white' : 'gray.900'
-      }
+      },
 
-      // a: {
-      //   color: props.colorMode === 'dark' ? 'brand.300' : 'brand.500'
-      // }
+      a: {
+        color: props.colorMode === 'dark' ? 'brand.300' : 'brand.600'
+      }
     })
   },
 
