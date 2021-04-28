@@ -6,7 +6,19 @@ import tailwindConfig from '../../tailwind.config';
 
 const tailwind = resolveConfig(tailwindConfig).theme;
 
+const Button = {
+  // The styles all button have in common
+  baseStyle: {
+    borderRadius: 'base'
+  }
+};
+
 export default extendTheme({
+  components: {
+    Button,
+    IconButton: Button
+  },
+
   styles: {
     global: (props) => ({
       body: {
