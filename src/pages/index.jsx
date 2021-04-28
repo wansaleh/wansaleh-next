@@ -183,7 +183,7 @@ function SectionTitle({ title, subtitle }) {
         letterSpacing="0.1em"
         textTransform="uppercase"
         // opacity="0.6"
-        color="brand.500"
+        color={useColorModeValue('brand.600', 'brand.500')}
       >
         {subtitle}
       </Heading>
