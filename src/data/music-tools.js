@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-module.exports = [
+export default [
   {
     name: 'Workstation',
     desc:

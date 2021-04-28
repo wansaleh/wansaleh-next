@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
-const musicTools = require('./music-tools');
+import musicTools from './music-tools';
 
-module.exports = [
+export default [
   musicTools[0],
   {
     name: 'Code Editor',

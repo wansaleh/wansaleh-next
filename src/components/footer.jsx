@@ -15,7 +15,7 @@ export default function Footer() {
       >
         <li>
           <Text as="span" bg="black" color="#fff" py="1" px="2">
-            Copyright © {new Date().getFullYear()} WNSLH
+            Copyright © {new Date().getFullYear()} By Wan Saleh
           </Text>
         </li>
         <li>
