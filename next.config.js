@@ -1,5 +1,5 @@
 const withPlugins = require('next-compose-plugins');
-const withFonts = require('next-fonts');
+// const withFonts = require('next-fonts');
 const withImages = require('next-optimized-images');
 
 module.exports = withPlugins(
@@ -11,10 +11,13 @@ module.exports = withPlugins(
           plugins: [{ cleanupIDs: false }]
         }
       }
-    ],
-    [withFonts]
+    ]
+    // [withFonts]
   ],
   {
+    future: {
+      webpack5: true
+    },
     images: {
       domains: [
         'is1-ssl.mzstatic.com',
@@ -26,14 +29,6 @@ module.exports = withPlugins(
         'i.ytimg.com',
         'res.cloudinary.com'
       ]
-    },
-    webpack: (config) => {
-      // Fixes npm packages that depend on `fs` module
-      config.node = {
-        fs: 'empty'
-      };
-
-      return config;
     }
   }
 );
