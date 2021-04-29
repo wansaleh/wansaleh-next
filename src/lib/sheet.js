@@ -12,14 +12,16 @@ export async function fetchDiscograpySheet() {
   return rows
     .map((work) => ({
       ...work,
-      released: formatISO(parse(work.released, 'yyyy-MM-dd', new Date())),
-      pro: boolean(work.pro),
-      com: work.composer.includes('Wan Saleh'),
-      arr: boolean(work.arr),
-      mix: boolean(work.mix),
-      mas: boolean(work.mas),
-      inteam: boolean(work.inteam),
-      hide: boolean(work.hide)
+      released: formatISO(
+        parse(work.released.trim(), 'yyyy-MM-dd', new Date())
+      ),
+      pro: boolean(work.pro.trim()),
+      com: work.composer.trim().includes('Wan Saleh'),
+      arr: boolean(work.arr.trim()),
+      mix: boolean(work.mix.trim()),
+      mas: boolean(work.mas.trim()),
+      inteam: boolean(work.inteam.trim()),
+      hide: boolean(work.hide.trim())
     }))
     .sort(
       (a, b) =>
