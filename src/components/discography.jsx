@@ -9,6 +9,7 @@ import {
   LinkOverlay,
   SimpleGrid
 } from '@chakra-ui/react';
+import arrayToSentence from 'array-to-sentence';
 import { usePalette } from 'color-thief-react';
 import {
   format,
@@ -30,6 +31,14 @@ import SmallBadge from './small-badge';
 
 // const CImage = chakra(Image);
 
+function listNames(names) {
+  names = names.split(/\s*,\s*/);
+
+  return arrayToSentence(names, {
+    lastSeparator: ' & '
+  });
+}
+
 export default function Discography({ works }) {
   const allWorks = works
     .map((work) => ({
@@ -37,7 +46,7 @@ export default function Discography({ works }) {
       released: parseISO(work.released, new Date())
     }))
     // .sort((a, b) => b.released - a.released)
-    .filter((work) => work.hide !== 'y');
+    .filter((work) => !work.hide);
 
   const groupedByYear = groupBy(allWorks, (work) =>
     work.released.getFullYear()
@@ -259,7 +268,7 @@ function Work({ work }) {
                   overflow="hidden"
                   textOverflow="ellipsis"
                 >
-                  {work.artist}
+                  {listNames(work.artist)}
                 </Box>
 
                 {/* {work.composer && work.writer && (

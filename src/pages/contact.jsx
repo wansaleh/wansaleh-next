@@ -2,14 +2,14 @@ import {
   Box,
   Container,
   Heading,
-  Image,
+  // Image,
   SimpleGrid,
   useColorModeValue
 } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import React from 'react';
 
-import Sapiens from '../assets/images/sapiens';
+// import Sapiens from '../assets/images/sapiens';
 // import ContactForm from '../components/contact-form';
 import Footer from '../components/footer';
 import Head from '../components/head';
