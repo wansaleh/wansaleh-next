@@ -14,6 +14,7 @@ import Image from 'next/image';
 import TextLoop from 'react-text-loop';
 
 import Discography from '../components/discography';
+// import Featured from '../components/featured';
 import Footer from '../components/footer';
 import Head from '../components/head';
 import Nav from '../components/nav';
@@ -50,6 +51,7 @@ export default function Home({ works }) {
           zIndex="-2"
           opacity="0.2"
         />
+
         <Box
           pos="absolute"
           inset="0"
@@ -118,9 +120,15 @@ export default function Home({ works }) {
         </Container>
       </Flex>
 
-      <Box pos="relative">
-        <Discography works={works} />
+      {/* <Box pos="relative" zIndex="1">
+        <Featured works={works} />
+      </Box> */}
 
+      <Box pos="relative" zIndex="2">
+        <Discography works={works} />
+      </Box>
+
+      <Box pos="relative">
         <Container maxW="7xl">
           <SimpleGrid
             pt={['5rem', '10rem']}

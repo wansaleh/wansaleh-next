@@ -20,7 +20,8 @@ export async function fetchDiscograpySheet() {
       arr: boolean(work.arr.trim()),
       mix: boolean(work.mix.trim()),
       mas: boolean(work.mas.trim()),
-      hide: boolean(work.hide.trim())
+      hide: boolean(work.hide.trim()),
+      featured: boolean(work.featured.trim())
     }))
     .sort(
       (a, b) =>

@@ -9,6 +9,7 @@ import {
   LinkBox,
   LinkOverlay,
   SimpleGrid,
+  useColorModeValue,
   VisuallyHidden
 } from '@chakra-ui/react';
 import arrayToSentence from 'array-to-sentence';
@@ -33,6 +34,8 @@ import SmallBadge from './small-badge';
 
 // const CImage = chakra(Image);
 
+const PALETTENUM = 0;
+
 function listNames(names) {
   names = names.split(/\s*,\s*/);
 
@@ -47,7 +50,7 @@ export default function Discography({ works }) {
       ...work,
       released: parseISO(work.released, new Date())
     }))
-    // .sort((a, b) => b.released - a.released)
+    .sort((a, b) => b.released - a.released)
     .filter((work) => !work.hide);
 
   const groupedByYear = groupBy(allWorks, (work) =>
@@ -60,6 +63,8 @@ export default function Discography({ works }) {
       // spacing="3"
       // mx="3"
       shadow="0 -10px 30px rgba(0,0,0,0.07)"
+      maxW="1800px"
+      mx="auto"
     >
       <Flex
         p="8"
@@ -95,14 +100,18 @@ export default function Discography({ works }) {
               justify="center"
               align="center"
               direction="column"
-              bgGradient="linear(-10deg, gray.800 50%, brand.500 50.2%)"
+              bgGradient={useColorModeValue(
+                'linear(-10deg, brand.800 50%, white 50.2%)',
+                'linear(-10deg, brand.800 50%, black 50.2%)'
+              )}
             >
               <Heading
                 as="h3"
                 lineHeight="0.9"
                 fontSize="7xl"
-                color="white"
+                color="brand.500"
                 transform="rotate(-10deg)"
+                textShadow="5px 5px 0 white"
                 // opacity="0.5"
                 // sx={{ mixBlendMode: 'overlay' }}
               >
@@ -129,14 +138,13 @@ function Work({ work }) {
   const [ref, { height: coverHeight }] = useMeasure();
 
   const coverURL = work.artwork
-    ? `https://res.cloudinary.com/wansaleh/image/fetch/w_500/${work.artwork}`
-    : `https://res.cloudinary.com/wansaleh/image/fetch/w_500/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
+    ? `https://res.cloudinary.com/wansaleh/image/fetch/w_400/${work.artwork}`
+    : `https://res.cloudinary.com/wansaleh/image/fetch/w_400/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
 
   const { data: palette } = usePalette(coverURL, 4, 'hex', {
     crossOrigin: 'anonymous'
   });
 
-  const PALETTENUM = 0;
   const cellHeight = coverHeight + 100;
 
   return (
@@ -176,8 +184,8 @@ function Work({ work }) {
                 <Image
                   src={coverURL}
                   layout="intrinsic"
-                  width={480}
-                  height={work.artwork ? 480 : 360}
+                  width={400}
+                  height={work.artwork ? 400 : 300}
                   alt={work.song}
                   css={{
                     position: 'relative',
@@ -186,6 +194,18 @@ function Work({ work }) {
                     // objectPosition:"50% 35%"
                     pointerEvents: 'none'
                   }}
+                />
+
+                <Box
+                  bg="linear-gradient(to bottom right, #000, rgba(0,0,0,0) 50%)"
+                  pos="absolute"
+                  w="100%"
+                  h="100%"
+                  top="0"
+                  left="0"
+                  opacity="0"
+                  transition="all 0.3s ease"
+                  _groupHover={{ opacity: 0.5 }}
                 />
 
                 <HStack
@@ -326,19 +346,23 @@ function Work({ work }) {
         {work.spotify && (
           <Box
             pos="absolute"
-            left="0"
-            top="0"
-            color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
+            left="3"
+            top="3"
+            color="white"
+            // color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
             opacity="0"
+            transform="scale(0.9)"
+            transformOrigin="top left"
             transition="all 0.3s ease"
             _groupHover={{
-              opacity: 1
+              opacity: 1,
+              transform: 'scale(1)'
             }}
           >
             <Button
               variant="unstyled"
               p="2"
-              m="3"
+              m="1"
               h="auto"
               minW="unset"
               minH="unset"
