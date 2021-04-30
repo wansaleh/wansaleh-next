@@ -36,7 +36,7 @@ export default function ContactPage() {
             <Heading
               fontSize="6xl"
               lineHeight="0.9"
-              letterSpacing="tighter"
+              letterSpacing="tight"
               mb="2"
             >
               Contact me.
@@ -46,7 +46,7 @@ export default function ContactPage() {
               fontSize="3xl"
               fontWeight="500"
               lineHeight="0.9"
-              letterSpacing="tighter"
+              letterSpacing="tight"
               mb="8"
               color="gray.500"
             >

@@ -55,7 +55,8 @@ export default function Discography({ works }) {
   return (
     <SimpleGrid
       columns={[1, 2, 3, 3, 4, 5]}
-      spacing="0"
+      // spacing="3"
+      // mx="3"
       shadow="0 -10px 30px rgba(0,0,0,0.07)"
     >
       <Flex
@@ -92,9 +93,17 @@ export default function Discography({ works }) {
               justify="center"
               align="center"
               direction="column"
-              bg="brand.500"
+              bgGradient="linear(-10deg, gray.800 50%, brand.500 50.2%)"
             >
-              <Heading as="h3" lineHeight="0.9" fontSize="7xl" color="white">
+              <Heading
+                as="h3"
+                lineHeight="0.9"
+                fontSize="7xl"
+                color="white"
+                transform="rotate(-10deg)"
+                // opacity="0.5"
+                // sx={{ mixBlendMode: 'overlay' }}
+              >
                 {year}
               </Heading>
             </Flex>
@@ -126,7 +135,7 @@ function Work({ work }) {
   });
 
   const PALETTENUM = 0;
-  const cellHeight = coverHeight + 108;
+  const cellHeight = coverHeight + 100;
 
   return (
     <LazyLoad height={cellHeight} unmountIfInvisible classNamePrefix="ll">
@@ -142,13 +151,13 @@ function Work({ work }) {
               palette
                 ? `linear-gradient(to bottom right, ${
                     palette[PALETTENUM]
-                  }, ${adjustHue(20, lighten(0.1, palette[PALETTENUM]))})`
+                  }, ${adjustHue(10, lighten(0.2, palette[PALETTENUM]))})`
                 : 'gray.800'
             }
             color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
             transition="all 0.2s ease"
             textAlign="center"
-            p="5"
+            p="3"
             h="full"
           >
             <AspectRatio
@@ -225,7 +234,7 @@ function Work({ work }) {
               justify="center"
               align="center"
               px="3"
-              // py="3"
+              py="2"
               lineHeight="1"
             >
               <Heading

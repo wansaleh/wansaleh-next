@@ -21,7 +21,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['General Sans', 'roc-grotesk', ...defaultTheme.fontFamily.sans],
-        head: ['General Sans', ...defaultTheme.fontFamily.sans],
+        head: ['Clash Display', ...defaultTheme.fontFamily.sans],
         serif: ['Merriweather', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
       }

@@ -1,7 +1,7 @@
 import { formatISO, parse, parseISO } from 'date-fns';
 
 function boolean(value) {
-  return value === 'y' || value === '1';
+  return String(value).trim() === 'y' || String(value).trim() === '1';
 }
 
 export async function fetchDiscograpySheet() {
@@ -20,7 +20,6 @@ export async function fetchDiscograpySheet() {
       arr: boolean(work.arr.trim()),
       mix: boolean(work.mix.trim()),
       mas: boolean(work.mas.trim()),
-      inteam: boolean(work.inteam.trim()),
       hide: boolean(work.hide.trim())
     }))
     .sort(

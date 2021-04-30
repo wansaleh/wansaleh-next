@@ -39,7 +39,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           /> */}
           <link
-            href="https://api.fontshare.com/css?f[]=supreme@1,2&f[]=general-sans@1&f[]=satoshi@1&f[]=clash-grotesk&display=swap"
+            href="https://api.fontshare.com/css?f[]=supreme@1,2&f[]=general-sans@1&f[]=satoshi@1&f[]=clash-display@1&display=swap"
             rel="stylesheet"
           />
         </Head>
