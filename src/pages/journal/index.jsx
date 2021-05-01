@@ -3,21 +3,14 @@ import {
   Box,
   Container,
   Flex,
-  Heading
-  // Text,
-  // useColorModeValue
-  // useTheme
+  Heading,
+  useColorModeValue
 } from '@chakra-ui/react';
+import smartypants from '@silvenon/remark-smartypants';
 import { format, parseISO } from 'date-fns';
 import MD from 'react-markdown';
 
-// import { gql } from 'graphql-request';
-// import parse from 'html-react-parser';
-// import Image from 'next/image';
-import Footer from '../../components/footer';
 import Head from '../../components/head';
-import Nav from '../../components/nav';
-// import { graphqlFetch } from '../../lib/api-helpers';
 import { getAllPosts } from '../../lib/posts';
 
 export default function Home({ posts }) {
@@ -29,8 +22,6 @@ export default function Home({ posts }) {
   return (
     <Box>
       <Head title="By Wan Saleh | Journal" />
-
-      <Nav />
 
       <Flex
         w="full"
@@ -62,22 +53,34 @@ export default function Home({ posts }) {
       <Container maxW="7xl">
         {posts.map((post) => (
           <Box key={post.slug}>
-            <Heading mb="0" fontSize="5xl">
+            <Heading fontSize="5xl" lineHeight="0.9" mb="4">
               {post.title}
             </Heading>
 
-            <Box mb="8">
-              By Wan Saleh. {format(parseISO(post.date), 'EEEE, d MMMM yyy')}
+            <Box mb="8" fontWeight="800">
+              <Box
+                as="span"
+                bg={useColorModeValue('black', 'white')}
+                color={useColorModeValue('white', 'black')}
+                py="1.5"
+                px="2"
+                lineHeight="1"
+                d="inline-block"
+              >
+                By Wan Saleh. {format(parseISO(post.date), 'EEEE, d MMMM yyy')}
+              </Box>
             </Box>
 
-            <Box as="article" className="prose lg:prose-lg">
-              <MD>{post.content}</MD>
+            <Box
+              as="article"
+              className="prose lg:prose-lg dark:prose-dark"
+              color="inherit"
+            >
+              <MD remarkPlugins={[smartypants]}>{post.content}</MD>
             </Box>
           </Box>
         ))}
       </Container>
-
-      <Footer />
     </Box>
   );
 }

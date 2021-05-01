@@ -6,7 +6,9 @@ author: Wan Saleh
 ---
 Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."*
 
-Ok jom *discover*.
+OK jom *discover*.
+
+> Kalau *checkpoint* pertama ni dah rendah kualitinya, maaf cakap lah, hujung sebelah sana (final audio) pasti tak baik.
 
 Dulu (9 tahun dulu), aku masuk, mula berkenalan dengan dunia *recording*. *Production* muzik dah lima enam tahun dah sebelum tu. Tapi tak pernah pula merakam.
 
@@ -14,20 +16,22 @@ Sampailah ke tahun 2012, Hijjaz Records, pelopor industri nasyid Malaysia member
 
 Aku ingat mic pertama yang aku pernah *handle*, is none other than the Nuemann TLM-49. Price: RM 8,500.
 
-Ok dari mic, lalu mana? Waktu tu haram tak tahu apa, dari mic terus ke Focusrite Liquid Saffire. Plain built-in preamp.
+OK dari mic, lalu/sambung ke mana? Waktu tu haram tak tahu apa, dari mic terus ke Focusrite Liquid Saffire. Plain built-in preamp.
 
-Boleh tahan lah hasil vokalnya. Not bad. Waktu tu lah. Berpuluh kalau tak beratus lagu aku rakam waktu tu.
+Boleh tahanlah hasil vokalnya. Not bad. (Waktu tu lah). Berpuluh kalau tak beratus lagu aku rakam waktu tu.
 
-Sepanjang aku recording, baru-baru ni je aku tahu the importance of external dedicated Microphone Preamps. Sebelum ni dengar dan dah berpuas hati dengan hasil good mic, dan built-in preamps dalam audio interface.
+Sepanjang aku recording, baru-baru ni je aku tahu the importance of external dedicated Microphone Preamps. Sebelum ni dengar dan dah berpuas hati dengan hasil good mic, dan built-in preamps dalam audio interface. Anda silalah cuba. Ada bajet je, invest pada satu preamp external. Pasti terbeliak anda mendengar perbezaan kualiti sound yang dirakam.
 
-Aku dah pernah pakai audio interface dari Universal Audio, Apogee, Focusrite, Audient & MOTU. RME & Antelope belum ada rezeki. Sekarang dah lama sikit buat kerja ni dah tahu apa yang baik dan apa yang plastik.
+Aku dah pernah pakai audio interface dari [Universal Audio](https://uaudio.com), [Apogee](https://apogeedigital.com/), [Focusrite](https://focusrite.com/en), [Audient](https://audient.com/) & [MOTU](https://motu.com/en-us/). [RME](https://www.rme-audio.de/) & [Antelope](https://en.antelopeaudio.com/) belum ada rezeki. Sekarang dah lama sikit buat kerja ni dah tahu apa yang baik dan apa yang plastik.
 
-Conversion is so important. Dari analog ke digital, balik ke analog, masuk ke telinga kita. Berdasarkan info itulah kita buat keputusan & pilihan dalam mixing. Jadi: Kalau conversion tak baik (low end interfaces), selalunya audio yang kita dengar pun kurang baik.
+*Conversion (AD/DA) is so important*. Dari analog ke digital, balik ke analog, masuk ke telinga kita. Berdasarkan info itulah kita buat keputusan & pilihan dalam mixing. Jadi: Kalau conversion tak baik (low end interfaces), selalunya audio yang kita dengar/kita *produce* pun kurang baik.
 
-Ok cerita recording. Ada satu pepatah inggeris. *You don't put a lipstick on a pig*. Sebelum apa-apa, dalam studio, apa yang kita dengar dari *source* tu dah kena sedap gila. Penyanyi ke, gitar ke, bass ke, strings ke. Tak kisah yang penting source ni semuanya dah sedia sedap. Kalau source tak sedap, penyanyi barai, musician biasa-biasa, tak mungkin rakaman tu hebat.
+Sambung cerita recording. Ada satu pepatah inggeris. *You don't put a lipstick on a pig*. Sebelum apa-apa, dalam studio, apa yang kita dengar dari *source* tu dah kena sedap gila. Penyanyi ke, gitar ke, bass ke, strings ke. Tak kisah yang penting *source* ni semuanya dah sedia sedap. Kalau *source* tak sedap, penyanyi barai, *musician* biasa-biasa, sangat susah untuk jadikan rakaman tu hebat.
 
-Lepas dah sahih source kelas atasan, kita rekod. Sambung cerita mikrofon. Microphone. Inilah laluan pertama semua bunyi untuk masuk ke dalam recording.
+Lepas dah sahih *source* kelas satu, kita rekod. Keluar je bunyi dari mulut penyanyi, ia melantun ke -- *microphone*. Inilah laluan pertama semua bunyi untuk masuk ke dalam *recording*.
 
-Kalau checkpoint pertama ni dah kurang kualitinya, maaf cakap lah, hujung sebelah sana (final audio) pasti tak baik.
+Kalau *checkpoint* pertama ni dah rendah kualitinya, maaf cakap lah, hujung sebelah sana (final audio) pasti tak baik.
 
-Nombor dua. Lepas microphone, cable XLR tu pun lalulah ke apa yang kita panggil sebagai preamp. Baik preamp, baiklah rakaman. Kedua-dua mic dan preamp memberikan karakter kepada bunyi yang kita rakamkan.
+Nombor dua. Lepas *microphone*, cable XLR tu pun lalulah ke apa yang kita panggil sebagai *preamp*. Baik *preamp*, baiklah rakaman. Kedua-dua mic dan *preamp* memberikan karakter kepada bunyi yang kita rakamkan.
+
+*Start* dari sini, *gain* kita dah kena jaga. Rendah sangat, *noise floor* jadi naik pula nanti. Kuat sangat, *clipping* pula. *Gain* meter menunjukkan dari -12dB ke -9dB ialah yang terbaik. Kalau signal *peaking* melebihi -6dB tu maksudnya *gain level* dah terlebih lah tu.

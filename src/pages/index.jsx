@@ -7,18 +7,12 @@ import {
   SimpleGrid,
   Text,
   useColorModeValue
-  // useTheme
 } from '@chakra-ui/react';
 import Image from 'next/image';
-// import { desaturate, mix } from 'polished';
 import TextLoop from 'react-text-loop';
 
 import Discography from '../components/discography';
-// import Featured from '../components/featured';
-import Footer from '../components/footer';
 import Head from '../components/head';
-import Nav from '../components/nav';
-// import SmallBadge from '../components/small-badge';
 import Tools from '../components/tools';
 import devTools from '../data/dev-tools';
 import musicTools from '../data/music-tools';
@@ -28,8 +22,6 @@ export default function Home({ works }) {
   return (
     <Box>
       <Head title="By Wan Saleh" />
-
-      <Nav />
 
       <Flex
         w="full"
@@ -147,8 +139,6 @@ export default function Home({ works }) {
           </SimpleGrid>
         </Container>
       </Box>
-
-      <Footer />
     </Box>
   );
 }

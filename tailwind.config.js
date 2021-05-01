@@ -24,9 +24,40 @@ module.exports = {
         head: ['Clash Display', ...defaultTheme.fontFamily.sans],
         serif: ['Merriweather', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
+      },
+      typography(theme) {
+        return {
+          DEFAULT: {
+            css: {
+              a: {
+                color: theme('colors.brand.500'),
+                '&:hover': {
+                  color: '#000'
+                }
+              },
+              blockquote: {
+                fontSize: '1.5em',
+                lineHeight: 1.5,
+                color: 'inherit',
+                opacity: 0.6
+              }
+            }
+          },
+          dark: {
+            css: {
+              a: {
+                '&:hover': {
+                  color: '#fff'
+                }
+              }
+            }
+          }
+        };
       }
     }
   },
-  variants: {},
+  variants: {
+    extend: { typography: ['dark'] }
+  },
   plugins: [require('@tailwindcss/typography')]
 };

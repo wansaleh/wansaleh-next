@@ -6,14 +6,11 @@ import {
   SimpleGrid,
   useColorModeValue
 } from '@chakra-ui/react';
-import NextImage from 'next/image';
+// import NextImage from 'next/image';
 import React from 'react';
 
-// import Sapiens from '../assets/images/sapiens';
-// import ContactForm from '../components/contact-form';
-import Footer from '../components/footer';
+import Sapiens from '../assets/images/sapiens';
 import Head from '../components/head';
-import Nav from '../components/nav';
 
 export default function ContactPage() {
   // const [showThanks, setShowThanks] = useState(false);
@@ -21,8 +18,6 @@ export default function ContactPage() {
   return (
     <>
       <Head title="By Wan Saleh | Contact" />
-
-      <Nav />
 
       <Container maxW="7xl">
         <SimpleGrid
@@ -102,7 +97,7 @@ export default function ContactPage() {
 
           <Box zIndex="-1">
             <Box w="150%" ml="-25%">
-              <NextImage
+              {/* <NextImage
                 src={require('../assets/images/sapiens.png')}
                 alt=""
                 layout="responsive"
@@ -111,24 +106,22 @@ export default function ContactPage() {
                 css={{
                   filter: useColorModeValue('invert(0)', 'invert(1)')
                 }}
-              />
-              {/* <Sapiens
-                w="calc(50vw)"
-                h="calc(50vw)"
+              /> */}
+              <Sapiens
+                w="100%"
+                h="100%"
                 // h="100%"
                 // w="1000px"
                 maxW="unset"
                 transform="scaleX(-1)"
                 alt="Contact"
-                ml="-200px"
+                // ml="-200px"
                 filter={useColorModeValue('invert(0)', 'invert(1)')}
-              /> */}
+              />
             </Box>
           </Box>
         </SimpleGrid>
       </Container>
-
-      <Footer />
     </>
   );
 }

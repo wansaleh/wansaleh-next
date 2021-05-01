@@ -3,20 +3,6 @@ import { extractCritical } from '@emotion/server';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 
-function initializeColorMode() {
-  if (
-    window.localStorage['chakra-ui-color-mode'] === 'dark' ||
-    (!('chakra-ui-color-mode' in window.localStorage) &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    document.documentElement.classList.add('dark');
-    document.documentElement.classList.remove('light');
-  } else {
-    document.documentElement.classList.add('light');
-    document.documentElement.classList.remove('dark');
-  }
-}
-
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -51,11 +37,6 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <ColorModeScript initialColorMode="light" />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(${String(initializeColorMode)})()`
-            }}
-          />
           <Main />
           <NextScript />
         </body>
