@@ -44,12 +44,24 @@ export default function Tools({ tools, hideIcons = false }) {
                       filter="grayscale(1)"
                       _hover={{ filter: 'grayscale(0)' }}
                     >
+                      {/* <Box
+                        dangerouslySetInnerHTML={{
+                          __html: logo.image
+                        }}
+                        sx={{
+                          h: '32px',
+                          w: 'auto',
+                          maxW: '5rem',
+                          svg: { height: 'full', w: 'full' }
+                        }}
+                        filter={useColorModeValue('invert(0)', 'invert(1)')}
+                      /> */}
                       <Image
                         src={logo.image}
                         // maxW="140px"
                         // h="10"
                         alt={logo.title}
-                        sx={{ height: '32px', maxWidth: '5rem' }}
+                        sx={{ height: '32px', w: 'auto', maxWidth: '5rem' }}
                         filter={useColorModeValue('invert(0)', 'invert(1)')}
                       />
 
