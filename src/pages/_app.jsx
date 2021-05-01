@@ -1,6 +1,7 @@
 import 'tailwindcss/tailwind.css';
 import '../styles/main.css';
 
+// import '../styles/font-inter.css';
 import { ChakraProvider } from '@chakra-ui/react';
 
 import chakra from '../styles/chakra';

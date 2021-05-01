@@ -99,7 +99,7 @@ export default function Tools({ tools, hideIcons = false }) {
             </Flex>
           )}
 
-          <Box maxW="lg" fontSize="sm" fontWeight="400" lineHeight="1.5">
+          <Box maxW="lg" fontSize="sm" lineHeight="1.5">
             <MD>{tool.desc}</MD>
           </Box>
         </Box>

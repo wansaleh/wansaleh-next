@@ -8,6 +8,7 @@ import {
   useColorModeValue
   // useTheme
 } from '@chakra-ui/react';
+import { format, parseISO } from 'date-fns';
 import { gql } from 'graphql-request';
 import parse from 'html-react-parser';
 import Image from 'next/image';
@@ -59,8 +60,13 @@ export default function Home({ posts }) {
       <Container maxW="7xl">
         {allPosts.map((post) => (
           <Box key={post.id}>
-            <Heading>{post.title}</Heading>
-            {post.contentParsed}
+            <Heading mb="8">{post.title}</Heading>
+
+            <Box mb="8">{format(parseISO(post.date), 'EEEE, d MMMM yyy')}</Box>
+
+            <Box as="article" className="prose lg:prose-xl">
+              {post.contentParsed}
+            </Box>
           </Box>
         ))}
       </Container>
@@ -77,8 +83,11 @@ export async function getStaticProps() {
         edges {
           node {
             id
+            databaseId
             slug
             title
+            date
+            dateGmt
             modified
             modifiedGmt
             content

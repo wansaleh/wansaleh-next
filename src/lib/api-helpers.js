@@ -32,10 +32,12 @@ export async function fetchPostJSON(url, data) {
 }
 
 export async function graphqlFetch(query, variables) {
-  const graphcms = new GraphQLClient('https://wpgraphql.wansal.co/graphql', {
-    // headers: {
-    //   authorization: `Bearer ${process.env.NEXT_PUBLIC_GRAPHCMS_TOKEN}`
-    // }
+  const graphcms = new GraphQLClient(process.env.WORDPRESS_API_URL, {
+    headers: {
+      // authorization:
+      //   process.env.WORDPRESS_AUTH_REFRESH_TOKEN ??
+      //   `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`
+    }
   });
 
   return graphcms.request(query, variables);

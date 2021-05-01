@@ -16,7 +16,7 @@ const Link = {
   }
 };
 
-export default extendTheme({
+const theme = extendTheme({
   components: {
     Link
   },
@@ -27,7 +27,7 @@ export default extendTheme({
         backgroundColor: props.colorMode !== 'dark' ? 'white' : 'black',
         fontFamily: 'body',
         fontWeight: 400,
-        // letterSpacing: '-0.0125em',
+        letterSpacing: '-0.0125em',
         color: props.colorMode === 'dark' ? 'white' : 'gray.900'
       },
 
@@ -62,3 +62,5 @@ export default extendTheme({
     outline: `0 0 0 3px ${rgba(tailwind.colors.brand[500], 0.6)}`
   }
 });
+
+export default theme;

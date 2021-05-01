@@ -20,7 +20,7 @@ module.exports = {
         gray: colors.trueGray
       },
       fontFamily: {
-        sans: ['General Sans', 'roc-grotesk', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter var', 'roc-grotesk', ...defaultTheme.fontFamily.sans],
         head: ['Clash Display', ...defaultTheme.fontFamily.sans],
         serif: ['Merriweather', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
@@ -28,5 +28,5 @@ module.exports = {
     }
   },
   variants: {},
-  plugins: []
+  plugins: [require('@tailwindcss/typography')]
 };
