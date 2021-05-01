@@ -20,7 +20,7 @@ OK dari mic, lalu/sambung ke mana? Waktu tu haram tak tahu apa, dari mic terus k
 
 Boleh tahanlah hasil vokalnya. Not bad. (Waktu tu lah). Berpuluh kalau tak beratus lagu aku rakam waktu tu.
 
-Sepanjang aku recording, baru-baru ni je aku tahu the importance of external dedicated Microphone Preamps. Sebelum ni dengar dan dah berpuas hati dengan hasil good mic, dan built-in preamps dalam audio interface. Anda silalah cuba. Ada bajet je, invest pada satu preamp external. Pasti terbeliak anda mendengar perbezaan kualiti sound yang dirakam.
+Sepanjang aku *recording*, baru-baru ni je aku tahu *the importance of external dedicated Microphone Preamps*. Sebelum ni dengar dan dah berpuas hati dengan hasil *good mic*, dan *built-in preamps* dalam *audio interface*. Anda silalah cuba. Ada bajet je, *invest* pada satu *preamp external*. Pasti terbeliak anda mendengar perbezaan kualiti sound yang dirakam.
 
 Aku dah pernah pakai audio interface dari [Universal Audio](https://uaudio.com), [Apogee](https://apogeedigital.com/), [Focusrite](https://focusrite.com/en), [Audient](https://audient.com/) & [MOTU](https://motu.com/en-us/). [RME](https://www.rme-audio.de/) & [Antelope](https://en.antelopeaudio.com/) belum ada rezeki. Sekarang dah lama sikit buat kerja ni dah tahu apa yang baik dan apa yang plastik.
 
