@@ -33,7 +33,7 @@ export default function Tools({ tools, hideIcons = false }) {
             >
               {tool.logos.map((logo, j) => {
                 const image = (
-                  <LazyLoad height={32} classNamePrefix="ll" unmountIfInvisible>
+                  <LazyLoad height={32} classNamePrefix="ll">
                     <Flex
                       px="3"
                       py="2"

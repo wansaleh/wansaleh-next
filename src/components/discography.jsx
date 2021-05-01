@@ -175,11 +175,7 @@ function Work({ work }) {
           p="3"
           h="full"
         >
-          <LazyLoad
-            height={coverHeight}
-            classNamePrefix="ll"
-            unmountIfInvisible
-          >
+          <LazyLoad height={coverHeight} classNamePrefix="ll">
             <AspectRatio
               ref={ref}
               ratio={1}
