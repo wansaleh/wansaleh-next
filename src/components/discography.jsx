@@ -23,7 +23,7 @@ import {
 } from 'date-fns';
 import groupBy from 'lodash.groupby';
 import Image from 'next/image';
-import { adjustHue, lighten, readableColor } from 'polished';
+import { adjustHue, darken, lighten, readableColor } from 'polished';
 import { Fragment } from 'react';
 import LazyLoad from 'react-lazyload';
 import { useMeasure } from 'react-use';
@@ -34,7 +34,7 @@ import SmallBadge from './small-badge';
 
 // const CImage = chakra(Image);
 
-const PALETTENUM = 0;
+const PALETTENUM = 2;
 
 function listNames(names) {
   names = names.split(/\s*,\s*/);
@@ -141,7 +141,7 @@ function Work({ work }) {
     ? `https://res.cloudinary.com/wansaleh/image/fetch/w_400/${work.artwork}`
     : `https://res.cloudinary.com/wansaleh/image/fetch/w_400/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
 
-  const { data: palette } = usePalette(coverURL, 4, 'hex', {
+  const { data: palette } = usePalette(coverURL, 5, 'hex', {
     crossOrigin: 'anonymous'
   });
 
@@ -159,9 +159,10 @@ function Work({ work }) {
             direction="column"
             bg={
               palette
-                ? `linear-gradient(to bottom right, ${
-                    palette[PALETTENUM]
-                  }, ${adjustHue(10, lighten(0.2, palette[PALETTENUM]))})`
+                ? `linear-gradient(to bottom right, ${adjustHue(
+                    -5,
+                    darken(0.1, palette[PALETTENUM])
+                  )}, ${adjustHue(10, lighten(0.2, palette[PALETTENUM]))})`
                 : 'gray.800'
             }
             color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
