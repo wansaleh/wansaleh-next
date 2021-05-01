@@ -1,3 +1,5 @@
+import { GraphQLClient } from 'graphql-request';
+
 export async function fetchGetJSON(url) {
   try {
     const data = await fetch(url).then((res) => res.json());
@@ -27,4 +29,14 @@ export async function fetchPostJSON(url, data) {
   } catch (err) {
     throw new Error(err.message);
   }
+}
+
+export async function graphqlFetch(query, variables) {
+  const graphcms = new GraphQLClient('https://wpgraphql.wansal.co/graphql', {
+    // headers: {
+    //   authorization: `Bearer ${process.env.NEXT_PUBLIC_GRAPHCMS_TOKEN}`
+    // }
+  });
+
+  return graphcms.request(query, variables);
 }

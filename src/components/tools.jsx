@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Image, useColorModeValue } from '@chakra-ui/react';
+import LazyLoad from 'react-lazyload';
 import MD from 'react-markdown';
 
 export default function Tools({ tools, hideIcons = false }) {
@@ -32,40 +33,42 @@ export default function Tools({ tools, hideIcons = false }) {
             >
               {tool.logos.map((logo, j) => {
                 const image = (
-                  <Flex
-                    px="3"
-                    py="2"
-                    flexDir="column"
-                    align="center"
-                    role="group"
-                    transition="all 0.2s ease"
-                    filter="grayscale(1)"
-                    _hover={{ filter: 'grayscale(0)' }}
-                  >
-                    <Image
-                      src={logo.image}
-                      // maxW="140px"
-                      // h="10"
-                      alt={logo.title}
-                      sx={{ height: '2rem', maxWidth: '5rem' }}
-                      filter={useColorModeValue('invert(0)', 'invert(1)')}
-                    />
-
-                    {/* <Text
-                      as="span"
-                      mt="3"
-                      fontFamily="mono"
-                      fontSize="2xs"
-                      fontWeight="800"
-                      textTransform="uppercase"
-                      letterSpacing="wide"
-                      // opacity="0"
-                      // transition="all 0.3s ease"
-                      // _groupHover={{ opacity: 1 }}
+                  <LazyLoad height={32} classNamePrefix="ll" unmountIfInvisible>
+                    <Flex
+                      px="3"
+                      py="2"
+                      flexDir="column"
+                      align="center"
+                      role="group"
+                      transition="all 0.2s ease"
+                      filter="grayscale(1)"
+                      _hover={{ filter: 'grayscale(0)' }}
                     >
-                      {logo.title}
-                    </Text> */}
-                  </Flex>
+                      <Image
+                        src={logo.image}
+                        // maxW="140px"
+                        // h="10"
+                        alt={logo.title}
+                        sx={{ height: '32px', maxWidth: '5rem' }}
+                        filter={useColorModeValue('invert(0)', 'invert(1)')}
+                      />
+
+                      {/* <Text
+                        as="span"
+                        mt="3"
+                        fontFamily="mono"
+                        fontSize="2xs"
+                        fontWeight="800"
+                        textTransform="uppercase"
+                        letterSpacing="wide"
+                        // opacity="0"
+                        // transition="all 0.3s ease"
+                        // _groupHover={{ opacity: 1 }}
+                      >
+                        {logo.title}
+                      </Text> */}
+                    </Flex>
+                  </LazyLoad>
                 );
 
                 return logo.link ? (
