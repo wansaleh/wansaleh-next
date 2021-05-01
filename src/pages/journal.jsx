@@ -3,16 +3,16 @@ import {
   Box,
   Container,
   Flex,
-  Heading,
-  Text,
-  useColorModeValue
+  Heading
+  // Text,
+  // useColorModeValue
   // useTheme
 } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import { gql } from 'graphql-request';
 import parse from 'html-react-parser';
-import Image from 'next/image';
 
+// import Image from 'next/image';
 import Footer from '../components/footer';
 import Head from '../components/head';
 import Nav from '../components/nav';
