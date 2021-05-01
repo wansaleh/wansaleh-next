@@ -22,7 +22,7 @@ import Nav from '../components/nav';
 import Tools from '../components/tools';
 import devTools from '../data/dev-tools';
 import musicTools from '../data/music-tools';
-import { fetchDiscograpySheet } from '../lib/sheet';
+import { fetchDiscograpySheet } from '../lib/google-sheet-helpers';
 
 export default function Home({ works }) {
   return (

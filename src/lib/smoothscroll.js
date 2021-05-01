@@ -51,17 +51,14 @@ export default function SmoothScroll({
     else moving = false;
   }
 
-  const requestFrame = (() => {
+  const requestFrame = (() =>
     // requestAnimationFrame cross browser
-    return (
-      window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      window.msRequestAnimationFrame ||
-      function (func) {
-        window.setTimeout(func, 1000 / 50);
-      }
-    );
-  })();
+    window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (func) {
+      window.setTimeout(func, 1000 / 50);
+    })();
 }

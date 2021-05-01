@@ -38,6 +38,8 @@
     "react-text-loop": "^2.3.0",
     "react-use": "^17.2.4",
     "react-window": "^1.8.6",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1",
     "twin.macro": "^2.4.0"
   },
   "devDependencies": {
