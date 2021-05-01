@@ -27,7 +27,8 @@ module.exports = withPlugins(
         'is5-ssl.mzstatic.com',
         'i.scdn.co',
         'i.ytimg.com',
-        'res.cloudinary.com'
+        'res.cloudinary.com',
+        'images.squarespace-cdn.com'
       ]
     }
   }

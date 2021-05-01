@@ -38,7 +38,7 @@ export default function Nav() {
                     fill={useColorModeValue('brand.600', 'brand.500')}
                     css={{ transition: 'all 1s ease' }}
                   />
-                  <Box ml="2" fontWeight="600">
+                  <Box ml="2" fontWeight="800" letterSpacing="tighter">
                     By Wan Saleh
                   </Box>
                 </Flex>

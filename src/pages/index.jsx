@@ -72,9 +72,10 @@ export default function Home({ works }) {
             as="h1"
             pb="2"
             fontSize={['3rem', '4rem', '5rem', '8rem']}
-            fontWeight="800"
-            lineHeight="0.9"
-            // letterSpacing="-0.1em"
+            fontWeight="700"
+            lineHeight="0.8"
+            letterSpacing="tighter"
+            ml="-0.025em"
           >
             Hello there.
             <br />
@@ -87,10 +88,10 @@ export default function Home({ works }) {
           <Heading
             as="h2"
             pb="4"
-            fontSize={['2rem', '3rem', '5rem']}
-            fontWeight="400"
+            fontSize={['4xl', '5xl', '7xl']}
+            fontWeight="500"
             lineHeight="1"
-            // letterSpacing="-0.1em"
+            letterSpacing="tighter"
           >
             <TextLoop>
               <span>I make music.</span>

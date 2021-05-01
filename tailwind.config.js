@@ -20,8 +20,8 @@ module.exports = {
         gray: colors.trueGray
       },
       fontFamily: {
-        sans: ['Inter var', 'roc-grotesk', ...defaultTheme.fontFamily.sans],
-        head: ['Clash Display', ...defaultTheme.fontFamily.sans],
+        // sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        head: ['General Sans', ...defaultTheme.fontFamily.sans],
         serif: ['Merriweather', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
       },
@@ -40,6 +40,13 @@ module.exports = {
                 lineHeight: 1.5,
                 color: 'inherit',
                 opacity: 0.6
+              },
+              '> p': {
+                lineHeight: 1.6,
+                '&:first-of-type': {
+                  fontSize: '1.75em',
+                  lineHeight: 1.2
+                }
               }
             }
           },

@@ -4,21 +4,16 @@ import {
   Container,
   Flex,
   Heading,
-  useColorModeValue
+  LinkBox,
+  LinkOverlay
 } from '@chakra-ui/react';
-import smartypants from '@silvenon/remark-smartypants';
 import { format, parseISO } from 'date-fns';
-import MD from 'react-markdown';
+import NextLink from 'next/link';
 
 import Head from '../../components/head';
 import { getAllPosts } from '../../lib/posts';
 
-export default function Home({ posts }) {
-  // const allPosts = posts.map((post) => ({
-  //   ...post.node,
-  //   contentParsed: parse(post.node.content)
-  // }));
-
+export default function Journal({ posts }) {
   return (
     <Box>
       <Head title="By Wan Saleh | Journal" />
@@ -40,45 +35,34 @@ export default function Home({ posts }) {
           <Heading
             as="h1"
             pb="2"
-            fontSize={['3rem', '4rem', '5rem', '6rem']}
-            fontWeight="800"
-            lineHeight="0.9"
-            // letterSpacing="-0.1em"
+            fontSize={['5xl', '6xl', '7xl', '8xl']}
+            fontWeight="700"
+            lineHeight="0.8"
+            letterSpacing="tighter"
           >
-            Ramblings.
+            Journal.
           </Heading>
         </Container>
       </Flex>
 
       <Container maxW="7xl">
         {posts.map((post) => (
-          <Box key={post.slug}>
-            <Heading fontSize="5xl" lineHeight="0.9" mb="4">
-              {post.title}
+          <LinkBox key={post.slug}>
+            <Heading
+              fontSize="6xl"
+              lineHeight="0.9"
+              mb="2"
+              letterSpacing="tighter"
+            >
+              <NextLink href={`/journal/${post.slug}`} passHref>
+                <LinkOverlay>{post.title}</LinkOverlay>
+              </NextLink>
             </Heading>
 
             <Box mb="8" fontWeight="800">
-              <Box
-                as="span"
-                bg={useColorModeValue('black', 'white')}
-                color={useColorModeValue('white', 'black')}
-                py="1.5"
-                px="2"
-                lineHeight="1"
-                d="inline-block"
-              >
-                By Wan Saleh. {format(parseISO(post.date), 'EEEE, d MMMM yyy')}
-              </Box>
+              By Wan Saleh. {format(parseISO(post.date), 'EEEE, d MMMM yyy')}
             </Box>
-
-            <Box
-              as="article"
-              className="prose lg:prose-lg dark:prose-dark"
-              color="inherit"
-            >
-              <MD remarkPlugins={[smartypants]}>{post.content}</MD>
-            </Box>
-          </Box>
+          </LinkBox>
         ))}
       </Container>
     </Box>
@@ -86,43 +70,12 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  // const posts = await graphqlFetch(gql`
-  //   query {
-  //     posts(where: { status: PUBLISH }) {
-  //       edges {
-  //         node {
-  //           id
-  //           databaseId
-  //           slug
-  //           title
-  //           date
-  //           dateGmt
-  //           modified
-  //           modifiedGmt
-  //           content
-  //           status
-  //           featuredImage {
-  //             node {
-  //               altText
-  //               fileSize(size: LARGE)
-  //               modifiedGmt
-  //               modified
-  //               sizes
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
-
   const posts = await getAllPosts([
     'slug',
     'title',
     'date',
     'excerpt',
-    'author',
-    'content'
+    'author'
   ]);
 
   return {

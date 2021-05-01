@@ -32,7 +32,7 @@ const theme = extendTheme({
       },
 
       a: {
-        color: props.colorMode === 'dark' ? 'brand.300' : 'brand.600',
+        // color: props.colorMode === 'dark' ? 'brand.300' : 'brand.600',
         textDecoration: 'none',
         _hover: {
           textDecoration: 'none'
@@ -53,11 +53,10 @@ const theme = extendTheme({
     serif: tailwind.fontFamily.serif.join(','),
     mono: tailwind.fontFamily.mono.join(',')
   },
-  fontSizes: {
-    '2xs': '11px',
-    '7xl': '5rem',
-    '8xl': '7rem'
-  },
+  // fontSizes: Object.entries(tailwind.fontSize).reduce((ret, [key, val]) => {
+  //   ret[key] = val[0];
+  //   return ret;
+  // }, {}),
   shadows: {
     outline: `0 0 0 3px ${rgba(tailwind.colors.brand[500], 0.6)}`
   }

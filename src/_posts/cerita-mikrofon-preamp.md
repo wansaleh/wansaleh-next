@@ -3,18 +3,18 @@ title: Cerita Mikrofon dan Preamp
 excerpt: 'Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."*'
 date: '2021-04-20T05:35:07'
 author: Wan Saleh
+coverImage: /assets/posts/u47.jpg
 ---
 Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."*
 
-OK jom *discover*.
 
-> Kalau *checkpoint* pertama ni dah rendah kualitinya, maaf cakap lah, hujung sebelah sana (final audio) pasti tak baik.
-
-Dulu (9 tahun dulu), aku masuk, mula berkenalan dengan dunia *recording*. *Production* muzik dah lima enam tahun dah sebelum tu. Tapi tak pernah pula merakam.
+Dulu, aku masuk, mula berkenalan dengan dunia *recording*. *Production* muzik dah lima enam tahun dah sebelum tu. Tapi tak pernah pula merakam.
 
 Sampailah ke tahun 2012, Hijjaz Records, pelopor industri nasyid Malaysia memberi kepercayaan kepada aku untuk menjadi engineer mereka. *Fresh faced* ni. Tak pernah langsung merakam.
 
 Aku ingat mic pertama yang aku pernah *handle*, is none other than the Nuemann TLM-49. Price: RM 8,500.
+
+> Kalau *checkpoint* pertama ni dah rendah kualitinya, maaf cakap lah, hujung sebelah sana (final audio) pasti tak baik.
 
 OK dari mic, lalu/sambung ke mana? Waktu tu haram tak tahu apa, dari mic terus ke Focusrite Liquid Saffire. Plain built-in preamp.
 
