@@ -22,6 +22,7 @@
     "framer-motion": "^4.1.11",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
+    "gray-matter": "^4.0.3",
     "html-react-parser": "^1.2.6",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
