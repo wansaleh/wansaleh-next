@@ -40,7 +40,9 @@ const PALETTENUM = 2;
 // const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function listNames(names) {
-  names = names.split(/\s*,\s*/);
+  names = names
+    .split(/\s*,\s*/)
+    .map((comp) => comp.replace(/Wan Saleh/i, 'Me'));
 
   return arrayToSentence(names, {
     lastSeparator: ' & '
@@ -150,7 +152,7 @@ function Work({ work }) {
 
   const [ref, { height: coverHeight }] = useMeasure();
 
-  const cellHeight = coverHeight + 100;
+  const cellHeight = coverHeight + 120;
 
   return (
     <LinkBox key={work.youtube} role="group" h={`${cellHeight}px`}>
@@ -172,7 +174,7 @@ function Work({ work }) {
           color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
           transition="all 0.2s ease"
           textAlign="center"
-          p="3"
+          p="4"
           h="full"
         >
           <LazyLoad height={coverHeight} classNamePrefix="ll">
@@ -256,15 +258,15 @@ function Work({ work }) {
             </AspectRatio>
           </LazyLoad>
 
-          <Box flex="1" />
-
           <Flex
             w="full"
+            flex="1"
             direction="column"
             justify="center"
             align="center"
-            px="3"
-            py="2"
+            px="4"
+            // py="2"
+            mb="-4"
             lineHeight="1"
           >
             <Heading
@@ -300,44 +302,55 @@ function Work({ work }) {
 
             <Flex justify="center" align="center" direction="column" w="full">
               <Box
+                fontSize="sm"
+                fontWeight="500"
+                maxW="90%"
+                whiteSpace="nowrap"
+                overflow="hidden"
+                textOverflow="ellipsis"
+                mb="2"
+              >
+                {listNames(work.artist)}
+              </Box>
+
+              <Box
+                mt="1"
                 fontSize="xs"
                 fontWeight="600"
                 maxW="90%"
                 whiteSpace="nowrap"
                 overflow="hidden"
                 textOverflow="ellipsis"
+                opacity="0"
+                transition="all 0.3s ease"
+                transform="translateY(50%)"
+                _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
               >
-                {listNames(work.artist)}
+                {work.composer ? (
+                  <>Written by {listNames(work.composer)}</>
+                ) : (
+                  <>&nbsp;</>
+                )}
               </Box>
-
-              {/* {work.composer && work.writer && (
-                <Box
-                  mt="1"
-                  fontSize="xs"
-                  fontWeight="500"
-                  maxW="90%"
-                  whiteSpace="nowrap"
-                  overflow="hidden"
-                  textOverflow="ellipsis"
-                >
-                  {work.composer} / {work.writer}
-                </Box>
-              )} */}
             </Flex>
 
-            <Box mt="1" fontSize="xs" fontWeight="500" pos="relative" w="full">
-              <Box transition="all 0.5s ease" _groupHover={{ opacity: 0 }}>
-                Released{' '}
+            <Box mt="1" fontSize="xs" fontWeight="400" pos="relative" w="full">
+              <Box
+                transition="all 0.3s ease"
+                _groupHover={{ opacity: 0 }}
+                textTransform="capitalize"
+              >
                 {formatDistanceToNow(work.released, { addSuffix: true })}
               </Box>
               <Box
                 opacity="0"
                 pos="absolute"
                 inset="0"
-                transition="all 0.5s ease"
+                transition="all 0.3s ease"
                 _groupHover={{ opacity: 1 }}
+                textTransform="capitalize"
               >
-                Released {format(work.released, 'd MMMM yyy')}
+                {format(work.released, 'd MMMM yyy')}
               </Box>
             </Box>
           </Flex>
