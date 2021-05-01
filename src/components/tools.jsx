@@ -1,4 +1,11 @@
-import { Box, Flex, Heading, Image, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Heading,
+  Image,
+  useColorModeValue,
+  VisuallyHidden
+} from '@chakra-ui/react';
 import LazyLoad from 'react-lazyload';
 import MD from 'react-markdown';
 
@@ -91,6 +98,7 @@ export default function Tools({ tools, hideIcons = false }) {
                     rel="noopener noreferrer"
                   >
                     {image}
+                    <VisuallyHidden>{logo.title}</VisuallyHidden>
                   </a>
                 ) : (
                   image
