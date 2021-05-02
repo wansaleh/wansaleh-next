@@ -10,8 +10,6 @@ import { getAllPostsForHome } from '../../lib/contentful';
 export default function Journal({ posts }) {
   const theme = useTheme();
 
-  console.log(posts);
-
   return (
     <Box>
       <Head title="By Wan Saleh | Journal" />

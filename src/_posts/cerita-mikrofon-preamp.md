@@ -1,10 +1,11 @@
 ---
 title: Cerita Mikrofon dan Preamp
-excerpt: Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."* Dulu, aku masuk, mula berkenalan dengan dunia *recording*. *Production* muzik dah lima enam tahun dah sebelum tu. Tapi tak pernah pula merakam.
-date: 2021-04-20T05:35:07
+excerpt: Kita selalu dengar *top engineers* kata, *"source is everything."*
+date: 2021-05-03T01:41:30
 author: Wan Saleh
-coverImage: https://res.cloudinary.com/wansaleh/image/upload/v1619940455/blog/u47.jpg
-coverImageCaption: Mikrofon Kondenser Diafram Besar (Large Diaphragm Microphone) Neumann U-47
+coverImage:
+  url: https://res.cloudinary.com/wansaleh/image/upload/v1619940455/blog/u47.jpg
+  caption: Mikrofon Kondenser Diafragma Besar (Large Diaphragm Condenser Microphone) Neumann U-47
 ---
 
 Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."*
@@ -19,7 +20,7 @@ Aku ingat mic pertama yang aku pernah *handle*, is none other than the Neumann T
 
 OK dari mic, lalu/sambung ke mana? Waktu tu haram tak tahu apa, dari mic terus ke Focusrite Liquid Saffire, interface di studio. Hanya plain built-in preamp.
 
-Boleh tahanlah hasil vokalnya. Not bad. Berpuluh kalau tak beratus lagu aku rakam waktu tu. Tapi, oh waktu muda...
+Boleh tahanlah hasil vokalnya. Not bad. Berpuluh kalau tak beratus lagu aku rakam waktu tu. Oh waktu muda...
 
 Baru-baru ni je aku baru percaya *the importance of external dedicated Microphone Preamps*. Sebelum ni senang je puas hati dengan hasil *good mic*, dan *built-in preamps* dalam *audio interface*. Sekarang sebab dah lalui sendiri baru tahu. Kalau ada bajet, pastikan korang *invest* pada satu *preamp external*. Nama-nama seperti Neve 1073 (dan segala klon-klonnya), Avalon VT-737sp, UAD 610, Focusrite ISA adalah antara yang terbaik di dunia. Pasti terbeliak korang mendengar perbezaan kualiti sound yang dirakam.
 
@@ -39,3 +40,5 @@ Kalau *checkpoint* pertama ni dah rendah kualitinya, maaf cakap lah, hujung sebe
 Nombor dua. Lepas *microphone*, cable XLR tu pun lalulah ke apa yang kita panggil sebagai *preamp*. Baik *preamp*, baiklah rakaman. Kedua-dua mic dan *preamp* memberikan karakter kepada bunyi yang kita rakamkan.
 
 *Start* dari sini, *gain* kita dah kena jaga. Rendah sangat, *noise floor* jadi naik pula nanti. Kuat sangat, *clipping* pula. *Gain* meter menunjukkan dari -12dB ke -9dB ialah yang terbaik. Kalau signal *peaking* melebihi -6dB tu maksudnya *gain level* dah terlebih lah tu.
+
+Jadi nak tekankan di sini. Post-processing (semasa mixing) boleh dibuat, *to certain extent*. Kalau source yang dirakam tak baik, mix yang boleh dicapai pun takkan dapat 100%.

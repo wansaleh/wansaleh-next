@@ -81,6 +81,7 @@ export async function getAllPostsForHome(preview) {
     }`,
     preview
   );
+  console.log(entries);
   return extractPostEntries(entries);
 }
 
