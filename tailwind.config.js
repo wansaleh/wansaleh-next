@@ -20,9 +20,9 @@ module.exports = {
         gray: colors.trueGray
       },
       fontFamily: {
-        // sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         head: ['General Sans', ...defaultTheme.fontFamily.sans],
-        serif: ['Merriweather', ...defaultTheme.fontFamily.sans],
+        serif: ['Gambetta', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
       },
       typography(theme) {
@@ -37,6 +37,7 @@ module.exports = {
                 }
               },
               blockquote: {
+                fontFamily: theme('fontFamily.serif').join(','),
                 fontSize: '1.5em',
                 lineHeight: 1.5,
                 color: 'inherit',

@@ -41,7 +41,7 @@ export default function Journal({ posts }) {
             <Heading
               fontSize={['4xl', '6xl']}
               lineHeight="0.8"
-              mb="5"
+              mb="8"
               letterSpacing="tighter"
               maxW="2xl"
             >
@@ -53,7 +53,7 @@ export default function Journal({ posts }) {
             <Box
               maxW="2xl"
               mb="4"
-              className="!leading-normal prose lg:prose-lg"
+              className="!leading-normal prose lg:prose-xl font-serif"
             >
               <MD>{post.excerpt}</MD>
             </Box>
