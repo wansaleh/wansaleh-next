@@ -129,7 +129,8 @@ export async function getStaticProps({ params, preview = false }) {
       preview,
       post: data.post,
       morePosts: data.morePosts || []
-    }
+    },
+    revalidate: 1
   };
 }
 
