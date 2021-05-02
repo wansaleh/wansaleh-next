@@ -3,9 +3,10 @@ title: Cerita Mikrofon dan Preamp
 excerpt: Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."*
 date: 2021-04-20T05:35:07
 author: Wan Saleh
-coverImage: /assets/posts/u47.jpg
+coverImage: https://res.cloudinary.com/wansaleh/image/upload/blog/u47.jpg
 coverImageCaption: Mikrofon Kondenser Diafram Besar (Large Diaphragm Microphone) Neumann U-47
 ---
+
 Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."*
 
 Dulu, aku masuk, mula berkenalan dengan dunia *recording*. *Production* muzik dah lima enam tahun dah sebelum tu. Tapi tak pernah pula merakam.
@@ -22,7 +23,7 @@ Boleh tahanlah hasil vokalnya. Not bad. Berpuluh kalau tak beratus lagu aku raka
 
 Baru-baru ni je aku baru percaya *the importance of external dedicated Microphone Preamps*. Sebelum ni senang je puas hati dengan hasil *good mic*, dan *built-in preamps* dalam *audio interface*. Sekarang sebab dah lalui sendiri baru tahu. Kalau ada bajet, pastikan korang *invest* pada satu *preamp external*. Nama-nama seperti Neve 1073 (dan segala klon-klonnya), Avalon VT-737sp, UAD 610, Focusrite ISA adalah antara yang terbaik di dunia. Pasti terbeliak korang mendengar perbezaan kualiti sound yang dirakam.
 
-![Neve 1073 SPX](/assets/posts/neve1073spx.jpg)
+![Neve 1073 SPX](https://res.cloudinary.com/wansaleh/image/upload/c_scale,w_1000/v1619939768/blog/neve1073spx.jpg)
 
 Aku dah pernah pakai audio interface dari [Universal Audio](https://uaudio.com), [Apogee](https://apogeedigital.com/), [Focusrite](https://focusrite.com/en), [Audient](https://audient.com/) & [MOTU](https://motu.com/en-us/). [RME](https://www.rme-audio.de/) & [Antelope](https://en.antelopeaudio.com/) belum ada rezeki. Sekarang dah lama sikit buat kerja ni dah tahu apa yang baik dan apa yang plastik.
 
