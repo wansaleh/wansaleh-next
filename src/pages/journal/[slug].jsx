@@ -37,7 +37,7 @@ export default function JournalPost({ post }) {
                 width="1em"
                 mr="1"
                 fill="none"
-                stroke="#000"
+                stroke="currentColor"
                 strokeLinecap="round"
                 strokeWidth="1.5"
                 viewBox="0 0 24 24"
