@@ -28,6 +28,7 @@ module.exports = withPlugins(
         'i.scdn.co',
         'i.ytimg.com',
         'res.cloudinary.com',
+        'media.graphcms.com',
         'images.squarespace-cdn.com'
       ]
     }

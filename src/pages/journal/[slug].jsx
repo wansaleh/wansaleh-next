@@ -14,9 +14,9 @@ import rehypeRaw from 'rehype-raw';
 
 import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
-import { getAllPosts, getPostBySlug } from '../../lib/posts';
+import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/graphcms';
 
-export default function Journal({ post }) {
+export default function JournalPost({ post }) {
   return (
     <Box>
       <Head title={`By Wan Saleh | Journal | ${post.title}`} />
@@ -78,15 +78,17 @@ export default function Journal({ post }) {
             </Box>
           </Box>
 
-          <Box pos="relative" mx={[-4, -4, -4, -4, 0]}>
-            <CoverImage
-              src={post.coverImage.url}
-              title={post.title}
-              caption={post.coverImage.caption}
-              width={1240}
-              height={680}
-            />
-          </Box>
+          {post.coverImage && (
+            <Box pos="relative" mx={[-4, -4, -4, -4, 0]}>
+              <CoverImage
+                src={post.coverImage.url}
+                title={post.title}
+                caption={post.coverImage.caption}
+                width={1240}
+                height={680}
+              />
+            </Box>
+          )}
 
           <Box
             as="article"
@@ -105,34 +107,23 @@ export default function Journal({ post }) {
   );
 }
 
-export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
-    'coverImageCaption'
-  ]);
-
+export async function getStaticProps({ params, preview = false }) {
+  const data = await getPostAndMorePosts(params.slug, preview);
   return {
     props: {
-      post
+      preview,
+      post: data.post,
+      morePosts: data.morePosts || []
     }
   };
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug']);
-
+  const posts = await getAllPostsWithSlug();
   return {
-    paths: posts.map((post) => ({
-      params: {
-        slug: post.slug
-      }
+    paths: posts.map(({ slug }) => ({
+      params: { slug }
     })),
-    fallback: false
+    fallback: true
   };
 }

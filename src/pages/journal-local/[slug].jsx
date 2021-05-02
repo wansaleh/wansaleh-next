@@ -80,9 +80,9 @@ export default function Journal({ post }) {
 
           <Box pos="relative" mx={[-4, -4, -4, -4, 0]}>
             <CoverImage
-              src={post.coverImage}
+              src={post.coverImage.url}
               title={post.title}
-              caption={post.coverImageCaption}
+              caption={post.coverImage.caption}
               width={1240}
               height={680}
             />

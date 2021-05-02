@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import MD from 'react-markdown';
 
 import Head from '../../components/head';
-import { getAllPosts } from '../../lib/posts';
+import { getAllPostsForHome } from '../../lib/graphcms';
 
 export default function Journal({ posts }) {
   const theme = useTheme();
@@ -37,7 +37,7 @@ export default function Journal({ posts }) {
         }}
       >
         {posts.map((post) => (
-          <Box key={post.slug}>
+          <Box key={post.slug} mb="20">
             <Heading
               fontSize={['4xl', '6xl']}
               lineHeight="0.8"
@@ -68,20 +68,11 @@ export default function Journal({ posts }) {
   );
 }
 
-export async function getStaticProps() {
-  const posts = await getAllPosts([
-    'slug',
-    'title',
-    'date',
-    'excerpt',
-    'author'
-  ]);
+export async function getStaticProps({ preview = false }) {
+  const posts = (await getAllPostsForHome(preview)) ?? [];
 
   return {
-    props: {
-      posts
-      // posts: posts?.posts?.edges
-    },
+    props: { preview, posts },
     revalidate: 1
   };
 }

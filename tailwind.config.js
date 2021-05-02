@@ -30,6 +30,9 @@ module.exports = {
           DEFAULT: {
             css: {
               color: 'inherit',
+              'h1,h2,h3,h4,h5,h6': {
+                color: 'inherit'
+              },
               a: {
                 color: theme('colors.brand.500'),
                 '&:hover': {

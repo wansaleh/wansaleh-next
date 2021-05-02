@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import Link from 'next/link';
 
 export default function CoverImage({
@@ -11,7 +11,7 @@ export default function CoverImage({
   width
 }) {
   const image = (
-    <Image
+    <NextImage
       src={src}
       alt={`Cover Image for ${title}`}
       layout="responsive"

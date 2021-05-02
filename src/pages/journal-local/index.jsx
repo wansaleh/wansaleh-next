@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import MD from 'react-markdown';
 
 import Head from '../../components/head';
-import { getAllPostsForHome } from '../../lib/contentful';
+import { getAllPosts } from '../../lib/posts';
 
 export default function Journal({ posts }) {
   const theme = useTheme();
@@ -68,11 +68,20 @@ export default function Journal({ posts }) {
   );
 }
 
-export async function getStaticProps({ preview = false }) {
-  const posts = (await getAllPostsForHome(preview)) ?? [];
+export async function getStaticProps() {
+  const posts = await getAllPosts([
+    'slug',
+    'title',
+    'date',
+    'excerpt',
+    'author'
+  ]);
 
   return {
-    props: { preview, posts },
+    props: {
+      posts
+      // posts: posts?.posts?.edges
+    },
     revalidate: 1
   };
 }
