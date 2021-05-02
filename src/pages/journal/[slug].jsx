@@ -10,6 +10,7 @@ import smartypants from '@silvenon/remark-smartypants';
 import { format, parseISO } from 'date-fns';
 import NextLink from 'next/link';
 import MD from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
@@ -79,8 +80,9 @@ export default function Journal({ post }) {
 
           <Box pos="relative" mx={[-4, -4, -4, -4, 0]}>
             <CoverImage
-              title={post.title}
               src={post.coverImage}
+              title={post.title}
+              caption={post.coverImageCaption}
               width={1240}
               height={680}
             />
@@ -93,7 +95,9 @@ export default function Journal({ post }) {
             mx="auto"
             mt="10"
           >
-            <MD remarkPlugins={[smartypants]}>{post.content}</MD>
+            <MD remarkPlugins={[smartypants]} rehypePlugins={[rehypeRaw]}>
+              {post.content}
+            </MD>
           </Box>
         </Box>
       </Container>
@@ -109,7 +113,8 @@ export async function getStaticProps({ params }) {
     'author',
     'content',
     'ogImage',
-    'coverImage'
+    'coverImage',
+    'coverImageCaption'
   ]);
 
   return {
