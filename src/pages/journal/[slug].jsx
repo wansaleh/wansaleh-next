@@ -2,7 +2,6 @@
 import {
   Box,
   Container,
-  Flex,
   Heading,
   Link,
   useColorModeValue
@@ -21,46 +20,32 @@ export default function Journal({ post }) {
     <Box>
       <Head title={`By Wan Saleh | Journal | ${post.title}`} />
 
-      <Flex
-        w="full"
-        mt="8"
-        mb="2"
-        flexDir="column"
-        justify="center"
-        align="center"
-        pos="relative"
-        overflow="hidden"
-        // borderBottom="1px solid #fff"
-        // borderColor={useColorModeValue('gray.200', 'gray.800')}
-        zIndex="0"
-      >
-        <Container maxW="7xl">
-          <Heading
-            as="h1"
-            fontSize="4xl"
-            fontWeight="700"
-            lineHeight="0.8"
-            letterSpacing="tighter"
-          >
-            <NextLink href="/journal" passHref>
-              <Link>Journal.</Link>
-            </NextLink>
-          </Heading>
-        </Container>
-      </Flex>
+      <Container maxW="7xl" mt="4" mb="4">
+        <Heading
+          as="h1"
+          fontSize="4xl"
+          fontWeight="700"
+          lineHeight="0.8"
+          letterSpacing="tighter"
+        >
+          <NextLink href="/journal" passHref>
+            <Link>Journal.</Link>
+          </NextLink>
+        </Heading>
+      </Container>
 
       <Container maxW="7xl">
         <Box key={post.slug}>
           <Heading
-            fontSize="8xl"
-            lineHeight="0.9"
-            mb="2"
+            fontSize={['6xl', '7xl', '8xl']}
+            lineHeight="0.8"
+            mb="4"
             letterSpacing="tighter"
           >
             {post.title}
           </Heading>
 
-          <Box mb="8" fontWeight="800">
+          <Box mb="4" fontWeight="800">
             <Box
               as="span"
               bg={useColorModeValue('black', 'white')}
@@ -70,11 +55,11 @@ export default function Journal({ post }) {
               lineHeight="1"
               d="inline-block"
             >
-              By Wan Saleh. {format(parseISO(post.date), 'EEEE, d MMMM yyy')}
+              {format(parseISO(post.date), 'EEEE, d MMMM yyy')}
             </Box>
           </Box>
 
-          <Box pos="relative">
+          <Box pos="relative" mx={[-4, -4, -4, -4, 0]}>
             <CoverImage
               title={post.title}
               src={post.coverImage}
@@ -89,7 +74,7 @@ export default function Journal({ post }) {
             color="inherit"
             maxW="2xl"
             mx="auto"
-            mt="20"
+            mt="10"
           >
             <MD remarkPlugins={[smartypants]}>{post.content}</MD>
           </Box>

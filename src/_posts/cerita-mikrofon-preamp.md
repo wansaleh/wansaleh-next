@@ -1,26 +1,28 @@
 ---
 title: Cerita Mikrofon dan Preamp
-excerpt: 'Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."*'
-date: '2021-04-20T05:35:07'
+excerpt: Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."*
+date: 2021-04-20T05:35:07
 author: Wan Saleh
 coverImage: /assets/posts/u47.jpg
+coverImageCaption: Mikrofon Kondenser Diafram Besar (Large Diaphragm Microphone) Neumann U-47
 ---
 Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."*
-
 
 Dulu, aku masuk, mula berkenalan dengan dunia *recording*. *Production* muzik dah lima enam tahun dah sebelum tu. Tapi tak pernah pula merakam.
 
 Sampailah ke tahun 2012, Hijjaz Records, pelopor industri nasyid Malaysia memberi kepercayaan kepada aku untuk menjadi engineer mereka. *Fresh faced* ni. Tak pernah langsung merakam.
 
-Aku ingat mic pertama yang aku pernah *handle*, is none other than the Nuemann TLM-49. Price: RM 8,500.
+Aku ingat mic pertama yang aku pernah *handle*, is none other than the Neumann TLM 49. Price: RM 8,500.
 
 > Kalau *checkpoint* pertama ni dah rendah kualitinya, maaf cakap lah, hujung sebelah sana (final audio) pasti tak baik.
 
-OK dari mic, lalu/sambung ke mana? Waktu tu haram tak tahu apa, dari mic terus ke Focusrite Liquid Saffire. Plain built-in preamp.
+OK dari mic, lalu/sambung ke mana? Waktu tu haram tak tahu apa, dari mic terus ke Focusrite Liquid Saffire, interface di studio. Hanya plain built-in preamp.
 
-Boleh tahanlah hasil vokalnya. Not bad. (Waktu tu lah). Berpuluh kalau tak beratus lagu aku rakam waktu tu.
+Boleh tahanlah hasil vokalnya. Not bad. Berpuluh kalau tak beratus lagu aku rakam waktu tu. Tapi, oh waktu muda...
 
-Sepanjang aku *recording*, baru-baru ni je aku tahu *the importance of external dedicated Microphone Preamps*. Sebelum ni dengar dan dah berpuas hati dengan hasil *good mic*, dan *built-in preamps* dalam *audio interface*. Anda silalah cuba. Ada bajet je, *invest* pada satu *preamp external*. Pasti terbeliak anda mendengar perbezaan kualiti sound yang dirakam.
+Baru-baru ni je aku baru percaya *the importance of external dedicated Microphone Preamps*. Sebelum ni senang je puas hati dengan hasil *good mic*, dan *built-in preamps* dalam *audio interface*. Sekarang sebab dah lalui sendiri baru tahu. Kalau ada bajet, pastikan korang *invest* pada satu *preamp external*. Nama-nama seperti Neve 1073 (dan segala klon-klonnya), Avalon VT-737sp, UAD 610, Focusrite ISA adalah antara yang terbaik di dunia. Pasti terbeliak korang mendengar perbezaan kualiti sound yang dirakam.
+
+![Neve 1073 SPX](/assets/posts/neve1073spx.jpg)
 
 Aku dah pernah pakai audio interface dari [Universal Audio](https://uaudio.com), [Apogee](https://apogeedigital.com/), [Focusrite](https://focusrite.com/en), [Audient](https://audient.com/) & [MOTU](https://motu.com/en-us/). [RME](https://www.rme-audio.de/) & [Antelope](https://en.antelopeaudio.com/) belum ada rezeki. Sekarang dah lama sikit buat kerja ni dah tahu apa yang baik dan apa yang plastik.
 

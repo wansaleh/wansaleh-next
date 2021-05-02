@@ -9,6 +9,7 @@ export default function Footer() {
         as="ul"
         justifyContent="space-between"
         align="center"
+        direction={['column', 'row']}
         // fontFamily="mono"
         fontWeight="600"
         fontSize="sm"
@@ -23,11 +24,11 @@ export default function Footer() {
             as="ul"
             justify="space-between"
             align="center"
-            py="4"
+            py="2"
             fontWeight="600"
             spacing="2"
           >
-            <SocialLinks />
+            <SocialLinks showContact />
           </HStack>
         </li>
       </Flex>

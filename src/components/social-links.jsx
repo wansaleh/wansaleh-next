@@ -2,7 +2,6 @@ import { Box, Link, VisuallyHidden } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 const links = [
-  { href: '/contact', label: 'Contact' },
   {
     href: 'https://twitter.com/wansaleh',
     label: 'Twitter',
@@ -57,22 +56,36 @@ function Github(props) {
   );
 }
 
-export default function SocialLinks() {
-  return links.map(({ key, href, label, icon }) => (
-    <li key={key}>
-      {href.startsWith('https://') ? (
-        <Link href={href} p="1" d="block">
-          {icon || label}
-          {icon && <VisuallyHidden>{label}</VisuallyHidden>}
-        </Link>
-      ) : (
-        <NextLink href={href}>
-          <Link p="1" d="block">
-            {icon || label}
-            {icon && <VisuallyHidden>{label}</VisuallyHidden>}
-          </Link>
-        </NextLink>
+export default function SocialLinks({ showContact }) {
+  return (
+    <>
+      {showContact && (
+        <li>
+          <NextLink href="/contact">
+            <Link p="1" d="block">
+              Contact
+            </Link>
+          </NextLink>
+        </li>
       )}
-    </li>
-  ));
+
+      {links.map(({ key, href, label, icon }) => (
+        <li key={key}>
+          {href.startsWith('https://') ? (
+            <Link href={href} p="1" d="block">
+              {icon || label}
+              {icon && <VisuallyHidden>{label}</VisuallyHidden>}
+            </Link>
+          ) : (
+            <NextLink href={href}>
+              <Link p="1" d="block">
+                {icon || label}
+                {icon && <VisuallyHidden>{label}</VisuallyHidden>}
+              </Link>
+            </NextLink>
+          )}
+        </li>
+      ))}
+    </>
+  );
 }

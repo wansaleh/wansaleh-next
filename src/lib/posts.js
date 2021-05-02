@@ -12,23 +12,27 @@ export function getPostBySlug(slug, fields = []) {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
-
-  const items = {};
+  const {
+    data: { date, ...data },
+    content
+  } = matter(fileContents);
 
   // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
+  const items = fields.reduce((out, field) => {
     if (field === 'slug') {
-      items[field] = realSlug;
+      out[field] = realSlug;
+    }
+    if (field === 'date') {
+      out[field] = date.toISOString();
     }
     if (field === 'content') {
-      items[field] = content;
+      out[field] = content;
     }
-
     if (data[field]) {
-      items[field] = data[field];
+      out[field] = data[field];
     }
-  });
+    return out;
+  }, {});
 
   return items;
 }
@@ -38,6 +42,8 @@ export function getAllPosts(fields = []) {
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    .sort((post1, post2) =>
+      Date.parse(post1.date) > Date.parse(post2.date) ? -1 : 1
+    );
   return posts;
 }
