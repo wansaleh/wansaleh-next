@@ -1,3 +1,9 @@
 button:focus {
   outline: none;
 }
+
+.prose.article > p:first-of-type {
+  font-size: 1.5em;
+  line-height: 1.5;
+  @apply text-brand-700 dark:text-brand-500;
+}

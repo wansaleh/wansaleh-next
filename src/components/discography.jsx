@@ -88,7 +88,7 @@ export default function Discography({ works }) {
           lineHeight="1.3"
           fontSize="sm"
           fontWeight="500"
-          sx={{ b: { fontSize: '2xs' } }}
+          sx={{ b: { fontSize: 'xs' } }}
         >
           Selected works that I have produced <b>PRO</b>, composed/written{' '}
           <b>COM</b>, arranged <b>ARR</b>, mixed <b>MIX</b> or mastered{' '}

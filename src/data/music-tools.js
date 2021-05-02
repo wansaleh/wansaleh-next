@@ -157,7 +157,7 @@ export default [
   {
     name: 'Go-to mix plugins',
     desc:
-      'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), UAD (Avalon VT-737sp, Neve 1073, LA-2A, 1176, Fairchild 660/670, Distressor, Capitol Chambers, Lexicon 480L, EMT 140), Slate Digital (VMR, VMC), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), SoundToys (Echoboy, Decapitator, Devil-Loc, Radiator, Microshift), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ), ValhallaDSP Reverbs/Delays, Oeksound Soothe 2 & Spiff, Denise Audio Perfect Room.',
+      'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), UAD (Avalon VT-737sp, Neve 1073, LA-2A, 1176, Fairchild 660/670, Distressor, Capitol Chambers, Lexicon 480L, EMT 140), Slate Digital (VMR, VMC), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), SoundToys (Echoboy, Decapitator, Devil-Loc, Radiator, Microshift), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ), Native Instruments Guitar Rig 6, ValhallaDSP Reverbs/Delays, Oeksound Soothe 2 & Spiff, Denise Audio Perfect Room.',
     logos: [
       {
         image: require('../assets/logos/fabfilter-vector-logo.svg?url'),
@@ -188,6 +188,11 @@ export default [
         image: require('../assets/logos/plugin-alliance-vector-logo.svg?url'),
         title: 'Plugin Alliance',
         link: 'https://plugin-alliance.com'
+      },
+      {
+        image: require('../assets/logos/ni-icon.svg?url'),
+        title: 'Native Instruments',
+        link: 'https://native-instruments.com'
       },
       {
         image: require('../assets/logos/valhalla.svg?url'),

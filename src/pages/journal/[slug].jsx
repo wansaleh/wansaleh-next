@@ -20,7 +20,7 @@ export default function Journal({ post }) {
     <Box>
       <Head title={`By Wan Saleh | Journal | ${post.title}`} />
 
-      <Container maxW="7xl" mt="4" mb="4">
+      <Container maxW="7xl" mt="20" mb="8">
         <Heading
           as="h1"
           fontSize="4xl"
@@ -29,7 +29,25 @@ export default function Journal({ post }) {
           letterSpacing="tighter"
         >
           <NextLink href="/journal" passHref>
-            <Link>Journal.</Link>
+            <Link d="flex" alignItems="center">
+              <Box
+                as="svg"
+                height="1em"
+                width="1em"
+                mr="1"
+                fill="none"
+                stroke="#000"
+                strokeLinecap="round"
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 8 8 12 12 16" />
+                <line x1="16" x2="8" y1="12" y2="12" />
+              </Box>
+              <Box>Journal</Box>
+            </Link>
           </NextLink>
         </Heading>
       </Container>
@@ -70,8 +88,7 @@ export default function Journal({ post }) {
 
           <Box
             as="article"
-            className="prose lg:prose-xl dark:prose-dark"
-            color="inherit"
+            className="prose lg:prose-xl dark:prose-dark article"
             maxW="2xl"
             mx="auto"
             mt="10"

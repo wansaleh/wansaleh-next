@@ -13,7 +13,6 @@ import NextLink from 'next/link';
 import React from 'react';
 
 import Logo from '../assets/images/logo';
-import SocialLinks from './social-links';
 
 export default function Nav() {
   return (
@@ -35,7 +34,7 @@ export default function Nav() {
                 <Flex align="center">
                   <Logo
                     w="1.75em"
-                    fill={useColorModeValue('brand.600', 'brand.500')}
+                    fill={useColorModeValue('brand.500', 'brand.500')}
                     css={{ transition: 'all 1s ease' }}
                   />
                   <Box ml="2" fontWeight="800" letterSpacing="tighter">
@@ -57,7 +56,11 @@ export default function Nav() {
           fontWeight="600"
           spacing="2"
         >
-          <SocialLinks />
+          <li>
+            <NextLink href="/journal">
+              <Link>Journal</Link>
+            </NextLink>
+          </li>
 
           <li>
             <ToggleMode />

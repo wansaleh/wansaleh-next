@@ -58,7 +58,7 @@ const theme = extendTheme({
   //   return ret;
   // }, {}),
   shadows: {
-    outline: `0 0 0 3px ${rgba(tailwind.colors.brand[500], 0.6)}`
+    outline: `0 0 0 2px ${rgba(tailwind.colors.brand[500], 0.4)}`
   }
 });
 

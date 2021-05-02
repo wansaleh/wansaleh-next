@@ -29,6 +29,7 @@ module.exports = {
         return {
           DEFAULT: {
             css: {
+              color: 'inherit',
               a: {
                 color: theme('colors.brand.500'),
                 '&:hover': {
@@ -42,11 +43,7 @@ module.exports = {
                 opacity: 0.6
               },
               '> p': {
-                lineHeight: 1.6,
-                '&:first-of-type': {
-                  fontSize: '1.75em',
-                  lineHeight: 1.2
-                }
+                // lineHeight: 1.6
               }
             }
           },

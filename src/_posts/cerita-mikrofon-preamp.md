@@ -1,6 +1,6 @@
 ---
 title: Cerita Mikrofon dan Preamp
-excerpt: Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."*
+excerpt: Dalam dunia rakaman studio, kita selalu dengar *top engineers* kata, *"source is everything."* Dulu, aku masuk, mula berkenalan dengan dunia *recording*. *Production* muzik dah lima enam tahun dah sebelum tu. Tapi tak pernah pula merakam.
 date: 2021-04-20T05:35:07
 author: Wan Saleh
 coverImage: https://res.cloudinary.com/wansaleh/image/upload/v1619940455/blog/u47.jpg

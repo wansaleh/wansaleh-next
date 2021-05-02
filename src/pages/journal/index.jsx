@@ -1,12 +1,15 @@
 /* eslint-disable no-sparse-arrays */
-import { Box, Container, Heading, Link } from '@chakra-ui/react';
+import { Box, Container, Heading, Link, useTheme } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import NextLink from 'next/link';
+import MD from 'react-markdown';
 
 import Head from '../../components/head';
 import { getAllPosts } from '../../lib/posts';
 
 export default function Journal({ posts }) {
+  const theme = useTheme();
+
   return (
     <Box>
       <Head title="By Wan Saleh | Journal" />
@@ -20,23 +23,40 @@ export default function Journal({ posts }) {
           lineHeight="0.8"
           letterSpacing="tighter"
         >
-          Journal.
+          Journal
         </Heading>
       </Container>
 
-      <Container maxW="7xl">
+      <Container
+        maxW="7xl"
+        sx={{
+          a: {
+            _hover: { color: theme.colors.brand[500] }
+            // _focus: { boxShadow: 'none' }
+          }
+        }}
+      >
         {posts.map((post) => (
           <Box key={post.slug}>
             <Heading
               fontSize={['4xl', '6xl']}
-              lineHeight="0.9"
-              mb="2"
+              lineHeight="0.8"
+              mb="5"
               letterSpacing="tighter"
+              maxW="2xl"
             >
               <NextLink href={`/journal/${post.slug}`} passHref>
                 <Link>{post.title}</Link>
               </NextLink>
             </Heading>
+
+            <Box
+              maxW="2xl"
+              mb="4"
+              className="!leading-normal prose lg:prose-lg"
+            >
+              <MD>{post.excerpt}</MD>
+            </Box>
 
             <Box as="time" d="block" mb="8" fontWeight="800">
               {format(parseISO(post.date), 'EEEE, d MMMM yyy')}

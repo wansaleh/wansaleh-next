@@ -1,4 +1,10 @@
-import { Container, Flex, HStack, Text } from '@chakra-ui/react';
+import {
+  Container,
+  Flex,
+  HStack,
+  Text,
+  useColorModeValue
+} from '@chakra-ui/react';
 
 import SocialLinks from './social-links';
 
@@ -15,8 +21,14 @@ export default function Footer() {
         fontSize="sm"
       >
         <li>
-          <Text as="span" bg="black" color="#fff" py="1" px="2">
-            Copyright © {new Date().getFullYear()} By Wan Saleh
+          <Text
+            as="span"
+            bg={useColorModeValue('black', 'white')}
+            color={useColorModeValue('white', 'black')}
+            py="1"
+            px="2"
+          >
+            © {new Date().getFullYear()} By Wan Saleh
           </Text>
         </li>
         <li>
