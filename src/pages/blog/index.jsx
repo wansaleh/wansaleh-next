@@ -5,6 +5,7 @@ import {
   Flex,
   Heading,
   Link,
+  SimpleGrid,
   useTheme
 } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
@@ -66,7 +67,7 @@ export default function Journal({ posts }) {
               src={heroPost.coverImage.url}
               width={1240}
               height={680}
-              mb="4"
+              mb="8"
             />
           )}
 
@@ -82,7 +83,7 @@ export default function Journal({ posts }) {
               </NextLink>
             </Heading>
 
-            <Box mb="2" className="prose lg:prose-xl" lineHeight="1.25">
+            <Box mb="2" className="prose lg:prose-xl" lineHeight="1.5">
               <MD>{heroPost.excerpt}</MD>
             </Box>
 
@@ -100,9 +101,15 @@ export default function Journal({ posts }) {
         </Box>
 
         {otherPosts.map((post) => (
-          <Flex key={post.slug} mb="8" sx={{ gap: 16 }} role="group">
+          <SimpleGrid
+            key={post.slug}
+            mb="8"
+            columns={[1, , 2]}
+            spacing="8"
+            role="group"
+          >
             {post.coverImage && (
-              <Box w={[1 / 3]}>
+              <Box>
                 <CoverImage
                   title={post.title}
                   slug={post.slug}
@@ -117,7 +124,7 @@ export default function Journal({ posts }) {
               <Heading
                 fontSize={['3xl', '5xl']}
                 lineHeight="0.8"
-                mb="4"
+                mb="6"
                 letterSpacing="tighter"
                 maxW="xl"
               >
@@ -129,7 +136,7 @@ export default function Journal({ posts }) {
               <Box
                 mb="2"
                 className="prose lg:prose-xl"
-                lineHeight="1.25"
+                lineHeight="1.5"
                 maxW="xl"
               >
                 <MD>{post.excerpt}</MD>
@@ -146,7 +153,7 @@ export default function Journal({ posts }) {
                 {heroPost.tags.join(', ')}
               </Box>
             </Flex>
-          </Flex>
+          </SimpleGrid>
         ))}
       </Container>
     </Box>
