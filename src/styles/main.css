@@ -26,7 +26,20 @@
     @apply pt-1;
   }
   h2 {
-    @apply font-normal tracking-tighter font-head;
+    @apply relative font-normal tracking-tighter font-head;
+    &:before {
+      content: '';
+      width: 1em;
+      height: 1em;
+      position: absolute;
+      left: -1.25em;
+      top: 0.125em;
+      background: #000;
+
+      .dark & {
+        background: #fff;
+      }
+    }
   }
 
   a {
