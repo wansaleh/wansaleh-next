@@ -1,6 +1,6 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Link } from '@chakra-ui/react';
 import NextImage from 'next/image';
-import Link from 'next/link';
+import NextLink from 'next/link';
 
 export default function CoverImage({
   src,
@@ -27,9 +27,18 @@ export default function CoverImage({
   return (
     <Box pos="relative" mx={[-4, , , , 0]} {...props}>
       {slug ? (
-        <Link as={`/blog/${slug}`} href="/blog/[slug]">
-          <a aria-label={title}>{image}</a>
-        </Link>
+        <Box bg="brand.500">
+          <NextLink as={`/blog/${slug}`} href="/blog/[slug]">
+            <Link
+              aria-label={title}
+              transition="all 0.3s ease"
+              d="block"
+              _hover={{ opacity: 0.8 }}
+            >
+              {image}
+            </Link>
+          </NextLink>
+        </Box>
       ) : (
         image
       )}

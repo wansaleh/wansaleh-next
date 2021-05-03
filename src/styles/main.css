@@ -1,18 +1,49 @@
+.prose.article {
+  color: inherit;
+
+  :is(h1, h2, h3, h4, h5, h6, p, b, em, strong) {
+    color: inherit;
+  }
+  :is(h1, h2, h3, h4, h5, h6) {
+    paddingtop: 1rem;
+  }
+
+  a {
+    @apply no-underline transition-colors duration-300 text-brand-500;
+  }
+
+  a:hover {
+    color: #000;
+
+    .dark & {
+      color: #fff;
+    }
+  }
+
+  blockquote {
+    @apply font-serif;
+    font-size: 1.5em;
+    line-height: 1.5;
+    color: inherit;
+    opacity: 0.6;
+  }
+
+  > p:first-of-type {
+    font-size: 1.5em;
+    line-height: 1.5;
+    @apply font-serif text-gray-700 dark:text-gray-400;
+  }
+
+  > p > img {
+    @apply shadow-md;
+    margin: 0;
+  }
+
+  > p > img + :is(span, p) {
+    @apply block mt-3 text-xs font-bold leading-tight opacity-60;
+  }
+}
+
 button:focus {
   outline: none;
-}
-
-.prose.article > p:first-of-type {
-  font-size: 1.5em;
-  line-height: 1.5;
-  @apply font-serif text-brand-700 dark:text-brand-500;
-}
-
-.prose.article > p > img {
-  @apply shadow-md;
-  margin: 0;
-}
-
-.prose.article > p > img + * {
-  @apply block mt-3 text-xs font-bold leading-tight opacity-60;
 }
