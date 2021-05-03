@@ -53,7 +53,7 @@ export default function Journal({ posts }) {
             <Heading
               fontSize={i === 0 ? ['4xl', '6xl'] : ['3xl', '5xl']}
               lineHeight="0.8"
-              mb={i === 0 ? 8 : 4}
+              mb="8"
               letterSpacing="tighter"
             >
               <NextLink href={`/blog/${post.slug}`} passHref>
@@ -61,10 +61,7 @@ export default function Journal({ posts }) {
               </NextLink>
             </Heading>
 
-            <Box
-              mb="4"
-              className="!leading-normal prose lg:prose-xl font-serif"
-            >
+            <Box mb="2" className="prose lg:prose-xl" lineHeight="1.25">
               <MD>{post.excerpt}</MD>
             </Box>
 

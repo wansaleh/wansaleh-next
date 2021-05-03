@@ -20,9 +20,9 @@ module.exports = {
         gray: colors.trueGray
       },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Satoshi', ...defaultTheme.fontFamily.sans],
         head: ['General Sans', ...defaultTheme.fontFamily.sans],
-        serif: ['Zodiak', ...defaultTheme.fontFamily.sans],
+        serif: ['Sentient', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
       }
     }

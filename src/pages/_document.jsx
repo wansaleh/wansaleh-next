@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           /> */}
           <link
-            href="https://api.fontshare.com/css?f[]=general-sans@1&f[]=clash-display@1&f[]=zodiak@1,2&display=swap"
+            href="https://api.fontshare.com/css?f[]=general-sans@1&f[]=satoshi@1&f[]=clash-display@1&f[]=zodiak@1,2&f[]=sentient@1,2&display=swap"
             rel="stylesheet"
           />
         </Head>

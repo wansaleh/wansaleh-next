@@ -50,7 +50,9 @@ export default function CoverImage({
           opacity="0.6"
           pt="2"
           px={[4, 4, 4, 4, 0]}
-          maxW="2xl"
+          maxW="3xl"
+          mx="auto"
+          // textAlign="center"
         >
           {caption}
         </Box>
