@@ -1,10 +1,4 @@
-import {
-  Box,
-  Container,
-  Heading,
-  Link,
-  useColorModeValue
-} from '@chakra-ui/react';
+import { Box, Container, Heading, Link } from '@chakra-ui/react';
 import rehypeToc from '@jsdevtools/rehype-toc';
 import remarkSmartypants from '@silvenon/remark-smartypants';
 import { format, parseISO } from 'date-fns';
@@ -83,24 +77,23 @@ export default function JournalPost({ post }) {
                 fontSize={['2xl', '3xl', '4xl']}
                 fontWeight="400"
                 lineHeight="0.9"
-                mb="10"
+                mb="4"
                 letterSpacing="tighter"
               >
                 {post.subtitle}
               </Heading>
 
-              <Box mb="4" fontWeight="800">
-                <Box
-                  as="span"
-                  bg={useColorModeValue('black', 'white')}
-                  color={useColorModeValue('white', 'black')}
-                  py="1.5"
-                  px="2"
-                  lineHeight="1"
-                  d="inline-block"
-                >
-                  {format(parseISO(post.date), 'EEEE, d MMMM yyy')}
-                </Box>
+              <Box
+                mb="10"
+                fontSize="xs"
+                fontWeight="800"
+                letterSpacing="widest"
+                textTransform="uppercase"
+              >
+                {format(parseISO(post.date), 'EEEE, d MMMM yyy')} &middot;{' '}
+                Updated{' '}
+                {format(parseISO(post.updatedAt), 'd MMMM yyy, hh:mm a')}{' '}
+                &middot; {post.tags.join(', ')}
               </Box>
 
               {post.coverImage && (

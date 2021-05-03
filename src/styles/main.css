@@ -5,11 +5,28 @@
 .prose.article {
   color: inherit;
 
-  :is(h1, h2, h3, h4, h5, h6, p, b, em, strong) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  b,
+  em,
+  strong {
     color: inherit;
   }
-  :is(h1, h2, h3, h4, h5, h6) {
-    padding-top: 1rem;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply pt-1;
+  }
+  h2 {
+    @apply font-normal tracking-tighter font-head;
   }
 
   a {

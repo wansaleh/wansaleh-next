@@ -80,7 +80,7 @@ export default function Journal({ posts }) {
               fontWeight="800"
               textTransform="uppercase"
               fontSize="xs"
-              letterSpacing="wider"
+              letterSpacing="widest"
             >
               {format(parseISO(heroPost.date), 'd MMMM yyy')} &middot;{' '}
               {heroPost.tags.join(', ')}
@@ -129,7 +129,7 @@ export default function Journal({ posts }) {
                 fontWeight="800"
                 textTransform="uppercase"
                 fontSize="xs"
-                letterSpacing="wider"
+                letterSpacing="widest"
               >
                 {format(parseISO(post.date), 'd MMMM yyy')} &middot;{' '}
                 {heroPost.tags.join(', ')}

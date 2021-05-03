@@ -67,6 +67,7 @@ export async function getAllPostsForHome(preview) {
           subtitle
           excerpt
           date
+          updatedAt
           coverImage {
             url(
               transformation: {
@@ -104,6 +105,7 @@ export async function getPostAndMorePosts(slug, preview) {
           subtitle
           content
           date
+          updatedAt
           ogImage: coverImage {
             url(
               transformation: {
@@ -142,6 +144,7 @@ export async function getPostAndMorePosts(slug, preview) {
           subtitle
           excerpt
           date
+          updatedAt
           coverImage {
             url(
               transformation: {
