@@ -36,10 +36,10 @@ export default function CoverImage({
               transition="all 0.3s ease"
               d="block"
               sx={{
-                filter: 'grayscale(1) contrast(0.7) brightness(1.5)'
+                filter: 'grayscale(0.65)'
               }}
               _groupHover={{
-                filter: 'grayscale(0.25) contrast(1) brightness(1)'
+                filter: 'grayscale(0.2)'
               }}
             >
               {image}
@@ -54,7 +54,7 @@ export default function CoverImage({
           pos="relative"
           transition="all 0.3s ease"
           sx={{
-            filter: 'grayscale(0.5)'
+            filter: 'grayscale(0.65)'
           }}
           _hover={{
             filter: 'grayscale(0.2)'
