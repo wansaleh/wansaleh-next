@@ -38,7 +38,7 @@ export default function CoverImage({
               sx={{
                 filter: 'grayscale(1) contrast(0.7) brightness(1.5)'
               }}
-              _hover={{
+              _groupHover={{
                 filter: 'grayscale(0.25) contrast(1) brightness(1)'
               }}
             >

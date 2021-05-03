@@ -47,7 +47,7 @@ export default function Journal({ posts }) {
           }
         }}
       >
-        <Box id="hero-post" mb="20">
+        <Box id="hero-post" mb="20" role="group">
           {heroPost.coverImage && (
             <CoverImage
               title={heroPost.title}
@@ -89,7 +89,7 @@ export default function Journal({ posts }) {
         </Box>
 
         {otherPosts.map((post) => (
-          <Flex key={post.slug} mb="8" sx={{ gap: 16 }}>
+          <Flex key={post.slug} mb="8" sx={{ gap: 16 }} role="group">
             {post.coverImage && (
               <Box w={[1 / 3]}>
                 <CoverImage
