@@ -27,7 +27,7 @@ export default function CoverImage({
   );
 
   return (
-    <Box pos="relative" mx={[-4, , , , 0]} {...props}>
+    <Box pos="relative" maxW="1800" mx="auto" {...props}>
       {slug ? (
         <Box bg="brand.500" shadow="lg" overflow="hidden" pos="relative">
           <NextLink as={`/blog/${slug}`} href="/blog/[slug]">
@@ -53,10 +53,10 @@ export default function CoverImage({
           fontWeight="700"
           opacity="0.6"
           pt="2"
-          px={[4, 4, 4, 4, 0]}
+          px={[4, 4, 0]}
           maxW="3xl"
           mx="auto"
-          // textAlign="center"
+          textAlign="center"
         >
           {caption}
         </Box>

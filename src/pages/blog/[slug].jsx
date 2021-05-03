@@ -61,70 +61,69 @@ export default function JournalPost({ post }) {
             </Heading>
           </Container>
 
+          <Container maxW="7xl" mt="40" textAlign="center">
+            <Heading
+              fontSize={['6xl', '7xl', '8xl']}
+              lineHeight="0.85"
+              mb="4"
+              letterSpacing="tighter"
+            >
+              {post.title}
+            </Heading>
+
+            <Heading
+              as="h2"
+              fontSize={['2xl', '3xl', '4xl']}
+              fontWeight="400"
+              lineHeight="0.9"
+              mb="4"
+              letterSpacing="tighter"
+            >
+              {post.subtitle}
+            </Heading>
+
+            <Box
+              mb="10"
+              fontSize="xs"
+              fontWeight="800"
+              letterSpacing="widest"
+              textTransform="uppercase"
+            >
+              {format(parseISO(post.date), 'EEEE, d MMMM yyy')} &middot; Updated{' '}
+              {format(parseISO(post.updatedAt), 'd MMMM yyy, hh:mm a')} &middot;{' '}
+              {post.tags.join(', ')}
+            </Box>
+          </Container>
+
+          {post.coverImage && (
+            <CoverImage
+              src={post.coverImage.url}
+              title={post.title}
+              caption={post.coverImage.caption}
+              width={1240}
+              height={540}
+            />
+          )}
+
           <Container maxW="7xl">
-            <Box key={post.slug}>
-              <Heading
-                fontSize={['6xl', '7xl', '8xl']}
-                lineHeight="0.85"
-                mb="4"
-                letterSpacing="tighter"
+            <Box
+              as="article"
+              className="prose lg:prose-lg xl:prose-xl dark:prose-dark article"
+              maxW="3xl"
+              mx="auto"
+              mt="10"
+            >
+              <MD
+                remarkPlugins={[remarkSmartypants]}
+                rehypePlugins={[
+                  rehypeSlug,
+                  rehypeHeadings,
+                  rehypeToc,
+                  rehypeRaw
+                ]}
               >
-                {post.title}
-              </Heading>
-
-              <Heading
-                as="h2"
-                fontSize={['2xl', '3xl', '4xl']}
-                fontWeight="400"
-                lineHeight="0.9"
-                mb="4"
-                letterSpacing="tighter"
-              >
-                {post.subtitle}
-              </Heading>
-
-              <Box
-                mb="10"
-                fontSize="xs"
-                fontWeight="800"
-                letterSpacing="widest"
-                textTransform="uppercase"
-              >
-                {format(parseISO(post.date), 'EEEE, d MMMM yyy')} &middot;{' '}
-                Updated{' '}
-                {format(parseISO(post.updatedAt), 'd MMMM yyy, hh:mm a')}{' '}
-                &middot; {post.tags.join(', ')}
-              </Box>
-
-              {post.coverImage && (
-                <CoverImage
-                  src={post.coverImage.url}
-                  title={post.title}
-                  caption={post.coverImage.caption}
-                  width={1240}
-                  height={680}
-                />
-              )}
-
-              <Box
-                as="article"
-                className="prose lg:prose-lg xl:prose-xl dark:prose-dark article"
-                maxW="3xl"
-                mx="auto"
-                mt="10"
-              >
-                <MD
-                  remarkPlugins={[remarkSmartypants]}
-                  rehypePlugins={[
-                    rehypeSlug,
-                    rehypeHeadings,
-                    rehypeToc,
-                    rehypeRaw
-                  ]}
-                >
-                  {post.content}
-                </MD>
-              </Box>
+                {post.content}
+              </MD>
             </Box>
           </Container>
         </>
