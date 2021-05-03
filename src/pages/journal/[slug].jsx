@@ -6,16 +6,16 @@ import {
   Link,
   useColorModeValue
 } from '@chakra-ui/react';
-import toc from '@jsdevtools/rehype-toc';
-import smartypants from '@silvenon/remark-smartypants';
+import rehypeToc from '@jsdevtools/rehype-toc';
+import remarkSmartypants from '@silvenon/remark-smartypants';
 import { format, parseISO } from 'date-fns';
 import ErrorPage from 'next/error';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import MD from 'react-markdown';
-import headings from 'rehype-autolink-headings';
+import rehypeHeadings from 'rehype-autolink-headings';
 import rehypeRaw from 'rehype-raw';
-import slug from 'rehype-slug';
+import rehypeSlug from 'rehype-slug';
 
 import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
@@ -111,8 +111,13 @@ export default function JournalPost({ post }) {
                 mt="10"
               >
                 <MD
-                  remarkPlugins={[smartypants]}
-                  rehypePlugins={[slug, headings, toc, rehypeRaw]}
+                  remarkPlugins={[remarkSmartypants]}
+                  rehypePlugins={[
+                    rehypeSlug,
+                    rehypeHeadings,
+                    rehypeToc,
+                    rehypeRaw
+                  ]}
                 >
                   {post.content}
                 </MD>
