@@ -1,5 +1,6 @@
 .prose {
   color: inherit;
+  @apply leading-loose;
 }
 
 .prose.article {

@@ -108,7 +108,7 @@ export default function JournalPost({ post }) {
 
               <Box
                 as="article"
-                className="prose lg:prose-xl dark:prose-dark article"
+                className="prose lg:prose-lg xl:prose-xl dark:prose-dark article"
                 maxW="3xl"
                 mx="auto"
                 mt="10"
