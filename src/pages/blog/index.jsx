@@ -24,7 +24,7 @@ export default function Journal({ posts }) {
           lineHeight="0.8"
           letterSpacing="tighter"
         >
-          Journal
+          Blog
         </Heading>
       </Container>
 
@@ -56,7 +56,7 @@ export default function Journal({ posts }) {
               mb={i === 0 ? 8 : 4}
               letterSpacing="tighter"
             >
-              <NextLink href={`/journal/${post.slug}`} passHref>
+              <NextLink href={`/blog/${post.slug}`} passHref>
                 <Link>{post.title}</Link>
               </NextLink>
             </Heading>

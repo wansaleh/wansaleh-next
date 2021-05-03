@@ -57,8 +57,8 @@ export default function Nav() {
           spacing="2"
         >
           <li>
-            <NextLink href="/journal">
-              <Link>Journal</Link>
+            <NextLink href="/blog">
+              <Link>Blog</Link>
             </NextLink>
           </li>
 

@@ -33,7 +33,7 @@ export default function JournalPost({ post }) {
         <Box>Loading…</Box>
       ) : (
         <>
-          <Head title={`By Wan Saleh | Journal | ${post.title}`} />
+          <Head title={`By Wan Saleh | Blog | ${post.title}`} />
 
           <Container maxW="7xl" mt="20" mb="8">
             <Heading
@@ -43,7 +43,7 @@ export default function JournalPost({ post }) {
               lineHeight="0.8"
               letterSpacing="tighter"
             >
-              <NextLink href="/journal" passHref>
+              <NextLink href="/blog" passHref>
                 <Link d="flex" alignItems="center">
                   <Box
                     as="svg"
@@ -61,7 +61,7 @@ export default function JournalPost({ post }) {
                     <polyline points="12 8 8 12 12 16" />
                     <line x1="16" x2="8" y1="12" y2="12" />
                   </Box>
-                  <Box>Journal</Box>
+                  <Box>Blog</Box>
                 </Link>
               </NextLink>
             </Heading>
