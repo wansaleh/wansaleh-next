@@ -4,6 +4,7 @@ import { format, parseISO } from 'date-fns';
 import NextLink from 'next/link';
 import MD from 'react-markdown';
 
+import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
 import { getAllPostsForHome } from '../../lib/graphcms';
 
@@ -36,14 +37,24 @@ export default function Journal({ posts }) {
           }
         }}
       >
-        {posts.map((post) => (
-          <Box key={post.slug} mb="20">
+        {posts.map((post, i) => (
+          <Box key={post.slug} mb="20" maxW="3xl">
+            {i === 0 && post.coverImage && (
+              <CoverImage
+                title={post.title}
+                slug={post.slug}
+                src={post.coverImage.url}
+                width={1240}
+                height={680}
+                mb="4"
+              />
+            )}
+
             <Heading
-              fontSize={['4xl', '6xl']}
+              fontSize={i === 0 ? ['4xl', '6xl'] : ['3xl', '5xl']}
               lineHeight="0.8"
-              mb="8"
+              mb={i === 0 ? 8 : 4}
               letterSpacing="tighter"
-              maxW="2xl"
             >
               <NextLink href={`/journal/${post.slug}`} passHref>
                 <Link>{post.title}</Link>
@@ -51,7 +62,6 @@ export default function Journal({ posts }) {
             </Heading>
 
             <Box
-              maxW="2xl"
               mb="4"
               className="!leading-normal prose lg:prose-xl font-serif"
             >

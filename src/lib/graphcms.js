@@ -64,6 +64,7 @@ export async function getAllPostsForHome(preview) {
         posts(orderBy: date_DESC, first: 20) {
           title
           slug
+          subtitle
           excerpt
           date
           coverImage {
@@ -99,6 +100,7 @@ export async function getPostAndMorePosts(slug, preview) {
         post(stage: $stage, where: { slug: $slug }) {
           title
           slug
+          subtitle
           content
           date
           ogImage: coverImage {
@@ -135,6 +137,7 @@ export async function getPostAndMorePosts(slug, preview) {
         ) {
           title
           slug
+          subtitle
           excerpt
           date
           coverImage {

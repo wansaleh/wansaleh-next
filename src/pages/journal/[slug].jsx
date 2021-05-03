@@ -1,4 +1,3 @@
-/* eslint-disable no-sparse-arrays */
 import {
   Box,
   Container,
@@ -72,11 +71,22 @@ export default function JournalPost({ post }) {
             <Box key={post.slug}>
               <Heading
                 fontSize={['6xl', '7xl', '8xl']}
-                lineHeight="0.8"
+                lineHeight="0.85"
                 mb="4"
                 letterSpacing="tighter"
               >
                 {post.title}
+              </Heading>
+
+              <Heading
+                as="h2"
+                fontSize={['2xl', '3xl', '4xl']}
+                fontWeight="400"
+                lineHeight="0.9"
+                mb="10"
+                letterSpacing="tighter"
+              >
+                {post.subtitle}
               </Heading>
 
               <Box mb="4" fontWeight="800">

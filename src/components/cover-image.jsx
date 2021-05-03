@@ -8,7 +8,8 @@ export default function CoverImage({
   caption,
   slug,
   height,
-  width
+  width,
+  ...props
 }) {
   const image = (
     <NextImage
@@ -22,7 +23,7 @@ export default function CoverImage({
   );
 
   return (
-    <Box pos="relative" mx={[-4, , , , 0]}>
+    <Box pos="relative" mx={[-4, , , , 0]} {...props}>
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title}>{image}</a>
