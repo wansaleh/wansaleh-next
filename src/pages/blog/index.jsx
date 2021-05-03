@@ -1,5 +1,12 @@
 /* eslint-disable no-sparse-arrays */
-import { Box, Container, Heading, Link, useTheme } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Link,
+  useTheme
+} from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import NextLink from 'next/link';
 import MD from 'react-markdown';
@@ -10,6 +17,9 @@ import { getAllPostsForHome } from '../../lib/graphcms';
 
 export default function Journal({ posts }) {
   const theme = useTheme();
+
+  const heroPost = posts[0];
+  const otherPosts = posts.slice(1);
 
   return (
     <Box>
@@ -37,38 +47,95 @@ export default function Journal({ posts }) {
           }
         }}
       >
-        {posts.map((post, i) => (
-          <Box key={post.slug} mb="20" maxW="3xl">
-            {i === 0 && post.coverImage && (
-              <CoverImage
-                title={post.title}
-                slug={post.slug}
-                src={post.coverImage.url}
-                width={1240}
-                height={680}
-                mb="4"
-              />
-            )}
+        <Box id="hero-post" mb="20">
+          {heroPost.coverImage && (
+            <CoverImage
+              title={heroPost.title}
+              slug={heroPost.slug}
+              src={heroPost.coverImage.url}
+              width={1240}
+              height={680}
+              mb="4"
+            />
+          )}
 
+          <Box maxW="3xl">
             <Heading
-              fontSize={i === 0 ? ['4xl', '6xl'] : ['3xl', '5xl']}
+              fontSize={['4xl', '6xl']}
               lineHeight="0.8"
               mb="8"
               letterSpacing="tighter"
             >
-              <NextLink href={`/blog/${post.slug}`} passHref>
-                <Link>{post.title}</Link>
+              <NextLink href={`/blog/${heroPost.slug}`} passHref>
+                <Link>{heroPost.title}</Link>
               </NextLink>
             </Heading>
 
             <Box mb="2" className="prose lg:prose-xl" lineHeight="1.25">
-              <MD>{post.excerpt}</MD>
+              <MD>{heroPost.excerpt}</MD>
             </Box>
 
-            <Box as="time" d="block" mb="8" fontWeight="800">
-              {format(parseISO(post.date), 'EEEE, d MMMM yyy')}
+            <Box
+              d="block"
+              fontWeight="800"
+              textTransform="uppercase"
+              fontSize="xs"
+              letterSpacing="wider"
+            >
+              {format(parseISO(heroPost.date), 'd MMMM yyy')} &middot;{' '}
+              {heroPost.tags.join(', ')}
             </Box>
           </Box>
+        </Box>
+
+        {otherPosts.map((post) => (
+          <Flex key={post.slug} mb="8" sx={{ gap: 16 }}>
+            {post.coverImage && (
+              <Box w={[1 / 3]}>
+                <CoverImage
+                  title={post.title}
+                  slug={post.slug}
+                  src={post.coverImage.url}
+                  width={1240}
+                  height={680}
+                />
+              </Box>
+            )}
+
+            <Flex direction="column" justify="flex-end">
+              <Heading
+                fontSize={['3xl', '5xl']}
+                lineHeight="0.8"
+                mb="4"
+                letterSpacing="tighter"
+                maxW="xl"
+              >
+                <NextLink href={`/blog/${post.slug}`} passHref>
+                  <Link>{post.title}</Link>
+                </NextLink>
+              </Heading>
+
+              <Box
+                mb="2"
+                className="prose lg:prose-xl"
+                lineHeight="1.25"
+                maxW="xl"
+              >
+                <MD>{post.excerpt}</MD>
+              </Box>
+
+              <Box
+                d="block"
+                fontWeight="800"
+                textTransform="uppercase"
+                fontSize="xs"
+                letterSpacing="wider"
+              >
+                {format(parseISO(post.date), 'd MMMM yyy')} &middot;{' '}
+                {heroPost.tags.join(', ')}
+              </Box>
+            </Flex>
+          </Flex>
         ))}
       </Container>
     </Box>

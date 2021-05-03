@@ -85,6 +85,7 @@ export async function getAllPostsForHome(preview) {
               )
             }
           }
+          tags
         }
       }
     `,
@@ -129,6 +130,7 @@ export async function getPostAndMorePosts(slug, preview) {
               )
             }
           }
+          tags
         }
         morePosts: posts(
           orderBy: date_DESC
@@ -158,6 +160,7 @@ export async function getPostAndMorePosts(slug, preview) {
               )
             }
           }
+          tags
         }
       }
     `,

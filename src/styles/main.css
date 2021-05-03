@@ -2,7 +2,7 @@
   color: inherit;
 }
 
-.article {
+.prose.article {
   color: inherit;
 
   :is(h1, h2, h3, h4, h5, h6, p, b, em, strong) {
@@ -35,16 +35,26 @@
   > p:first-of-type {
     font-size: 1.25em;
     line-height: 1.65;
-    @apply font-serif tracking-tight text-gray-700 dark:text-gray-400;
+    @apply font-serif tracking-tight text-gray-700;
+
+    .dark & {
+      @apply text-gray-400;
+    }
   }
 
   > p > img {
-    @apply shadow-md;
-    margin: 0;
+    @apply m-0 border border-gray-200 border-solid shadow-md;
+    .dark & {
+      @apply border-gray-800;
+    }
   }
 
   > p > img + :is(span, p) {
     @apply block mt-3 text-xs font-bold leading-tight opacity-60;
+  }
+
+  .toc li {
+    margin: 0;
   }
 }
 
