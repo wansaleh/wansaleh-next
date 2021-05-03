@@ -29,20 +29,37 @@ export default function CoverImage({
   return (
     <Box pos="relative" maxW="1800" mx="auto" {...props}>
       {slug ? (
-        <Box bg="brand.500" shadow="lg" overflow="hidden" pos="relative">
+        <Box shadow="lg" overflow="hidden" pos="relative">
           <NextLink as={`/blog/${slug}`} href="/blog/[slug]">
             <Link
               aria-label={title}
               transition="all 0.3s ease"
               d="block"
-              _hover={{ opacity: 0.8 }}
+              sx={{
+                filter: 'grayscale(1) contrast(0.7) brightness(1.5)'
+              }}
+              _hover={{
+                filter: 'grayscale(0.25) contrast(1) brightness(1)'
+              }}
             >
               {image}
             </Link>
           </NextLink>
         </Box>
       ) : (
-        <Box bg="brand.500" shadow="lg" overflow="hidden" pos="relative">
+        <Box
+          bg="brand.500"
+          shadow="lg"
+          overflow="hidden"
+          pos="relative"
+          transition="all 0.3s ease"
+          sx={{
+            filter: 'grayscale(0.5)'
+          }}
+          _hover={{
+            filter: 'grayscale(0.2)'
+          }}
+        >
           {image}
         </Box>
       )}
