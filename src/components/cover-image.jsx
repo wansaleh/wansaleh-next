@@ -41,6 +41,7 @@ export default function CoverImage({
           opacity="0.6"
           pt="2"
           px={[4, 4, 4, 4, 0]}
+          maxW="2xl"
         >
           {caption}
         </Box>
