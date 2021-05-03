@@ -20,7 +20,7 @@ module.exports = {
         gray: colors.trueGray
       },
       fontFamily: {
-        sans: ['Satoshi', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         head: ['General Sans', ...defaultTheme.fontFamily.sans],
         serif: ['Sentient', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
