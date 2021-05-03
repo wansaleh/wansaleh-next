@@ -6,13 +6,16 @@ import {
   Link,
   useColorModeValue
 } from '@chakra-ui/react';
+import toc from '@jsdevtools/rehype-toc';
 import smartypants from '@silvenon/remark-smartypants';
 import { format, parseISO } from 'date-fns';
 import ErrorPage from 'next/error';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import MD from 'react-markdown';
+import headings from 'rehype-autolink-headings';
 import rehypeRaw from 'rehype-raw';
+import slug from 'rehype-slug';
 
 import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
@@ -91,25 +94,26 @@ export default function JournalPost({ post }) {
               </Box>
 
               {post.coverImage && (
-                <Box pos="relative" mx={[-4, -4, -4, -4, 0]}>
-                  <CoverImage
-                    src={post.coverImage.url}
-                    title={post.title}
-                    caption={post.coverImage.caption}
-                    width={1240}
-                    height={680}
-                  />
-                </Box>
+                <CoverImage
+                  src={post.coverImage.url}
+                  title={post.title}
+                  caption={post.coverImage.caption}
+                  width={1240}
+                  height={680}
+                />
               )}
 
               <Box
                 as="article"
                 className="prose lg:prose-xl dark:prose-dark article"
-                maxW="2xl"
+                maxW="3xl"
                 mx="auto"
                 mt="10"
               >
-                <MD remarkPlugins={[smartypants]} rehypePlugins={[rehypeRaw]}>
+                <MD
+                  remarkPlugins={[smartypants]}
+                  rehypePlugins={[slug, headings, toc, rehypeRaw]}
+                >
                   {post.content}
                 </MD>
               </Box>

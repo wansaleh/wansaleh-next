@@ -22,7 +22,7 @@ export default function CoverImage({
   );
 
   return (
-    <Box>
+    <Box pos="relative" mx={[-4, , , , 0]}>
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title}>{image}</a>
@@ -30,8 +30,15 @@ export default function CoverImage({
       ) : (
         image
       )}
+
       {caption && (
-        <Box fontSize="xs" fontWeight="700" opacity="0.6" mt="2">
+        <Box
+          fontSize="xs"
+          fontWeight="700"
+          opacity="0.6"
+          pt="2"
+          px={[4, 4, 4, 4, 0]}
+        >
           {caption}
         </Box>
       )}

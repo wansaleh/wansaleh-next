@@ -33,6 +33,9 @@ module.exports = {
               'h1,h2,h3,h4,h5,h6,p,b,em,strong': {
                 color: 'inherit'
               },
+              'h1,h2,h3,h4,h5,h6': {
+                paddingTop: '1rem'
+              },
               a: {
                 color: theme('colors.brand.500'),
                 '&:hover': {
