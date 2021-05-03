@@ -12,20 +12,22 @@ export default function CoverImage({
   ...props
 }) {
   const image = (
-    <NextImage
-      src={src}
-      alt={`Cover Image for ${title}`}
-      layout="responsive"
-      width={width}
-      height={height}
-      css={{ objectFit: 'cover' }}
-    />
+    <Box shadow="lg">
+      <NextImage
+        src={src}
+        alt={`Cover Image for ${title}`}
+        layout="responsive"
+        width={width}
+        height={height}
+        css={{ objectFit: 'cover' }}
+      />
+    </Box>
   );
 
   return (
     <Box pos="relative" mx={[-4, , , , 0]} {...props}>
       {slug ? (
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <Link as={`/blog/${slug}`} href="/blog/[slug]">
           <a aria-label={title}>{image}</a>
         </Link>
       ) : (
