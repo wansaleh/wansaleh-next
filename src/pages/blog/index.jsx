@@ -28,13 +28,24 @@ export default function Journal({ posts }) {
       <Container maxW="7xl" my="20">
         <Heading
           as="h1"
-          pb="2"
+          mb="6"
+          ml="-0.04em"
           fontSize={['7xl', '8xl']}
           fontWeight="700"
           lineHeight="0.8"
           letterSpacing="tighter"
         >
           Blog
+        </Heading>
+        <Heading
+          as="h2"
+          pb="2"
+          fontSize={['2xl', '3xl']}
+          fontWeight="400"
+          lineHeight="0.8"
+          letterSpacing="tighter"
+        >
+          My pursuit of sonic excellence.
         </Heading>
       </Container>
 
