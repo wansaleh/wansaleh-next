@@ -30,7 +30,7 @@ export default function Journal({ posts }) {
         <Heading
           as="h1"
           mb="6"
-          ml="-0.04em"
+          // ml="-0.04em"
           fontSize={['7xl', '8xl']}
           fontWeight="700"
           lineHeight="0.8"
