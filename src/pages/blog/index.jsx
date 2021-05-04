@@ -5,7 +5,10 @@ import {
   Flex,
   Heading,
   Link,
+  LinkBox,
+  LinkOverlay,
   SimpleGrid,
+  useColorModeValue,
   useTheme
 } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
@@ -101,62 +104,72 @@ export default function Journal({ posts }) {
           </Box>
         </Box>
 
-        {otherPosts.map((post) => (
-          <SimpleGrid
-            key={post.slug}
-            mb="8"
-            columns={[1, , 2]}
-            spacing="8"
-            role="group"
-          >
-            {post.coverImage && (
-              <Box>
-                <CoverImage
-                  title={post.title}
-                  slug={post.slug}
-                  src={post.coverImage.url}
-                  width={1240}
-                  height={600}
-                />
-              </Box>
-            )}
+        <SimpleGrid columns={[1, 1, 2, 3]} spacing="8">
+          {otherPosts.map((post) => (
+            <LinkBox
+              key={post.slug}
+              mb="8"
+              columns={[1, , 2]}
+              role="group"
+              borderRadius="lg"
+              overflow="hidden"
+              bg={useColorModeValue('gray.100', 'gray.900')}
+              border="1px solid"
+              borderColor="gray.200"
+              // boxShadow="xl"
+              cursor="pointer"
+              transition="all 0.3s ease"
+              _hover={{
+                boxShadow: 'xl'
+              }}
+            >
+              {post.coverImage && (
+                <Box>
+                  <CoverImage
+                    title={post.title}
+                    slug={post.slug}
+                    src={post.coverImage.url}
+                    width={1240}
+                    height={600}
+                  />
+                </Box>
+              )}
 
-            <Flex direction="column" justify="flex-end">
-              <Heading
-                fontSize={['3xl', '5xl']}
-                fontWeight="600"
-                lineHeight="0.8"
-                mb="6"
-                letterSpacing="tight"
-                maxW="xl"
-              >
-                <NextLink href={`/blog/${post.slug}`} passHref>
-                  <Link>{post.title}</Link>
-                </NextLink>
-              </Heading>
+              <Flex direction="column" justify="flex-end" p="6">
+                <Box
+                  d="block"
+                  fontWeight="600"
+                  textTransform="uppercase"
+                  fontSize="xs"
+                  letterSpacing="widest"
+                  mb="2"
+                >
+                  {format(parseISO(post.date), 'd MMMM yyy')} &middot;{' '}
+                  {post.tags.join(', ')}
+                </Box>
 
-              <Box
-                mb="2"
-                className="prose lg:prose-xl"
-                lineHeight="1.5"
-                maxW="xl"
-              >
-                <MD>{post.excerpt}</MD>
-              </Box>
+                <Heading
+                  fontSize={['2xl', '4xl']}
+                  fontWeight="500"
+                  lineHeight="0.8"
+                  mb="6"
+                  letterSpacing="tight"
+                  maxW="xl"
+                >
+                  <NextLink href={`/blog/${post.slug}`} passHref>
+                    <LinkOverlay transition="all 0.3s ease">
+                      {post.title}
+                    </LinkOverlay>
+                  </NextLink>
+                </Heading>
 
-              <Box
-                d="block"
-                fontWeight="600"
-                textTransform="uppercase"
-                fontSize="xs"
-                letterSpacing="widest"
-              >
-                {format(parseISO(post.date), 'd MMMM yyy')} &middot;{' '}
-                {post.tags.join(', ')}
-              </Box>
-            </Flex>
-          </SimpleGrid>
-        ))}
+                <Box mb="4" className="prose" lineHeight="1.5" maxW="xl">
+                  <MD>{post.excerpt}</MD>
+                </Box>
+              </Flex>
+            </LinkBox>
+          ))}
+        </SimpleGrid>
       </Container>
     </Box>
   );
