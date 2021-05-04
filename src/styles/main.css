@@ -85,7 +85,7 @@ html {
   > p > img {
     @apply m-0 border border-gray-200 border-solid shadow-md;
     .dark & {
-      @apply border-gray-800;
+      @apply border-gray-800 opacity-75;
     }
   }
 

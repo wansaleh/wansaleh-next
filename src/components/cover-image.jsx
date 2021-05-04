@@ -1,4 +1,4 @@
-import { Box, Link } from '@chakra-ui/react';
+import { Box, Link, useColorModeValue } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 
@@ -21,7 +21,8 @@ export default function CoverImage({
       css={{
         objectFit: 'cover',
         objectPosition: 'center',
-        position: 'relative'
+        position: 'relative',
+        opacity: useColorModeValue(1, 0.75)
       }}
     />
   );
@@ -35,12 +36,12 @@ export default function CoverImage({
               aria-label={title}
               transition="all 0.3s ease"
               d="block"
-              sx={{
-                filter: 'grayscale(0.65)'
-              }}
-              _groupHover={{
-                filter: 'grayscale(0.2)'
-              }}
+              // sx={{
+              //   filter: 'grayscale(0.65)'
+              // }}
+              // _groupHover={{
+              //   filter: 'grayscale(0.2)'
+              // }}
             >
               {image}
             </Link>
@@ -48,17 +49,17 @@ export default function CoverImage({
         </Box>
       ) : (
         <Box
-          bg="brand.500"
+          // bg="brand.500"
           shadow="lg"
           overflow="hidden"
           pos="relative"
           transition="all 0.3s ease"
-          sx={{
-            filter: 'grayscale(0.65)'
-          }}
-          _hover={{
-            filter: 'grayscale(0.2)'
-          }}
+          // sx={{
+          //   filter: 'grayscale(0.65)'
+          // }}
+          // _hover={{
+          //   filter: 'grayscale(0.2)'
+          // }}
         >
           {image}
         </Box>
