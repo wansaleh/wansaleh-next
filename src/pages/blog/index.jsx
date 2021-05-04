@@ -150,7 +150,7 @@ export default function Journal({ posts }) {
                 letterSpacing="widest"
               >
                 {format(parseISO(post.date), 'd MMMM yyy')} &middot;{' '}
-                {heroPost.tags.join(', ')}
+                {post.tags.join(', ')}
               </Box>
             </Flex>
           </SimpleGrid>
