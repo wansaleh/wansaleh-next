@@ -71,6 +71,10 @@ export default function Journal({ posts }) {
               width={1240}
               height={600}
               mb="8"
+              borderRadius="lg"
+              overflow="hidden"
+              border="1px solid"
+              borderColor={useColorModeValue('gray.200', 'gray.800')}
             />
           )}
 
