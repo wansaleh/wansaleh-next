@@ -115,7 +115,7 @@ export default function Journal({ posts }) {
               overflow="hidden"
               bg={useColorModeValue('gray.100', 'gray.900')}
               border="1px solid"
-              borderColor="gray.200"
+              borderColor={useColorModeValue('gray.200', 'gray.800')}
               // boxShadow="xl"
               cursor="pointer"
               transition="all 0.3s ease"
