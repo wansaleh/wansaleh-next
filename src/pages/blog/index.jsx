@@ -66,7 +66,7 @@ export default function Journal({ posts }) {
               slug={heroPost.slug}
               src={heroPost.coverImage.url}
               width={1240}
-              height={680}
+              height={600}
               mb="8"
             />
           )}
@@ -115,7 +115,7 @@ export default function Journal({ posts }) {
                   slug={post.slug}
                   src={post.coverImage.url}
                   width={1240}
-                  height={680}
+                  height={600}
                 />
               </Box>
             )}
