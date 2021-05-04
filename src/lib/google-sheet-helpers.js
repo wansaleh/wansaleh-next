@@ -1,4 +1,4 @@
-import { formatISO, parse, parseISO } from 'date-fns';
+import { formatISO, parseISO } from 'date-fns';
 
 function boolean(value) {
   return String(value).trim() === 'y' || String(value).trim() === '1';
@@ -12,9 +12,7 @@ export async function fetchDiscograpySheet() {
   return rows
     .map((work) => ({
       ...work,
-      released: formatISO(
-        parse(work.released.trim(), 'yyyy-MM-dd', new Date())
-      ),
+      released: work.released.trim(),
       pro: boolean(work.pro.trim()),
       com: work.composer.trim().includes('Wan Saleh'),
       arr: boolean(work.arr.trim()),
