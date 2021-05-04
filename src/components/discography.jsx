@@ -181,7 +181,6 @@ function Work({ work }) {
             height={coverHeight}
             classNamePrefix="ll"
             placeholder={<Placeholder height={coverHeight} />}
-            unmountIfInvisible
           >
             <AspectRatio
               ref={ref}
