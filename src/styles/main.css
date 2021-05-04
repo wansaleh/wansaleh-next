@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .prose {
   color: inherit;
   @apply leading-loose;
