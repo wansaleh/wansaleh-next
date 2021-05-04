@@ -44,7 +44,7 @@ export default function Journal({ posts }) {
           fontSize={['2xl', '3xl']}
           fontWeight="400"
           lineHeight="0.8"
-          letterSpacing="tighter"
+          // letterSpacing="tighter"
         >
           My pursuit of sonic excellence.
         </Heading>
@@ -74,9 +74,10 @@ export default function Journal({ posts }) {
           <Box maxW="3xl">
             <Heading
               fontSize={['4xl', '6xl']}
+              fontWeight="600"
               lineHeight="0.8"
               mb="8"
-              letterSpacing="tighter"
+              letterSpacing="tight"
             >
               <NextLink href={`/blog/${heroPost.slug}`} passHref>
                 <Link>{heroPost.title}</Link>
@@ -89,7 +90,7 @@ export default function Journal({ posts }) {
 
             <Box
               d="block"
-              fontWeight="800"
+              fontWeight="600"
               textTransform="uppercase"
               fontSize="xs"
               letterSpacing="widest"
@@ -123,9 +124,10 @@ export default function Journal({ posts }) {
             <Flex direction="column" justify="flex-end">
               <Heading
                 fontSize={['3xl', '5xl']}
+                fontWeight="600"
                 lineHeight="0.8"
                 mb="6"
-                letterSpacing="tighter"
+                letterSpacing="tight"
                 maxW="xl"
               >
                 <NextLink href={`/blog/${post.slug}`} passHref>
@@ -144,7 +146,7 @@ export default function Journal({ posts }) {
 
               <Box
                 d="block"
-                fontWeight="800"
+                fontWeight="600"
                 textTransform="uppercase"
                 fontSize="xs"
                 letterSpacing="widest"

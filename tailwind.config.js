@@ -20,15 +20,13 @@ module.exports = {
         gray: colors.trueGray
       },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-        head: ['General Sans', ...defaultTheme.fontFamily.sans],
+        head: ['Clash Display', ...defaultTheme.fontFamily.sans],
+        sans: ['Sharp Grotesk', ...defaultTheme.fontFamily.sans],
         serif: ['Sentient', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
       }
     }
   },
-  variants: {
-    extend: { typography: ['dark'] }
-  },
+  variants: {},
   plugins: [require('@tailwindcss/typography')]
 };

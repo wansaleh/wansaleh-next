@@ -64,20 +64,22 @@ export default function JournalPost({ post }) {
           <Container maxW="7xl" mt="40" textAlign="center">
             <Heading
               fontSize={['6xl', '7xl', '8xl']}
+              fontWeight="600"
               lineHeight="0.85"
               mb="4"
-              letterSpacing="tighter"
+              letterSpacing="tight"
             >
               {post.title}
             </Heading>
 
             <Heading
               as="h2"
-              fontSize={['2xl', '3xl', '4xl']}
-              fontWeight="400"
+              fontFamily="body"
+              fontSize={['xl', '2xl', '3xl']}
+              fontWeight="300"
               lineHeight="0.9"
               mb="4"
-              letterSpacing="tighter"
+              letterSpacing="tight"
             >
               {post.subtitle}
             </Heading>
@@ -85,7 +87,7 @@ export default function JournalPost({ post }) {
             <Box
               mb="10"
               fontSize="xs"
-              fontWeight="800"
+              fontWeight="600"
               letterSpacing="widest"
               textTransform="uppercase"
             >

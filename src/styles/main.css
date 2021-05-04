@@ -30,6 +30,7 @@ html {
   h6 {
     @apply pt-1;
   }
+
   h2 {
     @apply relative font-normal tracking-tighter font-head;
     &:before {
@@ -67,10 +68,14 @@ html {
     opacity: 0.6;
   }
 
+  p {
+    line-height: 1.75;
+  }
+
   > p:first-of-type {
-    font-size: 1.25em;
-    line-height: 1.65;
-    @apply font-serif tracking-tight text-gray-700;
+    font-size: 1.35em;
+    line-height: 1.5;
+    @apply text-gray-600;
 
     .dark & {
       @apply text-gray-400;
@@ -85,7 +90,7 @@ html {
   }
 
   > p > img + :is(span, p) {
-    @apply block mt-3 text-xs font-bold leading-tight opacity-60;
+    @apply block mt-3 text-xs font-medium leading-tight opacity-60;
   }
 
   .toc li {
