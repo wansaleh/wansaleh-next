@@ -62,7 +62,7 @@ export default function Journal({ posts }) {
           }
         }}
       >
-        <Box id="hero-post" mb="20" role="group">
+        <LinkBox id="hero-post" mb="20" role="group">
           {heroPost.coverImage && (
             <CoverImage
               title={heroPost.title}
@@ -83,7 +83,9 @@ export default function Journal({ posts }) {
               letterSpacing="tight"
             >
               <NextLink href={`/blog/${heroPost.slug}`} passHref>
-                <Link>{heroPost.title}</Link>
+                <LinkOverlay transition="all 0.3s ease">
+                  {heroPost.title}
+                </LinkOverlay>
               </NextLink>
             </Heading>
 
@@ -102,7 +104,7 @@ export default function Journal({ posts }) {
               {heroPost.tags.join(', ')}
             </Box>
           </Box>
-        </Box>
+        </LinkBox>
 
         <SimpleGrid columns={[1, 1, 2, 3]} spacing="8">
           {otherPosts.map((post) => (
