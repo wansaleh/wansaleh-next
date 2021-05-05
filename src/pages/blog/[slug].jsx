@@ -14,6 +14,24 @@ import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/graphcms';
 
+const components = {
+  a({ href, title, children, ...props }) {
+    const isAnchor = href.startsWith('#');
+    const isSameDomain =
+      !href.includes('http://') && !href.includes('https://');
+
+    return !isAnchor && isSameDomain ? (
+      <NextLink href={href} passHref {...props}>
+        <Link title={title}>{children}</Link>
+      </NextLink>
+    ) : (
+      <a href={href} title={title} {...props}>
+        {children}
+      </a>
+    );
+  }
+};
+
 export default function JournalPost({ post }) {
   const router = useRouter();
 
@@ -116,6 +134,7 @@ export default function JournalPost({ post }) {
               mt="10"
             >
               <MD
+                components={components}
                 remarkPlugins={[remarkSmartypants]}
                 rehypePlugins={[
                   rehypeSlug,
