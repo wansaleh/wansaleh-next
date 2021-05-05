@@ -22,7 +22,7 @@ module.exports = {
       fontFamily: {
         head: ['Clash Display', ...defaultTheme.fontFamily.sans],
         sans: ['Sharp Grotesk', ...defaultTheme.fontFamily.sans],
-        serif: ['Sentient', ...defaultTheme.fontFamily.sans],
+        serif: ['Gambetta', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
       }
     }

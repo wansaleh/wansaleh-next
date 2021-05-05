@@ -60,26 +60,17 @@ html {
     }
   }
 
-  blockquote {
-    @apply font-serif;
-    font-size: 1.5em;
-    line-height: 1.5;
-    color: inherit;
-    opacity: 0.6;
-  }
-
   p {
     line-height: 1.75;
+
+    em {
+      @apply font-serif;
+      font-size: 1.15em;
+    }
   }
 
   > p:first-of-type {
-    font-size: 1.35em;
-    line-height: 1.5;
-    @apply text-gray-600;
-
-    .dark & {
-      @apply text-gray-400;
-    }
+    @apply text-3xl font-light leading-snug tracking-tight;
   }
 
   > p > img {
@@ -91,6 +82,24 @@ html {
 
   > p > img + :is(span, p) {
     @apply block mt-3 text-xs font-medium leading-tight opacity-60;
+  }
+
+  blockquote {
+    @apply pl-12;
+    color: inherit;
+    border: 0;
+
+    p {
+      @apply relative max-w-xl font-serif text-4xl font-light leading-snug tracking-tight;
+
+      &:first-of-type:before {
+        font-size: 4em;
+        position: absolute;
+        left: -0.45em;
+        top: -0.25em;
+        @apply text-brand-500;
+      }
+    }
   }
 
   .toc li {
