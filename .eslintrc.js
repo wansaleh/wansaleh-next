@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['airbnb', 'plugin:mdx/recommended', 'prettier'],
+  extends: ['airbnb', 'prettier'],
   parserOptions: { ecmaVersion: 2020 },
   plugins: ['simple-import-sort'],
   globals: {
@@ -30,7 +30,6 @@ module.exports = {
     'lines-between-class-members': 0,
     'no-empty': 0,
     'no-param-reassign': 0,
-    'no-sparse-arrays': 0,
     'no-underscore-dangle': 0,
     'no-use-before-define': 0,
     'no-useless-concat': 0,

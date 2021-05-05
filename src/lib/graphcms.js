@@ -186,3 +186,73 @@ export async function getPostAndMorePosts(slug, preview) {
   );
   return data;
 }
+
+export async function getAllPostsForTag(tag, preview) {
+  const data = await fetchAPI(
+    gql`
+      query PostsForTag($tag: String!) {
+        posts(
+          where: { tags_some: { slug: $tag } }
+          orderBy: date_DESC
+          first: 20
+        ) {
+          title
+          slug
+          subtitle
+          excerpt
+          date
+          updatedAt
+          coverImage {
+            url(
+              transformation: {
+                image: { resize: { fit: crop, width: 1280, height: 640 } }
+              }
+            )
+            caption
+          }
+          author {
+            name
+            picture {
+              url(
+                transformation: {
+                  image: { resize: { width: 100, height: 100, fit: crop } }
+                }
+              )
+            }
+          }
+          tags {
+            title
+            slug
+          }
+        }
+        tag(where: { slug: $tag }) {
+          title
+          slug
+          description
+        }
+      }
+    `,
+    {
+      preview,
+      variables: {
+        stage: preview ? 'DRAFT' : 'PUBLISHED',
+        tag
+      }
+    }
+  );
+  return data;
+}
+
+export async function getAllTags() {
+  const data = await fetchAPI(
+    gql`
+      {
+        tags {
+          title
+          slug
+        }
+      }
+    `
+  );
+  return data.tags;
+}

@@ -1,36 +1,13 @@
 import { Box, Container, Heading, Link } from '@chakra-ui/react';
-import rehypeToc from '@jsdevtools/rehype-toc';
-import remarkSmartypants from '@silvenon/remark-smartypants';
-import { format, parseISO } from 'date-fns';
 import ErrorPage from 'next/error';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import MD from 'react-markdown';
-import rehypeHeadings from 'rehype-autolink-headings';
-import rehypeRaw from 'rehype-raw';
-import rehypeSlug from 'rehype-slug';
 
 import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
+import Markdown from '../../components/markdown';
+import PostDateTags from '../../components/post-date-tag';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/graphcms';
-
-const components = {
-  a({ href, title, children, ...props }) {
-    const isAnchor = href.startsWith('#');
-    const isSameDomain =
-      !href.includes('http://') && !href.includes('https://');
-
-    return !isAnchor && isSameDomain ? (
-      <NextLink href={href} passHref {...props}>
-        <a title={title}>{children}</a>
-      </NextLink>
-    ) : (
-      <a href={href} title={title} {...props}>
-        {children}
-      </a>
-    );
-  }
-};
 
 export default function JournalPost({ post }) {
   const router = useRouter();
@@ -102,17 +79,7 @@ export default function JournalPost({ post }) {
               {post.subtitle}
             </Heading>
 
-            <Box
-              mb="10"
-              fontSize="xs"
-              fontWeight="600"
-              letterSpacing="widest"
-              textTransform="uppercase"
-            >
-              {format(parseISO(post.date), 'EEEE, d MMMM yyy')} &middot; Updated{' '}
-              {format(parseISO(post.updatedAt), 'd MMMM yyy, hh:mm a')} &middot;{' '}
-              {post.tags.join(', ')}
-            </Box>
+            <PostDateTags post={post} showFull mb="10" />
           </Container>
 
           {post.coverImage && (
@@ -133,18 +100,7 @@ export default function JournalPost({ post }) {
               mx="auto"
               mt="10"
             >
-              <MD
-                components={components}
-                remarkPlugins={[remarkSmartypants]}
-                rehypePlugins={[
-                  rehypeSlug,
-                  rehypeHeadings,
-                  rehypeToc,
-                  rehypeRaw
-                ]}
-              >
-                {post.content}
-              </MD>
+              <Markdown>{post.content}</Markdown>
             </Box>
           </Container>
         </>

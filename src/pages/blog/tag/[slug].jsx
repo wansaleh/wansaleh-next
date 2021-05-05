@@ -1,8 +1,10 @@
+/* eslint-disable no-sparse-arrays */
 import {
   Box,
   Container,
   Flex,
   Heading,
+  Link,
   LinkBox,
   LinkOverlay,
   SimpleGrid,
@@ -12,16 +14,14 @@ import {
 import NextLink from 'next/link';
 import MD from 'react-markdown';
 
-import CoverImage from '../../components/cover-image';
-import Head from '../../components/head';
-import PostDateTags from '../../components/post-date-tag';
-import { getAllPostsForHome } from '../../lib/graphcms';
+import CoverImage from '../../../components/cover-image';
+import Head from '../../../components/head';
+import Markdown from '../../../components/markdown';
+import PostDateTags from '../../../components/post-date-tag';
+import { getAllPostsForTag, getAllTags } from '../../../lib/graphcms';
 
-export default function Journal({ posts }) {
+export default function Tag({ posts, tag }) {
   const theme = useTheme();
-
-  const heroPost = posts[0];
-  const otherPosts = posts.slice(1);
 
   return (
     <Box>
@@ -37,7 +37,12 @@ export default function Journal({ posts }) {
           lineHeight="0.8"
           letterSpacing="tighter"
         >
-          Blog
+          <NextLink href="/blog" passHref>
+            <Link>Blog</Link>
+          </NextLink>{' '}
+          <Box as="span" fontSize="0.75em" letterSpacing="0" fontWeight="400">
+            {tag.title}
+          </Box>
         </Heading>
         <Heading
           as="h2"
@@ -48,7 +53,11 @@ export default function Journal({ posts }) {
           letterSpacing="0"
           maxW="2xl"
         >
-          My pursuit of sonic excellence.
+          {tag.description ? (
+            <Markdown>{tag.description}</Markdown>
+          ) : (
+            'My pursuit of sonic excellence.'
+          )}
         </Heading>
       </Container>
 
@@ -61,47 +70,8 @@ export default function Journal({ posts }) {
           }
         }}
       >
-        <LinkBox id="hero-post" mb="20" role="group">
-          {heroPost.coverImage && (
-            <CoverImage
-              title={heroPost.title}
-              slug={heroPost.slug}
-              src={heroPost.coverImage.url}
-              width={1240}
-              height={600}
-              mb="8"
-              borderRadius="lg"
-              overflow="hidden"
-              border="1px solid"
-              borderColor={useColorModeValue('gray.200', 'gray.800')}
-            />
-          )}
-
-          <Box maxW="3xl">
-            <Heading
-              fontSize={['4xl', '6xl']}
-              fontWeight="600"
-              lineHeight="0.8"
-              mb="8"
-              letterSpacing="tight"
-            >
-              <NextLink href={`/blog/${heroPost.slug}`} passHref>
-                <LinkOverlay transition="all 0.3s ease">
-                  {heroPost.title}
-                </LinkOverlay>
-              </NextLink>
-            </Heading>
-
-            <Box mb="2" className="prose lg:prose-xl" lineHeight="1.5">
-              <MD>{heroPost.excerpt}</MD>
-            </Box>
-
-            <PostDateTags post={heroPost} />
-          </Box>
-        </LinkBox>
-
         <SimpleGrid columns={[1, 1, 2, 3]} spacing="8">
-          {otherPosts.map((post) => (
+          {posts.map((post) => (
             <LinkBox
               key={post.slug}
               columns={[1, 1, 2]}
@@ -159,11 +129,22 @@ export default function Journal({ posts }) {
   );
 }
 
-export async function getStaticProps({ preview = false }) {
-  const posts = (await getAllPostsForHome(preview)) ?? [];
+export async function getStaticProps({ params, preview = false }) {
+  const { posts, tag } = (await getAllPostsForTag(params.slug, preview)) ?? [];
 
   return {
-    props: { preview, posts },
+    props: { preview, posts, tag },
     revalidate: 1
+  };
+}
+
+export async function getStaticPaths() {
+  const posts = await getAllTags();
+
+  return {
+    paths: posts.map(({ slug }) => ({
+      params: { slug }
+    })),
+    fallback: true
   };
 }
