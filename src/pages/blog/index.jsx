@@ -105,7 +105,7 @@ export default function Journal({ posts }) {
               letterSpacing="widest"
             >
               {format(parseISO(heroPost.date), 'd MMMM yyy')} &middot;{' '}
-              {heroPost.tags.join(', ')}
+              {heroPost.tags.map((tag) => tag.title).join(', ')}
             </Box>
           </Box>
         </LinkBox>
@@ -151,7 +151,7 @@ export default function Journal({ posts }) {
                   mb="2"
                 >
                   {format(parseISO(post.date), 'd MMMM yyy')} &middot;{' '}
-                  {post.tags.join(', ')}
+                  {post.tags.map((tag) => tag.title).join(', ')}
                 </Box>
 
                 <Heading
