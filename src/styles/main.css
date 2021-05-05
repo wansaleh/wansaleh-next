@@ -63,10 +63,10 @@ html {
   p {
     line-height: 1.75;
 
-    em {
+    /* em {
       @apply font-serif;
       font-size: 1.15em;
-    }
+    } */
   }
 
   > p:first-of-type {
