@@ -22,7 +22,7 @@ const components = {
 
     return !isAnchor && isSameDomain ? (
       <NextLink href={href} passHref {...props}>
-        <Link title={title}>{children}</Link>
+        <a title={title}>{children}</a>
       </NextLink>
     ) : (
       <a href={href} title={title} {...props}>
