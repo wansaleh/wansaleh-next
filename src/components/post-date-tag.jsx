@@ -1,4 +1,4 @@
-import { Box, Link } from '@chakra-ui/react';
+import { Box, Link, useColorModeValue } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import NextLink from 'next/link';
 
@@ -11,12 +11,11 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
       textTransform="uppercase"
       {...props}
     >
-      {format(parseISO(post.date), `${showFull ? 'EEEE, ' : ''}d MMMM yyy`)}{' '}
-      &middot;{' '}
       {showFull && (
         <>
-          Updated {format(parseISO(post.updatedAt), 'd MMMM yyy, hh:mm a')}{' '}
-          &middot;{' '}
+          {format(parseISO(post.date), `${showFull ? 'EEEE, ' : ''}d MMMM yyy`)}{' '}
+          &middot; Updated{' '}
+          {format(parseISO(post.updatedAt), 'd MMMM yyy, hh:mm a')} &middot;{' '}
         </>
       )}
       <Box
@@ -25,7 +24,14 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
       >
         {post.tags.map((tag) => (
           <NextLink key={tag.slug} href={`/blog/tag/${tag.slug}`} passHref>
-            <Link>{tag.title}</Link>
+            <Link
+              color="brand.500"
+              _hover={{
+                color: `${useColorModeValue('black', 'white')} !important`
+              }}
+            >
+              {tag.title}
+            </Link>
           </NextLink>
         ))}
       </Box>
