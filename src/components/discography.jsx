@@ -23,22 +23,14 @@ import {
 } from 'date-fns';
 import groupBy from 'lodash.groupby';
 import Image from 'next/image';
-// import NextLink from 'next/link';
 import { readableColor } from 'polished';
 import { Fragment, useState } from 'react';
 import LazyLoad from 'react-lazyload';
 import { useMeasure } from 'react-use';
 
-// import useSWR from 'swr';
-// import { getDarkest } from '../lib/color-helpers';
 import SmallBadge from './small-badge';
-// import TiltCard from './tilt-card';
 
-// const CImage = chakra(Image);
-
-const PALETTENUM = 0;
-
-// const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const PALETTENUM = 1;
 
 function listNames(names) {
   names = names.map((comp) => comp.replace(/Wan Saleh/i, 'Me'));
@@ -49,7 +41,6 @@ function listNames(names) {
 }
 
 export default function Discography({ works }) {
-  // const { data: works } = useSWR('/api/works', fetcher);
   const [genre, setGenre] = useState(null);
 
   const allWorks = works
@@ -166,8 +157,8 @@ export default function Discography({ works }) {
               align="center"
               direction="column"
               bgGradient={useColorModeValue(
-                'linear(-10deg, brand.800 50%, white 50.2%)',
-                'linear(-10deg, brand.800 50%, black 50.2%)'
+                'linear(-6deg, brand.500 50%, white 50.2%)',
+                'linear(-6deg, brand.500 50%, black 50.2%)'
               )}
             >
               <Heading
@@ -175,7 +166,7 @@ export default function Discography({ works }) {
                 lineHeight="0.9"
                 fontSize="7xl"
                 color="brand.500"
-                transform="rotate(-10deg)"
+                transform="rotate(-6deg)"
                 textShadow="5px 5px 0 white"
                 // opacity="0.5"
                 // sx={{ mixBlendMode: 'overlay' }}
@@ -247,7 +238,16 @@ function Work({ work }) {
               //   transform: 'scale(1.02)'
               // }}
             >
-              <Box shadow="lg" bg="black">
+              <Box
+                shadow="md"
+                borderRadius="md"
+                overflow="hidden"
+                transition="all 0.5s ease"
+                _groupHover={{
+                  shadow: 'lg',
+                  transform: 'translateY(-3px)'
+                }}
+              >
                 <Image
                   src={coverURL}
                   layout="intrinsic"
