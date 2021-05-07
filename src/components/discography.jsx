@@ -239,6 +239,7 @@ function Work({ work }) {
               // }}
             >
               <Box
+                bg="black"
                 shadow="md"
                 borderRadius="md"
                 overflow="hidden"
