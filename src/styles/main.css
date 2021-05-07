@@ -32,14 +32,14 @@ html {
   }
 
   h2 {
-    @apply relative font-normal tracking-tighter font-head;
+    @apply relative font-semibold tracking-normal font-head;
+
     &:before {
       content: '';
       width: 1em;
       height: 1em;
       position: absolute;
-      left: -1.25em;
-      top: 0.125em;
+      left: -1.3em;
       background: #000;
 
       .dark & {

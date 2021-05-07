@@ -1,6 +1,5 @@
 import 'tailwindcss/tailwind.css';
 import '../styles/font-sharp-grotesk.css';
-// import '../styles/font-sf.css';
 import '../styles/main.css';
 
 // import '../styles/font-inter.css';
