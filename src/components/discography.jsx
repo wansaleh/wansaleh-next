@@ -23,8 +23,9 @@ import {
 } from 'date-fns';
 import groupBy from 'lodash.groupby';
 import Image from 'next/image';
+// import NextLink from 'next/link';
 import { readableColor } from 'polished';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import LazyLoad from 'react-lazyload';
 import { useMeasure } from 'react-use';
 
@@ -40,9 +41,7 @@ const PALETTENUM = 0;
 // const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function listNames(names) {
-  names = names
-    .split(/\s*,\s*/)
-    .map((comp) => comp.replace(/Wan Saleh/i, 'Me'));
+  names = names.map((comp) => comp.replace(/Wan Saleh/i, 'Me'));
 
   return arrayToSentence(names, {
     lastSeparator: ' & '
@@ -51,6 +50,7 @@ function listNames(names) {
 
 export default function Discography({ works }) {
   // const { data: works } = useSWR('/api/works', fetcher);
+  const [genre, setGenre] = useState(null);
 
   const allWorks = works
     ?.map((work) => ({
@@ -60,9 +60,21 @@ export default function Discography({ works }) {
     .sort((a, b) => b.released - a.released)
     .filter((work) => !work.hide);
 
-  const groupedByYear = groupBy(allWorks, (work) =>
-    work.released.getFullYear()
+  const groupedByYear = groupBy(
+    allWorks.filter((work) => (genre ? work.genre.includes(genre) : true)),
+    (work) => work.released.getFullYear()
   );
+
+  const _genres = [
+    ...new Set(allWorks.reduce((out, work) => out.concat(work.genre), []))
+  ];
+
+  const genres = _genres
+    .map((g) => ({
+      title: g,
+      totalWorks: allWorks.filter((work) => work.genre.includes(g)).length
+    }))
+    .sort((a, b) => b.totalWorks - a.totalWorks);
 
   return (
     <SimpleGrid
@@ -83,17 +95,63 @@ export default function Discography({ works }) {
         <Heading as="h2" lineHeight="0.9" color="brand.500">
           Latest Discography
         </Heading>
+
         <Box
           mt="4"
           lineHeight="1.3"
           fontSize="sm"
-          fontWeight="500"
-          sx={{ b: { fontSize: 'xs' } }}
+          fontWeight="400"
+          sx={{ b: { fontSize: 'xs', fontWeight: '600' } }}
         >
           Selected works that I have produced <b>PRO</b>, composed/written{' '}
           <b>COM</b>, arranged <b>ARR</b>, mixed <b>MIX</b> or mastered{' '}
           <b>MAS</b>.
         </Box>
+
+        <Flex
+          as="ul"
+          mt="4"
+          lineHeight="1.3"
+          fontSize="xs"
+          fontWeight="400"
+          wrap="wrap"
+          justify="center"
+          sx={{ rowGap: 2, columnGap: 10 }}
+        >
+          <Box as="li">
+            <Button
+              variant="link"
+              onClick={() => setGenre(null)}
+              fontSize="inherit"
+              d="inline-block"
+              borderRadius="0"
+              minW="0"
+              color={genre === null ? 'brand.500' : 'gray.500'}
+            >
+              All
+            </Button>
+          </Box>
+
+          {genres.map(({ title }) => (
+            <Box as="li" key={title}>
+              <Button
+                variant="link"
+                onClick={() => setGenre(title)}
+                fontSize="inherit"
+                d="inline-block"
+                borderRadius="0"
+                minW="0"
+                color={genre === title ? 'brand.500' : 'gray.500'}
+              >
+                {title}
+                {/* {' '}
+                <Box as="span" fontSize="0.85em" fontWeight="600">
+                  {totalWorks}
+                </Box> */}
+              </Button>
+            </Box>
+          ))}
+        </Flex>
       </Flex>
 
       {Object.entries(groupedByYear)
@@ -152,7 +210,7 @@ function Work({ work }) {
 
   const [ref, { height: coverHeight }] = useMeasure();
 
-  const cellHeight = coverHeight + 120;
+  const cellHeight = coverHeight + 144;
 
   return (
     <LazyLoad key={work.youtube} height={cellHeight} classNamePrefix="ll">
@@ -176,7 +234,7 @@ function Work({ work }) {
             color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
             transition="all 0.2s ease"
             textAlign="center"
-            p="4"
+            p="6"
             h="full"
           >
             <AspectRatio
@@ -266,7 +324,7 @@ function Work({ work }) {
               align="center"
               px="4"
               // py="2"
-              mb="-4"
+              mt="3"
               lineHeight="1"
             >
               <Heading
@@ -277,6 +335,7 @@ function Work({ work }) {
                 d="flex"
                 justifyContent="center"
                 alignItems="center"
+                mb="0.5"
               >
                 <Box
                   as="span"
@@ -302,8 +361,8 @@ function Work({ work }) {
 
               <Flex justify="center" align="center" direction="column" w="full">
                 <Box
-                  fontSize="sm"
-                  fontWeight="500"
+                  fontSize="xs"
+                  fontWeight="400"
                   maxW="90%"
                   whiteSpace="nowrap"
                   overflow="hidden"
@@ -316,7 +375,7 @@ function Work({ work }) {
                 <Box
                   mt="1"
                   fontSize="xs"
-                  fontWeight="600"
+                  fontWeight="500"
                   maxW="90%"
                   whiteSpace="nowrap"
                   overflow="hidden"
@@ -366,8 +425,8 @@ function Work({ work }) {
         {work.spotify && (
           <Box
             pos="absolute"
-            left="3"
-            top="3"
+            left="6"
+            top="6"
             color="white"
             // color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
             opacity="0"
@@ -389,7 +448,7 @@ function Work({ work }) {
               d="block"
               cursor="pointer"
               // color="white"
-              onClick={() => window.open(work.spotify)}
+              onClick={() => window.open(`spotify:${work.spotify}`)}
             >
               <Box
                 as="svg"

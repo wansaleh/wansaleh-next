@@ -72,7 +72,8 @@ export default function Home({ works }) {
             as="h1"
             pb="2"
             fontSize={['3rem', '4rem', '5rem', '8rem']}
-            fontWeight="700"
+            fontWeight="600"
+            fontFamily="body"
             lineHeight="0.8"
             letterSpacing="tighter"
             ml="-0.025em"
@@ -89,17 +90,19 @@ export default function Home({ works }) {
             as="h2"
             pb="4"
             fontSize={['4xl', '5xl', '7xl']}
-            fontWeight="500"
+            fontWeight="300"
+            fontFamily="body"
             lineHeight="1"
-            letterSpacing="tighter"
+            letterSpacing="tight"
           >
+            I{' '}
             <TextLoop>
-              <span>I make music.</span>
-              <span>I mix songs.</span>
-              <span>I develop web.</span>
-              <span>I drink soda.</span>
-              <span>I love mics.</span>
-              <span>I adore preamps.</span>
+              <span>make music.</span>
+              <span>mix songs.</span>
+              <span>develop web.</span>
+              <span>drink soda.</span>
+              <span>love mics.</span>
+              <span>adore preamps.</span>
             </TextLoop>
           </Heading>
         </Container>

@@ -1,6 +1,6 @@
 const tailwindColorPalette = require('@ky-is/tailwind-color-palette');
 const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors');
+// const colors = require('tailwindcss/colors');
 
 // #36a0c0
 const brand = tailwindColorPalette('#3497b5', {
@@ -16,12 +16,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...brand,
-        gray: colors.trueGray
+        ...brand
+        // gray: colors.trueGray
       },
       fontFamily: {
-        head: ['Clash Display', ...defaultTheme.fontFamily.sans],
         sans: ['Sharp Grotesk', ...defaultTheme.fontFamily.sans],
+        head: ['Clash Display', ...defaultTheme.fontFamily.sans],
         serif: ['Gambetta', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
       }

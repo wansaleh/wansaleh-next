@@ -12,6 +12,10 @@ export async function fetchDiscograpySheet() {
   return rows
     .map((work) => ({
       ...work,
+      artist: work.artist.trim().split(/\s*[,&]\s*/),
+      composer: work.composer.trim().split(/\s*[,&]\s*/),
+      writer: work.writer.trim().split(/\s*[,&]\s*/),
+      genre: work.genre.trim().split(/\s*[,&]\s*/),
       released: work.released.trim(),
       pro: boolean(work.pro.trim()),
       com: work.composer.trim().includes('Wan Saleh'),
