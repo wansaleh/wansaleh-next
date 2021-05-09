@@ -1,4 +1,4 @@
-import { Box, color, useColorMode } from '@chakra-ui/react';
+import { Box, useColorMode } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 
 import Footer from './footer';
