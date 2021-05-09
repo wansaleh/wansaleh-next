@@ -2,7 +2,6 @@ import {
   AspectRatio,
   Box,
   Button,
-  // chakra,
   Flex,
   Heading,
   HStack,
@@ -14,13 +13,7 @@ import {
 } from '@chakra-ui/react';
 import arrayToSentence from 'array-to-sentence';
 import { usePalette } from 'color-thief-react';
-import {
-  format,
-  formatDistanceToNow,
-  isAfter,
-  parseISO,
-  subWeeks
-} from 'date-fns';
+import { format, formatDistanceToNow, isAfter, parseISO, subWeeks } from 'date-fns';
 import groupBy from 'lodash.groupby';
 import Image from 'next/image';
 import { readableColor } from 'polished';
@@ -57,9 +50,7 @@ export default function Discography({ works }) {
     (work) => work.released.getFullYear()
   );
 
-  const _genres = [
-    ...new Set(allWorks.reduce((out, work) => out.concat(work.genre), []))
-  ];
+  const _genres = [...new Set(allWorks.reduce((out, work) => out.concat(work.genre), []))];
 
   const genres = _genres
     .map((g) => ({
@@ -77,13 +68,7 @@ export default function Discography({ works }) {
       maxW="1800px"
       mx="auto"
     >
-      <Flex
-        p="8"
-        textAlign="center"
-        justify="center"
-        align="center"
-        direction="column"
-      >
+      <Flex p="8" textAlign="center" justify="center" align="center" direction="column">
         <Heading as="h2" lineHeight="0.9" color="brand.500">
           Latest Discography
         </Heading>
@@ -95,9 +80,8 @@ export default function Discography({ works }) {
           fontWeight="400"
           sx={{ b: { fontSize: 'xs', fontWeight: '600' } }}
         >
-          Selected works that I have produced <b>PRO</b>, composed/written{' '}
-          <b>COM</b>, arranged <b>ARR</b>, mixed <b>MIX</b> or mastered{' '}
-          <b>MAS</b>.
+          Selected works that I have produced <b>PRO</b>, composed/written <b>COM</b>, arranged{' '}
+          <b>ARR</b>, mixed <b>MIX</b> or mastered <b>MAS</b>.
         </Box>
 
         <Flex
@@ -180,16 +164,8 @@ export default function Discography({ works }) {
             </LazyLoad>
 
             {yearWorks.map((work) => (
-              <LazyLoad
-                key={work.youtube}
-                height={cellHeight}
-                classNamePrefix="ll"
-              >
-                <Work
-                  work={work}
-                  key={work.youtube}
-                  setCellHeight={setCellHeight}
-                />
+              <LazyLoad key={work.youtube} height={cellHeight} classNamePrefix="ll">
+                <Work work={work} key={work.youtube} setCellHeight={setCellHeight} />
               </LazyLoad>
             ))}
           </Fragment>
@@ -305,31 +281,11 @@ function Work({ work, setCellHeight }) {
                 py="3.5"
                 lineHeight="1"
               >
-                {work.pro && (
-                  <SmallBadge color={palette && palette[PALETTENUM]}>
-                    PRO
-                  </SmallBadge>
-                )}
-                {work.com && (
-                  <SmallBadge color={palette && palette[PALETTENUM]}>
-                    COM
-                  </SmallBadge>
-                )}
-                {work.arr && (
-                  <SmallBadge color={palette && palette[PALETTENUM]}>
-                    ARR
-                  </SmallBadge>
-                )}
-                {work.mix && (
-                  <SmallBadge color={palette && palette[PALETTENUM]}>
-                    MIX
-                  </SmallBadge>
-                )}
-                {work.mas && (
-                  <SmallBadge color={palette && palette[PALETTENUM]}>
-                    MAS
-                  </SmallBadge>
-                )}
+                {work.pro && <SmallBadge color={palette && palette[PALETTENUM]}>PRO</SmallBadge>}
+                {work.com && <SmallBadge color={palette && palette[PALETTENUM]}>COM</SmallBadge>}
+                {work.arr && <SmallBadge color={palette && palette[PALETTENUM]}>ARR</SmallBadge>}
+                {work.mix && <SmallBadge color={palette && palette[PALETTENUM]}>MIX</SmallBadge>}
+                {work.mas && <SmallBadge color={palette && palette[PALETTENUM]}>MAS</SmallBadge>}
               </HStack>
             </Box>
           </AspectRatio>
@@ -403,11 +359,7 @@ function Work({ work, setCellHeight }) {
                 transform="translateY(50%)"
                 _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
               >
-                {work.composer ? (
-                  <>Written by {listNames(work.composer)}</>
-                ) : (
-                  <>&nbsp;</>
-                )}
+                {work.composer ? <>Written by {listNames(work.composer)}</> : <>&nbsp;</>}
               </Box>
             </Flex>
 

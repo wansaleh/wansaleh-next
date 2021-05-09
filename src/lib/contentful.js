@@ -81,16 +81,13 @@ export async function getAllPostsForHome(preview) {
     }`,
     preview
   );
-  console.log(entries);
   return extractPostEntries(entries);
 }
 
 export async function getTwoPostsForHome(preview) {
   const entries = await fetchGraphQL(
     `query {
-      postCollection(order: date_DESC, limit: 2, preview: ${
-        preview ? 'true' : 'false'
-      }) {
+      postCollection(order: date_DESC, limit: 2, preview: ${preview ? 'true' : 'false'}) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
@@ -104,9 +101,7 @@ export async function getTwoPostsForHome(preview) {
 export async function getPostAndMorePosts(slug, preview) {
   const entry = await fetchGraphQL(
     `query {
-      postCollection(where: { slug: "${slug}" }, preview: ${
-      preview ? 'true' : 'false'
-    }, limit: 1) {
+      postCollection(where: { slug: "${slug}" }, preview: ${preview ? 'true' : 'false'}, limit: 1) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }

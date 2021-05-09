@@ -10,6 +10,7 @@ import {
   useTheme
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import React from 'react';
 import MD from 'react-markdown';
 
 import CoverImage from '../../components/cover-image';
@@ -86,9 +87,7 @@ export default function Journal({ posts }) {
               letterSpacing="tight"
             >
               <NextLink href={`/blog/${heroPost.slug}`} passHref>
-                <LinkOverlay transition="all 0.3s ease">
-                  {heroPost.title}
-                </LinkOverlay>
+                <LinkOverlay transition="all 0.3s ease">{heroPost.title}</LinkOverlay>
               </NextLink>
             </Heading>
 
@@ -141,9 +140,7 @@ export default function Journal({ posts }) {
                   maxW="xl"
                 >
                   <NextLink href={`/blog/${post.slug}`} passHref>
-                    <LinkOverlay transition="all 0.3s ease">
-                      {post.title}
-                    </LinkOverlay>
+                    <LinkOverlay transition="all 0.3s ease">{post.title}</LinkOverlay>
                   </NextLink>
                 </Heading>
 

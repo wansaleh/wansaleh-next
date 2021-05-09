@@ -2,6 +2,7 @@ import { Box, Container, Heading, Link } from '@chakra-ui/react';
 import ErrorPage from 'next/error';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
+import React from 'react';
 
 import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';

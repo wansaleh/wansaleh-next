@@ -1,4 +1,5 @@
 import { chakra } from '@chakra-ui/react';
+import React from 'react';
 import Tilt from 'react-parallax-tilt';
 
 const CTilt = chakra(Tilt);

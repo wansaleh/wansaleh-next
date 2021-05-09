@@ -14,7 +14,8 @@ import {
 import ErrorPage from 'next/error';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import MD from 'react-markdown';
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import CoverImage from '../../../components/cover-image';
 import Head from '../../../components/head';
@@ -52,12 +53,7 @@ export default function Tag({ posts, tag }) {
               <NextLink href="/blog" passHref>
                 <Link>Blog</Link>
               </NextLink>{' '}
-              <Box
-                as="span"
-                fontSize="0.75em"
-                letterSpacing="0"
-                fontWeight="400"
-              >
+              <Box as="span" fontSize="0.75em" letterSpacing="0" fontWeight="400">
                 {tag.title}
               </Box>
             </Heading>
@@ -128,14 +124,12 @@ export default function Tag({ posts, tag }) {
                       maxW="xl"
                     >
                       <NextLink href={`/blog/${post.slug}`} passHref>
-                        <LinkOverlay transition="all 0.3s ease">
-                          {post.title}
-                        </LinkOverlay>
+                        <LinkOverlay transition="all 0.3s ease">{post.title}</LinkOverlay>
                       </NextLink>
                     </Heading>
 
                     <Box mb="4" className="prose" lineHeight="1.5" maxW="xl">
-                      <MD>{post.excerpt}</MD>
+                      <ReactMarkdown>{post.excerpt}</ReactMarkdown>
                     </Box>
                   </Flex>
                 </LinkBox>

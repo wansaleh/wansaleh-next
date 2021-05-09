@@ -1,39 +1,18 @@
-import {
-  Box,
-  Container,
-  Heading,
-  // Image,
-  SimpleGrid,
-  useColorModeValue
-} from '@chakra-ui/react';
-// import NextImage from 'next/image';
+import { Box, Container, Heading, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
 import Sapiens from '../assets/images/sapiens';
 import Head from '../components/head';
 
 export default function ContactPage() {
-  // const [showThanks, setShowThanks] = useState(false);
-
   return (
     <>
       <Head title="By Wan Saleh | Contact" />
 
       <Container maxW="7xl">
-        <SimpleGrid
-          columns={[1, 1, 2]}
-          gap="16"
-          py="20"
-          pos="relative"
-          alignItems="center"
-        >
+        <SimpleGrid columns={[1, 1, 2]} gap="16" py="20" pos="relative" alignItems="center">
           <Box zIndex="0">
-            <Heading
-              fontSize="6xl"
-              lineHeight="0.9"
-              letterSpacing="tight"
-              mb="2"
-            >
+            <Heading fontSize="6xl" lineHeight="0.9" letterSpacing="tight" mb="2">
               Contact me.
             </Heading>
 
@@ -52,11 +31,7 @@ export default function ContactPage() {
               Drop a line to my email. It&apos;s wansaleh [at] gmail [dot] com.
               <br />
               Or DM me on{' '}
-              <a
-                href="https://twitter.com/wansaleh"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://twitter.com/wansaleh" target="_blank" rel="noopener noreferrer">
                 Twitter
               </a>
               .

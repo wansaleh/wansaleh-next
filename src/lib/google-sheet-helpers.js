@@ -1,36 +1,5 @@
 import { parseISO } from 'date-fns';
 
-function boolean(value) {
-  return String(value).trim() === 'y' || String(value).trim() === '1';
-}
-
-export async function fetchDiscograpySheet() {
-  const { rows } = await getSheetJSON({
-    id: '1fNtaqKnsDYEoi9NG8-phPzFH_1Fwbeh0j8SqivlOkjY'
-  });
-
-  return rows
-    .map((work) => ({
-      ...work,
-      artist: work.artist.trim().split(/\s*[,&]\s*/),
-      composer: work.composer.trim().split(/\s*[,&]\s*/),
-      writer: work.writer.trim().split(/\s*[,&]\s*/),
-      genre: work.genre.trim().split(/\s*[,&]\s*/),
-      released: work.released.trim(),
-      pro: boolean(work.pro.trim()),
-      com: work.composer.trim().includes('Wan Saleh'),
-      arr: boolean(work.arr.trim()),
-      mix: boolean(work.mix.trim()),
-      mas: boolean(work.mas.trim()),
-      hide: boolean(work.hide.trim()),
-      featured: boolean(work.featured.trim())
-    }))
-    .sort(
-      (a, b) =>
-        parseISO(b.released, new Date()) - parseISO(a.released, new Date())
-    );
-}
-
 /* eslint-disable no-plusplus */
 export async function getSheetJSON({
   id,
@@ -94,4 +63,32 @@ export async function getSheetJSON({
   }
 
   return null;
+}
+
+function boolean(value) {
+  return String(value).trim() === 'y' || String(value).trim() === '1';
+}
+
+export async function fetchDiscograpySheet() {
+  const { rows } = await getSheetJSON({
+    id: '1fNtaqKnsDYEoi9NG8-phPzFH_1Fwbeh0j8SqivlOkjY'
+  });
+
+  return rows
+    .map((work) => ({
+      ...work,
+      artist: work.artist.trim().split(/\s*[,&]\s*/),
+      composer: work.composer.trim().split(/\s*[,&]\s*/),
+      writer: work.writer.trim().split(/\s*[,&]\s*/),
+      genre: work.genre.trim().split(/\s*[,&]\s*/),
+      released: work.released.trim(),
+      pro: boolean(work.pro.trim()),
+      com: work.composer.trim().includes('Wan Saleh'),
+      arr: boolean(work.arr.trim()),
+      mix: boolean(work.mix.trim()),
+      mas: boolean(work.mas.trim()),
+      hide: boolean(work.hide.trim()),
+      featured: boolean(work.featured.trim())
+    }))
+    .sort((a, b) => parseISO(b.released, new Date()) - parseISO(a.released, new Date()));
 }

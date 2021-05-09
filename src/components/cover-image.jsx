@@ -1,16 +1,9 @@
 import { Box, Link, useColorModeValue } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
+import React from 'react';
 
-export default function CoverImage({
-  src,
-  title,
-  caption,
-  slug,
-  height,
-  width,
-  ...props
-}) {
+export default function CoverImage({ src, title, caption, slug, height, width, ...props }) {
   const image = (
     <NextImage
       src={src}

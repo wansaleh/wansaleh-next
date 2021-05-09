@@ -1,7 +1,6 @@
 import { Badge } from '@chakra-ui/react';
 import { readableColor } from 'polished';
-
-// import { getDarkest } from '../lib/color-helpers';
+import React from 'react';
 
 export default function SmallBadge({ children, color, ...props }) {
   return (

@@ -7,7 +7,6 @@ import {
   Link,
   useColorMode,
   useColorModeValue
-  // VisuallyHidden
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import React from 'react';
@@ -48,14 +47,7 @@ export default function Nav() {
 
         <Box flex="1" />
 
-        <HStack
-          as="ul"
-          justify="space-between"
-          align="center"
-          py="4"
-          fontWeight="600"
-          spacing="2"
-        >
+        <HStack as="ul" justify="space-between" align="center" py="4" fontWeight="600" spacing="2">
           <li>
             <NextLink href="/blog">
               <Link>Blog</Link>

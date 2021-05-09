@@ -2,6 +2,7 @@
 import { Box, Container, Heading, Link, useTheme } from '@chakra-ui/react';
 import { format, parseISO } from 'date-fns';
 import NextLink from 'next/link';
+import React from 'react';
 import MD from 'react-markdown';
 
 import Head from '../../components/head';
@@ -50,11 +51,7 @@ export default function Journal({ posts }) {
               </NextLink>
             </Heading>
 
-            <Box
-              maxW="2xl"
-              mb="4"
-              className="!leading-normal prose lg:prose-xl font-serif"
-            >
+            <Box maxW="2xl" mb="4" className="!leading-normal prose lg:prose-xl font-serif">
               <MD>{post.excerpt}</MD>
             </Box>
 
@@ -69,13 +66,7 @@ export default function Journal({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPosts([
-    'slug',
-    'title',
-    'date',
-    'excerpt',
-    'author'
-  ]);
+  const posts = await getAllPosts(['slug', 'title', 'date', 'excerpt', 'author']);
 
   return {
     props: {

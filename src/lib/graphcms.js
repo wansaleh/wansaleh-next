@@ -6,9 +6,7 @@ async function fetchAPI(query, { variables, preview } = {}) {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${
-        preview
-          ? process.env.GRAPHCMS_DEV_AUTH_TOKEN
-          : process.env.GRAPHCMS_PROD_AUTH_TOKEN
+        preview ? process.env.GRAPHCMS_DEV_AUTH_TOKEN : process.env.GRAPHCMS_PROD_AUTH_TOKEN
       }`
     },
     body: JSON.stringify({
@@ -19,7 +17,7 @@ async function fetchAPI(query, { variables, preview } = {}) {
   const json = await res.json();
 
   if (json.errors) {
-    console.error(json.errors);
+    // console.error(json.errors);
     throw new Error('Failed to fetch API');
   }
 
@@ -69,21 +67,13 @@ export async function getAllPostsForHome(preview) {
           date
           updatedAt
           coverImage {
-            url(
-              transformation: {
-                image: { resize: { fit: crop, width: 1280, height: 640 } }
-              }
-            )
+            url(transformation: { image: { resize: { fit: crop, width: 1280, height: 640 } } })
             caption
           }
           author {
             name
             picture {
-              url(
-                transformation: {
-                  image: { resize: { width: 100, height: 100, fit: crop } }
-                }
-              )
+              url(transformation: { image: { resize: { width: 100, height: 100, fit: crop } } })
             }
           }
           tags {
@@ -110,29 +100,17 @@ export async function getPostAndMorePosts(slug, preview) {
           date
           updatedAt
           ogImage: coverImage {
-            url(
-              transformation: {
-                image: { resize: { fit: crop, width: 1280, height: 640 } }
-              }
-            )
+            url(transformation: { image: { resize: { fit: crop, width: 1280, height: 640 } } })
             caption
           }
           coverImage {
-            url(
-              transformation: {
-                image: { resize: { fit: crop, width: 1280, height: 640 } }
-              }
-            )
+            url(transformation: { image: { resize: { fit: crop, width: 1280, height: 640 } } })
             caption
           }
           author {
             name
             picture {
-              url(
-                transformation: {
-                  image: { resize: { fit: crop, width: 100, height: 100 } }
-                }
-              )
+              url(transformation: { image: { resize: { fit: crop, width: 100, height: 100 } } })
             }
           }
           tags {
@@ -140,11 +118,7 @@ export async function getPostAndMorePosts(slug, preview) {
             slug
           }
         }
-        morePosts: posts(
-          orderBy: date_DESC
-          first: 2
-          where: { slug_not_in: [$slug] }
-        ) {
+        morePosts: posts(orderBy: date_DESC, first: 2, where: { slug_not_in: [$slug] }) {
           title
           slug
           subtitle
@@ -152,21 +126,13 @@ export async function getPostAndMorePosts(slug, preview) {
           date
           updatedAt
           coverImage {
-            url(
-              transformation: {
-                image: { resize: { fit: crop, width: 1280, height: 640 } }
-              }
-            )
+            url(transformation: { image: { resize: { fit: crop, width: 1280, height: 640 } } })
             caption
           }
           author {
             name
             picture {
-              url(
-                transformation: {
-                  image: { resize: { fit: crop, width: 100, height: 100 } }
-                }
-              )
+              url(transformation: { image: { resize: { fit: crop, width: 100, height: 100 } } })
             }
           }
           tags {
@@ -191,11 +157,7 @@ export async function getAllPostsForTag(tag, preview) {
   const data = await fetchAPI(
     gql`
       query PostsForTag($tag: String!) {
-        posts(
-          where: { tags_some: { slug: $tag } }
-          orderBy: date_DESC
-          first: 20
-        ) {
+        posts(where: { tags_some: { slug: $tag } }, orderBy: date_DESC, first: 20) {
           title
           slug
           subtitle
@@ -203,21 +165,13 @@ export async function getAllPostsForTag(tag, preview) {
           date
           updatedAt
           coverImage {
-            url(
-              transformation: {
-                image: { resize: { fit: crop, width: 1280, height: 640 } }
-              }
-            )
+            url(transformation: { image: { resize: { fit: crop, width: 1280, height: 640 } } })
             caption
           }
           author {
             name
             picture {
-              url(
-                transformation: {
-                  image: { resize: { width: 100, height: 100, fit: crop } }
-                }
-              )
+              url(transformation: { image: { resize: { width: 100, height: 100, fit: crop } } })
             }
           }
           tags {

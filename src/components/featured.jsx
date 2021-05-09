@@ -1,15 +1,8 @@
-import {
-  AspectRatio,
-  Box,
-  Container,
-  Flex,
-  Heading,
-  HStack,
-  SimpleGrid
-} from '@chakra-ui/react';
+import { AspectRatio, Box, Flex, HStack } from '@chakra-ui/react';
 import { usePalette } from 'color-thief-react';
 import { parseISO } from 'date-fns';
 import Image from 'next/image';
+import React from 'react';
 
 import SmallBadge from './small-badge';
 
@@ -95,31 +88,11 @@ function Work({ work }) {
             py="3.5"
             lineHeight="1"
           >
-            {work.pro && (
-              <SmallBadge color={palette && palette[PALETTENUM]}>
-                PRO
-              </SmallBadge>
-            )}
-            {work.com && (
-              <SmallBadge color={palette && palette[PALETTENUM]}>
-                COM
-              </SmallBadge>
-            )}
-            {work.arr && (
-              <SmallBadge color={palette && palette[PALETTENUM]}>
-                ARR
-              </SmallBadge>
-            )}
-            {work.mix && (
-              <SmallBadge color={palette && palette[PALETTENUM]}>
-                MIX
-              </SmallBadge>
-            )}
-            {work.mas && (
-              <SmallBadge color={palette && palette[PALETTENUM]}>
-                MAS
-              </SmallBadge>
-            )}
+            {work.pro && <SmallBadge color={palette && palette[PALETTENUM]}>PRO</SmallBadge>}
+            {work.com && <SmallBadge color={palette && palette[PALETTENUM]}>COM</SmallBadge>}
+            {work.arr && <SmallBadge color={palette && palette[PALETTENUM]}>ARR</SmallBadge>}
+            {work.mix && <SmallBadge color={palette && palette[PALETTENUM]}>MIX</SmallBadge>}
+            {work.mas && <SmallBadge color={palette && palette[PALETTENUM]}>MAS</SmallBadge>}
           </HStack>
         </Box>
       </AspectRatio>

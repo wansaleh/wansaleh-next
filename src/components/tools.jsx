@@ -1,12 +1,6 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Image,
-  useColorModeValue,
-  VisuallyHidden
-} from '@chakra-ui/react';
-// import LazyLoad from 'react-lazyload';
+/* eslint-disable react/no-array-index-key */
+import { Box, Flex, Heading, Image, useColorModeValue, VisuallyHidden } from '@chakra-ui/react';
+import React from 'react';
 import MD from 'react-markdown';
 
 export default function Tools({ tools, hideIcons = false }) {
@@ -89,12 +83,7 @@ export default function Tools({ tools, hideIcons = false }) {
                 );
 
                 return logo.link ? (
-                  <a
-                    key={j}
-                    href={logo.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a key={j} href={logo.link} target="_blank" rel="noopener noreferrer">
                     {image}
                     <VisuallyHidden>{logo.title}</VisuallyHidden>
                   </a>

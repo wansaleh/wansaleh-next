@@ -9,6 +9,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import React from 'react';
 import TextLoop from 'react-text-loop';
 
 import Discography from '../components/discography';
@@ -118,16 +119,9 @@ export default function Home({ works }) {
 
       <Box pos="relative">
         <Container maxW="7xl">
-          <SimpleGrid
-            pt={['5rem', '10rem']}
-            columns={[1, 1, 1, 2]}
-            spacing="20"
-          >
+          <SimpleGrid pt={['5rem', '10rem']} columns={[1, 1, 1, 2]} spacing="20">
             <Box>
-              <SectionTitle
-                title="Music Tools"
-                subtitle="Music things I use daily."
-              />
+              <SectionTitle title="Music Tools" subtitle="Music things I use daily." />
 
               <Tools tools={musicTools} />
             </Box>
@@ -150,13 +144,7 @@ export default function Home({ works }) {
 function SectionTitle({ title, subtitle }) {
   return (
     <>
-      <Heading
-        as="h2"
-        fontSize="5xl"
-        fontWeight="700"
-        lineHeight="0.9"
-        letterSpacing="tight"
-      >
+      <Heading as="h2" fontSize="5xl" fontWeight="700" lineHeight="0.9" letterSpacing="tight">
         <Box
           as="span"
           // bg={useColorModeValue('black', 'white')}

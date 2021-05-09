@@ -1,10 +1,5 @@
-import {
-  Container,
-  Flex,
-  HStack,
-  Text,
-  useColorModeValue
-} from '@chakra-ui/react';
+import { Container, Flex, HStack, Text, useColorModeValue } from '@chakra-ui/react';
+import React from 'react';
 
 import SocialLinks from './social-links';
 

@@ -2,8 +2,8 @@ import 'tailwindcss/tailwind.css';
 import '../styles/font-sharp-grotesk.css';
 import '../styles/main.css';
 
-// import '../styles/font-inter.css';
 import { ChakraProvider } from '@chakra-ui/react';
+import React from 'react';
 
 import Layout from '../components/layout';
 import chakra from '../styles/chakra';
