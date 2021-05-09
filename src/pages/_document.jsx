@@ -9,11 +9,9 @@ function initializeColorMode() {
     (!('chakra-ui-color-mode' in window.localStorage) &&
       window.matchMedia('(prefers-color-scheme: dark)').matches)
   ) {
-    document.documentElement.classList.add('dark');
-    document.documentElement.classList.remove('light');
+    document.body.classList.add('dark');
   } else {
-    document.documentElement.classList.add('light');
-    document.documentElement.classList.remove('dark');
+    document.body.classList.remove('dark');
   }
 }
 

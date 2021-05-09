@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-Thin.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-Thin.otf);
   font-weight: 100;
   font-style: normal;
 }
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-ThinItalic.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-ThinItalic.otf);
   font-weight: 100;
   font-style: italic;
 }
@@ -20,7 +20,7 @@
 
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-XLight.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-XLight.otf);
   font-weight: 200;
   font-style: normal;
 }
@@ -29,7 +29,7 @@
 
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-XLightItalic.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-XLightItalic.otf);
   font-weight: 200;
   font-style: italic;
 }
@@ -38,7 +38,7 @@
 
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-Light.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-Light.otf);
   font-weight: 300;
   font-style: normal;
 }
@@ -47,7 +47,7 @@
 
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-LightItalic.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-LightItalic.otf);
   font-weight: 300;
   font-style: italic;
 }
@@ -55,7 +55,7 @@
 /*  BOOK 400 */
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-Book.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-Book.otf);
   font-weight: 400;
   font-style: normal;
 }
@@ -63,7 +63,7 @@
 /*  BOOK 400 ITALIC */
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-BookItalic.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-BookItalic.otf);
   font-weight: 400;
   font-style: italic;
 }
@@ -71,7 +71,7 @@
 /*  REGULAR 500 */
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-Medium.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-Medium.otf);
   font-weight: 500;
   font-style: normal;
 }
@@ -79,7 +79,7 @@
 /*  REGULAR 500 ITALIC */
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-MediumItalic.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-MediumItalic.otf);
   font-weight: 500;
   font-style: italic;
 }
@@ -87,7 +87,7 @@
 /*  BOLD 700  */
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-Bold.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-Bold.otf);
   font-weight: 700;
   font-style: normal;
 }
@@ -95,7 +95,7 @@
 /*  BOLD 700 ITALIC */
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-BoldItalic.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-BoldItalic.otf);
   font-weight: 700;
   font-style: italic;
 }
@@ -103,7 +103,7 @@
 /*  BLACK 800  */
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-Black.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-Black.otf);
   font-weight: 800;
   font-style: normal;
 }
@@ -111,7 +111,7 @@
 /*  BLACK 800 ITALIC */
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-BlackItalic.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-BlackItalic.otf);
   font-weight: 800;
   font-style: italic;
 }
@@ -119,7 +119,7 @@
 /*  ULTRA 900  */
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-Ultra.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-Ultra.otf);
   font-weight: 900;
   font-style: normal;
 }
@@ -127,7 +127,7 @@
 /*  ULTRA 900 ITALIC */
 @font-face {
   font-family: 'Gotham Narrow';
-  src: url(/fonts/gothamnarrow/GothamNarrow-UltraItalic.otf);
+  src: url(/assets/fonts/gothamnarrow/GothamNarrow-UltraItalic.otf);
   font-weight: 900;
   font-style: italic;
 }

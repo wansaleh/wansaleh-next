@@ -3,95 +3,88 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('/fonts/sharp-grotesk/SharpGroteskLight20.woff2') format('woff2'),
-    url('/fonts/sharp-grotesk/SharpGroteskLight20.woff') format('woff'),
-    url('/fonts/sharp-grotesk/SharpGroteskLight20.ttf') format('truetype');
+  src: url('/assets/fonts/sharp-grotesk/SharpGroteskLight20.woff2') format('woff2'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskLight20.woff') format('woff'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskLight20.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Sharp Grotesk';
   font-style: italic;
   font-weight: 300;
   font-display: swap;
-  src: url('/fonts/sharp-grotesk/SharpGroteskLightItalic20.woff2')
-      format('woff2'),
-    url('/fonts/sharp-grotesk/SharpGroteskLightItalic20.woff') format('woff'),
-    url('/fonts/sharp-grotesk/SharpGroteskLightItalic20.ttf') format('truetype');
+  src: url('/assets/fonts/sharp-grotesk/SharpGroteskLightItalic20.woff2') format('woff2'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskLightItalic20.woff') format('woff'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskLightItalic20.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Sharp Grotesk';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/sharp-grotesk/SharpGroteskBook20.woff2') format('woff2'),
-    url('/fonts/sharp-grotesk/SharpGroteskBook20.woff') format('woff'),
-    url('/fonts/sharp-grotesk/SharpGroteskBook20.ttf') format('truetype');
+  src: url('/assets/fonts/sharp-grotesk/SharpGroteskBook20.woff2') format('woff2'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskBook20.woff') format('woff'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskBook20.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Sharp Grotesk';
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/sharp-grotesk/SharpGroteskBookItalic20.woff2')
-      format('woff2'),
-    url('/fonts/sharp-grotesk/SharpGroteskBookItalic20.woff') format('woff'),
-    url('/fonts/sharp-grotesk/SharpGroteskBookItalic20.ttf') format('truetype');
+  src: url('/assets/fonts/sharp-grotesk/SharpGroteskBookItalic20.woff2') format('woff2'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskBookItalic20.woff') format('woff'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskBookItalic20.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Sharp Grotesk';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/sharp-grotesk/SharpGroteskMedium20.woff2') format('woff2'),
-    url('/fonts/sharp-grotesk/SharpGroteskMedium20.woff') format('woff'),
-    url('/fonts/sharp-grotesk/SharpGroteskMedium20.ttf') format('truetype');
+  src: url('/assets/fonts/sharp-grotesk/SharpGroteskMedium20.woff2') format('woff2'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskMedium20.woff') format('woff'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskMedium20.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Sharp Grotesk';
   font-style: italic;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/sharp-grotesk/SharpGroteskMediumItalic20.woff2')
-      format('woff2'),
-    url('/fonts/sharp-grotesk/SharpGroteskMediumItalic20.woff') format('woff'),
-    url('/fonts/sharp-grotesk/SharpGroteskMediumItalic20.ttf')
-      format('truetype');
+  src: url('/assets/fonts/sharp-grotesk/SharpGroteskMediumItalic20.woff2') format('woff2'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskMediumItalic20.woff') format('woff'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskMediumItalic20.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Sharp Grotesk';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/sharp-grotesk/SharpGroteskSmBold20.woff2') format('woff2'),
-    url('/fonts/sharp-grotesk/SharpGroteskSmBold20.woff') format('woff'),
-    url('/fonts/sharp-grotesk/SharpGroteskSmBold20.ttf') format('truetype');
+  src: url('/assets/fonts/sharp-grotesk/SharpGroteskSmBold20.woff2') format('woff2'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskSmBold20.woff') format('woff'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskSmBold20.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Sharp Grotesk';
   font-style: italic;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/sharp-grotesk/SharpGroteskSmBoldItalic20.woff2')
-      format('woff2'),
-    url('/fonts/sharp-grotesk/SharpGroteskSmBoldItalic20.woff') format('woff'),
-    url('/fonts/sharp-grotesk/SharpGroteskSmBoldItalic20.ttf')
-      format('truetype');
+  src: url('/assets/fonts/sharp-grotesk/SharpGroteskSmBoldItalic20.woff2') format('woff2'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskSmBoldItalic20.woff') format('woff'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskSmBoldItalic20.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Sharp Grotesk';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/sharp-grotesk/SharpGroteskBold20.woff2') format('woff2'),
-    url('/fonts/sharp-grotesk/SharpGroteskBold20.woff') format('woff'),
-    url('/fonts/sharp-grotesk/SharpGroteskBold20.ttf') format('truetype');
+  src: url('/assets/fonts/sharp-grotesk/SharpGroteskBold20.woff2') format('woff2'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskBold20.woff') format('woff'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskBold20.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Sharp Grotesk';
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/sharp-grotesk/SharpGroteskBoldItalic20.woff2')
-      format('woff2'),
-    url('/fonts/sharp-grotesk/SharpGroteskBoldItalic20.woff') format('woff'),
-    url('/fonts/sharp-grotesk/SharpGroteskBoldItalic20.ttf') format('truetype');
+  src: url('/assets/fonts/sharp-grotesk/SharpGroteskBoldItalic20.woff2') format('woff2'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskBoldItalic20.woff') format('woff'),
+    url('/assets/fonts/sharp-grotesk/SharpGroteskBoldItalic20.ttf') format('truetype');
 }
