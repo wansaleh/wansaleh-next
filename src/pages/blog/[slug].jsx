@@ -70,19 +70,18 @@ export default function JournalPost({ post, morePosts }) {
               mb="4"
               letterSpacing="tight"
               transform="skew(-6deg)"
+              maxW="4xl"
             >
               {post.title}
             </Heading>
 
             <Heading
               as="h2"
-              // maxW="4xl"
-              // fontFamily="body"
               fontSize={['2xl', '3xl', '4xl']}
               fontWeight="400"
               lineHeight="1.1"
               mb="4"
-              // letterSpacing="tight"
+              maxW="4xl"
             >
               {post.subtitle}
             </Heading>
