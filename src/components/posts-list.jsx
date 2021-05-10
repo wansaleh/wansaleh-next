@@ -69,7 +69,7 @@ export default function PostsList({ posts, hero, gridProps }) {
               role="group"
               borderRadius="2xl"
               overflow="hidden"
-              bg={useColorModeValue('gray.200', 'brandGray.900')}
+              bg={useColorModeValue('gray.100', 'brandGray.900')}
               // border="1px solid"
               // borderColor={useColorModeValue('gray.200', 'trueGray.800')}
               cursor="pointer"
