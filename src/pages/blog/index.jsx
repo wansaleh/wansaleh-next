@@ -17,6 +17,7 @@ export default function Journal({ posts }) {
           fontWeight="600"
           lineHeight="1"
           letterSpacing="tighter"
+          transform="skew(-6deg)"
         >
           In The Studio
         </Heading>

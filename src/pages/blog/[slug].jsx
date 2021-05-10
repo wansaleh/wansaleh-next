@@ -64,6 +64,7 @@ export default function JournalPost({ post }) {
               lineHeight="0.95"
               mb="4"
               letterSpacing="tight"
+              transform="skew(-6deg)"
             >
               {post.title}
             </Heading>

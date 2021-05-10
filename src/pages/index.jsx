@@ -79,12 +79,15 @@ export default function Home({ works }) {
             letterSpacing="tighter"
             ml="-0.025em"
           >
-            Hello there.
-            <br />
-            I’m{' '}
-            <Text as="span" color="brand.500">
-              Wan Saleh.
-            </Text>
+            <Box transform="skew(-6deg)" fontSize="0.75em" fontWeight="500" letterSpacing="tight">
+              Hello there.
+            </Box>
+            <Box transform="skew(-6deg)">
+              I’m{' '}
+              <Text as="span" color="brand.500">
+                Wan Saleh.
+              </Text>
+            </Box>
           </Heading>
 
           <Heading

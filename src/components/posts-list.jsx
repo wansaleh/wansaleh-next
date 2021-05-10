@@ -54,7 +54,7 @@ export default function PostsList({ posts, hero }) {
             <Box maxW="4xl">
               <Heading
                 fontSize={['4xl', '6xl']}
-                fontWeight="600"
+                fontWeight="500"
                 lineHeight="1"
                 letterSpacing="tight"
               >
@@ -116,7 +116,7 @@ export default function PostsList({ posts, hero }) {
 
                 <Heading
                   fontSize={['2xl', '4xl']}
-                  fontWeight="400"
+                  fontWeight="500"
                   lineHeight="1"
                   letterSpacing="tight"
                   maxW="xl"
