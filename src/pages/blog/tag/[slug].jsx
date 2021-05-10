@@ -1,5 +1,5 @@
 /* eslint-disable no-sparse-arrays */
-import { Box, Container, Heading, Link } from '@chakra-ui/react';
+import { Box, Container, Heading, Link, useColorModeValue } from '@chakra-ui/react';
 import ErrorPage from 'next/error';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -23,28 +23,42 @@ export default function Tag({ posts, tag }) {
         <Box>Loading…</Box>
       ) : (
         <>
-          <Head title="By Wan Saleh | Journal" />
+          <Head title="By Wan Saleh | In The Studio" />
 
           <Container maxW="7xl" my="20">
             <Heading
               as="h1"
-              mb="2"
-              // ml="-0.04em"
               fontSize={['6xl', '7xl']}
               fontWeight="600"
-              lineHeight="0.8"
+              lineHeight="1"
               letterSpacing="tighter"
             >
               <NextLink href="/blog" passHref>
                 <Link>In The Studio</Link>
               </NextLink>
+            </Heading>
 
-              <Box as="span" fontSize="0.75em" letterSpacing="0" fontWeight="400" ml="4">
+            <Heading
+              as="h2"
+              fontSize={['3xl', '4xl']}
+              fontWeight="300"
+              lineHeight="1"
+              mt="-2"
+              mb="4"
+            >
+              <Box
+                as="span"
+                d="inline-block"
+                bg={useColorModeValue('black', 'white')}
+                color={useColorModeValue('white', 'black')}
+                px="2"
+              >
                 {tag.title}
               </Box>
             </Heading>
+
             <Heading
-              as="h2"
+              as="h3"
               pb="2"
               fontSize={['2xl', '3xl']}
               fontWeight="400"

@@ -23,23 +23,17 @@ export default function JournalPost({ post }) {
         <Box>Loading…</Box>
       ) : (
         <>
-          <Head title={`By Wan Saleh | Blog | ${post.title}`} />
+          <Head title={`By Wan Saleh | In The Studio | ${post.title}`} />
 
           <Container maxW="7xl" mt="20" mb="8">
-            <Heading
-              as="h1"
-              fontSize="4xl"
-              fontWeight="700"
-              lineHeight="0.8"
-              letterSpacing="tighter"
-            >
+            <Heading as="h1" fontSize="4xl" fontWeight="600" lineHeight="1" letterSpacing="tight">
               <NextLink href="/blog" passHref>
-                <Link d="flex" alignItems="center">
+                <Link d="inline-flex" alignItems="center">
                   <Box
                     as="svg"
                     height="1em"
                     width="1em"
-                    mr="1"
+                    mr="2"
                     fill="none"
                     stroke="currentColor"
                     strokeLinecap="round"
@@ -51,7 +45,7 @@ export default function JournalPost({ post }) {
                     <polyline points="12 8 8 12 12 16" />
                     <line x1="16" x2="8" y1="12" y2="12" />
                   </Box>
-                  <Box>Blog</Box>
+                  <Box>In The Studio</Box>
                 </Link>
               </NextLink>
             </Heading>

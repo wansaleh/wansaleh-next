@@ -50,7 +50,7 @@ export default function Nav() {
         <HStack as="ul" justify="space-between" align="center" py="4" fontWeight="600" spacing="2">
           <li>
             <NextLink href="/blog">
-              <Link>Blog</Link>
+              <Link>In The Studio</Link>
             </NextLink>
           </li>
 

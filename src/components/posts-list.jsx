@@ -118,7 +118,7 @@ export default function PostsList({ posts, hero }) {
                   fontSize={['2xl', '4xl']}
                   fontWeight="400"
                   lineHeight="1"
-                  mb="6"
+                  mb="2"
                   letterSpacing="tight"
                   maxW="xl"
                 >
