@@ -61,8 +61,8 @@ export default function CoverImage({ src, title, caption, slug, height, width, .
       {caption && (
         <Box
           fontSize="xs"
-          fontWeight="500"
-          opacity="0.6"
+          fontWeight="600"
+          color="gray.500"
           pt="2"
           px={[4, 4, 0]}
           maxW="3xl"

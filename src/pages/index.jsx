@@ -1,13 +1,5 @@
 /* eslint-disable no-sparse-arrays */
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  SimpleGrid,
-  Text,
-  useColorModeValue
-} from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
 import Image from 'next/image';
 import React from 'react';
 import TextLoop from 'react-text-loop';
@@ -79,34 +71,41 @@ export default function Home({ works }) {
             letterSpacing="tighter"
             ml="-0.025em"
           >
-            <Box transform="skew(-6deg)" fontSize="0.75em" fontWeight="500" letterSpacing="tight">
-              Hello there.
+            <Box
+              fontSize="0.65em"
+              fontWeight="300"
+              letterSpacing="tight"
+              color="gray.600"
+              transform="skew(-6deg)"
+            >
+              Apa khabar.
             </Box>
             <Box transform="skew(-6deg)">
-              I’m{' '}
-              <Text as="span" color="brand.500">
+              Saya{' '}
+              <Box as="span" color="brand.500">
                 Wan Saleh.
-              </Text>
+              </Box>
             </Box>
           </Heading>
 
           <Heading
             as="h2"
+            mt="4"
             pb="4"
-            fontSize={['4xl', '5xl', '7xl']}
+            fontSize={['3xl', '5xl']}
             fontWeight="300"
             fontFamily="body"
             lineHeight="1"
             letterSpacing="tight"
           >
-            I{' '}
+            Saya{' '}
             <TextLoop>
-              <span>make music.</span>
-              <span>mix songs.</span>
-              <span>develop web.</span>
-              <span>drink soda.</span>
-              <span>love mics.</span>
-              <span>adore preamps.</span>
+              <span>penerbit muzik.</span>
+              <span>pengadun lagu.</span>
+              <span>pembina web.</span>
+              {/* <span>drink soda.</span> */}
+              <span>pencinta mikrofon.</span>
+              {/* <span>adore preamps.</span> */}
             </TextLoop>
           </Heading>
         </Container>
@@ -124,15 +123,18 @@ export default function Home({ works }) {
         <Container maxW="7xl">
           <SimpleGrid pt={['5rem', '10rem']} columns={[1, 1, 1, 2]} spacing="20">
             <Box>
-              <SectionTitle title="Music Tools" subtitle="Music things I use daily." />
+              <SectionTitle
+                title="Alatan Muzik"
+                subtitle="Benda-benda berkaitan muzik kegunaan harian."
+              />
 
               <Tools tools={musicTools} />
             </Box>
 
             <Box>
               <SectionTitle
-                title="Development Tools"
-                subtitle="DevTools I use when I build things."
+                title="Alatan Pembangun"
+                subtitle="DevTools yang saya guna bila membina perisian."
               />
 
               <Tools tools={devTools} />
@@ -147,28 +149,28 @@ export default function Home({ works }) {
 function SectionTitle({ title, subtitle }) {
   return (
     <>
-      <Heading as="h2" fontSize="5xl" fontWeight="700" lineHeight="0.9" letterSpacing="tight">
-        <Box
-          as="span"
-          // bg={useColorModeValue('black', 'white')}
-          // color={useColorModeValue('white', 'black')}
-          // px="6"
-          // ml="-6"
-        >
-          {title}
-        </Box>
+      <Heading
+        as="h2"
+        fontSize="5xl"
+        fontWeight="600"
+        lineHeight="0.9"
+        letterSpacing="tight"
+        transform="skew(-6deg)"
+      >
+        {title}
       </Heading>
 
       <Heading
         as="h3"
-        mt="3"
-        fontFamily="body"
-        fontSize="sm"
-        fontWeight="600"
-        letterSpacing="0.1em"
-        textTransform="uppercase"
+        mt="2"
+        // fontFamily="body"
+        fontSize="2xl"
+        fontWeight="400"
+        lineHeight="0.9"
+        // letterSpacing="0.1em"
+        // textTransform="uppercase"
         // opacity="0.6"
-        color={useColorModeValue('brand.600', 'brand.500')}
+        color={useColorModeValue('gray.600', 'gray.500')}
       >
         {subtitle}
       </Heading>

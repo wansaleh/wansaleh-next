@@ -14,6 +14,7 @@ import {
 import arrayToSentence from 'array-to-sentence';
 import { usePalette } from 'color-thief-react';
 import { format, formatDistanceToNow, isAfter, parseISO, subWeeks } from 'date-fns';
+import { ms } from 'date-fns/locale';
 import groupBy from 'lodash.groupby';
 import Image from 'next/image';
 import { readableColor } from 'polished';
@@ -70,7 +71,7 @@ export default function Discography({ works }) {
     >
       <Flex p="8" textAlign="center" justify="center" align="center" direction="column">
         <Heading as="h2" lineHeight="0.9" color="brand.500">
-          Latest Discography
+          Diskografi Terkini
         </Heading>
 
         <Box
@@ -80,16 +81,15 @@ export default function Discography({ works }) {
           fontWeight="400"
           sx={{ b: { fontSize: 'xs', fontWeight: '600' } }}
         >
-          Selected works that I have produced <b>PRO</b>, composed/written <b>COM</b>, arranged{' '}
-          <b>ARR</b>, mixed <b>MIX</b> or mastered <b>MAS</b>.
+          Lagu-lagu pilihan yang telah saya terbitkan <b>PRO</b>, cipta/tulis <b>COM</b>, gubah{' '}
+          <b>ARR</b>, adun <b>MIX</b> atau masterkan <b>MAS</b>.
         </Box>
 
         <Flex
           as="ul"
           mt="4"
           lineHeight="1.3"
-          fontSize="xs"
-          fontWeight="400"
+          fontSize="11px"
           wrap="wrap"
           justify="center"
           sx={{ rowGap: 2, columnGap: 10 }}
@@ -102,9 +102,12 @@ export default function Discography({ works }) {
               d="inline-block"
               borderRadius="0"
               minW="0"
+              textTransform="uppercase"
+              fontWeight="800"
+              letterSpacing="wide"
               color={genre === null ? 'brand.500' : 'gray.500'}
             >
-              All
+              Semua
             </Button>
           </Box>
 
@@ -117,6 +120,9 @@ export default function Discography({ works }) {
                 d="inline-block"
                 borderRadius="0"
                 minW="0"
+                textTransform="uppercase"
+                fontWeight="800"
+                letterSpacing="wider"
                 color={genre === title ? 'brand.500' : 'gray.500'}
               >
                 {title}
@@ -349,7 +355,7 @@ function Work({ work, setCellHeight }) {
               <Box
                 mt="1"
                 fontSize="xs"
-                fontWeight="500"
+                fontWeight="600"
                 maxW="90%"
                 whiteSpace="nowrap"
                 overflow="hidden"
@@ -363,13 +369,13 @@ function Work({ work, setCellHeight }) {
               </Box>
             </Flex>
 
-            <Box mt="1" fontSize="xs" fontWeight="400" pos="relative" w="full">
+            <Box mt="1" fontSize="xs" fontWeight="600" pos="relative" w="full">
               <Box
                 transition="all 0.3s ease"
                 _groupHover={{ opacity: 0 }}
-                textTransform="capitalize"
+                // textTransform="capitalize"
               >
-                {formatDistanceToNow(work.released, { addSuffix: true })}
+                {formatDistanceToNow(work.released, { locale: ms })} lalu
               </Box>
               <Box
                 opacity="0"
@@ -379,7 +385,7 @@ function Work({ work, setCellHeight }) {
                 _groupHover={{ opacity: 1 }}
                 textTransform="capitalize"
               >
-                {format(work.released, 'd MMMM yyy')}
+                {format(work.released, 'd MMMM yyy', { locale: ms })}
               </Box>
             </Box>
           </Flex>

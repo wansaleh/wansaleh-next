@@ -7,8 +7,7 @@ import {
   LinkBox,
   LinkOverlay,
   SimpleGrid,
-  useColorModeValue,
-  useTheme
+  useColorModeValue
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import React from 'react';
@@ -17,23 +16,13 @@ import CoverImage from './cover-image';
 import Markdown from './markdown';
 import PostDateTags from './post-date-tag';
 
-export default function PostsList({ posts, hero }) {
-  const theme = useTheme();
-
+export default function PostsList({ posts, hero, gridProps }) {
   const heroPost = hero ? posts[0] : null;
   const otherPosts = hero ? posts.slice(1) : posts;
 
   return (
     <>
-      <Container
-        maxW="7xl"
-        sx={{
-          a: {
-            _hover: { color: theme.colors.brand[500] }
-            // _focus: { boxShadow: 'none' }
-          }
-        }}
-      >
+      <Container maxW="7xl">
         {hero && (
           <LinkBox id="hero-post" mb="20" role="group">
             {heroPost.coverImage && (
@@ -72,7 +61,7 @@ export default function PostsList({ posts, hero }) {
           </LinkBox>
         )}
 
-        <SimpleGrid columns={[1, 1, 2, 3]} spacing="8">
+        <SimpleGrid columns={[1, 1, 2, otherPosts.length > 2 ? 3 : 2]} spacing="8" {...gridProps}>
           {otherPosts.map((post) => (
             <LinkBox
               key={post.slug}

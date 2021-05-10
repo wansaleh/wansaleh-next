@@ -22,7 +22,7 @@ export default function Nav() {
         zIndex="100"
         justify="space-between"
         align="center"
-        fontSize={['sm', 'sm', 'sm', 'md']}
+        fontSize="sm"
         sx={{
           a: { textDecoration: 'none !important' }
         }}
@@ -37,7 +37,7 @@ export default function Nav() {
                     fill={useColorModeValue('brand.500', 'brand.500')}
                     css={{ transition: 'all 1s ease' }}
                   />
-                  <Box ml="2" fontWeight="600">
+                  <Box ml="2" fontWeight="700" letterSpacing="wide">
                     By Wan Saleh
                   </Box>
                 </Flex>

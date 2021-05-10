@@ -8,9 +8,10 @@ import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
 import Markdown from '../../components/markdown';
 import PostDateTags from '../../components/post-date-tag';
+import PostsList from '../../components/posts-list';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/graphcms';
 
-export default function JournalPost({ post }) {
+export default function JournalPost({ post, morePosts }) {
   const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {
@@ -25,20 +26,21 @@ export default function JournalPost({ post }) {
         <>
           <Head title={`By Wan Saleh | In The Studio | ${post.title}`} />
 
-          <Container maxW="7xl" mt="20" mb="8">
+          <Container maxW="7xl" mt="10">
             <Heading
               as="h1"
               fontSize={['2xl', '3xl', '4xl']}
               fontWeight="600"
               lineHeight="1"
               letterSpacing="tight"
+              role="group"
             >
               <NextLink href="/blog" passHref>
                 <Link d="inline-flex" alignItems="center">
                   <Box
                     as="svg"
-                    height="1em"
-                    width="1em"
+                    height="0.85em"
+                    width="0.85em"
                     mr="2"
                     fill="none"
                     stroke="currentColor"
@@ -46,22 +48,25 @@ export default function JournalPost({ post }) {
                     strokeWidth="2"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
+                    transition="stroke 0.3s ease"
+                    _groupHover={{ stroke: 'brand.500' }}
                   >
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 8 8 12 12 16" />
                     <line x1="16" x2="8" y1="12" y2="12" />
                   </Box>
-                  <Box>In The Studio</Box>
+
+                  <Box transform="skew(-6deg)">In The Studio</Box>
                 </Link>
               </NextLink>
             </Heading>
           </Container>
 
-          <Container maxW="7xl" mt={[20, 30, 40]}>
+          <Container maxW="7xl" mt="20">
             <Heading
               fontSize={['5xl', '6xl', '8xl']}
               fontWeight="600"
-              lineHeight="0.95"
+              lineHeight="0.9"
               mb="4"
               letterSpacing="tight"
               transform="skew(-6deg)"
@@ -71,12 +76,13 @@ export default function JournalPost({ post }) {
 
             <Heading
               as="h2"
-              fontFamily="body"
-              fontSize={['xl', '2xl', '3xl']}
-              fontWeight="300"
-              lineHeight="1.25"
+              // maxW="4xl"
+              // fontFamily="body"
+              fontSize={['2xl', '3xl', '4xl']}
+              fontWeight="400"
+              lineHeight="1.1"
               mb="4"
-              letterSpacing="tight"
+              // letterSpacing="tight"
             >
               {post.subtitle}
             </Heading>
@@ -94,16 +100,17 @@ export default function JournalPost({ post }) {
             />
           )}
 
-          <Container maxW="7xl">
-            <Box
-              as="article"
-              className="prose lg:prose-lg xl:prose-xl dark:prose-dark article"
-              maxW="3xl"
-              mx="auto"
-              mt="10"
-            >
-              <Markdown>{post.content}</Markdown>
-            </Box>
+          <Container
+            as="article"
+            maxW="3xl"
+            mt="10"
+            className="prose lg:prose-lg xl:prose-xl dark:prose-dark article"
+          >
+            <Markdown>{post.content}</Markdown>
+          </Container>
+
+          <Container maxW="7xl" mt="20">
+            <PostsList posts={morePosts} />
           </Container>
         </>
       )}
