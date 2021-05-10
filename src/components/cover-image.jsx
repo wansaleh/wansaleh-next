@@ -6,7 +6,7 @@ import React from 'react';
 export default function CoverImage({ src, title, caption, slug, height, width, ...props }) {
   const image = (
     <NextImage
-      src={src}
+      src={`https://res.cloudinary.com/wansaleh/image/fetch/${src}`}
       alt={`Cover Image for ${title}`}
       layout="responsive"
       width={width}

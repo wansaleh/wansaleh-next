@@ -21,6 +21,15 @@ const components = {
         {children}
       </a>
     );
+  },
+  img({ src, alt, ...props }) {
+    return (
+      <img
+        src={`https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`}
+        alt={alt}
+        {...props}
+      />
+    );
   }
 };
 
