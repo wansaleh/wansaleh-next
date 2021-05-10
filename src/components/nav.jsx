@@ -6,7 +6,8 @@ import {
   HStack,
   Link,
   useColorMode,
-  useColorModeValue
+  useColorModeValue,
+  VisuallyHidden
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import React from 'react';
@@ -75,6 +76,7 @@ function ToggleMode() {
       borderRadius="0"
       onClick={toggleColorMode}
     >
+      <VisuallyHidden>Toggle Mode</VisuallyHidden>
       <Box
         as="svg"
         height="1.25em"

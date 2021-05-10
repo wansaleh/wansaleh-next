@@ -22,7 +22,7 @@ export default function Journal({ posts }) {
           In The Studio
         </Heading>
         <Heading
-          as="h3"
+          as="h2"
           pb="2"
           fontSize={['2xl', '3xl']}
           fontWeight="400"
