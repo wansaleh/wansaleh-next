@@ -95,8 +95,8 @@ export default function PostsList({ posts, hero }) {
                     title={post.title}
                     slug={post.slug}
                     src={post.coverImage.url}
-                    width={1240}
-                    height={600}
+                    width={640}
+                    height={300}
                   />
                 </Box>
               )}
