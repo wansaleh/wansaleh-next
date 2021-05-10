@@ -108,9 +108,9 @@ export default function JournalPost({ post, morePosts }) {
             <Markdown>{post.content}</Markdown>
           </Container>
 
-          <Container maxW="7xl" mt="20">
+          <Box mt="20">
             <PostsList posts={morePosts} />
-          </Container>
+          </Box>
         </>
       )}
     </>
