@@ -53,9 +53,9 @@ export default function App({ Component, pageProps }) {
   return (
     <ChakraProvider theme={chakra}>
       <Layout>
-        <div style={{ display: isRetainableRoute ? 'block' : 'none' }}>
+        <div css={{ display: isRetainableRoute ? 'block' : 'none' }}>
           {Object.entries(retainedComponents.current).map(([path, c]) => (
-            <div key={path} style={{ display: router.pathname === path ? 'block' : 'none' }}>
+            <div key={path} css={{ display: router.pathname === path ? 'block' : 'none' }}>
               {c.component}
             </div>
           ))}

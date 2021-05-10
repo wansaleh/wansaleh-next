@@ -18,14 +18,14 @@ export default function Tag({ posts, tag }) {
   }
 
   return (
-    <Box>
+    <>
       {router.isFallback ? (
         <Box>Loading…</Box>
       ) : (
         <>
           <Head title="By Wan Saleh | In The Studio" />
 
-          <Container maxW="7xl" my="20">
+          <Container maxW="7xl" mt="40" mb="10">
             <Heading
               as="h1"
               fontSize={['6xl', '7xl']}
@@ -43,7 +43,7 @@ export default function Tag({ posts, tag }) {
               fontSize={['3xl', '4xl']}
               fontWeight="300"
               lineHeight="1"
-              mt="-2"
+              // mt="-2"
               mb="4"
             >
               <Box
@@ -77,7 +77,7 @@ export default function Tag({ posts, tag }) {
           <PostsList posts={posts} tag={tag} />
         </>
       )}
-    </Box>
+    </>
   );
 }
 

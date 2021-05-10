@@ -26,8 +26,8 @@ const theme = extendTheme({
       body: {
         backgroundColor: props.colorMode !== 'dark' ? 'white' : 'black',
         fontFamily: 'body',
-        fontWeight: 300,
-        letterSpacing: '-0.0125em',
+        fontWeight: 400,
+        letterSpacing: '-0.01em',
         color: props.colorMode === 'dark' ? 'white' : 'gray.900'
       },
 

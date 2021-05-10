@@ -18,7 +18,7 @@ export default function JournalPost({ post }) {
   }
 
   return (
-    <Box>
+    <>
       {router.isFallback ? (
         <Box>Loading…</Box>
       ) : (
@@ -26,7 +26,13 @@ export default function JournalPost({ post }) {
           <Head title={`By Wan Saleh | In The Studio | ${post.title}`} />
 
           <Container maxW="7xl" mt="20" mb="8">
-            <Heading as="h1" fontSize="4xl" fontWeight="600" lineHeight="1" letterSpacing="tight">
+            <Heading
+              as="h1"
+              fontSize={['2xl', '3xl', '4xl']}
+              fontWeight="600"
+              lineHeight="1"
+              letterSpacing="tight"
+            >
               <NextLink href="/blog" passHref>
                 <Link d="inline-flex" alignItems="center">
                   <Box
@@ -37,7 +43,7 @@ export default function JournalPost({ post }) {
                     fill="none"
                     stroke="currentColor"
                     strokeLinecap="round"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -51,11 +57,11 @@ export default function JournalPost({ post }) {
             </Heading>
           </Container>
 
-          <Container maxW="7xl" mt="40" textAlign="center">
+          <Container maxW="7xl" mt={[20, 30, 40]}>
             <Heading
-              fontSize={['6xl', '7xl', '8xl']}
+              fontSize={['5xl', '6xl', '8xl']}
               fontWeight="600"
-              lineHeight="0.85"
+              lineHeight="0.95"
               mb="4"
               letterSpacing="tight"
             >
@@ -67,7 +73,7 @@ export default function JournalPost({ post }) {
               fontFamily="body"
               fontSize={['xl', '2xl', '3xl']}
               fontWeight="300"
-              lineHeight="0.9"
+              lineHeight="1.25"
               mb="4"
               letterSpacing="tight"
             >
@@ -100,7 +106,7 @@ export default function JournalPost({ post }) {
           </Container>
         </>
       )}
-    </Box>
+    </>
   );
 }
 

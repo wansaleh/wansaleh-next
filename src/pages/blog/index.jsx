@@ -1,4 +1,4 @@
-import { Box, Container, Heading } from '@chakra-ui/react';
+import { Container, Heading } from '@chakra-ui/react';
 import React from 'react';
 
 import Head from '../../components/head';
@@ -7,23 +7,21 @@ import { getAllPostsForHome } from '../../lib/graphcms';
 
 export default function Journal({ posts }) {
   return (
-    <Box>
+    <>
       <Head title="By Wan Saleh | In The Studio" />
 
-      <Container maxW="7xl" my="20">
+      <Container maxW="7xl" mt="40" mb="10">
         <Heading
           as="h1"
-          mb="2"
-          // ml="-0.04em"
           fontSize={['6xl', '7xl']}
           fontWeight="600"
-          lineHeight="0.8"
+          lineHeight="1"
           letterSpacing="tighter"
         >
           In The Studio
         </Heading>
         <Heading
-          as="h2"
+          as="h3"
           pb="2"
           fontSize={['2xl', '3xl']}
           fontWeight="400"
@@ -36,7 +34,7 @@ export default function Journal({ posts }) {
       </Container>
 
       <PostsList hero posts={posts} />
-    </Box>
+    </>
   );
 }
 

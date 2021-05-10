@@ -63,7 +63,7 @@ export default function PostsList({ posts, hero }) {
                 </NextLink>
               </Heading>
 
-              <Box mb="2" className="prose lg:prose-xl" lineHeight="1.5">
+              <Box mt="-2" mb="4" className="prose lg:prose-xl" lineHeight="1.5">
                 <Markdown>{heroPost.excerpt}</Markdown>
               </Box>
 
@@ -118,7 +118,6 @@ export default function PostsList({ posts, hero }) {
                   fontSize={['2xl', '4xl']}
                   fontWeight="400"
                   lineHeight="1"
-                  mb="2"
                   letterSpacing="tight"
                   maxW="xl"
                 >
@@ -127,7 +126,7 @@ export default function PostsList({ posts, hero }) {
                   </NextLink>
                 </Heading>
 
-                <Box lineHeight="1.5" maxW="xl" fontSize="sm">
+                <Box mt="4" lineHeight="1.5" maxW="xl" fontSize="sm" fontWeight="400">
                   <Markdown>{post.excerpt}</Markdown>
                 </Box>
               </Flex>
