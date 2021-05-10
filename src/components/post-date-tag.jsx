@@ -23,7 +23,7 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
       {showFull && (
         <>
           {format(parseISO(post.date), 'EEEE, d MMMM yyy', { locale: ms })}{' '}
-          <span className="opacity-40">&bull;</span> Updated{' '}
+          <span className="opacity-40">&bull;</span> Kemaskini{' '}
           {format(parseISO(post.updatedAt), 'd MMMM yyy, h:mm a', { locale: ms })}{' '}
           <span className="opacity-40">&bull;</span>{' '}
         </>
