@@ -1,31 +1,16 @@
 /* eslint-disable no-sparse-arrays */
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Link,
-  LinkBox,
-  LinkOverlay,
-  SimpleGrid,
-  useColorModeValue,
-  useTheme
-} from '@chakra-ui/react';
+import { Box, Container, Heading, Link } from '@chakra-ui/react';
 import ErrorPage from 'next/error';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 
-import CoverImage from '../../../components/cover-image';
 import Head from '../../../components/head';
 import Markdown from '../../../components/markdown';
-import PostDateTags from '../../../components/post-date-tag';
+import PostsList from '../../../components/posts-list';
 import { getAllPostsForTag, getAllTags } from '../../../lib/graphcms';
 
 export default function Tag({ posts, tag }) {
-  const theme = useTheme();
-
   const router = useRouter();
 
   if (!router.isFallback && !tag?.slug) {
@@ -52,8 +37,9 @@ export default function Tag({ posts, tag }) {
             >
               <NextLink href="/blog" passHref>
                 <Link>Blog</Link>
-              </NextLink>{' '}
-              <Box as="span" fontSize="0.75em" letterSpacing="0" fontWeight="400">
+              </NextLink>
+
+              <Box as="span" fontSize="0.75em" letterSpacing="0" fontWeight="400" ml="4">
                 {tag.title}
               </Box>
             </Heading>
@@ -74,68 +60,7 @@ export default function Tag({ posts, tag }) {
             </Heading>
           </Container>
 
-          <Container
-            maxW="7xl"
-            sx={{
-              a: {
-                _hover: { color: theme.colors.brand[500] }
-                // _focus: { boxShadow: 'none' }
-              }
-            }}
-          >
-            <SimpleGrid columns={[1, 1, 2, 3]} spacing="8">
-              {posts.map((post) => (
-                <LinkBox
-                  key={post.slug}
-                  columns={[1, 1, 2]}
-                  role="group"
-                  borderRadius="lg"
-                  overflow="hidden"
-                  bg={useColorModeValue('gray.100', 'gray.900')}
-                  // border="1px solid"
-                  // borderColor={useColorModeValue('gray.200', 'gray.800')}
-                  cursor="pointer"
-                  transition="all 0.3s ease"
-                  _hover={{
-                    boxShadow: 'xl'
-                  }}
-                >
-                  {post.coverImage && (
-                    <Box>
-                      <CoverImage
-                        title={post.title}
-                        slug={post.slug}
-                        src={post.coverImage.url}
-                        width={1240}
-                        height={600}
-                      />
-                    </Box>
-                  )}
-
-                  <Flex direction="column" justify="flex-end" p="6">
-                    <PostDateTags post={post} mb="3" />
-
-                    <Heading
-                      fontSize={['2xl', '4xl']}
-                      fontWeight="400"
-                      lineHeight="0.8"
-                      mb="6"
-                      letterSpacing="tight"
-                      maxW="xl"
-                    >
-                      <NextLink href={`/blog/${post.slug}`} passHref>
-                        <LinkOverlay transition="all 0.3s ease">{post.title}</LinkOverlay>
-                      </NextLink>
-                    </Heading>
-
-                    <Box mb="4" className="prose" lineHeight="1.5" maxW="xl">
-                      <ReactMarkdown>{post.excerpt}</ReactMarkdown>
-                    </Box>
-                  </Flex>
-                </LinkBox>
-              ))}
-            </SimpleGrid>
-          </Container>
+          <PostsList posts={posts} tag={tag} />
         </>
       )}
     </Box>

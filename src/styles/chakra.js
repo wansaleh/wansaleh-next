@@ -41,17 +41,11 @@ const theme = extendTheme({
     })
   },
 
-  colors: {
-    brand: tailwind.colors.brand,
-    brandAlt: tailwind.colors.brandAlt,
-    gray: tailwind.colors.gray,
-    brandGray: tailwind.colors.brandGray
-  },
+  colors: tailwind.colors,
   fonts: {
+    ...tailwind.fontFamily,
     body: tailwind.fontFamily.sans.join(','),
-    heading: tailwind.fontFamily.head.join(','),
-    serif: tailwind.fontFamily.serif.join(','),
-    mono: tailwind.fontFamily.mono.join(',')
+    heading: tailwind.fontFamily.head.join(',')
   },
   // fontSizes: Object.entries(tailwind.fontSize).reduce((ret, [key, val]) => {
   //   ret[key] = val[0];
