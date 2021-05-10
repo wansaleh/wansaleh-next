@@ -32,6 +32,7 @@ export default function Tag({ posts, tag }) {
               fontWeight="600"
               lineHeight="1"
               letterSpacing="tighter"
+              transform="skew(-6deg)"
             >
               <NextLink href="/blog" passHref>
                 <Link>In The Studio</Link>
