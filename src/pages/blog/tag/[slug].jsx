@@ -70,7 +70,7 @@ export default function Tag({ posts, tag }) {
               {tag.description ? (
                 <Markdown>{tag.description}</Markdown>
               ) : (
-                'My pursuit of sonic excellence.'
+                'Pencarianku ke arah kecemerlangan bunyi.'
               )}
             </Heading>
           </Container>

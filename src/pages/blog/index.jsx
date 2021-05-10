@@ -30,7 +30,7 @@ export default function Journal({ posts }) {
           letterSpacing="0"
           maxW="2xl"
         >
-          My pursuit of sonic excellence.
+          Pencarianku ke arah kecemerlangan bunyi.
         </Heading>
       </Container>
 
