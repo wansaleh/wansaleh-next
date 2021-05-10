@@ -128,7 +128,7 @@ export default function PostsList({ posts, hero }) {
                   </NextLink>
                 </Heading>
 
-                <Box mb="4" className="prose" lineHeight="1.5" maxW="xl">
+                <Box lineHeight="1.5" maxW="xl" fontSize="sm">
                   <Markdown>{post.excerpt}</Markdown>
                 </Box>
               </Flex>

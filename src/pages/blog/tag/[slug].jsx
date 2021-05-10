@@ -28,15 +28,15 @@ export default function Tag({ posts, tag }) {
           <Container maxW="7xl" my="20">
             <Heading
               as="h1"
-              mb="6"
+              mb="2"
               // ml="-0.04em"
-              fontSize={['7xl', '8xl']}
-              fontWeight="700"
+              fontSize={['6xl', '7xl']}
+              fontWeight="600"
               lineHeight="0.8"
               letterSpacing="tighter"
             >
               <NextLink href="/blog" passHref>
-                <Link>Blog</Link>
+                <Link>In The Studio</Link>
               </NextLink>
 
               <Box as="span" fontSize="0.75em" letterSpacing="0" fontWeight="400" ml="4">
@@ -48,7 +48,7 @@ export default function Tag({ posts, tag }) {
               pb="2"
               fontSize={['2xl', '3xl']}
               fontWeight="400"
-              lineHeight="1"
+              lineHeight="1.2"
               letterSpacing="0"
               maxW="2xl"
             >
