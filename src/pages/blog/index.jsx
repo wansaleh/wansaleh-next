@@ -10,7 +10,7 @@ export default function Journal({ posts }) {
     <>
       <Head title="By Wan Saleh | In The Studio" />
 
-      <Container maxW="7xl" mt="20" mb="10">
+      <Container maxW="6xl" mt="20" mb="10">
         <Heading
           as="h1"
           fontSize={['6xl', '7xl']}

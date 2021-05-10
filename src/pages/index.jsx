@@ -60,7 +60,7 @@ export default function Home({ works }) {
           />
         </Box>
 
-        <Container maxW="7xl">
+        <Container maxW="6xl">
           <Heading
             as="h1"
             pb="2"
@@ -120,7 +120,7 @@ export default function Home({ works }) {
       </Box>
 
       <Box pos="relative">
-        <Container maxW="7xl">
+        <Container maxW="6xl">
           <SimpleGrid pt={['5rem', '10rem']} columns={[1, 1, 1, 2]} spacing="20">
             <Box>
               <SectionTitle

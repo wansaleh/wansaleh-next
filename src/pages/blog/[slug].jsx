@@ -26,7 +26,7 @@ export default function JournalPost({ post, morePosts }) {
         <>
           <Head title={`By Wan Saleh | In The Studio | ${post.title}`} />
 
-          <Container maxW="7xl" mt="10">
+          <Container maxW="6xl" mt="10">
             <Heading
               as="h1"
               fontSize={['2xl', '3xl', '4xl']}
@@ -62,7 +62,7 @@ export default function JournalPost({ post, morePosts }) {
             </Heading>
           </Container>
 
-          <Container maxW="7xl" mt="20">
+          <Container maxW="6xl" mt="20">
             <Heading
               fontSize={['5xl', '6xl', '8xl']}
               fontWeight="600"

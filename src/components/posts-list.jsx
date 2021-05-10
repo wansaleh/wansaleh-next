@@ -22,7 +22,7 @@ export default function PostsList({ posts, hero, gridProps }) {
 
   return (
     <>
-      <Container maxW="7xl" sx={{ 'a:hover': { color: 'brand.500' } }}>
+      <Container maxW="6xl" sx={{ 'a:hover': { color: 'brand.500' } }}>
         {hero && (
           <LinkBox id="hero-post" mb="20" role="group">
             {heroPost.coverImage && (
@@ -61,7 +61,7 @@ export default function PostsList({ posts, hero, gridProps }) {
           </LinkBox>
         )}
 
-        <SimpleGrid columns={[1, 1, 2, otherPosts.length > 2 ? 3 : 2]} spacing="8" {...gridProps}>
+        <SimpleGrid columns={[1, 1, 2, otherPosts.length > 2 ? 3 : 2]} spacing="10" {...gridProps}>
           {otherPosts.map((post) => (
             <LinkBox
               key={post.slug}

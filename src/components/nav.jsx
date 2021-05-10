@@ -16,7 +16,7 @@ import Logo from '../assets/images/logo';
 
 export default function Nav() {
   return (
-    <Container maxW="7xl" pos="relative">
+    <Container maxW="6xl" pos="relative">
       <Flex
         as="nav"
         zIndex="100"

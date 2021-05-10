@@ -5,7 +5,7 @@ import SocialLinks from './social-links';
 
 export default function Footer() {
   return (
-    <Container maxW="7xl" my="10" mt="40">
+    <Container maxW="6xl" my="10" mt="40">
       <Flex
         as="ul"
         justifyContent="space-between"
