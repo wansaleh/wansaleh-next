@@ -93,6 +93,14 @@ body,
     @apply block mt-3 text-xs font-medium leading-tight opacity-60;
   }
 
+  ol > li::before {
+    @apply font-medium text-gray-500 opacity-75;
+
+    .dark & {
+      @apply text-gray-600;
+    }
+  }
+
   blockquote {
     @apply pl-12;
     color: inherit;
