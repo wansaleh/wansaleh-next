@@ -24,8 +24,9 @@ module.exports = {
         trueGray: colors.trueGray
       },
       fontFamily: {
-        sans: ['Sharp Grotesk', ...defaultTheme.fontFamily.sans],
-        head: ['Clash Display', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        // sans: ['Sharp Grotesk', ...defaultTheme.fontFamily.sans],
+        head: ['Clash Grotesk', ...defaultTheme.fontFamily.sans],
         serif: ['Tiempos Headline', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
       }

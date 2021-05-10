@@ -74,7 +74,7 @@ export default function Home({ works }) {
             pb="2"
             fontSize={['3rem', '4rem', '5rem', '8rem']}
             fontWeight="600"
-            fontFamily="body"
+            // fontFamily="body"
             lineHeight="0.8"
             letterSpacing="tighter"
             ml="-0.025em"

@@ -51,12 +51,11 @@ export default function PostsList({ posts, hero }) {
               />
             )}
 
-            <Box maxW="3xl">
+            <Box maxW="4xl">
               <Heading
                 fontSize={['4xl', '6xl']}
                 fontWeight="600"
-                lineHeight="0.8"
-                mb="8"
+                lineHeight="1"
                 letterSpacing="tight"
               >
                 <NextLink href={`/blog/${heroPost.slug}`} passHref>
@@ -118,7 +117,7 @@ export default function PostsList({ posts, hero }) {
                 <Heading
                   fontSize={['2xl', '4xl']}
                   fontWeight="400"
-                  lineHeight="0.8"
+                  lineHeight="1"
                   mb="6"
                   letterSpacing="tight"
                   maxW="xl"

@@ -1,4 +1,4 @@
-import { Box, Container, Heading, useTheme } from '@chakra-ui/react';
+import { Box, Container, Heading } from '@chakra-ui/react';
 import React from 'react';
 
 import Head from '../../components/head';
@@ -6,8 +6,6 @@ import PostsList from '../../components/posts-list';
 import { getAllPostsForHome } from '../../lib/graphcms';
 
 export default function Journal({ posts }) {
-  const theme = useTheme();
-
   return (
     <Box>
       <Head title="By Wan Saleh | Blog" />
@@ -37,17 +35,7 @@ export default function Journal({ posts }) {
         </Heading>
       </Container>
 
-      <Container
-        maxW="7xl"
-        sx={{
-          a: {
-            _hover: { color: theme.colors.brand[500] }
-            // _focus: { boxShadow: 'none' }
-          }
-        }}
-      >
-        <PostsList hero posts={posts} />
-      </Container>
+      <PostsList hero posts={posts} />
     </Box>
   );
 }
