@@ -5,6 +5,7 @@ import {
   Flex,
   Heading,
   HStack,
+  Link,
   LinkBox,
   LinkOverlay,
   SimpleGrid,
@@ -17,6 +18,8 @@ import { format, formatDistanceToNow, isAfter, parseISO, subWeeks } from 'date-f
 import { ms } from 'date-fns/locale';
 import groupBy from 'lodash.groupby';
 import Image from 'next/image';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 import { readableColor } from 'polished';
 import { Fragment, useEffect, useState } from 'react';
 import LazyLoad from 'react-lazyload';
@@ -36,7 +39,7 @@ function listNames(names) {
 
 export default function Discography({ works }) {
   const [cellHeight, setCellHeight] = useState(0);
-  const [genre, setGenre] = useState(null);
+  const router = useRouter();
 
   const allWorks = works
     ?.map((work) => ({
@@ -46,19 +49,24 @@ export default function Discography({ works }) {
     .sort((a, b) => b.released - a.released)
     .filter((work) => !work.hide);
 
-  const groupedByYear = groupBy(
-    allWorks.filter((work) => (genre ? work.genre.includes(genre) : true)),
-    (work) => work.released.getFullYear()
-  );
-
   const _genres = [...new Set(allWorks.reduce((out, work) => out.concat(work.genre), []))];
 
   const genres = _genres
     .map((g) => ({
+      slug: g.toLowerCase().replace(/ /g, '-'),
       title: g,
       totalWorks: allWorks.filter((work) => work.genre.includes(g)).length
     }))
     .sort((a, b) => b.totalWorks - a.totalWorks);
+
+  let genre = null;
+  if (router.query.genre) {
+    genre = genres.find((g) => g.slug === router.query.genre).title;
+  }
+  const groupedByYear = groupBy(
+    allWorks.filter((work) => (genre ? work.genre.includes(genre) : true)),
+    (work) => work.released.getFullYear()
+  );
 
   return (
     <SimpleGrid
@@ -95,42 +103,32 @@ export default function Discography({ works }) {
           sx={{ rowGap: 2, columnGap: 10 }}
         >
           <Box as="li">
-            <Button
-              variant="link"
-              onClick={() => setGenre(null)}
-              fontSize="inherit"
-              d="inline-block"
-              borderRadius="0"
-              minW="0"
-              textTransform="uppercase"
-              fontWeight="800"
-              letterSpacing="wide"
-              color={genre === null ? 'brand.500' : 'gray.500'}
-            >
-              Semua
-            </Button>
-          </Box>
-
-          {genres.map(({ title }) => (
-            <Box as="li" key={title}>
-              <Button
-                variant="link"
-                onClick={() => setGenre(title)}
-                fontSize="inherit"
-                d="inline-block"
-                borderRadius="0"
-                minW="0"
+            <NextLink href="/" shallow>
+              <Link
                 textTransform="uppercase"
                 fontWeight="800"
-                letterSpacing="wider"
-                color={genre === title ? 'brand.500' : 'gray.500'}
+                letterSpacing="wide"
+                color={!genre ? 'brand.500' : 'gray.500'}
+                className="hover:!underline"
               >
-                {title}
-                {/* {' '}
-                <Box as="span" fontSize="0.85em" fontWeight="600">
-                  {totalWorks}
-                </Box> */}
-              </Button>
+                Semua
+              </Link>
+            </NextLink>
+          </Box>
+
+          {genres.map(({ slug, title }) => (
+            <Box as="li" key={slug}>
+              <NextLink href={`/?genre=${slug}`} shallow>
+                <Link
+                  textTransform="uppercase"
+                  fontWeight="800"
+                  letterSpacing="wider"
+                  color={genre === title ? 'brand.500' : 'gray.500'}
+                  className="hover:!underline"
+                >
+                  {title}
+                </Link>
+              </NextLink>
             </Box>
           ))}
         </Flex>

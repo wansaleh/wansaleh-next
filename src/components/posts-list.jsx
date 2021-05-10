@@ -22,7 +22,7 @@ export default function PostsList({ posts, hero, gridProps }) {
 
   return (
     <>
-      <Container maxW="7xl">
+      <Container maxW="7xl" sx={{ 'a:hover': { color: 'brand.500' } }}>
         {hero && (
           <LinkBox id="hero-post" mb="20" role="group">
             {heroPost.coverImage && (
