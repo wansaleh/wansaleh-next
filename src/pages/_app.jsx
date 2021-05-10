@@ -10,7 +10,7 @@ import React, { memo, useEffect, useRef } from 'react';
 import Layout from '../components/layout';
 import chakra from '../styles/chakra';
 
-const ROUTES_TO_RETAIN = ['/blog', '/blog/[slug]'];
+const ROUTES_TO_RETAIN = ['/blog'];
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
