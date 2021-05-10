@@ -25,7 +25,7 @@ export default function Tag({ posts, tag }) {
         <>
           <Head title="By Wan Saleh | In The Studio" />
 
-          <Container maxW="7xl" mt="40" mb="10">
+          <Container maxW="7xl" mt="20" mb="10">
             <Heading
               as="h1"
               fontSize={['6xl', '7xl']}

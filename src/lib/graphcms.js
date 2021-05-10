@@ -118,7 +118,7 @@ export async function getPostAndMorePosts(slug, preview) {
             slug
           }
         }
-        morePosts: posts(orderBy: date_DESC, first: 2, where: { slug_not_in: [$slug] }) {
+        morePosts: posts(orderBy: date_DESC, first: 3, where: { slug_not_in: [$slug] }) {
           title
           slug
           subtitle
