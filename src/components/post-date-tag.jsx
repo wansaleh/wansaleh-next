@@ -14,7 +14,12 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
       color="gray.500"
       {...props}
     >
-      {!showFull && <>{formatDistanceToNow(parseISO(post.date), { locale: ms } )}</>}
+      {!showFull && (
+        <>
+          {formatDistanceToNow(parseISO(post.date), { locale: ms })} lalu{' '}
+          <span className="opacity-40">&bull;</span>{' '}
+        </>
+      )}
       {showFull && (
         <>
           {format(parseISO(post.date), 'EEEE, d MMMM yyy', { locale: ms })}{' '}
