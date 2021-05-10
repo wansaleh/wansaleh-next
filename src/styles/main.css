@@ -82,7 +82,7 @@ body,
   }
 
   > p > img {
-    @apply m-0 overflow-hidden border border-gray-200 border-solid rounded-md shadow-md;
+    @apply m-0 overflow-hidden border border-gray-200 border-solid rounded-lg shadow-md;
 
     .dark & {
       @apply border-gray-800 opacity-75;

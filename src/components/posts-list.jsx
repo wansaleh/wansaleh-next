@@ -33,7 +33,7 @@ export default function PostsList({ posts, hero, gridProps }) {
                 width={1240}
                 height={600}
                 mb="8"
-                borderRadius="lg"
+                borderRadius="2xl"
                 overflow="hidden"
                 border="1px solid"
                 borderColor={useColorModeValue('gray.200', 'gray.800')}
@@ -67,7 +67,7 @@ export default function PostsList({ posts, hero, gridProps }) {
               key={post.slug}
               columns={[1, 1, 2]}
               role="group"
-              borderRadius="lg"
+              borderRadius="2xl"
               overflow="hidden"
               bg={useColorModeValue('gray.200', 'brandGray.900')}
               // border="1px solid"
@@ -93,7 +93,7 @@ export default function PostsList({ posts, hero, gridProps }) {
               <Flex
                 direction="column"
                 justify="flex-end"
-                p="6"
+                p="5"
                 borderTop="3px solid"
                 borderColor="transparent"
                 transition="all 0.2s ease"
@@ -104,9 +104,9 @@ export default function PostsList({ posts, hero, gridProps }) {
                 <PostDateTags post={post} mb="3" />
 
                 <Heading
-                  fontSize={['2xl', '4xl']}
+                  fontSize={['2xl', '3xl']}
                   fontWeight="500"
-                  lineHeight="1"
+                  lineHeight="0.9"
                   letterSpacing="tight"
                   maxW="xl"
                 >

@@ -8,8 +8,8 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
   return (
     <Box
       fontSize="xs"
-      fontWeight="700"
-      letterSpacing="widest"
+      fontWeight="600"
+      letterSpacing="wider"
       textTransform="uppercase"
       color="gray.500"
       {...props}
