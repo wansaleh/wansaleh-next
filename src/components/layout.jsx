@@ -14,9 +14,7 @@ export default function Layout({ children }) {
   return (
     <Box>
       <Nav />
-
       {children}
-
       <Footer />
     </Box>
   );

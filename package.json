@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.3.0",
     "@formspree/react": "^2.2.3",
     "@jsdevtools/rehype-toc": "^3.0.2",
+    "@moxy/next-router-scroll": "^2.1.1",
     "@silvenon/remark-smartypants": "^1.0.0",
     "@tailwindcss/typography": "^0.4.0",
     "array-to-sentence": "^2.0.0",
