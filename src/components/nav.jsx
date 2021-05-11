@@ -18,9 +18,9 @@ import { useTimeout, useWindowScroll } from 'react-use';
 import Logo from '../images/logo';
 
 export default function Nav() {
+  const [isReady] = useTimeout(10);
   const router = useRouter();
   const { y } = useWindowScroll();
-  const [isReady] = useTimeout(10);
 
   return (
     isReady() && (
