@@ -61,7 +61,7 @@ export default function PostsList({ posts, hero, gridProps }) {
           </LinkBox>
         )}
 
-        <SimpleGrid columns={[1, 1, 2, otherPosts.length > 2 ? 3 : 2]} spacing="10" {...gridProps}>
+        <SimpleGrid columns={[1, 1, 2, otherPosts.length > 2 ? 3 : 2]} spacing="8" {...gridProps}>
           {otherPosts.map((post) => (
             <LinkBox
               key={post.slug}
