@@ -11,22 +11,22 @@ import musicTools from '../data/tools/music';
 export default function Home() {
   return (
     <Box>
-      <Head title="By Wan Saleh • Alatan • Tools" />
+      <Head title="By Wan Saleh • Peralatan • Tools" />
 
-      <PageHeader title="My Tools" subtitle="Keperluan yang membantu kerja saya." />
+      <PageHeader title="Tools" subtitle="Keperluan yang membantu kerja saya." />
 
       <Container maxW="6xl">
         <SimpleGrid columns={[1, 1, 1, 2]} spacing="20">
           <Box>
-            <SectionTitle title="Alatan Muzik" subtitle="Peranti/software muzik kegunaan harian." />
+            <SectionTitle title="Peralatan Muzik" subtitle="Alatan muzik kegunaan harian." />
 
             <Tools tools={musicTools} />
           </Box>
 
           <Box>
             <SectionTitle
-              title="Alatan Developer"
-              subtitle="DevTools yang saya guna bila membina perisian."
+              title="Peralatan Developer"
+              subtitle="DevTools saya semasa membina perisian."
             />
 
             <Tools tools={devTools} />

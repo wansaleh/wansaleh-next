@@ -5,7 +5,7 @@ export default function PageHeader({ title, middle, subtitle }) {
     <Container maxW="6xl" mt="24" mb="10">
       <Heading
         as="h1"
-        fontSize={['6xl', '7xl']}
+        fontSize={['5xl', '6xl', '7xl']}
         fontWeight="600"
         lineHeight="1"
         letterSpacing="tighter"

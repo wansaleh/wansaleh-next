@@ -7,7 +7,7 @@ export default function SectionTitle({ title, subtitle }) {
     <>
       <Heading
         as="h2"
-        fontSize="5xl"
+        fontSize={['3xl', '4xl', '5xl']}
         fontWeight="600"
         lineHeight="0.9"
         letterSpacing="tight"
@@ -20,7 +20,7 @@ export default function SectionTitle({ title, subtitle }) {
         as="h3"
         mt="2"
         // fontFamily="body"
-        fontSize="2xl"
+        fontSize={['xl', 'xl', '2xl']}
         fontWeight="400"
         lineHeight="0.9"
         // letterSpacing="0.1em"

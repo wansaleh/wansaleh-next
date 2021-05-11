@@ -9,25 +9,15 @@ import {
   VisuallyHidden
 } from '@chakra-ui/react';
 import React from 'react';
-import MD from 'react-markdown';
+
+import Markdown from './markdown';
 
 export default function Tools({ tools, hideIcons = false }) {
   return (
-    <Flex as="ul" mt="4" flexWrap="wrap" justify="center" mx="-1rem">
+    <Flex as="ul" mt="4" flexWrap="wrap" justify="center" className="prose article tools">
       {tools.map((tool, i) => (
-        <Box as="li" key={i} p="4" w="full">
-          <Heading
-            as="h4"
-            mt="4"
-            mb="4"
-            fontSize="3xl"
-            fontWeight="500"
-            // letterSpacing="tight"
-            pos="relative"
-            color={useColorModeValue('gray.600', 'gray.400')}
-          >
-            {tool.name}
-          </Heading>
+        <Box as="li" key={i} w="full">
+          <Heading as="h4">{tool.name}</Heading>
 
           {!hideIcons && (
             <Flex
@@ -103,7 +93,7 @@ export default function Tools({ tools, hideIcons = false }) {
           )}
 
           <Box maxW="lg" fontSize="sm" lineHeight="1.5">
-            <MD>{tool.desc}</MD>
+            <Markdown>{tool.desc}</Markdown>
           </Box>
         </Box>
       ))}

@@ -126,6 +126,17 @@ body,
   }
 }
 
+.prose.article.tools {
+  img {
+    margin: 0;
+  }
+
+  h4 {
+    margin-top: 2rem;
+    @apply text-3xl;
+  }
+}
+
 button:focus {
   outline: none;
 }
