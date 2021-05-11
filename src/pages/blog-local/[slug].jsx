@@ -9,7 +9,7 @@ import rehypeRaw from 'rehype-raw';
 
 import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
-import { getAllPosts, getPostBySlug } from '../../lib/posts';
+import { getAllPosts, getPostBySlug } from '../../lib/posts-local';
 
 export default function Journal({ post }) {
   return (

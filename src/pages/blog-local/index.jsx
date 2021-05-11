@@ -6,7 +6,7 @@ import React from 'react';
 import MD from 'react-markdown';
 
 import Head from '../../components/head';
-import { getAllPosts } from '../../lib/posts';
+import { getAllPosts } from '../../lib/posts-local';
 
 export default function Journal({ posts }) {
   const theme = useTheme();

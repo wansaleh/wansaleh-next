@@ -1,8 +1,8 @@
 import { Box, Container, Heading, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
-import Sapiens from '../assets/images/sapiens';
 import Head from '../components/head';
+import Sapiens from '../images/sapiens';
 
 export default function ContactPage() {
   return (
@@ -73,7 +73,7 @@ export default function ContactPage() {
           <Box zIndex="-1">
             <Box w="150%" ml="-25%">
               {/* <NextImage
-                src={require('../assets/images/sapiens.png')}
+                src={require('../images/sapiens.png')}
                 alt=""
                 layout="responsive"
                 width={1440}

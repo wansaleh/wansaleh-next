@@ -10,57 +10,95 @@ import {
   VisuallyHidden
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+import { rgba } from 'polished';
 import React from 'react';
+import { useWindowScroll } from 'react-use';
 
-import Logo from '../assets/images/logo';
+import Logo from '../images/logo';
 
 export default function Nav() {
+  const router = useRouter();
+  const { y } = useWindowScroll();
+
   return (
-    <Container maxW="6xl" pos="relative">
-      <Flex
-        as="nav"
-        zIndex="100"
-        justify="space-between"
-        align="center"
-        fontSize="sm"
-        sx={{
-          a: { textDecoration: 'none !important' }
-        }}
-      >
-        <Flex as="ul" justify="space-between" align="center" py="4">
-          <li>
-            <NextLink href="/">
-              <Link d="block">
-                <Flex align="center">
-                  <Logo
-                    w="1.75em"
-                    fill={useColorModeValue('brand.500', 'brand.500')}
-                    css={{ transition: 'all 1s ease' }}
-                  />
-                  <Box ml="2" fontWeight="700" letterSpacing="wide">
-                    By Wan Saleh
-                  </Box>
-                </Flex>
-              </Link>
-            </NextLink>
-          </li>
+    <Box
+      pos="fixed"
+      top="0"
+      left="0"
+      right="0"
+      w="100vw"
+      zIndex="2000"
+      transition="all 0.3s ease-in-out"
+      py="3"
+      boxShadow={y > 20 ? '0 2px 15px rgba(0,0,0,0.075)' : 'unset'}
+      bg={y > 20 ? useColorModeValue(rgba('#fff', 0.7), rgba('#000', 0.7)) : 'unset'}
+      sx={{
+        backdropFilter: y > 20 ? 'blur(8px)' : 'none'
+      }}
+    >
+      <Container maxW="6xl" pos="relative">
+        <Flex as="nav" zIndex="100" justify="space-between" align="center" fontSize="sm">
+          <Flex as="ul" justify="space-between" align="center">
+            <li>
+              <NextLink href="/">
+                <Link d="block">
+                  <Flex align="center">
+                    <Logo
+                      w="1.75em"
+                      fill={useColorModeValue('brand.500', 'brand.500')}
+                      css={{ transition: 'all 1s ease' }}
+                    />
+                    <Box ml="2" fontWeight="700" letterSpacing="wide">
+                      By Wan Saleh
+                    </Box>
+                  </Flex>
+                </Link>
+              </NextLink>
+            </li>
+          </Flex>
+
+          <Box flex="1" />
+
+          <HStack
+            as="ul"
+            justify="space-between"
+            align="center"
+            fontWeight="600"
+            spacing="2"
+            sx={{
+              a: {
+                p: 0.5,
+                px: 1.5,
+                lineHeight: 1,
+                d: 'block',
+                borderRadius: 'md',
+                border: '2px solid transparent'
+              },
+              'a:hover': { border: '2px solid' },
+              'a:active': { color: 'brand.500' },
+              'a.active': { border: '2px solid' }
+            }}
+          >
+            <li>
+              <NextLink href="/blog">
+                <Link className={router.pathname.includes('/blog') && 'active'}>In The Studio</Link>
+              </NextLink>
+            </li>
+
+            <li>
+              <NextLink href="/tools">
+                <Link className={router.pathname.includes('/tools') && 'active'}>Tools</Link>
+              </NextLink>
+            </li>
+
+            <li>
+              <ToggleMode />
+            </li>
+          </HStack>
         </Flex>
-
-        <Box flex="1" />
-
-        <HStack as="ul" justify="space-between" align="center" py="4" fontWeight="600" spacing="2">
-          <li>
-            <NextLink href="/blog">
-              <Link>In The Studio</Link>
-            </NextLink>
-          </li>
-
-          <li>
-            <ToggleMode />
-          </li>
-        </HStack>
-      </Flex>
-    </Container>
+      </Container>
+    </Box>
   );
 }
 

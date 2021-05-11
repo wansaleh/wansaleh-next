@@ -9,7 +9,6 @@ import {
   LinkBox,
   LinkOverlay,
   SimpleGrid,
-  useColorModeValue,
   VisuallyHidden
 } from '@chakra-ui/react';
 import arrayToSentence from 'array-to-sentence';
@@ -138,7 +137,7 @@ export default function Discography({ works }) {
         .sort((a, b) => b[0] - a[0])
         .map(([year, yearWorks]) => (
           <Fragment key={year}>
-            <LazyLoad height={cellHeight} classNamePrefix="ll">
+            {/* <LazyLoad height={cellHeight} classNamePrefix="ll">
               <Flex
                 key={year}
                 p="8"
@@ -165,7 +164,7 @@ export default function Discography({ works }) {
                   {year}
                 </Heading>
               </Flex>
-            </LazyLoad>
+            </LazyLoad> */}
 
             {yearWorks.map((work) => (
               <LazyLoad key={work.youtube} height={cellHeight} classNamePrefix="ll">

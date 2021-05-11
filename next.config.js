@@ -5,14 +5,14 @@ const withImages = require('next-optimized-images');
 module.exports = withPlugins(
   [
     [
-      withImages,
-      {
-        svgo: {
-          plugins: [{ cleanupIDs: false }]
-        }
-      }
+      withImages
+      // {
+      //   svgo: {
+      //     plugins: [{ cleanupIDs: false }]
+      //   }
+      // }
     ]
-    // [withFonts]
+    // // [withFonts]
   ],
   {
     future: {

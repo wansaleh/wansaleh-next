@@ -69,6 +69,16 @@ function boolean(value) {
   return String(value).trim() === 'y' || String(value).trim() === '1';
 }
 
+function list(value) {
+  const _value = value.trim();
+
+  if (_value.length > 0) {
+    return _value.split(/\s*[,&]\s*/);
+  }
+
+  return null;
+}
+
 export async function fetchDiscograpySheet() {
   const { rows } = await getSheetJSON({
     id: '1fNtaqKnsDYEoi9NG8-phPzFH_1Fwbeh0j8SqivlOkjY'
@@ -77,18 +87,18 @@ export async function fetchDiscograpySheet() {
   return rows
     .map((work) => ({
       ...work,
-      artist: work.artist.trim().split(/\s*[,&]\s*/),
-      composer: work.composer.trim().split(/\s*[,&]\s*/),
-      writer: work.writer.trim().split(/\s*[,&]\s*/),
-      genre: work.genre.trim().split(/\s*[,&]\s*/),
+      artist: list(work.artist),
+      composer: list(work.composer),
+      writer: list(work.writer),
+      genre: list(work.genre),
       released: work.released.trim(),
-      pro: boolean(work.pro.trim()),
+      pro: boolean(work.pro),
       com: work.composer.trim().includes('Wan Saleh'),
-      arr: boolean(work.arr.trim()),
-      mix: boolean(work.mix.trim()),
-      mas: boolean(work.mas.trim()),
-      hide: boolean(work.hide.trim()),
-      featured: boolean(work.featured.trim())
+      arr: boolean(work.arr),
+      mix: boolean(work.mix),
+      mas: boolean(work.mas),
+      hide: boolean(work.hide),
+      featured: boolean(work.featured)
     }))
     .sort((a, b) => parseISO(b.released, new Date()) - parseISO(a.released, new Date()));
 }
