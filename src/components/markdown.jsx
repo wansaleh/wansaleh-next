@@ -12,16 +12,29 @@ const components = {
     const isAnchor = href.startsWith('#');
     const isSameDomain = !href.includes('http://') && !href.includes('https://');
 
-    return !isAnchor && isSameDomain ? (
-      <NextLink href={href} passHref {...props}>
-        <a title={title}>{children}</a>
-      </NextLink>
-    ) : (
+    if (!isAnchor && isSameDomain) {
+      return (
+        <NextLink href={href} passHref {...props}>
+          <a title={title}>{children}</a>
+        </NextLink>
+      );
+    }
+
+    if (isAnchor) {
+      return (
+        <a href={href} title={title} {...props}>
+          {children}
+        </a>
+      );
+    }
+
+    return (
       <a href={href} title={title} target="_blank" rel="noopener noreferrer" {...props}>
         {children}
       </a>
     );
   },
+
   img({ src, alt, ...props }) {
     return (
       <img
