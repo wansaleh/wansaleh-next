@@ -1,3 +1,4 @@
+import { Image, Link } from '@chakra-ui/react';
 import rehypeToc from '@jsdevtools/rehype-toc';
 import remarkSmartypants from '@silvenon/remark-smartypants';
 import NextLink from 'next/link';
@@ -15,29 +16,29 @@ const components = {
     if (!isAnchor && isSameDomain) {
       return (
         <NextLink href={href} passHref {...props}>
-          <a title={title}>{children}</a>
+          <Link title={title}>{children}</Link>
         </NextLink>
       );
     }
 
     if (isAnchor) {
       return (
-        <a href={href} title={title} {...props}>
+        <Link href={href} title={title} {...props}>
           {children}
-        </a>
+        </Link>
       );
     }
 
     return (
-      <a href={href} title={title} target="_blank" rel="noopener noreferrer" {...props}>
+      <Link href={href} title={title} isExternal {...props}>
         {children}
-      </a>
+      </Link>
     );
   },
 
   img({ src, alt, ...props }) {
     return (
-      <img
+      <Image
         src={`https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`}
         alt={alt}
         {...props}

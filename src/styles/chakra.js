@@ -6,19 +6,26 @@ import tailwindConfig from '../../tailwind.config';
 
 const tailwind = resolveConfig(tailwindConfig).theme;
 
-const Link = {
-  // The styles all button have in common
-  baseStyle: {
-    textDecoration: 'none',
-    _hover: {
-      textDecoration: 'none'
-    }
-  }
-};
-
 const theme = extendTheme({
   components: {
-    Link
+    Link: {
+      // The styles all button have in common
+      baseStyle: {
+        textDecoration: 'none',
+        _hover: { textDecoration: 'none' },
+        _active: { opacity: 0.75 },
+        _focus: { boxShadow: 'none' },
+        _focusVisible: { boxShadow: 'outline' }
+      }
+    },
+    Button: {
+      // The styles all button have in common
+      baseStyle: {
+        _active: { opacity: 0.75 },
+        _focus: { boxShadow: 'none' },
+        _focusVisible: { boxShadow: 'outline' }
+      }
+    }
   },
 
   styles: {
@@ -29,14 +36,6 @@ const theme = extendTheme({
         fontWeight: 400,
         letterSpacing: '-0.01em',
         color: props.colorMode === 'dark' ? 'white' : 'gray.900'
-      },
-
-      a: {
-        // color: props.colorMode === 'dark' ? 'brand.300' : 'brand.600',
-        textDecoration: 'none',
-        _hover: {
-          textDecoration: 'none'
-        }
       }
     })
   },

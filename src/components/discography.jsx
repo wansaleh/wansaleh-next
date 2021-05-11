@@ -209,11 +209,7 @@ function Work({ work, setCellHeight }) {
 
   return (
     <LinkBox key={work.youtube} role="group" h={`${cellHeight}px`}>
-      <LinkOverlay
-        href={`https://youtube.com/watch?v=${work.youtube}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <LinkOverlay href={`https://youtube.com/watch?v=${work.youtube}`} isExternal>
         <Flex
           direction="column"
           bg={palette ? palette[PALETTENUM] : 'gray.800'}
