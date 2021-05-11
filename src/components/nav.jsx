@@ -31,9 +31,10 @@ export default function Nav() {
       zIndex="2000"
       transition="all 0.1s ease"
       py="3"
+      overflow="hidden"
       boxShadow={
         y > 20
-          ? useColorModeValue('0 1px 0 0 rgba(0,0,0,0.08)', '0 1px 0 0 rgba(255,255,255,0.06)')
+          ? useColorModeValue(`0 1px 0 0 rgba(0,0,0,0.08)`, `0 1px 0 0 rgba(255,255,255,0.08)`)
           : 'unset'
       }
       bg={y > 20 ? useColorModeValue(rgba('#fff', 0.8), rgba('#000', 0.8)) : 'unset'}
@@ -51,9 +52,18 @@ export default function Nav() {
                     <Logo
                       w="1.75em"
                       fill={useColorModeValue('brand.500', 'brand.500')}
-                      css={{ transition: 'all 1s ease' }}
+                      transition="all 0.25s ease"
+                      transform={y > 20 ? 'scale(1.2)' : 'none'}
+                      // opacity={y > 20 ? 0.5 : 1}
                     />
-                    <Box ml="2" fontWeight="600" d={['none', 'block']}>
+                    <Box
+                      ml="2"
+                      fontWeight="600"
+                      d={['none', 'block']}
+                      transition="all 0.15s ease-out"
+                      transform={y > 20 ? 'translateX(-10px)' : 'none'}
+                      opacity={y > 20 ? 0 : 1}
+                    >
                       By Wan Saleh
                     </Box>
                   </Flex>
