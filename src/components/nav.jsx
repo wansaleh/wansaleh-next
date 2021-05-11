@@ -29,9 +29,13 @@ export default function Nav() {
       right="0"
       w="100vw"
       zIndex="2000"
-      transition="all 0.3s ease-in-out"
+      transition="all 0.1s ease"
       py="3"
-      boxShadow={y > 20 ? '0 2px 15px rgba(0,0,0,0.075)' : 'unset'}
+      boxShadow={
+        y > 20
+          ? useColorModeValue('0 1px 0 0 rgba(0,0,0,0.08)', '0 1px 0 0 rgba(255,255,255,0.06)')
+          : 'unset'
+      }
       bg={y > 20 ? useColorModeValue(rgba('#fff', 0.8), rgba('#000', 0.8)) : 'unset'}
       sx={{
         backdropFilter: y > 20 ? 'blur(20px)' : 'none'
