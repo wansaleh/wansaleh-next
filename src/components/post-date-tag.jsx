@@ -7,7 +7,7 @@ import React from 'react';
 export default function PostDateTags({ post, showFull = false, ...props }) {
   return (
     <Box
-      fontSize={!showFull ? '0.7rem' : 'sm'}
+      fontSize={!showFull ? '0.7rem' : 'xs'}
       fontWeight="700"
       letterSpacing="wider"
       textTransform="uppercase"
