@@ -41,6 +41,8 @@ body,
 
   h2 {
     @apply relative font-semibold tracking-normal font-head;
+    padding-top: 5rem;
+    margin-top: -2rem;
 
     &:before {
       content: '';
