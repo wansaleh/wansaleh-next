@@ -109,7 +109,7 @@ body,
     border: 0;
 
     p {
-      @apply relative max-w-xl font-serif text-4xl font-light leading-snug tracking-tight;
+      @apply relative max-w-xl font-serif text-4xl font-light leading-snug;
 
       &:first-of-type:before {
         font-size: 5em;
