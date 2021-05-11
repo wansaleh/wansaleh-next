@@ -45,11 +45,11 @@ export default function Nav() {
           backdropFilter: y > 20 ? 'blur(20px)' : 'none'
         }}
       >
-        <Container maxW="6xl" pos="relative">
-          <Flex as="nav" zIndex="100" justify="space-between" align="center" fontSize="sm">
+        <Container maxW="6xl" pos="relative" fontSize="sm">
+          <Flex as="nav" zIndex="100" justify="space-between" align="center">
             <Flex as="ul" justify="space-between" align="center">
               <li>
-                <NextLink href="/">
+                <NextLink href="/" passHref>
                   <Link d="block">
                     <Flex align="center">
                       <Logo
@@ -82,25 +82,21 @@ export default function Nav() {
               justify="space-between"
               align="center"
               fontWeight="700"
-              spacing={[0, 1, 2]}
-              fontSize="xs"
-              // textTransform="uppercase"
+              spacing="0.5"
               sx={{
                 a: {
                   p: 0.5,
-                  px: 1.5,
+                  // px: 1.5,
                   lineHeight: 1,
                   d: 'block',
-                  borderRadius: '5px',
-                  border: '2px solid transparent'
+                  borderRadius: '5px'
+                  // border: '2px solid transparent'
                 },
-                'a:hover': { border: '2px solid' },
-                'a:active': { color: 'brand.500' },
-                'a.active': { border: '2px solid' }
+                'a:hover, a:active, a.active': { color: 'brand.500' }
               }}
             >
               <li>
-                <NextLink href="/blog">
+                <NextLink href="/blog" passHref>
                   <Link className={router.pathname.includes('/blog') && 'active'}>
                     In The Studio
                   </Link>
@@ -108,9 +104,17 @@ export default function Nav() {
               </li>
 
               <li>
-                <NextLink href="/tools">
+                <Divider />
+              </li>
+
+              <li>
+                <NextLink href="/tools" passHref>
                   <Link className={router.pathname.includes('/tools') && 'active'}>Tools</Link>
                 </NextLink>
+              </li>
+
+              <li>
+                <Divider />
               </li>
 
               <li>
@@ -133,18 +137,18 @@ function ToggleMode() {
       bg="none"
       variant="unstyled"
       h="auto"
-      borderRadius="0"
+      borderRadius="5px"
       onClick={toggleColorMode}
     >
       <VisuallyHidden>Toggle Mode</VisuallyHidden>
       <Box
         as="svg"
-        height="1.25em"
-        width="1.25em"
+        height="1.1em"
+        width="1.1em"
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
-        strokeWidth="2"
+        strokeWidth="2.5"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
         transition="transform 0.5s ease, opacity 0.2s"
@@ -181,5 +185,28 @@ function ToggleMode() {
         <line x1="18.36" x2="19.78" y1="5.64" y2="4.22" />
       </Box>
     </Button>
+  );
+}
+
+function Divider({ color = 'currentColor', ...props }) {
+  return (
+    <Box
+      as="svg"
+      viewBox="0 0 24 24"
+      width="1.5em"
+      height="1.5em"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+      shapeRendering="geometricPrecision"
+      sx={{ color }}
+      opacity="0.25"
+      // transform="rotate(-5deg)"
+      {...props}
+    >
+      <path d="M16.88 3.549L7.12 20.451" />
+    </Box>
   );
 }

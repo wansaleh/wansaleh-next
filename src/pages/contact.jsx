@@ -9,7 +9,7 @@ export default function ContactPage() {
     <>
       <Head title="By Wan Saleh | Contact" />
 
-      <Container maxW="7xl">
+      <Container maxW="6xl">
         <SimpleGrid columns={[1, 1, 2]} gap="16" py="20" pos="relative" alignItems="center">
           <Box zIndex="0">
             <Heading fontSize="6xl" lineHeight="0.9" letterSpacing="tight" mb="2">
