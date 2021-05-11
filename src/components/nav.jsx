@@ -32,9 +32,9 @@ export default function Nav() {
       transition="all 0.3s ease-in-out"
       py="3"
       boxShadow={y > 20 ? '0 2px 15px rgba(0,0,0,0.075)' : 'unset'}
-      bg={y > 20 ? useColorModeValue(rgba('#fff', 0.7), rgba('#000', 0.7)) : 'unset'}
+      bg={y > 20 ? useColorModeValue(rgba('#fff', 0.8), rgba('#000', 0.8)) : 'unset'}
       sx={{
-        backdropFilter: y > 20 ? 'blur(8px)' : 'none'
+        backdropFilter: y > 20 ? 'blur(20px)' : 'none'
       }}
     >
       <Container maxW="6xl" pos="relative">
