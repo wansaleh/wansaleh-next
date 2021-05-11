@@ -115,7 +115,7 @@ export default function Discography({ works }) {
                 fontWeight="800"
                 // letterSpacing="wide"
                 color={!genre ? 'brand.500' : 'gray.500'}
-                className="hover:!underline"
+                tw="hover:underline!"
               >
                 Semua
               </Link>
@@ -130,7 +130,7 @@ export default function Discography({ works }) {
                   fontWeight="800"
                   // letterSpacing="wide"
                   color={genre === title ? 'brand.500' : 'gray.500'}
-                  className="hover:!underline"
+                  tw="hover:underline!"
                 >
                   {title}
                 </Link>
@@ -280,7 +280,6 @@ function Work({ work, setCellHeight }) {
               />
 
               <HStack
-                className="front"
                 justify="center"
                 spacing="1"
                 pos="absolute"

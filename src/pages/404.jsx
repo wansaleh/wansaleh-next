@@ -8,7 +8,7 @@ export default function FourOhFour() {
   const router = useRouter();
   return (
     <>
-      <Head title="By Wan Saleh | 404" />
+      <Head title="By Wan Saleh • 404" />
 
       <Container
         maxW="6xl"

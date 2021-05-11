@@ -10,7 +10,7 @@ import musicTools from '../data/tools/music';
 export default function Home() {
   return (
     <Box>
-      <Head title="By Wan Saleh | Alatan | Tools" />
+      <Head title="By Wan Saleh • Alatan • Tools" />
 
       <Container maxW="6xl" mt="24" mb="10">
         <Heading

@@ -14,7 +14,7 @@ import { getAllPosts, getPostBySlug } from '../../lib/posts-local';
 export default function Journal({ post }) {
   return (
     <Box>
-      <Head title={`By Wan Saleh | Journal | ${post.title}`} />
+      <Head title={`By Wan Saleh • Journal • ${post.title}`} />
 
       <Container maxW="7xl" mt="20" mb="8">
         <Heading as="h1" fontSize="4xl" fontWeight="700" lineHeight="0.8" letterSpacing="tighter">

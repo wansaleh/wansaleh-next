@@ -23,7 +23,7 @@ export default function Tag({ posts, tag }) {
         <Box>Loading…</Box>
       ) : (
         <>
-          <Head title="By Wan Saleh | In The Studio" />
+          <Head title="By Wan Saleh • In The Studio" />
 
           <Container maxW="6xl" mt="24" mb="10">
             <Heading

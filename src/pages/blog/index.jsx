@@ -8,7 +8,7 @@ import { getAllPostsForHome } from '../../lib/graphcms';
 export default function Journal({ posts }) {
   return (
     <>
-      <Head title="By Wan Saleh | In The Studio" />
+      <Head title="By Wan Saleh • In The Studio" />
 
       <Container maxW="6xl" mt="24" mb="10">
         <Heading

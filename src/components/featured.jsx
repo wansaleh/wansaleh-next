@@ -77,7 +77,6 @@ function Work({ work }) {
           />
 
           <HStack
-            className="front"
             justify="center"
             spacing="1"
             pos="absolute"

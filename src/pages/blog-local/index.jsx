@@ -13,7 +13,7 @@ export default function Journal({ posts }) {
 
   return (
     <Box>
-      <Head title="By Wan Saleh | Journal" />
+      <Head title="By Wan Saleh • Journal" />
 
       <Container maxW="7xl" my="20">
         <Heading
@@ -51,7 +51,7 @@ export default function Journal({ posts }) {
               </NextLink>
             </Heading>
 
-            <Box maxW="2xl" mb="4" className="!leading-normal prose lg:prose-xl font-serif">
+            <Box maxW="2xl" mb="4" tw="leading-normal! prose lg:prose-xl font-serif">
               <MD>{post.excerpt}</MD>
             </Box>
 

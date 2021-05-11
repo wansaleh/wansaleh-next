@@ -17,15 +17,15 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
       {!showFull && (
         <>
           {formatDistanceToNow(parseISO(post.date), { locale: ms })} lalu{' '}
-          <span className="opacity-40">&bull;</span>{' '}
+          <span tw="opacity-40">&bull;</span>{' '}
         </>
       )}
       {showFull && (
         <>
           {format(parseISO(post.date), 'EEEE, d MMMM yyy', { locale: ms })}{' '}
-          <span className="opacity-40">&bull;</span> Kemaskini{' '}
+          <span tw="opacity-40">&bull;</span> Kemaskini{' '}
           {format(parseISO(post.updatedAt), 'd MMMM yyy, h:mm a', { locale: ms })}{' '}
-          <span className="opacity-40">&bull;</span>{' '}
+          <span tw="opacity-40">&bull;</span>{' '}
         </>
       )}
 
@@ -35,7 +35,7 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
         sx={{ li: { ':not(:last-of-type):after': { content: '" • "', opacity: 0.4 } } }}
       >
         {post.tags.map((tag) => (
-          <li className="inline" key={tag.slug}>
+          <li tw="inline" key={tag.slug}>
             <NextLink key={tag.slug} href={`/blog/tag/${tag.slug}`} passHref>
               <Link
                 color="brand.500"

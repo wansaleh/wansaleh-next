@@ -7,7 +7,7 @@ import Sapiens from '../images/sapiens';
 export default function ContactPage() {
   return (
     <>
-      <Head title="By Wan Saleh | Contact" />
+      <Head title="By Wan Saleh • Contact" />
 
       <Container maxW="6xl">
         <SimpleGrid columns={[1, 1, 2]} gap="16" py="20" pos="relative" alignItems="center">

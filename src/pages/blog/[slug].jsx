@@ -24,7 +24,7 @@ export default function JournalPost({ post, morePosts }) {
         <Box>Loading…</Box>
       ) : (
         <>
-          <Head title={`By Wan Saleh | In The Studio | ${post.title}`} />
+          <Head title={`By Wan Saleh • In The Studio • ${post.title}`} />
 
           <Container maxW="6xl" mt="20">
             <Heading
