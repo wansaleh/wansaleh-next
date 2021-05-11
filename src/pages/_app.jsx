@@ -5,8 +5,8 @@ import '../styles/font-tiempos.css';
 import '../styles/main.css';
 
 import { ChakraProvider } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
-import React, { memo, useEffect, useRef } from 'react';
+// import { useRouter } from 'next/router';
+import React from 'react';
 
 import Layout from '../components/layout';
 import chakra from '../styles/chakra';
