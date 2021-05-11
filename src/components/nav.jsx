@@ -9,7 +9,6 @@ import {
   useColorModeValue,
   VisuallyHidden
 } from '@chakra-ui/react';
-import useScrollPosition from '@react-hook/window-scroll';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { rgba } from 'polished';
