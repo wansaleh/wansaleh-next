@@ -17,7 +17,7 @@ const components = {
         <a title={title}>{children}</a>
       </NextLink>
     ) : (
-      <a href={href} title={title} {...props}>
+      <a href={href} title={title} target="_blank" rel="noopener noreferrer" {...props}>
         {children}
       </a>
     );
