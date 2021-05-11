@@ -28,10 +28,17 @@ import SmallBadge from './small-badge';
 
 const PALETTENUM = 0;
 
-function listNames(names) {
-  names = names.map((comp) => comp.replace(/Wan Saleh/i, 'Me'));
-
+function listArtists(names) {
   return arrayToSentence(names, {
+    lastSeparator: ' & '
+  });
+}
+
+function listWriters(composers, writers) {
+  composers = composers || [];
+  writers = writers || [];
+
+  return arrayToSentence([...new Set([...composers, ...writers])], {
     lastSeparator: ' & '
   });
 }
@@ -340,7 +347,8 @@ function Work({ work, setCellHeight }) {
               <Box
                 fontSize="xs"
                 fontWeight="600"
-                maxW="95%"
+                h="2.4em"
+                // maxW="95%"
                 lineHeight="1.2"
                 w="full"
                 mb="2"
@@ -349,28 +357,30 @@ function Work({ work, setCellHeight }) {
                 overflow="hidden"
               >
                 <Box
-                  whiteSpace="nowrap"
-                  overflow="hidden"
-                  textOverflow="ellipsis"
+                  // whiteSpace="nowrap"
+                  // overflow="hidden"
+                  // textOverflow="ellipsis"
                   opacity="1"
                   transition="all 0.2s ease-out"
-                  _groupHover={work.composer && { opacity: 0, transform: 'translateY(-100%)' }}
+                  _groupHover={
+                    (work.composer || work.writer) && { opacity: 0, transform: 'translateY(-100%)' }
+                  }
                 >
-                  {listNames(work.artist)}
+                  {listArtists(work.artist)}
                 </Box>
-                {work.composer && (
+                {(work.composer || work.writer) && (
                   <Box
-                    whiteSpace="nowrap"
-                    overflow="hidden"
-                    textOverflow="ellipsis"
+                    // whiteSpace="nowrap"
+                    // overflow="hidden"
+                    // textOverflow="ellipsis"
                     pos="absolute"
                     inset="0"
                     opacity="0"
                     transition="all 0.2s ease-out"
-                    transform="translateY(100%)"
+                    transform="translateY(50%)"
                     _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
                   >
-                    Written by {listNames(work.composer)}
+                    Written by {listWriters(work.composer, work.writer)}
                   </Box>
                 )}
               </Box>
