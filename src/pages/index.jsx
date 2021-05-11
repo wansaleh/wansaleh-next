@@ -29,7 +29,7 @@ export default function Home({ works }) {
           w="150vw"
           h="150%"
           zIndex="-1"
-          transform="translate(0%, 0%) scaleX(-1) rotate(-10deg)"
+          transform="translate(0%, 5%) scaleX(-1) rotate(-10deg)"
           d={['none', 'none', 'block']}
         >
           <Image
