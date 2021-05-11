@@ -49,7 +49,7 @@ export default function Nav() {
                       fill={useColorModeValue('brand.500', 'brand.500')}
                       css={{ transition: 'all 1s ease' }}
                     />
-                    <Box ml="2" fontWeight="700" letterSpacing="wide">
+                    <Box ml="2" fontWeight="600" d={['none', 'block']}>
                       By Wan Saleh
                     </Box>
                   </Flex>
@@ -64,8 +64,10 @@ export default function Nav() {
             as="ul"
             justify="space-between"
             align="center"
-            fontWeight="600"
-            spacing="2"
+            fontWeight="700"
+            spacing={[0, 1, 2]}
+            fontSize="xs"
+            // textTransform="uppercase"
             sx={{
               a: {
                 p: 0.5,

@@ -93,7 +93,8 @@ export default function PostsList({ posts, hero, gridProps }) {
               <Flex
                 direction="column"
                 justify="flex-end"
-                p="5"
+                p="4"
+                pb="6"
                 borderTop="3px solid"
                 borderColor="transparent"
                 transition="all 0.2s ease"
