@@ -59,12 +59,14 @@ export async function getAllPostsForHome(preview) {
   const data = await fetchAPI(
     gql`
       {
-        posts(orderBy: date_DESC, first: 20) {
+        posts(orderBy: createdAt_DESC, first: 20) {
           title
           slug
           subtitle
           excerpt
           date
+          createdAt
+          publishedAt
           updatedAt
           coverImage {
             url(transformation: { image: { resize: { fit: crop, width: 1280, height: 640 } } })
@@ -98,6 +100,8 @@ export async function getPostAndMorePosts(slug, preview) {
           subtitle
           content
           date
+          createdAt
+          publishedAt
           updatedAt
           ogImage: coverImage {
             url(transformation: { image: { resize: { fit: crop, width: 1280, height: 640 } } })
@@ -118,12 +122,14 @@ export async function getPostAndMorePosts(slug, preview) {
             slug
           }
         }
-        morePosts: posts(orderBy: date_DESC, first: 3, where: { slug_not_in: [$slug] }) {
+        morePosts: posts(orderBy: createdAt_DESC, first: 3, where: { slug_not_in: [$slug] }) {
           title
           slug
           subtitle
           excerpt
           date
+          createdAt
+          publishedAt
           updatedAt
           coverImage {
             url(transformation: { image: { resize: { fit: crop, width: 1280, height: 640 } } })
@@ -157,12 +163,14 @@ export async function getAllPostsForTag(tag, preview) {
   const data = await fetchAPI(
     gql`
       query PostsForTag($tag: String!) {
-        posts(where: { tags_some: { slug: $tag } }, orderBy: date_DESC, first: 20) {
+        posts(where: { tags_some: { slug: $tag } }, orderBy: createdAt_DESC, first: 20) {
           title
           slug
           subtitle
           excerpt
           date
+          createdAt
+          publishedAt
           updatedAt
           coverImage {
             url(transformation: { image: { resize: { fit: crop, width: 1280, height: 640 } } })

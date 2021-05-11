@@ -16,13 +16,13 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
     >
       {!showFull && (
         <>
-          {formatDistanceToNow(parseISO(post.date), { locale: ms })} lalu{' '}
+          {formatDistanceToNow(parseISO(post.createdAt), { locale: ms })} lalu{' '}
           <span tw="opacity-40">&bull;</span>{' '}
         </>
       )}
       {showFull && (
         <>
-          {format(parseISO(post.date), 'EEEE, d MMMM yyy', { locale: ms })}{' '}
+          {format(parseISO(post.createdAt), 'EEEE, d MMMM yyy', { locale: ms })}{' '}
           <span tw="opacity-40">&bull;</span> Kemaskini{' '}
           {format(parseISO(post.updatedAt), 'd MMMM yyy, h:mm a', { locale: ms })}{' '}
           <span tw="opacity-40">&bull;</span>{' '}

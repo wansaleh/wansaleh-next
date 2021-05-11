@@ -104,7 +104,7 @@ body,
   }
 
   blockquote {
-    @apply pl-12;
+    @apply pl-16;
     color: inherit;
     border: 0;
 
@@ -112,10 +112,10 @@ body,
       @apply relative max-w-xl font-serif text-4xl font-light leading-snug tracking-tight;
 
       &:first-of-type:before {
-        font-size: 4em;
+        font-size: 5em;
         position: absolute;
         left: -0.45em;
-        top: -0.25em;
+        top: -0.35em;
         @apply text-brand-500;
       }
     }
