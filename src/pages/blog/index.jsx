@@ -1,7 +1,7 @@
-import { Container, Heading } from '@chakra-ui/react';
 import React from 'react';
 
 import Head from '../../components/head';
+import PageHeader from '../../components/page-header';
 import PostsList from '../../components/posts-list';
 import { getAllPostsForHome } from '../../lib/graphcms';
 
@@ -10,29 +10,7 @@ export default function Journal({ posts }) {
     <>
       <Head title="By Wan Saleh • In The Studio" />
 
-      <Container maxW="6xl" mt="24" mb="10">
-        <Heading
-          as="h1"
-          fontSize={['6xl', '7xl']}
-          fontWeight="600"
-          lineHeight="1"
-          letterSpacing="tighter"
-          transform="skew(-6deg)"
-        >
-          In The Studio
-        </Heading>
-        <Heading
-          as="h2"
-          pb="2"
-          fontSize={['2xl', '3xl']}
-          fontWeight="400"
-          lineHeight="1.2"
-          letterSpacing="0"
-          maxW="2xl"
-        >
-          Pencarianku ke arah kecemerlangan bunyi.
-        </Heading>
-      </Container>
+      <PageHeader title="In The Studio" subtitle="Pencarianku ke arah kecemerlangan bunyi." />
 
       <PostsList hero posts={posts} />
     </>

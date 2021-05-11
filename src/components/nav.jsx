@@ -187,7 +187,7 @@ function ToggleMode() {
   );
 }
 
-function Divider({ color = 'currentColor', ...props }) {
+export function Divider({ color = 'currentColor', ...props }) {
   return (
     <Box
       as="svg"

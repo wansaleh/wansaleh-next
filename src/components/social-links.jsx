@@ -1,6 +1,8 @@
 import { Box, Link, VisuallyHidden } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import { Divider } from './nav';
 
 const links = [
   {
@@ -61,31 +63,39 @@ export default function SocialLinks({ showContact }) {
   return (
     <>
       {showContact && (
-        <li>
-          <NextLink href="/contact">
-            <Link p="1" d="block">
-              Contact
-            </Link>
-          </NextLink>
-        </li>
+        <>
+          <li>
+            <NextLink href="/contact">
+              <Link p="1" d="block">
+                Contact
+              </Link>
+            </NextLink>
+          </li>
+          <li>
+            <Divider />
+          </li>
+        </>
       )}
 
-      {links.map(({ key, href, label, icon }) => (
-        <li key={key}>
-          {href.startsWith('https://') ? (
-            <Link href={href} p="1" d="block">
-              {icon || label}
-              {icon && <VisuallyHidden>{label}</VisuallyHidden>}
-            </Link>
-          ) : (
-            <NextLink href={href}>
-              <Link p="1" d="block">
+      {links.map(({ key, href, label, icon }, i) => (
+        <Fragment key={key}>
+          {i > 0 && <Divider />}
+          <li key={key}>
+            {href.startsWith('https://') ? (
+              <Link href={href} p="1" d="block">
                 {icon || label}
                 {icon && <VisuallyHidden>{label}</VisuallyHidden>}
               </Link>
-            </NextLink>
-          )}
-        </li>
+            ) : (
+              <NextLink href={href}>
+                <Link p="1" d="block">
+                  {icon || label}
+                  {icon && <VisuallyHidden>{label}</VisuallyHidden>}
+                </Link>
+              </NextLink>
+            )}
+          </li>
+        </Fragment>
       ))}
     </>
   );

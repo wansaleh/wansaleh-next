@@ -1,5 +1,5 @@
 /* eslint-disable no-sparse-arrays */
-import { Box, Container, Heading, Link, useColorModeValue } from '@chakra-ui/react';
+import { Box, Heading, Link } from '@chakra-ui/react';
 import ErrorPage from 'next/error';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -7,6 +7,7 @@ import React from 'react';
 
 import Head from '../../../components/head';
 import Markdown from '../../../components/markdown';
+import PageHeader from '../../../components/page-header';
 import PostsList from '../../../components/posts-list';
 import { getAllPostsForTag, getAllTags } from '../../../lib/graphcms';
 
@@ -25,55 +26,38 @@ export default function Tag({ posts, tag }) {
         <>
           <Head title="By Wan Saleh • In The Studio" />
 
-          <Container maxW="6xl" mt="24" mb="10">
-            <Heading
-              as="h1"
-              fontSize={['6xl', '7xl']}
-              fontWeight="600"
-              lineHeight="1"
-              letterSpacing="tighter"
-              transform="skew(-6deg)"
-            >
+          <PageHeader
+            title={
               <NextLink href="/blog" passHref>
                 <Link>In The Studio</Link>
               </NextLink>
-            </Heading>
-
-            <Heading
-              as="h2"
-              fontSize={['3xl', '4xl']}
-              fontWeight="300"
-              lineHeight="1"
-              // mt="-2"
-              mb="4"
-            >
-              <Box
-                as="span"
-                d="inline-block"
-                bg={useColorModeValue('black', 'white')}
-                color={useColorModeValue('white', 'black')}
-                px="2"
+            }
+            middle={
+              <Heading
+                as="h2"
+                letterSpacing="tight"
+                lineHeight="1"
+                mb="4"
+                mt="-1"
+                fontSize={['3xl', '4xl']}
+                fontWeight="400"
+                color="brand.500"
+                // bg={useColorModeValue('black', 'white')}
+                // color={useColorModeValue('white', 'black')}
               >
                 {tag.title}
-              </Box>
-            </Heading>
-
-            <Heading
-              as="h3"
-              pb="2"
-              fontSize={['2xl', '3xl']}
-              fontWeight="400"
-              lineHeight="1.2"
-              letterSpacing="0"
-              maxW="2xl"
-            >
-              {tag.description ? (
-                <Markdown>{tag.description}</Markdown>
-              ) : (
-                'Pencarianku ke arah kecemerlangan bunyi.'
-              )}
-            </Heading>
-          </Container>
+              </Heading>
+            }
+            subtitle={
+              <>
+                {tag.description ? (
+                  <Markdown>{tag.description}</Markdown>
+                ) : (
+                  'Pencarianku ke arah kecemerlangan bunyi.'
+                )}
+              </>
+            }
+          />
 
           <PostsList posts={posts} tag={tag} />
         </>

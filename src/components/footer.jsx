@@ -26,6 +26,7 @@ export default function Footer() {
             © {new Date().getFullYear()} By Wan Saleh
           </Text>
         </li>
+
         <li>
           <HStack
             as="ul"
@@ -33,7 +34,7 @@ export default function Footer() {
             align="center"
             py="2"
             fontWeight="600"
-            spacing="2"
+            spacing="0"
           >
             <SocialLinks showContact />
           </HStack>

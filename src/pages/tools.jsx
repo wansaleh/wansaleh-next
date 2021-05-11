@@ -1,7 +1,8 @@
-import { Box, Container, Heading, SimpleGrid } from '@chakra-ui/react';
+import { Box, Container, SimpleGrid } from '@chakra-ui/react';
 import React from 'react';
 
 import Head from '../components/head';
+import PageHeader from '../components/page-header';
 import SectionTitle from '../components/section-title';
 import Tools from '../components/tools';
 import devTools from '../data/tools/dev';
@@ -12,29 +13,7 @@ export default function Home() {
     <Box>
       <Head title="By Wan Saleh • Alatan • Tools" />
 
-      <Container maxW="6xl" mt="24" mb="10">
-        <Heading
-          as="h1"
-          fontSize={['6xl', '7xl']}
-          fontWeight="600"
-          lineHeight="1"
-          letterSpacing="tighter"
-          transform="skew(-6deg)"
-        >
-          My Tools
-        </Heading>
-        <Heading
-          as="h2"
-          pb="2"
-          fontSize={['2xl', '3xl']}
-          fontWeight="400"
-          lineHeight="1.2"
-          letterSpacing="0"
-          maxW="2xl"
-        >
-          Keperluan yang membantu kerja saya.
-        </Heading>
-      </Container>
+      <PageHeader title="My Tools" subtitle="Keperluan yang membantu kerja saya." />
 
       <Container maxW="6xl">
         <SimpleGrid columns={[1, 1, 1, 2]} spacing="20">

@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   }, [colorMode]);
 
   return (
-    <Box>
+    <Box overflowX="hidden">
       <Nav />
       {children}
       <Footer />
