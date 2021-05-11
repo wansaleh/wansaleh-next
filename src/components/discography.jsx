@@ -26,7 +26,7 @@ import { useMeasure } from 'react-use';
 
 import SmallBadge from './small-badge';
 
-const PALETTENUM = 1;
+const PALETTENUM = 0;
 
 function listNames(names) {
   names = names.map((comp) => comp.replace(/Wan Saleh/i, 'Me'));
@@ -70,7 +70,7 @@ export default function Discography({ works }) {
   return (
     <SimpleGrid
       columns={[1, 2, 3, 3, 4, 5]}
-      // spacing="3"
+      spacing="0"
       // mx="3"
       shadow="0 -10px 30px rgba(0,0,0,0.07)"
       maxW="1800px"
@@ -106,7 +106,7 @@ export default function Discography({ works }) {
               <Link
                 textTransform="uppercase"
                 fontWeight="800"
-                letterSpacing="wide"
+                // letterSpacing="wide"
                 color={!genre ? 'brand.500' : 'gray.500'}
                 className="hover:!underline"
               >
@@ -121,7 +121,7 @@ export default function Discography({ works }) {
                 <Link
                   textTransform="uppercase"
                   fontWeight="800"
-                  letterSpacing="wider"
+                  // letterSpacing="wide"
                   color={genre === title ? 'brand.500' : 'gray.500'}
                   className="hover:!underline"
                 >
@@ -339,36 +339,55 @@ function Work({ work, setCellHeight }) {
             <Flex justify="center" align="center" direction="column" w="full">
               <Box
                 fontSize="xs"
-                fontWeight="400"
-                maxW="90%"
-                whiteSpace="nowrap"
-                overflow="hidden"
-                textOverflow="ellipsis"
-                mb="2"
-              >
-                {listNames(work.artist)}
-              </Box>
-
-              <Box
-                mt="1"
-                fontSize="xs"
                 fontWeight="600"
-                maxW="90%"
-                whiteSpace="nowrap"
+                maxW="95%"
+                lineHeight="1.2"
+                w="full"
+                mb="2"
+                pos="relative"
+                zIndex="1"
                 overflow="hidden"
-                textOverflow="ellipsis"
-                opacity="0"
-                transition="all 0.3s ease"
-                transform="translateY(50%)"
-                _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
               >
-                {work.composer ? <>Written by {listNames(work.composer)}</> : <>&nbsp;</>}
+                <Box
+                  whiteSpace="nowrap"
+                  overflow="hidden"
+                  textOverflow="ellipsis"
+                  opacity="1"
+                  transition="all 0.2s ease-out"
+                  _groupHover={work.composer && { opacity: 0, transform: 'translateY(-100%)' }}
+                >
+                  {listNames(work.artist)}
+                </Box>
+                {work.composer && (
+                  <Box
+                    whiteSpace="nowrap"
+                    overflow="hidden"
+                    textOverflow="ellipsis"
+                    pos="absolute"
+                    inset="0"
+                    opacity="0"
+                    transition="all 0.2s ease-out"
+                    transform="translateY(100%)"
+                    _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
+                  >
+                    Written by {listNames(work.composer)}
+                  </Box>
+                )}
               </Box>
             </Flex>
 
-            <Box mt="1" fontSize="xs" fontWeight="600" pos="relative" w="full">
+            <Box
+              mt="1"
+              fontSize="11px"
+              fontWeight="800"
+              pos="relative"
+              w="full"
+              opacity="0.5"
+              letterSpacing="wide"
+              textTransform="uppercase"
+            >
               <Box
-                transition="all 0.3s ease"
+                transition="all 0.2s ease-out"
                 _groupHover={{ opacity: 0 }}
                 // textTransform="capitalize"
               >
@@ -378,9 +397,8 @@ function Work({ work, setCellHeight }) {
                 opacity="0"
                 pos="absolute"
                 inset="0"
-                transition="all 0.3s ease"
+                transition="all 0.2s ease-out"
                 _groupHover={{ opacity: 1 }}
-                textTransform="capitalize"
               >
                 {format(work.released, 'd MMMM yyy', { locale: ms })}
               </Box>
