@@ -1,4 +1,4 @@
-import { Box, Container, Heading, useColorModeValue } from '@chakra-ui/react';
+import { Box, Container, Heading } from '@chakra-ui/react';
 
 export default function PageHeader({ title, middle, subtitle }) {
   return (
