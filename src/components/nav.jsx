@@ -88,7 +88,7 @@ export default function Nav() {
                 px: 1.5,
                 lineHeight: 1,
                 d: 'block',
-                borderRadius: 'md',
+                borderRadius: '5px',
                 border: '2px solid transparent'
               },
               'a:hover': { border: '2px solid' },
