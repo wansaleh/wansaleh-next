@@ -9,112 +9,118 @@ import {
   useColorModeValue,
   VisuallyHidden
 } from '@chakra-ui/react';
+import useScrollPosition from '@react-hook/window-scroll';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { rgba } from 'polished';
 import React from 'react';
-import { useWindowScroll } from 'react-use';
+import { useTimeout, useWindowScroll } from 'react-use';
 
 import Logo from '../images/logo';
 
 export default function Nav() {
   const router = useRouter();
   const { y } = useWindowScroll();
+  const [isReady] = useTimeout(10);
 
   return (
-    <Box
-      pos="fixed"
-      top="0"
-      left="0"
-      right="0"
-      w="100vw"
-      zIndex="2000"
-      transition="all 0.1s ease"
-      py="3"
-      overflow="hidden"
-      boxShadow={
-        y > 20
-          ? useColorModeValue(`0 1px 0 0 rgba(0,0,0,0.08)`, `0 1px 0 0 rgba(255,255,255,0.08)`)
-          : 'unset'
-      }
-      bg={y > 20 ? useColorModeValue(rgba('#fff', 0.8), rgba('#000', 0.8)) : 'unset'}
-      sx={{
-        backdropFilter: y > 20 ? 'blur(20px)' : 'none'
-      }}
-    >
-      <Container maxW="6xl" pos="relative">
-        <Flex as="nav" zIndex="100" justify="space-between" align="center" fontSize="sm">
-          <Flex as="ul" justify="space-between" align="center">
-            <li>
-              <NextLink href="/">
-                <Link d="block">
-                  <Flex align="center">
-                    <Logo
-                      w="1.75em"
-                      fill={useColorModeValue('brand.500', 'brand.500')}
-                      transition="all 0.25s ease"
-                      transform={y > 20 ? 'scale(1.2)' : 'none'}
-                      // opacity={y > 20 ? 0.5 : 1}
-                    />
-                    <Box
-                      ml="2"
-                      fontWeight="600"
-                      d={['none', 'block']}
-                      transition="all 0.15s ease-out"
-                      transform={y > 20 ? 'translateX(-10px)' : 'none'}
-                      opacity={y > 20 ? 0 : 1}
-                    >
-                      By Wan Saleh
-                    </Box>
-                  </Flex>
-                </Link>
-              </NextLink>
-            </li>
+    isReady() && (
+      <Box
+        pos="fixed"
+        top="0"
+        left="0"
+        right="0"
+        w="100vw"
+        zIndex="2000"
+        transition="all 0.1s ease"
+        py="3"
+        overflow="hidden"
+        boxShadow={
+          y > 20
+            ? useColorModeValue(`0 1px 0 0 rgba(0,0,0,0.08)`, `0 1px 0 0 rgba(255,255,255,0.08)`)
+            : 'unset'
+        }
+        bg={y > 20 ? useColorModeValue(rgba('#fff', 0.8), rgba('#000', 0.8)) : 'unset'}
+        sx={{
+          backdropFilter: y > 20 ? 'blur(20px)' : 'none'
+        }}
+      >
+        <Container maxW="6xl" pos="relative">
+          <Flex as="nav" zIndex="100" justify="space-between" align="center" fontSize="sm">
+            <Flex as="ul" justify="space-between" align="center">
+              <li>
+                <NextLink href="/">
+                  <Link d="block">
+                    <Flex align="center">
+                      <Logo
+                        w="1.75em"
+                        fill={useColorModeValue('brand.500', 'brand.500')}
+                        transition="all 0.25s ease"
+                        transform={y > 20 ? 'scale(1.2)' : 'none'}
+                        // opacity={y > 20 ? 0.5 : 1}
+                      />
+                      <Box
+                        ml="2"
+                        fontWeight="600"
+                        d={['none', 'block']}
+                        transition="all 0.15s ease-out"
+                        transform={y > 20 ? 'translateX(-10px)' : 'none'}
+                        opacity={y > 20 ? 0 : 1}
+                      >
+                        By Wan Saleh
+                      </Box>
+                    </Flex>
+                  </Link>
+                </NextLink>
+              </li>
+            </Flex>
+
+            <Box flex="1" />
+
+            <HStack
+              as="ul"
+              justify="space-between"
+              align="center"
+              fontWeight="700"
+              spacing={[0, 1, 2]}
+              fontSize="xs"
+              // textTransform="uppercase"
+              sx={{
+                a: {
+                  p: 0.5,
+                  px: 1.5,
+                  lineHeight: 1,
+                  d: 'block',
+                  borderRadius: '5px',
+                  border: '2px solid transparent'
+                },
+                'a:hover': { border: '2px solid' },
+                'a:active': { color: 'brand.500' },
+                'a.active': { border: '2px solid' }
+              }}
+            >
+              <li>
+                <NextLink href="/blog">
+                  <Link className={router.pathname.includes('/blog') && 'active'}>
+                    In The Studio
+                  </Link>
+                </NextLink>
+              </li>
+
+              <li>
+                <NextLink href="/tools">
+                  <Link className={router.pathname.includes('/tools') && 'active'}>Tools</Link>
+                </NextLink>
+              </li>
+
+              <li>
+                <ToggleMode />
+              </li>
+            </HStack>
           </Flex>
-
-          <Box flex="1" />
-
-          <HStack
-            as="ul"
-            justify="space-between"
-            align="center"
-            fontWeight="700"
-            spacing={[0, 1, 2]}
-            fontSize="xs"
-            // textTransform="uppercase"
-            sx={{
-              a: {
-                p: 0.5,
-                px: 1.5,
-                lineHeight: 1,
-                d: 'block',
-                borderRadius: '5px',
-                border: '2px solid transparent'
-              },
-              'a:hover': { border: '2px solid' },
-              'a:active': { color: 'brand.500' },
-              'a.active': { border: '2px solid' }
-            }}
-          >
-            <li>
-              <NextLink href="/blog">
-                <Link className={router.pathname.includes('/blog') && 'active'}>In The Studio</Link>
-              </NextLink>
-            </li>
-
-            <li>
-              <NextLink href="/tools">
-                <Link className={router.pathname.includes('/tools') && 'active'}>Tools</Link>
-              </NextLink>
-            </li>
-
-            <li>
-              <ToggleMode />
-            </li>
-          </HStack>
-        </Flex>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+    )
   );
 }
 
