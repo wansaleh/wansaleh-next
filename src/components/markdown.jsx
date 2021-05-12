@@ -33,12 +33,12 @@ const components = {
       <Link href={href} title={title} isExternal {...props}>
         {children}{' '}
         <svg
-          height="1em"
-          width="1em"
+          height="0.8em"
+          width="0.8em"
           fill="none"
           stroke="currentColor"
           strokeLinecap="round"
-          strokeWidth="1.5"
+          strokeWidth="2"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           tw="inline-block -mt-1"
