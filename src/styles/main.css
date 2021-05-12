@@ -16,6 +16,7 @@ body,
 }
 
 .prose.article {
+  /* @apply font-serif; */
   color: inherit;
 
   h1,
