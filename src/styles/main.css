@@ -57,6 +57,13 @@ body,
         background: #fff;
       }
     }
+
+    a {
+      color: inherit;
+      &:hover {
+        @apply underline;
+      }
+    }
   }
 
   a {
