@@ -11,9 +11,9 @@ import rehypeSlug from 'rehype-slug';
 const components = {
   a({ href, title, children, ...props }) {
     const isAnchor = href.startsWith('#');
-    const isSameDomain = !href.includes('http://') && !href.includes('https://');
+    const isExternal = href.includes('http://') || href.includes('https://');
 
-    if (!isAnchor && isSameDomain) {
+    if (!isAnchor && !isExternal) {
       return (
         <NextLink href={href} passHref {...props}>
           <Link title={title}>{children}</Link>
@@ -31,7 +31,22 @@ const components = {
 
     return (
       <Link href={href} title={title} isExternal {...props}>
-        {children}
+        {children}{' '}
+        <svg
+          height="1em"
+          width="1em"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth="1.5"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          tw="inline-block -mt-2"
+        >
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          <polyline points="15 3 21 3 21 9" />
+          <line x1="10" x2="21" y1="14" y2="3" />
+        </svg>
       </Link>
     );
   },
