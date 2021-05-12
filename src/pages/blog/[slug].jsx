@@ -76,7 +76,7 @@ export default function JournalPost({ post, morePosts }) {
             <Heading
               fontSize={['5xl', '6xl', '8xl']}
               fontWeight="600"
-              lineHeight="0.9"
+              lineHeight="0.8"
               mb="4"
               letterSpacing="tight"
               // transform="skew(-6deg)"
