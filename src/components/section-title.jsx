@@ -19,11 +19,11 @@ export default function SectionTitle({ title, subtitle }) {
       <Heading
         as="h3"
         mt="2"
-        // fontFamily="body"
+        fontFamily="body"
         fontSize={['xl', 'xl', '2xl']}
-        fontWeight="400"
+        fontWeight="300"
         lineHeight="0.9"
-        // letterSpacing="0.1em"
+        letterSpacing="tight"
         // textTransform="uppercase"
         // opacity="0.6"
         color={useColorModeValue('gray.600', 'gray.500')}
