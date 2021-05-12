@@ -47,12 +47,12 @@ const components = {
   }
 };
 
-export default function Markdown({ children }) {
+export default function Markdown({ noTOC, children }) {
   return (
     <ReactMarkdown
       components={components}
       remarkPlugins={[remarkSmartypants]}
-      rehypePlugins={[rehypeSlug, rehypeHeadings, rehypeToc, rehypeRaw]}
+      rehypePlugins={[rehypeSlug, rehypeHeadings, !noTOC && rehypeToc, rehypeRaw].filter(Boolean)}
     >
       {children}
     </ReactMarkdown>

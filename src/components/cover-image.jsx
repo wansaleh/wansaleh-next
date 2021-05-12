@@ -3,6 +3,8 @@ import NextImage from 'next/image';
 import NextLink from 'next/link';
 import React from 'react';
 
+import Markdown from './markdown';
+
 export default function CoverImage({ src, title, caption, slug, height, width, ...props }) {
   const image = (
     <NextImage
@@ -68,8 +70,13 @@ export default function CoverImage({ src, title, caption, slug, height, width, .
           maxW="3xl"
           mx="auto"
           textAlign="center"
+          sx={{
+            a: {
+              color: useColorModeValue('gray.600', 'gray.400')
+            }
+          }}
         >
-          {caption}
+          <Markdown noTOC>{caption}</Markdown>
         </Box>
       )}
     </Box>
