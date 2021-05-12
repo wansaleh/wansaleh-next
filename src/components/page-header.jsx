@@ -36,10 +36,11 @@ export default function PageHeader({ title, middle, subtitle }) {
       <Heading
         as="h2"
         pb="2"
+        fontFamily="body"
         fontSize={['2xl', '3xl']}
-        fontWeight="400"
+        fontWeight="300"
         lineHeight="1.2"
-        letterSpacing="0"
+        letterSpacing="tight"
         maxW="2xl"
       >
         {subtitle}
