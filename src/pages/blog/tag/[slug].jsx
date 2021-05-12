@@ -8,7 +8,7 @@ import React from 'react';
 import Head from '../../../components/head';
 import Markdown from '../../../components/markdown';
 import PageHeader from '../../../components/page-header';
-import PostsList from '../../../components/posts-list';
+import PostsList from '../../../containers/blog/posts-list';
 import { getAllPostsForTag, getAllTags } from '../../../lib/graphcms';
 
 export default function Tag({ posts, tag }) {
