@@ -39,7 +39,7 @@ export default [
   },
   {
     name: 'Gears',
-    desc: 'Interfaces: UAD Apollo Twin X Quad, Apogee Duet 2, Focusrite Clarett 8Pre USB. Preamps: Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast. Mics: Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Audio Technica AT2035. Controllers: Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Nektar Impakt LX61+, Compressors: Alesis 3630, dbx 166xs. Monitor controller: Mackie Big Knob Studio.',
+    desc: 'Interfaces: UAD Apollo Twin X Quad, Apogee Duet 2, Focusrite Clarett 8Pre USB. Preamps: Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast. Mics: Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Audio Technica AT2035. Controllers: Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Compressors: Alesis 3630, dbx 166xs. Monitor controller: Mackie Big Knob Studio.',
     logos: [
       {
         image: '/assets/images/logos/universal-audio-vector-logo.svg',
@@ -100,11 +100,6 @@ export default [
         image: '/assets/images/logos/ROLIMonogramLockupBlack.svg',
         title: 'ROLI',
         link: 'https://roli.com'
-      },
-      {
-        image: '/assets/images/logos/nektar.svg',
-        title: 'Nektar',
-        link: 'https://nektartech.com'
       }
     ]
   },
