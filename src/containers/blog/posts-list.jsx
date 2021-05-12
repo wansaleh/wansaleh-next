@@ -12,8 +12,8 @@ import {
 import NextLink from 'next/link';
 import React from 'react';
 
-import CoverImage from './cover-image';
-import Markdown from './markdown';
+import CoverImage from '../../components/cover-image';
+import Markdown from '../../components/markdown';
 import PostDateTags from './post-date-tag';
 
 export default function PostsList({ posts, hero, gridProps }) {

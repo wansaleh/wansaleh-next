@@ -5,8 +5,8 @@ import NextLink from 'next/link';
 import React from 'react';
 import MD from 'react-markdown';
 
-import Head from '../../components/head';
-import { getAllPosts } from '../../lib/posts-local';
+import Head from '../../src/components/head';
+import { getAllPosts } from '../posts-local';
 
 export default function Journal({ posts }) {
   const theme = useTheme();

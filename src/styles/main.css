@@ -96,31 +96,27 @@ body,
   }
 
   ol > li::before {
-    @apply font-medium text-gray-500 opacity-75;
-
-    .dark & {
-      @apply text-gray-600;
-    }
+    @apply font-medium text-gray-500 opacity-75 dark:text-gray-600;
   }
 
   blockquote {
-    @apply pl-0;
+    @apply pl-0 border-0;
     color: inherit;
-    border: 0;
 
     p {
-      @apply relative max-w-xl font-serif text-4xl font-light leading-snug;
+      @apply relative max-w-2xl font-serif font-light leading-snug tracking-tight;
+      font-size: 2em;
 
       &:first-of-type:before {
         content: open-quote;
-        font-size: 2.5em;
+        font-size: 3em;
         position: absolute;
         right: 101%;
         top: -0.15em;
         line-height: 1;
         /* left: -0.45em;
         top: -0.35em; */
-        @apply text-brand-500;
+        @apply text-gray-400 dark:text-gray-600;
       }
     }
   }

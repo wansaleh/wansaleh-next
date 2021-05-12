@@ -7,8 +7,8 @@ import React from 'react';
 import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
 import Markdown from '../../components/markdown';
-import PostDateTags from '../../components/post-date-tag';
-import PostsList from '../../components/posts-list';
+import PostDateTags from '../../containers/blog/post-date-tag';
+import PostsList from '../../containers/blog/posts-list';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/graphcms';
 
 export default function JournalPost({ post, morePosts }) {

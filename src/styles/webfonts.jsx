@@ -81,6 +81,31 @@ export default function WebFonts() {
           font-display: swap;
           font-style: normal;
         }
+        /* Bespoke Serif */
+        @font-face {
+          font-family: 'Bespoke Serif';
+          src: url('https://cdn.fontshare.com/wf/LQBL2BKOVSXOIPKVAC7Y76PA7GZ2HXBD/IQ53PCOMUF4S5V5TKVBLDGYVOV4Y73B5/QQHHDRSCXVWQMZ6WGM4VTWROGNY4EHQH.woff2')
+              format('woff2'),
+            url('https://cdn.fontshare.com/wf/LQBL2BKOVSXOIPKVAC7Y76PA7GZ2HXBD/IQ53PCOMUF4S5V5TKVBLDGYVOV4Y73B5/QQHHDRSCXVWQMZ6WGM4VTWROGNY4EHQH.woff')
+              format('woff'),
+            url('https://cdn.fontshare.com/wf/LQBL2BKOVSXOIPKVAC7Y76PA7GZ2HXBD/IQ53PCOMUF4S5V5TKVBLDGYVOV4Y73B5/QQHHDRSCXVWQMZ6WGM4VTWROGNY4EHQH.ttf')
+              format('truetype');
+          font-weight: 300 800;
+          font-display: swap;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: 'Bespoke Serif';
+          src: url('https://cdn.fontshare.com/wf/HC7WW3IHSQE42LDAISTJUDIMC6WXDYWA/6ELDKO7AR6O37OXX45LVNY4CRXMHJ4SA/OCG4B3AYFIJYARETUDDBO7AIYCYIBCJD.woff2')
+              format('woff2'),
+            url('https://cdn.fontshare.com/wf/HC7WW3IHSQE42LDAISTJUDIMC6WXDYWA/6ELDKO7AR6O37OXX45LVNY4CRXMHJ4SA/OCG4B3AYFIJYARETUDDBO7AIYCYIBCJD.woff')
+              format('woff'),
+            url('https://cdn.fontshare.com/wf/HC7WW3IHSQE42LDAISTJUDIMC6WXDYWA/6ELDKO7AR6O37OXX45LVNY4CRXMHJ4SA/OCG4B3AYFIJYARETUDDBO7AIYCYIBCJD.ttf')
+              format('truetype');
+          font-weight: 300 800;
+          font-display: swap;
+          font-style: italic;
+        }
       `}
     />
   );

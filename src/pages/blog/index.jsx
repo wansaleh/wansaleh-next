@@ -2,7 +2,7 @@ import React from 'react';
 
 import Head from '../../components/head';
 import PageHeader from '../../components/page-header';
-import PostsList from '../../components/posts-list';
+import PostsList from '../../containers/blog/posts-list';
 import { getAllPostsForHome } from '../../lib/graphcms';
 
 export default function Journal({ posts }) {
