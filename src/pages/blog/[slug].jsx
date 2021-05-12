@@ -87,8 +87,9 @@ export default function JournalPost({ post, morePosts }) {
 
             <Heading
               as="h2"
+              fontFamily="body"
               fontSize={['2xl', '3xl', '4xl']}
-              fontWeight="400"
+              fontWeight="300"
               lineHeight="1.1"
               mb="4"
               maxW="4xl"
