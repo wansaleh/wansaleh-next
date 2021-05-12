@@ -91,6 +91,7 @@ export default function JournalPost({ post, morePosts }) {
               fontSize={['2xl', '3xl', '4xl']}
               fontWeight="300"
               lineHeight="1.1"
+              letterSpacing="tight"
               mb="4"
               maxW="4xl"
             >
