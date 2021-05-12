@@ -18,112 +18,108 @@ import { useTimeout, useWindowScroll } from 'react-use';
 import Logo from '../images/logo';
 
 export default function Nav() {
-  const [isReady] = useTimeout(10);
+  const [isReady] = useTimeout(50);
   const router = useRouter();
   const { y } = useWindowScroll();
 
   return (
-    isReady() && (
-      <Box
-        pos="fixed"
-        top="0"
-        left="0"
-        right="0"
-        w="100vw"
-        zIndex="2000"
-        transition="all 0.1s ease"
-        py="3"
-        overflow="hidden"
-        boxShadow={
-          y > 20
-            ? useColorModeValue(`0 1px 0 0 rgba(0,0,0,0.08)`, `0 1px 0 0 rgba(255,255,255,0.08)`)
-            : 'unset'
-        }
-        bg={y > 20 ? useColorModeValue(rgba('#fff', 0.8), rgba('#000', 0.8)) : 'unset'}
-        sx={{
-          backdropFilter: y > 20 ? 'blur(20px)' : 'none'
-        }}
-      >
-        <Container maxW="6xl" pos="relative" fontSize="sm">
-          <Flex as="nav" zIndex="100" justify="space-between" align="center">
-            <Flex as="ul" justify="space-between" align="center">
-              <li>
-                <NextLink href="/" passHref>
-                  <Link d="block">
-                    <Flex align="center">
-                      <Logo
-                        w="1.75em"
-                        fill={useColorModeValue('brand.500', 'brand.500')}
-                        transition="all 0.25s ease"
-                        transform={y > 20 ? 'scale(1.2)' : 'none'}
-                        // opacity={y > 20 ? 0.5 : 1}
-                      />
-                      <Box
-                        ml="2"
-                        fontWeight="600"
-                        d={['none', 'block']}
-                        transition="all 0.15s ease-out"
-                        transform={y > 20 ? 'translateX(-10px)' : 'none'}
-                        opacity={y > 20 ? 0 : 1}
-                      >
-                        By Wan Saleh
-                      </Box>
-                    </Flex>
-                  </Link>
-                </NextLink>
-              </li>
-            </Flex>
-
-            <Box flex="1" />
-
-            <HStack
-              as="ul"
-              justify="space-between"
-              align="center"
-              fontWeight="700"
-              spacing="0.5"
-              sx={{
-                a: {
-                  p: 0.5,
-                  // px: 1.5,
-                  lineHeight: 1,
-                  d: 'block',
-                  borderRadius: '5px'
-                  // border: '2px solid transparent'
-                },
-                'a:hover, a:active, a.active': { color: 'brand.500' }
-              }}
-            >
-              <li>
-                <NextLink href="/blog" passHref>
-                  <Link className={router.pathname.includes('/blog') && 'active'}>
-                    In The Studio
-                  </Link>
-                </NextLink>
-              </li>
-
-              <li>
-                <Divider />
-              </li>
-
-              <li>
-                <NextLink href="/tools" passHref>
-                  <Link className={router.pathname.includes('/tools') && 'active'}>Tools</Link>
-                </NextLink>
-              </li>
-
-              <li>
-                <Divider />
-              </li>
-
-              <li>
-                <ToggleMode />
-              </li>
-            </HStack>
+    <Box
+      pos="fixed"
+      top="0"
+      left="0"
+      right="0"
+      w="100vw"
+      zIndex="2000"
+      transition="all 0.1s ease"
+      py="3"
+      overflow="hidden"
+      boxShadow={
+        isReady() && y > 20
+          ? useColorModeValue(`0 1px 0 0 rgba(0,0,0,0.08)`, `0 1px 0 0 rgba(255,255,255,0.08)`)
+          : 'unset'
+      }
+      bg={isReady() && y > 20 ? useColorModeValue(rgba('#fff', 0.8), rgba('#000', 0.8)) : 'unset'}
+      sx={{
+        backdropFilter: isReady() && y > 20 ? 'blur(20px)' : 'none'
+      }}
+    >
+      <Container maxW="6xl" pos="relative" fontSize="sm">
+        <Flex as="nav" zIndex="100" justify="space-between" align="center">
+          <Flex as="ul" justify="space-between" align="center">
+            <li>
+              <NextLink href="/" passHref>
+                <Link d="block">
+                  <Flex align="center">
+                    <Logo
+                      w="1.75em"
+                      fill={useColorModeValue('brand.500', 'brand.500')}
+                      transition="all 0.25s ease"
+                      transform={y > 20 ? 'scale(1.2)' : 'none'}
+                      // opacity={y > 20 ? 0.5 : 1}
+                    />
+                    <Box
+                      ml="2"
+                      fontWeight="600"
+                      d={['none', 'block']}
+                      transition="all 0.15s ease-out"
+                      transform={y > 20 ? 'translateX(-10px)' : 'none'}
+                      opacity={y > 20 ? 0 : 1}
+                    >
+                      By Wan Saleh
+                    </Box>
+                  </Flex>
+                </Link>
+              </NextLink>
+            </li>
           </Flex>
-        </Container>
-      </Box>
-    )
+
+          <Box flex="1" />
+
+          <HStack
+            as="ul"
+            justify="space-between"
+            align="center"
+            fontWeight="700"
+            spacing="0.5"
+            sx={{
+              a: {
+                p: 0.5,
+                // px: 1.5,
+                lineHeight: 1,
+                d: 'block',
+                borderRadius: '5px'
+                // border: '2px solid transparent'
+              },
+              'a:hover, a:active, a.active': { color: 'brand.500' }
+            }}
+          >
+            <li>
+              <NextLink href="/blog" passHref>
+                <Link className={router.pathname.includes('/blog') && 'active'}>In The Studio</Link>
+              </NextLink>
+            </li>
+
+            <li>
+              <Divider />
+            </li>
+
+            <li>
+              <NextLink href="/tools" passHref>
+                <Link className={router.pathname.includes('/tools') && 'active'}>Tools</Link>
+              </NextLink>
+            </li>
+
+            <li>
+              <Divider />
+            </li>
+
+            <li>
+              <ToggleMode />
+            </li>
+          </HStack>
+        </Flex>
+      </Container>
+    </Box>
   );
 }
 

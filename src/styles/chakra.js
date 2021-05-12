@@ -13,7 +13,7 @@ const theme = extendTheme({
       baseStyle: {
         textDecoration: 'none',
         _hover: { textDecoration: 'none' },
-        _active: { opacity: 0.75 },
+        _active: { opacity: 0.6 },
         _focus: { boxShadow: 'none' },
         _focusVisible: { boxShadow: 'outline' }
       }
@@ -21,7 +21,7 @@ const theme = extendTheme({
     Button: {
       // The styles all button have in common
       baseStyle: {
-        _active: { opacity: 0.75 },
+        _active: { opacity: 0.6 },
         _focus: { boxShadow: 'none' },
         _focusVisible: { boxShadow: 'outline' }
       }

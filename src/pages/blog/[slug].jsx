@@ -36,11 +36,11 @@ export default function JournalPost({ post, morePosts }) {
               role="group"
             >
               <NextLink href="/blog" passHref>
-                <Link d="inline-flex" alignItems="center">
+                <Link pos="relative" d="inline-block" w="full">
                   <Box
                     as="svg"
-                    height="0.85em"
-                    width="0.85em"
+                    height="0.75em"
+                    width="0.75em"
                     mr="2"
                     fill="none"
                     stroke="currentColor"
@@ -48,28 +48,38 @@ export default function JournalPost({ post, morePosts }) {
                     strokeWidth="2"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
-                    transition="stroke 0.3s ease"
-                    _groupHover={{ stroke: 'brand.500' }}
+                    transition="all 0.3s ease"
+                    opacity="0"
+                    _groupHover={{ opacity: 1 }}
                   >
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 8 8 12 12 16" />
                     <line x1="16" x2="8" y1="12" y2="12" />
                   </Box>
 
-                  <Box transform="skew(-6deg)">In The Studio</Box>
+                  <Box
+                    transform="skew(-6deg)"
+                    pos="absolute"
+                    top="-0.075em"
+                    left="0"
+                    transition="all 0.2s ease-out"
+                    _groupHover={{ left: '0.85em' }}
+                  >
+                    In The Studio
+                  </Box>
                 </Link>
               </NextLink>
             </Heading>
           </Container>
 
-          <Container maxW="6xl" mt="10">
+          <Container maxW="6xl">
             <Heading
               fontSize={['5xl', '6xl', '8xl']}
               fontWeight="600"
               lineHeight="0.9"
               mb="4"
               letterSpacing="tight"
-              transform="skew(-6deg)"
+              // transform="skew(-6deg)"
               maxW="4xl"
             >
               {post.title}
