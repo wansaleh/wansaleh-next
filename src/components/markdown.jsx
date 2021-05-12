@@ -1,4 +1,4 @@
-import { Image, Link } from '@chakra-ui/react';
+import { Box, Image, Link } from '@chakra-ui/react';
 import rehypeToc from '@jsdevtools/rehype-toc';
 import remarkSmartypants from '@silvenon/remark-smartypants';
 import NextLink from 'next/link';
@@ -52,12 +52,15 @@ const components = {
   },
 
   img({ src, alt, ...props }) {
+    src = !src.startsWith('https://res.cloudinary.com')
+      ? `https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`
+      : src;
+
     return (
-      <Image
-        src={`https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`}
-        alt={alt}
-        {...props}
-      />
+      <Box as="figure">
+        <Image src={src} alt={alt} {...props} />
+        <Box as="figcaption">{alt}</Box>
+      </Box>
     );
   }
 };
