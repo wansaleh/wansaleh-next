@@ -2,7 +2,7 @@ import { Box, Link, VisuallyHidden } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import React, { Fragment } from 'react';
 
-import { Divider } from './nav';
+import { Slash } from './slash';
 
 const links = [
   {
@@ -72,14 +72,14 @@ export default function SocialLinks({ showContact }) {
             </NextLink>
           </li>
           <li>
-            <Divider />
+            <Slash />
           </li>
         </>
       )}
 
       {links.map(({ key, href, label, icon }, i) => (
         <Fragment key={key}>
-          {i > 0 && <Divider />}
+          {i > 0 && <Slash />}
           <li key={key}>
             {href.startsWith('https://') ? (
               <Link href={href} p="1" d="block">

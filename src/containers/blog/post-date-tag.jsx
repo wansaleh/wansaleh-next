@@ -1,12 +1,16 @@
-import { Box, Link, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Link, useColorModeValue } from '@chakra-ui/react';
 import { format, formatDistanceToNow, parseISO } from 'date-fns';
 import { ms } from 'date-fns/locale';
 import NextLink from 'next/link';
 import React from 'react';
 
+import { Slash } from '../../components/slash';
+
 export default function PostDateTags({ post, showFull = false, ...props }) {
   return (
-    <Box
+    <Flex
+      wrap="wrap"
+      align="center"
       fontSize={!showFull ? '0.7rem' : 'xs'}
       fontWeight="700"
       letterSpacing="wider"
@@ -16,16 +20,13 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
     >
       {!showFull && (
         <>
-          {formatDistanceToNow(parseISO(post.createdAt), { locale: ms })}{' '}
-          <span tw="opacity-40">&bull;</span>{' '}
+          {formatDistanceToNow(parseISO(post.createdAt), { locale: ms })} <Slash />{' '}
         </>
       )}
       {showFull && (
         <>
-          {format(parseISO(post.createdAt), 'EEEE, d MMMM yyy', { locale: ms })}{' '}
-          <span tw="opacity-40">&bull;</span> Kemaskini{' '}
-          {format(parseISO(post.updatedAt), 'd MMMM yyy, h:mm a', { locale: ms })}{' '}
-          <span tw="opacity-40">&bull;</span>{' '}
+          {format(parseISO(post.createdAt), 'EEEE, d MMMM yyy', { locale: ms })} <Slash /> Kemaskini{' '}
+          {format(parseISO(post.updatedAt), 'd MMMM yyy, h:mm a', { locale: ms })} <Slash />{' '}
         </>
       )}
 
@@ -49,6 +50,6 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
           </Box>
         ))}
       </Box>
-    </Box>
+    </Flex>
   );
 }

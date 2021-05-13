@@ -69,6 +69,8 @@ export default function PostsList({ posts, hero, gridProps }) {
               role="group"
               borderRadius="2xl"
               overflow="hidden"
+              d="flex"
+              flexDir="column"
               bg={useColorModeValue('gray.100', 'brandGray.900')}
               // border="1px solid"
               // borderColor={useColorModeValue('gray.200', 'trueGray.800')}
@@ -85,7 +87,7 @@ export default function PostsList({ posts, hero, gridProps }) {
                     slug={post.slug}
                     src={post.coverImage.url}
                     width={640}
-                    height={300}
+                    height={260}
                   />
                 </Box>
               )}
@@ -93,8 +95,9 @@ export default function PostsList({ posts, hero, gridProps }) {
               <Flex
                 direction="column"
                 justify="flex-end"
+                flex="1"
                 p="4"
-                pb="6"
+                // pb="6"
                 borderTop="3px solid"
                 borderColor="transparent"
                 transition="all 0.2s ease"
@@ -102,8 +105,6 @@ export default function PostsList({ posts, hero, gridProps }) {
                   borderColor: 'brand.500'
                 }}
               >
-                <PostDateTags post={post} mb="3" />
-
                 <Heading
                   fontSize={['2xl', '3xl']}
                   fontWeight="500"
@@ -119,6 +120,10 @@ export default function PostsList({ posts, hero, gridProps }) {
                 <Box mt="4" lineHeight="1.5" maxW="xl" fontSize="sm" fontWeight="400">
                   <Markdown>{post.excerpt}</Markdown>
                 </Box>
+
+                <Box flex="1" />
+
+                <PostDateTags post={post} mt="4" />
               </Flex>
             </LinkBox>
           ))}

@@ -16,6 +16,7 @@ import React from 'react';
 import { useTimeout, useWindowScroll } from 'react-use';
 
 import Logo from '../images/logo';
+import { Slash } from './slash';
 
 export default function Nav() {
   const [isReady] = useTimeout(50);
@@ -100,7 +101,7 @@ export default function Nav() {
             </li>
 
             <li>
-              <Divider />
+              <Slash />
             </li>
 
             <li>
@@ -110,7 +111,7 @@ export default function Nav() {
             </li>
 
             <li>
-              <Divider />
+              <Slash />
             </li>
 
             <li>
@@ -180,28 +181,5 @@ function ToggleMode() {
         <line x1="18.36" x2="19.78" y1="5.64" y2="4.22" />
       </Box>
     </Button>
-  );
-}
-
-export function Divider({ color = 'currentColor', ...props }) {
-  return (
-    <Box
-      as="svg"
-      viewBox="0 0 24 24"
-      width="1.5em"
-      height="1.5em"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-      shapeRendering="geometricPrecision"
-      sx={{ color }}
-      opacity="0.25"
-      // transform="rotate(-5deg)"
-      {...props}
-    >
-      <path d="M16.88 3.549L7.12 20.451" />
-    </Box>
   );
 }

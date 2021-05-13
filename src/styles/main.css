@@ -12,7 +12,7 @@ body,
 
 .prose {
   color: inherit;
-  @apply leading-loose;
+  /* @apply leading-loose; */
 }
 
 .prose.article {
@@ -45,7 +45,7 @@ body,
     padding-top: 5rem;
     margin-top: -2rem;
 
-    &:before {
+    /* &:before {
       content: '';
       width: 1em;
       height: 1em;
@@ -56,12 +56,14 @@ body,
       .dark & {
         background: #fff;
       }
-    }
+    } */
 
     a {
       color: inherit;
+      font-weight: inherit;
+
       &:hover {
-        @apply underline;
+        @apply text-brand-500;
       }
     }
   }
@@ -88,7 +90,11 @@ body,
   }
 
   > p:first-of-type {
-    @apply text-3xl font-light leading-snug tracking-tight;
+    @apply font-serif text-4xl font-light leading-snug tracking-tighter text-gray-600;
+
+    .dark & {
+      @apply text-gray-400;
+    }
   }
 
   img {
