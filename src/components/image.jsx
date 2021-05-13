@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-hook-inview';
 
-export default function Img({ src, alt, width, height, intrinsic = false, caption, ...props }) {
+export default function Img({
+  src,
+  alt,
+  width,
+  height,
+  intrinsic = false,
+  caption,
+  bg = useColorModeValue('gray.200', 'gray.800'),
+  ...props
+}) {
   const imgRef = useRef();
   const [loaded, setLoaded] = useState(false);
   const [isVisibleOnce, setIsVisibleOnce] = useState(false);
@@ -30,24 +39,26 @@ export default function Img({ src, alt, width, height, intrinsic = false, captio
   const ratio = typeof height === 'number' ? width / height : naturalWidth / naturalHeight;
 
   const image = (
-    <Image
-      ref={imgRef}
-      src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
-      alt={alt}
-      width="full"
-      height="full"
-      objectFit="cover"
-      objectPosition="center"
-      position="relative"
-      d="block"
-      transition="opacity 0.5s ease"
-      opacity={loaded ? useColorModeValue(1, 0.75) : 0}
-      // visibility={alreadyVisible ? 'visible' : 'hidden'}
-      onLoad={showImage}
-      data-natural-width={naturalWidth}
-      data-natural-height={naturalHeight}
-      {...props}
-    />
+    <Box>
+      <Image
+        ref={imgRef}
+        src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
+        alt={alt}
+        width="full"
+        height="full"
+        objectFit="contain"
+        objectPosition="center"
+        position="relative"
+        d="block"
+        transition="opacity 0.5s ease"
+        opacity={loaded ? useColorModeValue(1, 0.75) : 0}
+        // visibility={alreadyVisible ? 'visible' : 'hidden'}
+        onLoad={showImage}
+        data-natural-width={naturalWidth}
+        data-natural-height={naturalHeight}
+        {...props}
+      />
+    </Box>
   );
 
   const imageCaption = caption ? (
@@ -61,23 +72,12 @@ export default function Img({ src, alt, width, height, intrinsic = false, captio
 
   const imageBox = !isVisibleOnce ? <Box as="span" /> : imageCaption;
 
-  return (
-    <Box ref={wrapperRef}>
-      {intrinsic ? (
-        imageBox
-      ) : (
-        <AspectRatio
-          as="span"
-          d="block"
-          ratio={ratio}
-          w="full"
-          // h="full"
-          bg={useColorModeValue('gray.200', 'gray.800')}
-        >
-          {imageBox}
-        </AspectRatio>
-      )}
-    </Box>
+  return intrinsic ? (
+    <Box ref={wrapperRef}>imageBox</Box>
+  ) : (
+    <AspectRatio ref={wrapperRef} d="block" ratio={ratio} w="full" h="full" bg={bg}>
+      {imageBox}
+    </AspectRatio>
   );
 }
 
@@ -87,5 +87,6 @@ Img.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number,
   intrinsic: PropTypes.bool,
-  caption: PropTypes.string
+  caption: PropTypes.string,
+  bg: PropTypes.any
 };

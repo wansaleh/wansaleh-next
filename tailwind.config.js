@@ -24,7 +24,7 @@ module.exports = {
         trueGray: colors.trueGray
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         // sans: ['Sharp Grotesk', ...defaultTheme.fontFamily.sans],
         head: ['Clash Grotesk', ...defaultTheme.fontFamily.sans],
         serif: ['Bespoke Serif', ...defaultTheme.fontFamily.sans],

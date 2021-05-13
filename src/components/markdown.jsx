@@ -1,4 +1,4 @@
-import { Box, Link } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
 import rehypeToc from '@jsdevtools/rehype-toc';
 import remarkSmartypants from '@silvenon/remark-smartypants';
 import NextLink from 'next/link';

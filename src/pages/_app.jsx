@@ -1,5 +1,5 @@
 import 'tailwindcss/tailwind.css';
-import '../styles/font-interui.scss';
+// import '../styles/font-interui.scss';
 // import '../styles/font-sharp-grotesk.css';
 import '../styles/font-tiempos.css';
 import '../styles/main.css';
