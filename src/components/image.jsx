@@ -1,14 +1,18 @@
 import { AspectRatio, Box, Image, useColorModeValue } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-hook-inview';
 
-export default function Img({ src, alt, height, width, ...props }) {
-  const [ref, isVisible] = useInView({
+export default function Img({ src, alt, width, height, intrinsic = false, ...props }) {
+  const [wrapperRef, isVisible] = useInView({
     threshold: 0.25
   });
 
+  const imgRef = useRef();
   const [loaded, setLoaded] = useState(false);
   const [isVisibleOnce, setIsVisibleOnce] = useState(false);
+  const [naturalWidth, setNaturalWidth] = useState(null);
+  const [naturalHeight, setNaturalHeight] = useState(null);
 
   useEffect(() => {
     if (isVisibleOnce === false && isVisible) {
@@ -20,36 +24,59 @@ export default function Img({ src, alt, height, width, ...props }) {
     // https://reactjs.org/docs/legacy-event-pooling.html
     if (loadEvent !== null && loadEvent.persist) loadEvent.persist();
     setLoaded(true);
+    setNaturalWidth(imgRef.current.naturalWidth);
+    setNaturalHeight(imgRef.current.naturalHeight);
   }
 
+  const ratio = typeof height === 'number' ? width / height : naturalWidth / naturalHeight;
+
+  const image = !isVisibleOnce ? (
+    <Box as="span" />
+  ) : (
+    <Image
+      ref={imgRef}
+      src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
+      alt={alt}
+      width="full"
+      height="full"
+      objectFit="cover"
+      objectPosition="center"
+      position="relative"
+      d="block"
+      transition="opacity 0.5s ease"
+      opacity={loaded ? useColorModeValue(1, 0.75) : 0}
+      // visibility={alreadyVisible ? 'visible' : 'hidden'}
+      onLoad={showImage}
+      data-natural-width={naturalWidth}
+      data-natural-height={naturalHeight}
+      {...props}
+    />
+  );
+
   return (
-    <AspectRatio
-      ratio={width / height}
-      w="full"
-      h="full"
-      ref={ref}
-      bg={useColorModeValue('gray.200', 'gra0.800')}
-    >
-      {/* <Image src={`https://res.cloudinary.com/wansaleh/image/fetch/w_50/${src}`} alt="" /> */}
-      {!isVisibleOnce ? (
-        <Box />
+    <Box ref={wrapperRef}>
+      {intrinsic ? (
+        image
       ) : (
-        <Image
-          src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
-          alt={alt}
-          width="full"
-          height="full"
-          objectFit="cover"
-          objectPosition="center"
-          position="relative"
+        <AspectRatio
+          as="span"
           d="block"
-          transition="opacity 0.5s ease"
-          opacity={loaded ? useColorModeValue(1, 0.75) : 0}
-          // visibility={alreadyVisible ? 'visible' : 'hidden'}
-          onLoad={showImage}
-          {...props}
-        />
+          ratio={ratio}
+          w="full"
+          // h="full"
+          bg={useColorModeValue('gray.200', 'gray.800')}
+        >
+          {image}
+        </AspectRatio>
       )}
-    </AspectRatio>
+    </Box>
   );
 }
+
+Img.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number,
+  intrinsic: PropTypes.bool
+};

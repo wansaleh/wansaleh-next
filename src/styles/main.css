@@ -103,7 +103,7 @@ body,
     @apply block mt-3 text-xs not-italic font-medium leading-tight opacity-70;
   } */
 
-  figure figcaption {
+  img + span {
     @apply block mt-3 text-xs not-italic font-semibold leading-tight opacity-70;
   }
 

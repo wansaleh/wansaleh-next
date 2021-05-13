@@ -1,4 +1,4 @@
-import { Box, Image, Link } from '@chakra-ui/react';
+import { Box, Link } from '@chakra-ui/react';
 import rehypeToc from '@jsdevtools/rehype-toc';
 import remarkSmartypants from '@silvenon/remark-smartypants';
 import NextLink from 'next/link';
@@ -11,7 +11,7 @@ import rehypeSlug from 'rehype-slug';
 import Img from './image';
 
 const components = {
-  a({ href, title, children, ...props }) {
+  a({ href, title, children, node, ...props }) {
     const isAnchor = href.startsWith('#');
     const isExternal = href.includes('http://') || href.includes('https://');
 
@@ -53,16 +53,16 @@ const components = {
     );
   },
 
-  img({ src, alt, ...props }) {
+  img({ src, alt, node, ...props }) {
     // src = !src.startsWith('https://res.cloudinary.com')
     //   ? `https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`
     //   : src;
 
     return (
-      <Box as="figure">
-        <Img src={src} alt={alt} width={800} height={450} {...props} />
-        <Box as="figcaption">{alt}</Box>
-      </Box>
+      <>
+        <Img src={src} alt={alt} width={800} intrinsic {...props} />
+        <Box as="span">{alt}</Box>
+      </>
     );
   }
 };
