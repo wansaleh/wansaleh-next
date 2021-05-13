@@ -136,7 +136,7 @@ body,
 
 .prose.article.tools {
   img {
-    margin: 0;
+    @apply m-0 border-0 shadow-none;
   }
 
   h4 {

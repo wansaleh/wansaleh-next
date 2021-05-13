@@ -2,7 +2,7 @@
 export default [
   {
     name: 'Workstation',
-    desc: 'i9-9900K 64GB Hackintosh (December 2019 build) &amp; [MacBook Pro](https://www.apple.com/macbook-pro/) 15&quot; 2018 (homestudio) &amp; iMac Retina 2015 (studio)',
+    desc: 'i9-9900K 64GB Hackintosh (December 2019 build) &amp; MacBook Pro 15&quot; 2018 (homestudio) &amp; iMac Retina 2015 (studio)',
     logos: [
       {
         image: '/assets/images/logos/apple_logo_black.svg',
