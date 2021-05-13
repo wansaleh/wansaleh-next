@@ -8,6 +8,8 @@ import rehypeHeadings from 'rehype-autolink-headings';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 
+import Img from './image';
+
 const components = {
   a({ href, title, children, ...props }) {
     const isAnchor = href.startsWith('#');
@@ -52,13 +54,13 @@ const components = {
   },
 
   img({ src, alt, ...props }) {
-    src = !src.startsWith('https://res.cloudinary.com')
-      ? `https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`
-      : src;
+    // src = !src.startsWith('https://res.cloudinary.com')
+    //   ? `https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`
+    //   : src;
 
     return (
       <Box as="figure">
-        <Image src={src} alt={alt} {...props} />
+        <Img src={src} alt={alt} width={800} height={450} {...props} />
         <Box as="figcaption">{alt}</Box>
       </Box>
     );

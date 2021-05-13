@@ -1,5 +1,5 @@
 import { Box, Container, Flex, Heading, Image, useColorModeValue } from '@chakra-ui/react';
-import React from 'react';
+import React, { useState } from 'react';
 import TextLoop from 'react-text-loop';
 
 import Discography from '../components/discography';
@@ -7,6 +7,8 @@ import Head from '../components/head';
 import { fetchDiscograpySheet } from '../lib/google-sheet-helpers';
 
 export default function Home({ works }) {
+  const [heroLoaded, setHeroLoaded] = useState(false);
+
   return (
     <Box>
       <Head title="By Wan Saleh" />
@@ -34,13 +36,16 @@ export default function Home({ works }) {
           <Image
             alt=""
             src={useColorModeValue(require('../images/hand.png'), require('../images/hand2.png'))}
-            css={{
+            sx={{
               width: '100%',
               height: '100%',
               pointerEvents: 'none',
               userSelect: 'none',
               objectFit: 'contain'
             }}
+            transition="opacity 0.5s ease"
+            opacity={heroLoaded ? 1 : 0}
+            onLoad={setHeroLoaded}
           />
         </Box>
 

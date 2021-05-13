@@ -5,7 +5,6 @@ import {
   Flex,
   Heading,
   HStack,
-  Image,
   Link,
   LinkBox,
   LinkOverlay,
@@ -24,6 +23,7 @@ import { Fragment, useEffect, useState } from 'react';
 import LazyLoad from 'react-lazyload';
 import { useMeasure } from 'react-use';
 
+import Img from './image';
 import SmallBadge from './small-badge';
 
 const PALETTENUM = 0;
@@ -248,10 +248,10 @@ function Work({ work, setCellHeight }) {
                 transform: 'translateY(-3px)'
               }}
             >
-              <Image
+              <Img
                 src={coverURL}
-                width="full"
-                height="full"
+                width={300}
+                height={300}
                 alt={work.song}
                 sx={{
                   position: 'relative',
