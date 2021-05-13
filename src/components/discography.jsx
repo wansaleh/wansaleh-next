@@ -253,7 +253,7 @@ function Work({ work, setCellHeight }) {
                 width={300}
                 height={300}
                 alt={work.song}
-                bg="black"
+                bg="#000"
                 objectFit="contain"
                 pointerEvents="none"
               />
