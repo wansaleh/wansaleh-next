@@ -9,9 +9,10 @@ import Head from '../../components/head';
 import Markdown from '../../components/markdown';
 import PostDateTags from '../../containers/blog/post-date-tag';
 import PostsList from '../../containers/blog/posts-list';
+import PreviewAlert from '../../containers/blog/preview-alert';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/graphcms';
 
-export default function JournalPost({ post, morePosts }) {
+export default function JournalPost({ post, morePosts, preview }) {
   const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {
@@ -20,6 +21,8 @@ export default function JournalPost({ post, morePosts }) {
 
   return (
     <>
+      <PreviewAlert preview={preview} />
+
       {router.isFallback ? (
         <Box>Loading…</Box>
       ) : (
