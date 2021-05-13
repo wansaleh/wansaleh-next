@@ -445,7 +445,7 @@ function Work({ work, setCellHeight }) {
                     transform="translateY(50%)"
                     _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
                   >
-                    Written by {listWriters(work.composers, work.writers)}
+                    Ditulis oleh {listWriters(work.composers, work.writers)}
                   </Box>
                 )}
               </Box>
