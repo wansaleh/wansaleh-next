@@ -73,7 +73,7 @@ export default function Img({
   const imageBox = !isVisibleOnce ? <Box as="span" /> : imageCaption;
 
   return intrinsic ? (
-    <Box ref={wrapperRef}>imageBox</Box>
+    <Box ref={wrapperRef}>{imageBox}</Box>
   ) : (
     <AspectRatio ref={wrapperRef} d="block" ratio={ratio} w="full" h="full" bg={bg}>
       {imageBox}
