@@ -121,7 +121,7 @@ export default function JournalPost({ post, morePosts }) {
           </Container>
 
           <Box mt="20">
-            <PostsList posts={morePosts} />
+            <PostsList posts={morePosts} excerpt={false} />
           </Box>
         </>
       )}

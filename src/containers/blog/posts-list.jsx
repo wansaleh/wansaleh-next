@@ -17,7 +17,7 @@ import CoverImage from '../../components/cover-image';
 import Markdown from '../../components/markdown';
 import PostDateTags from './post-date-tag';
 
-export default function PostsList({ posts, hero, gridProps }) {
+export default function PostsList({ posts, hero, excerpt = true, gridProps }) {
   const heroPost = hero ? posts[0] : null;
   const otherPosts = hero ? posts.slice(1) : posts;
 
@@ -118,9 +118,11 @@ export default function PostsList({ posts, hero, gridProps }) {
                   </NextLink>
                 </Heading>
 
-                <Box mt="4" lineHeight="1.5" maxW="xl" fontSize="sm" fontWeight="400">
-                  <Markdown>{post.excerpt}</Markdown>
-                </Box>
+                {excerpt && (
+                  <Box mt="4" lineHeight="1.5" maxW="xl" fontSize="sm" fontWeight="400">
+                    <Markdown>{post.excerpt}</Markdown>
+                  </Box>
+                )}
 
                 <Box flex="1" />
 
