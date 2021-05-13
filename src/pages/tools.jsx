@@ -16,7 +16,9 @@ export default function Home() {
       <PageHeader title="Tools" subtitle="Keperluan harian yang membantu kerja saya." />
 
       <Container maxW="6xl">
-        <SimpleGrid columns={[1, 1, 1, 2]} spacing="20">
+        <Tools tools={musicTools} />
+
+        {/* <SimpleGrid columns={[1, 1, 1, 2]} spacing="20">
           <Box>
             <SectionTitle title="Peralatan Muzik" subtitle="Alatan muzik kegunaan harian." />
 
@@ -31,7 +33,7 @@ export default function Home() {
 
             <Tools tools={devTools} />
           </Box>
-        </SimpleGrid>
+        </SimpleGrid> */}
       </Container>
     </Box>
   );
