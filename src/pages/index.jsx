@@ -30,22 +30,22 @@ export default function Home({ works }) {
           w="150vw"
           h="150%"
           zIndex="-1"
-          transform="translate(0%, 5%) scaleX(-1) rotate(-10deg)"
+          transform="translate(0%, 5%) scaleX(-1)"
           d={['none', 'none', 'block']}
         >
-          <Image
+          <img
+            onLoad={setHeroLoaded}
             alt=""
             src={useColorModeValue(require('../images/hand.png'), require('../images/hand2.png'))}
-            sx={{
+            css={{
               width: '100%',
               height: '100%',
               pointerEvents: 'none',
               userSelect: 'none',
-              objectFit: 'contain'
+              objectFit: 'contain',
+              transition: 'opacity 1s ease 0.5s',
+              opacity: heroLoaded ? 1 : 0
             }}
-            transition="opacity 0.5s ease"
-            opacity={heroLoaded ? 1 : 0}
-            onLoad={setHeroLoaded}
           />
         </Box>
 
