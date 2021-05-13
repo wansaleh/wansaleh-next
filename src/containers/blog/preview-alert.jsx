@@ -13,6 +13,7 @@ export default function PreviewAlert({ preview }) {
       zIndex="2000"
       p="3"
       bg="blue.600"
+      color="white"
       textAlign="center"
     >
       This page is a preview.{' '}
