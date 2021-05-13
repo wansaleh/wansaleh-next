@@ -50,6 +50,8 @@
     "rehype-slug": "^4.0.1",
     "remark": "^13.0.0",
     "remark-autolink-headings": "^6.0.1",
+    "remark-breaks": "^2.0.2",
+    "remark-gfm": "^1.0.0",
     "remark-html": "^13.0.1",
     "remark-toc": "^7.2.0",
     "remark-unwrap-images": "^2.0.0",

@@ -7,7 +7,9 @@ import ReactMarkdown from 'react-markdown';
 import rehypeHeadings from 'rehype-autolink-headings';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
-import unwrapImages from 'remark-unwrap-images';
+import remarkBreaks from 'remark-breaks';
+import remarkGfm from 'remark-gfm';
+import remarkUnwrapImages from 'remark-unwrap-images';
 
 import Img from './image';
 
@@ -67,7 +69,7 @@ export default function Markdown({ noTOC, children }) {
   return (
     <ReactMarkdown
       components={components}
-      remarkPlugins={[remarkSmartypants, unwrapImages]}
+      remarkPlugins={[remarkSmartypants, remarkGfm, remarkUnwrapImages, remarkBreaks]}
       rehypePlugins={[rehypeSlug, rehypeHeadings, !noTOC && rehypeToc, rehypeRaw].filter(Boolean)}
     >
       {children}
