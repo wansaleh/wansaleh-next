@@ -106,8 +106,8 @@ export default function JournalPost({ post, morePosts }) {
               src={post.coverImage.url}
               title={post.title}
               caption={post.coverImage.caption}
-              width={1920}
-              height={960}
+              width={1800}
+              height={900}
             />
           )}
 

@@ -1,4 +1,4 @@
-import { Box, Image, Link, useColorModeValue } from '@chakra-ui/react';
+import { AspectRatio, Box, Image, Link, useColorModeValue } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import React from 'react';
 
@@ -6,18 +6,18 @@ import Markdown from './markdown';
 
 export default function CoverImage({ src, title, caption, slug, height, width, ...props }) {
   const image = (
-    <Image
-      src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
-      alt={`Cover Image for ${title}`}
-      width={width}
-      height={height}
-      css={{
-        objectFit: 'cover',
-        objectPosition: 'center',
-        position: 'relative',
-        opacity: useColorModeValue(1, 0.75)
-      }}
-    />
+    <AspectRatio ratio={width / height}>
+      <Image
+        src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
+        alt={`Cover Image for ${title}`}
+        width="full"
+        height="full"
+        objectFit="cover"
+        objectPosition="center"
+        position="relative"
+        opacity={useColorModeValue(1, 0.75)}
+      />
+    </AspectRatio>
   );
 
   return (
