@@ -1,5 +1,4 @@
-import { Box, Container, Flex, Heading, useColorModeValue } from '@chakra-ui/react';
-import Image from 'next/image';
+import { Box, Container, Flex, Heading, Image, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 import TextLoop from 'react-text-loop';
 
@@ -33,7 +32,6 @@ export default function Home({ works }) {
           d={['none', 'none', 'block']}
         >
           <Image
-            layout="fill"
             alt=""
             src={useColorModeValue(require('../images/hand.png'), require('../images/hand2.png'))}
             css={{

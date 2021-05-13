@@ -1,5 +1,4 @@
-import { Box, Link, useColorModeValue } from '@chakra-ui/react';
-import NextImage from 'next/image';
+import { Box, Image, Link, useColorModeValue } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import React from 'react';
 
@@ -7,10 +6,9 @@ import Markdown from './markdown';
 
 export default function CoverImage({ src, title, caption, slug, height, width, ...props }) {
   const image = (
-    <NextImage
+    <Image
       src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
       alt={`Cover Image for ${title}`}
-      layout="responsive"
       width={width}
       height={height}
       css={{

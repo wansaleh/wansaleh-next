@@ -5,6 +5,7 @@ import {
   Flex,
   Heading,
   HStack,
+  Image,
   Link,
   LinkBox,
   LinkOverlay,
@@ -16,7 +17,6 @@ import { usePalette } from 'color-thief-react';
 import { format, formatDistanceToNow, isAfter, parseISO, subWeeks } from 'date-fns';
 import { ms } from 'date-fns/locale';
 import groupBy from 'lodash.groupby';
-import Image from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { readableColor } from 'polished';
@@ -250,14 +250,13 @@ function Work({ work, setCellHeight }) {
             >
               <Image
                 src={coverURL}
-                layout="intrinsic"
-                width={400}
-                height={work.artwork ? 400 : 300}
+                width="full"
+                height="full"
                 alt={work.song}
-                css={{
+                sx={{
                   position: 'relative',
                   zIndex: 0,
-                  // objectFit:"contain",
+                  objectFit: 'contain',
                   // objectPosition:"50% 35%"
                   pointerEvents: 'none'
                 }}
