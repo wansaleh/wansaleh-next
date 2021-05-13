@@ -108,14 +108,7 @@ export default function Discography({ works }) {
     currentArtist ? work.artists.includes(currentArtist) : true
   );
 
-  const groupedByYear = groupBy(
-    allWorks.filter(
-      (work) =>
-        (genre ? work.genres.includes(genre) : true) &&
-        (currentArtist ? work.artists.includes(currentArtist) : true)
-    ),
-    (work) => work.released.getFullYear()
-  );
+  const groupedByYear = groupBy(filteredWorks, (work) => work.released.getFullYear());
 
   return (
     <SimpleGrid
@@ -237,12 +230,6 @@ export default function Discography({ works }) {
             ))}
           </Fragment>
         ))}
-
-      {/* <Flex>
-          <Heading as="h3" fontSize="lg" fontFamily="serif">
-            And much more
-          </Heading>
-        </Flex> */}
     </SimpleGrid>
   );
 }
@@ -516,4 +503,8 @@ function Work({ work, setCellHeight }) {
       )}
     </LinkBox>
   );
+}
+
+function randomColor() {
+  return Math.floor(Math.random() * 16777215).toString(16);
 }

@@ -33,8 +33,10 @@ export default function Home({ works }) {
           transform="translate(0%, 5%) scaleX(-1)"
           d={['none', 'none', 'block']}
         >
-          <img
-            onLoad={setHeroLoaded}
+          <Image
+            onLoad={() => {
+              setHeroLoaded(true);
+            }}
             alt=""
             src={useColorModeValue(require('../images/hand.png'), require('../images/hand2.png'))}
             css={{
