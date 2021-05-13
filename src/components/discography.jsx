@@ -187,7 +187,7 @@ export default function Discography({ works }) {
             size="sm"
             onChange={(e) => setCurrentArtist(e.target.value !== 'all' ? e.target.value : null)}
           >
-            <option value="all">Semua</option>
+            <option value="all">Semua Artis</option>
             {artists.map(({ slug, name, total }) => (
               <option key={slug} value={name}>
                 {name} ({total})
