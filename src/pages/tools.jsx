@@ -13,7 +13,7 @@ export default function Home() {
     <Box>
       <Head title="By Wan Saleh • Peralatan • Tools" />
 
-      <PageHeader title="Tools" subtitle="Keperluan yang membantu kerja saya." />
+      <PageHeader title="Tools" subtitle="Keperluan harian yang membantu kerja saya." />
 
       <Container maxW="6xl">
         <SimpleGrid columns={[1, 1, 1, 2]} spacing="20">
