@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import arrayToSentence from 'array-to-sentence';
 import { usePalette } from 'color-thief-react';
-import { format, formatDistanceToNow, isAfter, parseISO, subWeeks } from 'date-fns';
+import { format, formatDistanceToNow, isAfter, parseISO, subMonths } from 'date-fns';
 import { ms } from 'date-fns/locale';
 import groupBy from 'lodash.groupby';
 import NextLink from 'next/link';
@@ -322,7 +322,7 @@ function Work({ work, setCellHeight }) {
                 {work.song}
               </Box>
 
-              {isAfter(work.released, subWeeks(new Date(), 8)) && (
+              {isAfter(work.released, subMonths(new Date(), 1)) && (
                 <SmallBadge
                   color={palette && palette[PALETTENUM]}
                   ml="1.5"
