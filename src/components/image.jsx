@@ -54,7 +54,7 @@ export default function Img({ src, alt, width, height, intrinsic = false, ...pro
   );
 
   return (
-    <Box ref={wrapperRef}>
+    <Box ref={wrapperRef} as="span" d="block">
       {intrinsic ? (
         image
       ) : (
