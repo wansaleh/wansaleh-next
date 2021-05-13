@@ -46,7 +46,7 @@ export default function Img({
         alt={alt}
         width="full"
         height="full"
-        objectFit="contain"
+        objectFit="cover"
         objectPosition="center"
         position="relative"
         d="block"

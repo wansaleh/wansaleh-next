@@ -254,13 +254,8 @@ function Work({ work, setCellHeight }) {
                 height={300}
                 alt={work.song}
                 bg="black"
-                sx={{
-                  position: 'relative',
-                  zIndex: 0,
-                  objectFit: 'contain',
-                  // objectPosition:"50% 35%"
-                  pointerEvents: 'none'
-                }}
+                objectFit="contain"
+                pointerEvents="none"
               />
 
               <Box
