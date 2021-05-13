@@ -8,6 +8,7 @@ import {
   Link,
   LinkBox,
   LinkOverlay,
+  Select,
   SimpleGrid,
   VisuallyHidden
 } from '@chakra-ui/react';
@@ -45,6 +46,7 @@ function listWriters(composers, writers) {
 
 export default function Discography({ works }) {
   const [cellHeight, setCellHeight] = useState(0);
+  const [currentArtist, setCurrentArtist] = useState(null);
   const router = useRouter();
 
   const allWorks = works
@@ -55,22 +57,63 @@ export default function Discography({ works }) {
     .sort((a, b) => b.released - a.released)
     .filter((work) => !work.hide);
 
-  const _genres = [...new Set(allWorks.reduce((out, work) => out.concat(work.genre), []))];
+  let filteredWorks = allWorks.slice();
+
+  const _genres = [...new Set(filteredWorks.reduce((out, work) => out.concat(work.genres), []))];
 
   const genres = _genres
     .map((g) => ({
       slug: g.toLowerCase().replace(/ /g, '-'),
       title: g,
-      totalWorks: allWorks.filter((work) => work.genre.includes(g)).length
+      total: filteredWorks.filter((work) => work.genres.includes(g)).length
     }))
-    .sort((a, b) => b.totalWorks - a.totalWorks);
+    .sort((a, b) => b.total - a.total);
 
   let genre = null;
   if (router.query.genre) {
     genre = genres.find((g) => g.slug === router.query.genre).title;
   }
+
+  filteredWorks = filteredWorks.filter((work) => (genre ? work.genres.includes(genre) : true));
+
+  const _artists = [
+    ...new Set(filteredWorks.reduce((out, work) => out.concat(work.artists), []))
+  ].sort((a, b) => {
+    if (a > b) {
+      return 1;
+    }
+    if (b > a) {
+      return -1;
+    }
+    return 0;
+  });
+
+  const artists = _artists
+    .map((art) => ({
+      slug: art.toLowerCase().replace(/ /g, '-'),
+      name: art,
+      total: filteredWorks.filter((work) => work.artists.includes(art)).length
+    }))
+    .sort((a, b) => {
+      if (a > b) {
+        return 1;
+      }
+      if (b > a) {
+        return -1;
+      }
+      return 0;
+    });
+
+  filteredWorks = filteredWorks.filter((work) =>
+    currentArtist ? work.artists.includes(currentArtist) : true
+  );
+
   const groupedByYear = groupBy(
-    allWorks.filter((work) => (genre ? work.genre.includes(genre) : true)),
+    allWorks.filter(
+      (work) =>
+        (genre ? work.genres.includes(genre) : true) &&
+        (currentArtist ? work.artists.includes(currentArtist) : true)
+    ),
     (work) => work.released.getFullYear()
   );
 
@@ -138,6 +181,20 @@ export default function Discography({ works }) {
             </Box>
           ))}
         </Flex>
+
+        <Box mt="4">
+          <Select
+            size="sm"
+            onChange={(e) => setCurrentArtist(e.target.value !== 'all' ? e.target.value : null)}
+          >
+            <option value="all">Semua</option>
+            {artists.map(({ slug, name, total }) => (
+              <option key={slug} value={name}>
+                {name} ({total})
+              </option>
+            ))}
+          </Select>
+        </Box>
       </Flex>
 
       {Object.entries(groupedByYear)
@@ -353,12 +410,15 @@ function Work({ work, setCellHeight }) {
                   opacity="1"
                   transition="all 0.2s ease-out"
                   _groupHover={
-                    (work.composer || work.writer) && { opacity: 0, transform: 'translateY(-100%)' }
+                    (work.composers || work.writers) && {
+                      opacity: 0,
+                      transform: 'translateY(-100%)'
+                    }
                   }
                 >
-                  {listArtists(work.artist)}
+                  {listArtists(work.artists)}
                 </Box>
-                {(work.composer || work.writer) && (
+                {(work.composers || work.writers) && (
                   <Box
                     // whiteSpace="nowrap"
                     // overflow="hidden"
@@ -370,7 +430,7 @@ function Work({ work, setCellHeight }) {
                     transform="translateY(50%)"
                     _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
                   >
-                    Written by {listWriters(work.composer, work.writer)}
+                    Written by {listWriters(work.composers, work.writers)}
                   </Box>
                 )}
               </Box>

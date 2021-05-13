@@ -87,13 +87,13 @@ export async function fetchDiscograpySheet() {
   return rows
     .map((work) => ({
       ...work,
-      artist: list(work.artist),
-      composer: list(work.composer),
-      writer: list(work.writer),
-      genre: list(work.genre),
+      artists: list(work.artists),
+      composers: list(work.composers),
+      writers: list(work.writers),
+      genres: list(work.genres),
       released: work.released.trim(),
       pro: boolean(work.pro),
-      com: work.composer.trim().includes('Wan Saleh'),
+      com: work.composers.trim().includes('Wan Saleh'),
       arr: boolean(work.arr),
       mix: boolean(work.mix),
       mas: boolean(work.mas),
