@@ -52,6 +52,7 @@
     "remark-autolink-headings": "^6.0.1",
     "remark-html": "^13.0.1",
     "remark-toc": "^7.2.0",
+    "remark-unwrap-images": "^2.0.0",
     "sass": "^1.32.12",
     "swr": "^0.5.6",
     "tailwindcss": "^2.1.2"

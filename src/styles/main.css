@@ -91,7 +91,7 @@ body,
     @apply text-3xl font-light leading-snug tracking-tight;
   }
 
-  p img {
+  img {
     @apply m-0 overflow-hidden border border-gray-200 border-solid shadow-md;
 
     .dark & {
@@ -99,12 +99,8 @@ body,
     }
   }
 
-  /* p img + :is(*) {
-    @apply block mt-3 text-xs not-italic font-medium leading-tight opacity-70;
-  } */
-
-  img + span {
-    @apply block mt-3 text-xs not-italic font-semibold leading-tight opacity-70;
+  figure figcaption {
+    @apply block mt-2 text-xs not-italic font-semibold leading-tight text-right text-gray-500;
   }
 
   ol > li::before {

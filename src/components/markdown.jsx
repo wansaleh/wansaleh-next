@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import rehypeHeadings from 'rehype-autolink-headings';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
+import unwrapImages from 'remark-unwrap-images';
 
 import Img from './image';
 
@@ -58,12 +59,7 @@ const components = {
     //   ? `https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`
     //   : src;
 
-    return (
-      <>
-        <Img src={src} alt={alt} width={800} intrinsic {...props} />
-        <Box as="span">{alt}</Box>
-      </>
-    );
+    return <Img src={src} alt={alt} width={800} intrinsic caption={alt} {...props} />;
   }
 };
 
@@ -71,7 +67,7 @@ export default function Markdown({ noTOC, children }) {
   return (
     <ReactMarkdown
       components={components}
-      remarkPlugins={[remarkSmartypants]}
+      remarkPlugins={[remarkSmartypants, unwrapImages]}
       rehypePlugins={[rehypeSlug, rehypeHeadings, !noTOC && rehypeToc, rehypeRaw].filter(Boolean)}
     >
       {children}

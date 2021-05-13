@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-hook-inview';
 
-export default function Img({ src, alt, width, height, intrinsic = false, ...props }) {
-  const [wrapperRef, isVisible] = useInView({
-    threshold: 0.25
-  });
-
+export default function Img({ src, alt, width, height, intrinsic = false, caption, ...props }) {
   const imgRef = useRef();
   const [loaded, setLoaded] = useState(false);
   const [isVisibleOnce, setIsVisibleOnce] = useState(false);
   const [naturalWidth, setNaturalWidth] = useState(null);
   const [naturalHeight, setNaturalHeight] = useState(null);
+  const [wrapperRef, isVisible] = useInView({
+    threshold: 0.25
+  });
 
   useEffect(() => {
     if (isVisibleOnce === false && isVisible) {
@@ -30,9 +29,7 @@ export default function Img({ src, alt, width, height, intrinsic = false, ...pro
 
   const ratio = typeof height === 'number' ? width / height : naturalWidth / naturalHeight;
 
-  const image = !isVisibleOnce ? (
-    <Box as="span" />
-  ) : (
+  const image = (
     <Image
       ref={imgRef}
       src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
@@ -53,10 +50,21 @@ export default function Img({ src, alt, width, height, intrinsic = false, ...pro
     />
   );
 
+  const imageCaption = caption ? (
+    <Box as="figure">
+      {image}
+      <Box as="figcaption">{caption}</Box>
+    </Box>
+  ) : (
+    image
+  );
+
+  const imageBox = !isVisibleOnce ? <Box as="span" /> : imageCaption;
+
   return (
-    <Box ref={wrapperRef} as="span" d="block">
+    <Box ref={wrapperRef}>
       {intrinsic ? (
-        image
+        imageBox
       ) : (
         <AspectRatio
           as="span"
@@ -66,7 +74,7 @@ export default function Img({ src, alt, width, height, intrinsic = false, ...pro
           // h="full"
           bg={useColorModeValue('gray.200', 'gray.800')}
         >
-          {image}
+          {imageBox}
         </AspectRatio>
       )}
     </Box>
@@ -78,5 +86,6 @@ Img.propTypes = {
   alt: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
   height: PropTypes.number,
-  intrinsic: PropTypes.bool
+  intrinsic: PropTypes.bool,
+  caption: PropTypes.string
 };

@@ -16,7 +16,7 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
     >
       {!showFull && (
         <>
-          {formatDistanceToNow(parseISO(post.createdAt), { locale: ms })} lalu{' '}
+          {formatDistanceToNow(parseISO(post.createdAt), { locale: ms })}{' '}
           <span tw="opacity-40">&bull;</span>{' '}
         </>
       )}
@@ -31,11 +31,11 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
 
       <Box
         as="ul"
-        d="inline-block"
-        sx={{ li: { ':not(:last-of-type):after': { content: '" • "', opacity: 0.4 } } }}
+        d="inline"
+        sx={{ li: { ':not(:last-of-type):after': { content: '", "', opacity: 0.6 } } }}
       >
         {post.tags.map((tag) => (
-          <li tw="inline" key={tag.slug}>
+          <Box as="li" d="inline" key={tag.slug}>
             <NextLink key={tag.slug} href={`/blog/tag/${tag.slug}`} passHref>
               <Link
                 color="brand.500"
@@ -46,7 +46,7 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
                 {tag.title}
               </Link>
             </NextLink>
-          </li>
+          </Box>
         ))}
       </Box>
     </Box>
