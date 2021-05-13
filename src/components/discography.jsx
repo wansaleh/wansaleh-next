@@ -132,7 +132,7 @@ export default function Discography({ works }) {
           sx={{ b: { fontSize: 'xs', fontWeight: '600' } }}
         >
           Lagu-lagu pilihan yang telah saya terbitkan <b>PRO</b>, cipta/tulis <b>COM</b>, gubah{' '}
-          <b>ARR</b>, adun <b>MIX</b> atau masterkan <b>MAS</b>.
+          <b>ARR</b>, jurutera <b>ENG</b>, adun <b>MIX</b> atau masterkan <b>MAS</b>.
         </Box>
 
         <Flex
@@ -325,11 +325,24 @@ function Work({ work, setCellHeight }) {
                 py="3.5"
                 lineHeight="1"
               >
-                {work.pro && <SmallBadge color={palette && palette[PALETTENUM]}>PRO</SmallBadge>}
-                {work.com && <SmallBadge color={palette && palette[PALETTENUM]}>COM</SmallBadge>}
-                {work.arr && <SmallBadge color={palette && palette[PALETTENUM]}>ARR</SmallBadge>}
-                {work.mix && <SmallBadge color={palette && palette[PALETTENUM]}>MIX</SmallBadge>}
-                {work.mas && <SmallBadge color={palette && palette[PALETTENUM]}>MAS</SmallBadge>}
+                {work.pro && (
+                  <SmallBadge color={palette && palette[PALETTENUM + 1]}>PRO</SmallBadge>
+                )}
+                {work.com && (
+                  <SmallBadge color={palette && palette[PALETTENUM + 1]}>COM</SmallBadge>
+                )}
+                {work.arr && (
+                  <SmallBadge color={palette && palette[PALETTENUM + 1]}>ARR</SmallBadge>
+                )}
+                {work.eng && (
+                  <SmallBadge color={palette && palette[PALETTENUM + 1]}>ENG</SmallBadge>
+                )}
+                {work.mix && (
+                  <SmallBadge color={palette && palette[PALETTENUM + 1]}>MIX</SmallBadge>
+                )}
+                {work.mas && (
+                  <SmallBadge color={palette && palette[PALETTENUM + 1]}>MAS</SmallBadge>
+                )}
               </HStack>
             </Box>
           </AspectRatio>
@@ -368,7 +381,7 @@ function Work({ work, setCellHeight }) {
 
               {isAfter(work.released, subMonths(new Date(), 1)) && (
                 <SmallBadge
-                  color={palette && palette[PALETTENUM]}
+                  color={palette && palette[PALETTENUM + 1]}
                   ml="1.5"
                   // mt="0.5"
                 >

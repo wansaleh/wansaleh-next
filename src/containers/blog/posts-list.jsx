@@ -2,6 +2,7 @@
 import {
   Box,
   Container,
+  Divider,
   Flex,
   Heading,
   LinkBox,
@@ -123,7 +124,13 @@ export default function PostsList({ posts, hero, gridProps }) {
 
                 <Box flex="1" />
 
-                <PostDateTags post={post} mt="4" />
+                <Divider
+                  my="4"
+                  borderColor={useColorModeValue('trueGray.300', 'trueGray.700')}
+                  opacity="0.5"
+                />
+
+                <PostDateTags post={post} />
               </Flex>
             </LinkBox>
           ))}

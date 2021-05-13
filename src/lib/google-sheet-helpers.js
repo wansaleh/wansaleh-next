@@ -95,6 +95,7 @@ export async function fetchDiscograpySheet() {
       pro: boolean(work.pro),
       com: work.composers.trim().includes('Wan Saleh'),
       arr: boolean(work.arr),
+      eng: boolean(work.eng),
       mix: boolean(work.mix),
       mas: boolean(work.mas),
       hide: boolean(work.hide),
