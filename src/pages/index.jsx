@@ -1,16 +1,25 @@
-import { Box, Container, Flex, Heading, Image, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  Image,
+  LightMode,
+  useColorModeValue
+} from '@chakra-ui/react';
 import React, { useState } from 'react';
 import TextLoop from 'react-text-loop';
 
 import Discography from '../components/discography';
 import Head from '../components/head';
-import { fetchDiscograpySheet } from '../lib/google-sheet-helpers';
+// import { fetchDiscograpySheet } from '../lib/google-sheet-helpers';
 
-export default function Home({ works }) {
+export default function Home() {
   const [heroLoaded, setHeroLoaded] = useState(false);
 
   return (
-    <Box>
+    <>
       <Head title="By Wan Saleh" />
 
       <Flex
@@ -23,35 +32,52 @@ export default function Home({ works }) {
         pos="relative"
         overflow="hidden"
         zIndex="0"
+        minH="100vh"
       >
         <Box
           pos="absolute"
           inset="0"
           w="150vw"
-          h="150%"
+          h="100%"
           zIndex="-1"
-          transform="translate(0%, 5%) scaleX(-1)"
+          transform="translate(3%, 25%)"
           d={['none', 'none', 'block']}
+          transition="opacity 1s ease 0.5s"
+          opacity={heroLoaded ? 1 : 0}
+          pointerEvents="none"
+          userSelect="none"
         >
           <Image
             onLoad={() => {
               setHeroLoaded(true);
             }}
             alt=""
-            src={useColorModeValue(require('../images/hand.png'), require('../images/hand2.png'))}
+            src={require('../images/hand.png')}
             css={{
+              position: 'absolute',
               width: '100%',
               height: '100%',
-              pointerEvents: 'none',
-              userSelect: 'none',
               objectFit: 'contain',
-              transition: 'opacity 1s ease 0.5s',
-              opacity: heroLoaded ? 1 : 0
+              opacity: useColorModeValue(1, 0)
+            }}
+          />
+          <Image
+            onLoad={() => {
+              setHeroLoaded(true);
+            }}
+            alt=""
+            src={require('../images/hand2.png')}
+            css={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              opacity: useColorModeValue(0, 1)
             }}
           />
         </Box>
 
-        <Container maxW="6xl">
+        <Container maxW="6xl" textAlign={['center', 'center', 'left']}>
           <Heading
             as="h1"
             pb="2"
@@ -66,7 +92,7 @@ export default function Home({ works }) {
               fontSize="0.65em"
               fontWeight="300"
               letterSpacing="tight"
-              color="gray.600"
+              color={useColorModeValue('gray.600', 'gray.400')}
               transform="skew(-6deg)"
             >
               Apa khabar.
@@ -99,23 +125,41 @@ export default function Home({ works }) {
               {/* <span>adore preamps.</span> */}
             </TextLoop>
           </Heading>
+
+          <LightMode>
+            <Button
+              fontSize="2xl"
+              h="unset"
+              w="unset"
+              maxW="unset"
+              py="3"
+              px="6"
+              mt="8"
+              colorScheme="brand"
+              onClick={() =>
+                document.getElementById('discography').scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              Diskografi
+            </Button>
+          </LightMode>
         </Container>
       </Flex>
 
-      <Box pos="relative" zIndex="2">
-        <Discography works={works} />
+      <Box pos="relative" zIndex="2" id="discography" bg="brand.900">
+        <Discography />
       </Box>
-    </Box>
+    </>
   );
 }
 
-export async function getStaticProps() {
-  const works = await fetchDiscograpySheet();
+// export async function getStaticProps() {
+//   const works = await fetchDiscograpySheet();
 
-  return {
-    props: {
-      works
-    },
-    revalidate: 1
-  };
-}
+//   return {
+//     props: {
+//       works
+//     },
+//     revalidate: 1
+//   };
+// }

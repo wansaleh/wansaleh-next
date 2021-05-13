@@ -1,7 +1,7 @@
 import { AspectRatio, Box, Image, useColorModeValue } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
-import { useIntersection } from 'react-use';
+import React, { useRef, useState } from 'react';
+import { useInView } from 'react-hook-inview';
 
 export default function Img({
   src,
@@ -15,22 +15,13 @@ export default function Img({
 }) {
   const imgRef = useRef();
   const [loaded, setLoaded] = useState(false);
-  const [isVisibleOnce, setIsVisibleOnce] = useState(false);
   const [naturalWidth, setNaturalWidth] = useState(null);
   const [naturalHeight, setNaturalHeight] = useState(null);
 
-  const wrapperRef = React.useRef(null);
-  const intersection = useIntersection(wrapperRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1
+  const [wrapperRef, isVisible] = useInView({
+    threshold: 0.1,
+    unobserveOnEnter: true
   });
-
-  useEffect(() => {
-    if (isVisibleOnce === false && intersection?.intersectionRatio > 0) {
-      setIsVisibleOnce(true);
-    }
-  }, [intersection?.intersectionRatio]);
 
   function showImage(loadEvent = null) {
     // https://reactjs.org/docs/legacy-event-pooling.html
@@ -74,7 +65,7 @@ export default function Img({
     image
   );
 
-  const imageBox = !isVisibleOnce ? <Box as="span" /> : imageCaption;
+  const imageBox = !isVisible ? <Box as="span" /> : imageCaption;
 
   return intrinsic ? (
     <Box ref={wrapperRef}>{imageBox}</Box>

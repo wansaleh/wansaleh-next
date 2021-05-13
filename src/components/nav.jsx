@@ -11,38 +11,38 @@ import {
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import { rgba } from 'polished';
+// import { rgba } from 'polished';
 import React from 'react';
-import { useTimeout, useWindowScroll } from 'react-use';
+import { useWindowScroll } from 'react-use';
 
 import Logo from '../images/logo';
 import { Slash } from './slash';
 
 export default function Nav() {
-  const [isReady] = useTimeout(50);
+  // const [isReady] = useTimeout(50);
   const router = useRouter();
   const { y } = useWindowScroll();
 
   return (
     <Box
-      pos="fixed"
-      top="0"
-      left="0"
-      right="0"
+      // pos="fixed"
+      // top="0"
+      // left="0"
+      // right="0"
+      // zIndex="2000"
       w="100vw"
-      zIndex="2000"
       transition="all 0.1s ease"
       py="3"
       overflow="hidden"
-      boxShadow={
-        isReady() && y > 20
-          ? useColorModeValue(`0 1px 0 0 rgba(0,0,0,0.08)`, `0 1px 0 0 rgba(255,255,255,0.08)`)
-          : 'unset'
-      }
-      bg={isReady() && y > 20 ? useColorModeValue(rgba('#fff', 0.8), rgba('#000', 0.8)) : 'unset'}
-      sx={{
-        backdropFilter: isReady() && y > 20 ? 'blur(20px)' : 'none'
-      }}
+      // boxShadow={
+      //   isReady() && y > 20
+      //     ? useColorModeValue(`0 1px 0 0 rgba(0,0,0,0.08)`, `0 1px 0 0 rgba(255,255,255,0.08)`)
+      //     : 'unset'
+      // }
+      // bg={isReady() && y > 20 ? useColorModeValue(rgba('#fff', 0.8), rgba('#000', 0.8)) : 'unset'}
+      // sx={{
+      //   backdropFilter: isReady() && y > 20 ? 'blur(20px)' : 'none'
+      // }}
     >
       <Container maxW="6xl" pos="relative" fontSize="sm">
         <Flex as="nav" zIndex="100" justify="space-between" align="center">

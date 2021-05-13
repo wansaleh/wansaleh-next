@@ -1,7 +1,6 @@
 import {
   AspectRatio,
   Box,
-  Button,
   Flex,
   Heading,
   HStack,
@@ -9,8 +8,7 @@ import {
   LinkBox,
   LinkOverlay,
   Select,
-  SimpleGrid,
-  VisuallyHidden
+  SimpleGrid
 } from '@chakra-ui/react';
 import arrayToSentence from 'array-to-sentence';
 import { usePalette } from 'color-thief-react';
@@ -21,13 +19,16 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { readableColor } from 'polished';
 import { Fragment, useEffect, useState } from 'react';
-import LazyLoad from 'react-lazyload';
+// import LazyLoad from 'react-lazyload';
 import { useMeasure } from 'react-use';
+import useSWR from 'swr';
 
 import Img from './image';
 import SmallBadge from './small-badge';
 
 const PALETTENUM = 0;
+
+const fetcher = (url) => fetch(url).then((r) => r.json());
 
 function listArtists(names) {
   return arrayToSentence(names, {
@@ -44,18 +45,22 @@ function listWriters(composers, writers) {
   });
 }
 
-export default function Discography({ works }) {
+export default function Discography() {
+  const { data: works } = useSWR('/api/works', fetcher);
+
   const [cellHeight, setCellHeight] = useState(0);
   const [currentArtist, setCurrentArtist] = useState(null);
   const router = useRouter();
 
-  const allWorks = works
-    ?.map((work) => ({
-      ...work,
-      released: parseISO(work.released, new Date())
-    }))
-    .sort((a, b) => b.released - a.released)
-    .filter((work) => !work.hide);
+  const allWorks = !works
+    ? []
+    : works
+        .map((work) => ({
+          ...work,
+          released: parseISO(work.released, new Date())
+        }))
+        .sort((a, b) => b.released - a.released)
+        .filter((work) => !work.hide);
 
   let filteredWorks = allWorks.slice();
 
@@ -115,12 +120,21 @@ export default function Discography({ works }) {
       columns={[1, 2, 3, 3, 4, 5]}
       spacing="0"
       // mx="3"
-      shadow="0 -10px 30px rgba(0,0,0,0.07)"
+      // shadow="0 -10px 30px rgba(0,0,0,0.07)"
       maxW="1800px"
       mx="auto"
     >
-      <Flex p="8" textAlign="center" justify="center" align="center" direction="column">
-        <Heading as="h2" lineHeight="0.9" color="brand.500">
+      <Flex
+        p="8"
+        textAlign="center"
+        justify="center"
+        align="center"
+        direction="column"
+        bg="brand.600"
+        bgGradient="linear(to-br, brand.600, brand.800)"
+        color="white"
+      >
+        <Heading as="h2" lineHeight="0.9">
           Diskografi Terkini
         </Heading>
 
@@ -150,7 +164,7 @@ export default function Discography({ works }) {
                 textTransform="uppercase"
                 fontWeight="800"
                 // letterSpacing="wide"
-                color={!genre ? 'brand.500' : 'gray.500'}
+                color={!genre ? 'brand.200' : 'white'}
                 tw="hover:underline!"
               >
                 Semua
@@ -165,7 +179,7 @@ export default function Discography({ works }) {
                   textTransform="uppercase"
                   fontWeight="800"
                   // letterSpacing="wide"
-                  color={genre === title ? 'brand.500' : 'gray.500'}
+                  color={genre === title ? 'brand.200' : 'white'}
                   tw="hover:underline!"
                 >
                   {title}
@@ -179,6 +193,9 @@ export default function Discography({ works }) {
           <Select
             size="sm"
             onChange={(e) => setCurrentArtist(e.target.value !== 'all' ? e.target.value : null)}
+            borderRadius="md"
+            borderWidth="2px"
+            borderColor="rgba(255,255,255,0.25) !important"
           >
             <option value="all">Semua Artis</option>
             {artists.map(({ slug, name, total }) => (
@@ -224,9 +241,7 @@ export default function Discography({ works }) {
             </LazyLoad> */}
 
             {yearWorks.map((work) => (
-              <LazyLoad key={work.youtube} height={cellHeight} classNamePrefix="ll">
-                <Work work={work} key={work.youtube} setCellHeight={setCellHeight} />
-              </LazyLoad>
+              <Work work={work} key={work.youtube} setCellHeight={setCellHeight} />
             ))}
           </Fragment>
         ))}
@@ -245,7 +260,7 @@ function Work({ work, setCellHeight }) {
 
   const [ref, { height: coverHeight }] = useMeasure();
 
-  const cellHeight = coverHeight + 144;
+  const cellHeight = coverHeight + 120;
 
   useEffect(() => {
     setCellHeight(cellHeight);
@@ -268,7 +283,7 @@ function Work({ work, setCellHeight }) {
           color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
           transition="all 0.2s ease"
           textAlign="center"
-          p="6"
+          p="5"
           h="full"
         >
           <AspectRatio
@@ -302,7 +317,7 @@ function Work({ work, setCellHeight }) {
                 pointerEvents="none"
               />
 
-              <Box
+              {/* <Box
                 bg="linear-gradient(to bottom right, #000, rgba(0,0,0,0) 50%)"
                 pos="absolute"
                 w="100%"
@@ -312,7 +327,7 @@ function Work({ work, setCellHeight }) {
                 opacity="0"
                 transition="all 0.3s ease"
                 _groupHover={{ opacity: 0.5 }}
-              />
+              /> */}
 
               <HStack
                 justify="center"
@@ -437,7 +452,7 @@ function Work({ work, setCellHeight }) {
             </Flex>
 
             <Box
-              mt="1"
+              // mt="1"
               fontSize="11px"
               fontWeight="800"
               pos="relative"
@@ -467,7 +482,7 @@ function Work({ work, setCellHeight }) {
         </Flex>
       </LinkOverlay>
 
-      {work.spotify && (
+      {/* {work.spotify && (
         <Box
           pos="absolute"
           left="6"
@@ -513,7 +528,7 @@ function Work({ work, setCellHeight }) {
             <VisuallyHidden>Spotify</VisuallyHidden>
           </Button>
         </Box>
-      )}
+      )} */}
     </LinkBox>
   );
 }
