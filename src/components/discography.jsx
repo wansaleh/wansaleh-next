@@ -18,8 +18,7 @@ import groupBy from 'lodash.groupby';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { readableColor } from 'polished';
-import { Fragment, useEffect, useState } from 'react';
-// import LazyLoad from 'react-lazyload';
+import { Fragment, useState } from 'react';
 import { useMeasure } from 'react-use';
 import useSWR from 'swr';
 
@@ -48,7 +47,6 @@ function listWriters(composers, writers) {
 export default function Discography() {
   const { data: works } = useSWR('/api/works', fetcher);
 
-  const [cellHeight, setCellHeight] = useState(0);
   const [currentArtist, setCurrentArtist] = useState(null);
   const router = useRouter();
 
@@ -135,7 +133,7 @@ export default function Discography() {
         color="white"
       >
         <Heading as="h2" lineHeight="0.9">
-          Diskografi Terkini
+          Diskografi Pilihan
         </Heading>
 
         <Box
@@ -241,7 +239,7 @@ export default function Discography() {
             </LazyLoad> */}
 
             {yearWorks.map((work) => (
-              <Work work={work} key={work.youtube} setCellHeight={setCellHeight} />
+              <Work work={work} key={work.youtube} />
             ))}
           </Fragment>
         ))}
@@ -249,10 +247,12 @@ export default function Discography() {
   );
 }
 
-function Work({ work, setCellHeight }) {
+function Work({ work }) {
   const coverURL = work.artwork
-    ? `https://res.cloudinary.com/wansaleh/image/fetch/w_300/${work.artwork}`
-    : `https://res.cloudinary.com/wansaleh/image/fetch/w_300/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
+    ? `${work.artwork}`
+    : `https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
+  // ? `https://res.cloudinary.com/wansaleh/image/fetch/w_300/${work.artwork}`
+  //   : `https://res.cloudinary.com/wansaleh/image/fetch/w_300/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
 
   const { data: palette } = usePalette(coverURL, 5, 'hex', {
     crossOrigin: 'anonymous'
@@ -261,10 +261,6 @@ function Work({ work, setCellHeight }) {
   const [ref, { height: coverHeight }] = useMeasure();
 
   const cellHeight = coverHeight + 120;
-
-  useEffect(() => {
-    setCellHeight(cellHeight);
-  }, [cellHeight]);
 
   return (
     <LinkBox key={work.youtube} role="group" h={`${cellHeight}px`}>

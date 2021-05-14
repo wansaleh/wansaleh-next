@@ -36,14 +36,15 @@ export default function Home() {
       >
         <Box
           pos="absolute"
-          inset="0"
-          w="150vw"
-          h="100%"
           zIndex="-1"
+          w="50%"
+          h="100%"
+          top="30%"
+          left="60%"
           // transform="translate(3%, 25%)"
           d={['none', 'none', 'block']}
           transition="all 1s var(--ease-out-expo) 0.5s"
-          transform={heroLoaded ? 'translate(3%, 25%)' : 'translate(3%, 55%)'}
+          transform={heroLoaded ? 'translate(0, 0)' : 'translate(0, 50%)'}
           opacity={heroLoaded ? 1 : 0}
           pointerEvents="none"
           userSelect="none"
@@ -53,28 +54,32 @@ export default function Home() {
               setHeroLoaded(true);
             }}
             alt=""
-            src={require('../images/hand.png')}
-            css={{
-              position: 'absolute',
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain',
-              opacity: useColorModeValue(1, 0)
-            }}
+            // eslint-disable-next-line import/no-unresolved
+            src={require('../images/hand.png?webp')}
+            position="absolute"
+            left="0"
+            right="0"
+            bottom="-0px"
+            width="100%"
+            height="100%"
+            objectFit="cover"
+            opacity={useColorModeValue(1, 0)}
           />
           <Image
             onLoad={() => {
               setHeroLoaded(true);
             }}
             alt=""
-            src={require('../images/hand2.png')}
-            css={{
-              position: 'absolute',
-              width: '100%',
-              height: '100%',
-              objectFit: 'contain',
-              opacity: useColorModeValue(0, 1)
-            }}
+            // eslint-disable-next-line import/no-unresolved
+            src={require('../images/hand2.png?webp')}
+            position="absolute"
+            left="0"
+            right="0"
+            bottom="-0px"
+            width="100%"
+            height="100%"
+            objectFit="cover"
+            opacity={useColorModeValue(0, 1)}
           />
         </Box>
 

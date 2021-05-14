@@ -25,11 +25,11 @@ export default function Nav() {
 
   return (
     <Box
-      // pos="fixed"
+      pos="absolute"
       // top="0"
       // left="0"
       // right="0"
-      // zIndex="2000"
+      zIndex="2000"
       w="100vw"
       transition="all 0.1s ease"
       py="3"
