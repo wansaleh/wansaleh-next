@@ -6,7 +6,9 @@ import Img from './image';
 import Markdown from './markdown';
 
 export default function CoverImage({ src, title, caption, slug, height, width, ...props }) {
-  const image = <Img src={src} alt={`Cover Image for ${title}`} width={width} height={height} />;
+  const image = (
+    <Img src={src} alt={`Cover Image for ${title}`} width={width} height={height} cloudinary />
+  );
 
   return (
     <Box pos="relative" maxW="1800" mx="auto" {...props}>

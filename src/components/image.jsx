@@ -11,6 +11,7 @@ export default function Img({
   intrinsic = false,
   caption,
   bg = useColorModeValue('gray.200', 'gray.800'),
+  cloudinary = false,
   ...props
 }) {
   const imgRef = useRef();
@@ -34,26 +35,25 @@ export default function Img({
   const ratio = typeof height === 'number' ? width / height : naturalWidth / naturalHeight;
 
   const image = (
-    <Box>
-      <Image
-        ref={imgRef}
-        src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
-        alt={alt}
-        width="full"
-        height="full"
-        objectFit="cover"
-        objectPosition="center"
-        position="relative"
-        d="block"
-        transition="opacity 0.5s ease"
-        opacity={loaded ? useColorModeValue(1, 0.75) : 0}
-        // visibility={alreadyVisible ? 'visible' : 'hidden'}
-        onLoad={showImage}
-        data-natural-width={naturalWidth}
-        data-natural-height={naturalHeight}
-        {...props}
-      />
-    </Box>
+    <Image
+      ref={imgRef}
+      src={cloudinary ? `https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}` : src}
+      // src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
+      alt={alt}
+      width="full"
+      height="full"
+      objectFit="cover"
+      objectPosition="center"
+      position="relative"
+      d="block"
+      transition="opacity 0.5s ease"
+      opacity={loaded ? useColorModeValue(1, 0.75) : 0}
+      // visibility={alreadyVisible ? 'visible' : 'hidden'}
+      onLoad={showImage}
+      data-natural-width={naturalWidth}
+      data-natural-height={naturalHeight}
+      {...props}
+    />
   );
 
   const imageCaption = caption ? (
