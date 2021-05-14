@@ -249,9 +249,9 @@ export default function Discography() {
 
 function Work({ work }) {
   const coverURL = work.artwork
-    ? `${work.artwork}`
+    ? `https://res.cloudinary.com/wansaleh/image/fetch/w_400/${work.artwork}`
     : `https://res.cloudinary.com/wansaleh/image/fetch/w_400/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
-  // ? `https://res.cloudinary.com/wansaleh/image/fetch/w_400/${work.artwork}`
+  // ? `${work.artwork}`
   // : `https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
 
   const { data: palette } = usePalette(coverURL, 5, 'hex', {
