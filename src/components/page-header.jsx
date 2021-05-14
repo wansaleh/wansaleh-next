@@ -5,7 +5,7 @@ export default function PageHeader({ title, middle, subtitle }) {
     <Container maxW="6xl" mt="24" mb="10">
       <Heading
         as="h1"
-        fontSize={['5xl', '6xl', '7xl']}
+        fontSize={['4xl', '5xl', '6xl']}
         fontWeight="600"
         lineHeight="1"
         letterSpacing="tighter"
@@ -19,8 +19,8 @@ export default function PageHeader({ title, middle, subtitle }) {
             ':after': {
               content: '""',
               pos: 'absolute',
-              top: '32.5%',
-              height: '50%',
+              top: '22%',
+              height: '58%',
               width: '9999px',
               transform: 'translateX(12px)',
               bg: 'gray.500'
@@ -36,12 +36,12 @@ export default function PageHeader({ title, middle, subtitle }) {
       <Heading
         as="h2"
         pb="2"
-        fontFamily="body"
+        fontFamily="heading"
         fontSize={['2xl', '3xl']}
-        fontWeight="300"
+        fontWeight="400"
         lineHeight="1.2"
         letterSpacing="tight"
-        maxW="2xl"
+        maxW="3xl"
       >
         {subtitle}
       </Heading>

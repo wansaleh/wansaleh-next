@@ -33,9 +33,10 @@ export default function JournalPost({ post, morePosts, preview }) {
             <Heading
               as="h1"
               fontSize={['2xl', '3xl', '4xl']}
-              fontWeight="600"
+              fontWeight="500"
               lineHeight="1"
               letterSpacing="tight"
+              mb="2"
               role="group"
             >
               <NextLink href="/blog" passHref>
@@ -77,7 +78,7 @@ export default function JournalPost({ post, morePosts, preview }) {
 
           <Container maxW="6xl">
             <Heading
-              fontSize={['5xl', '6xl', '7xl']}
+              fontSize={['4xl', '5xl', '6xl']}
               fontWeight="600"
               lineHeight="0.9"
               mb="4"

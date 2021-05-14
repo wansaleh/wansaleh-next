@@ -107,6 +107,7 @@ export default function WebFonts() {
           font-display: swap;
           font-style: normal;
         }
+
         /* Bespoke Serif */
         @font-face {
           font-family: 'Bespoke Serif';
@@ -131,6 +132,20 @@ export default function WebFonts() {
           font-weight: 300 800;
           font-display: swap;
           font-style: italic;
+        }
+
+        /* Cabinet Grotesk */
+        @font-face {
+          font-family: 'Cabinet Grotesk';
+          src: url('https://cdn.fontshare.com/wf/J2PZYZURCR7HNQKXCZ4VXYA3K5FFCCLT/PZSZLWHMBCE7FFGOUYDEU33FAESUMA3X/JFDL5FBAQ2WMYL3LGKSCZKAIFCS2UQ63.woff2')
+              format('woff2'),
+            url('https://cdn.fontshare.com/wf/J2PZYZURCR7HNQKXCZ4VXYA3K5FFCCLT/PZSZLWHMBCE7FFGOUYDEU33FAESUMA3X/JFDL5FBAQ2WMYL3LGKSCZKAIFCS2UQ63.woff')
+              format('woff'),
+            url('https://cdn.fontshare.com/wf/J2PZYZURCR7HNQKXCZ4VXYA3K5FFCCLT/PZSZLWHMBCE7FFGOUYDEU33FAESUMA3X/JFDL5FBAQ2WMYL3LGKSCZKAIFCS2UQ63.ttf')
+              format('truetype');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
         }
       `}
     />

@@ -26,7 +26,7 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         // sans: ['Sharp Grotesk', ...defaultTheme.fontFamily.sans],
-        head: ['Clash Grotesk', ...defaultTheme.fontFamily.sans],
+        head: ['Sharp Grotesk', ...defaultTheme.fontFamily.sans],
         serif: ['Bespoke Serif', ...defaultTheme.fontFamily.sans],
         mono: ['JetBrainsMono', 'monospace']
       }

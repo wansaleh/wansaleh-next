@@ -94,11 +94,11 @@ export default function Home() {
               fontWeight="300"
               letterSpacing="tight"
               color={useColorModeValue('gray.600', 'gray.400')}
-              transform="skew(-6deg)"
+              // transform="skew(-6deg)"
             >
               Apa khabar.
             </Box>
-            <Box transform="skew(-6deg)">
+            <Box>
               Saya{' '}
               <Box as="span" color="brand.500">
                 Wan Saleh.

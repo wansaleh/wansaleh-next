@@ -43,9 +43,9 @@ export default function PostsList({ posts, hero, excerpt = true, gridProps }) {
 
             <Box maxW="4xl">
               <Heading
-                fontSize={['4xl', '6xl']}
-                fontWeight="500"
-                lineHeight="1"
+                fontSize={['4xl', '5xl']}
+                fontWeight="600"
+                lineHeight="1.1"
                 letterSpacing="tight"
               >
                 <NextLink href={`/blog/${heroPost.slug}`} passHref>
@@ -107,9 +107,9 @@ export default function PostsList({ posts, hero, excerpt = true, gridProps }) {
                 }}
               >
                 <Heading
-                  fontSize={['2xl', '3xl']}
-                  fontWeight="500"
-                  lineHeight="0.9"
+                  fontSize={['xl', '2xl']}
+                  fontWeight="600"
+                  lineHeight="1.1"
                   letterSpacing="tight"
                   maxW="xl"
                 >
