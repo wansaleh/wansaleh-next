@@ -88,7 +88,7 @@ export default function PostsList({ posts, hero, excerpt = true, gridProps }) {
                     slug={post.slug}
                     src={post.coverImage.url}
                     width={640}
-                    height={260}
+                    height={220}
                   />
                 </Box>
               )}
@@ -132,7 +132,7 @@ export default function PostsList({ posts, hero, excerpt = true, gridProps }) {
                   opacity="0.5"
                 />
 
-                <PostDateTags post={post} />
+                <PostDateTags post={post} fontSize="0.7rem" />
               </Flex>
             </LinkBox>
           ))}

@@ -77,9 +77,9 @@ export default function JournalPost({ post, morePosts, preview }) {
 
           <Container maxW="6xl">
             <Heading
-              fontSize={['5xl', '6xl', '8xl']}
+              fontSize={['5xl', '6xl', '7xl']}
               fontWeight="600"
-              lineHeight="0.8"
+              lineHeight="0.9"
               mb="4"
               letterSpacing="tight"
               // transform="skew(-6deg)"
@@ -91,9 +91,9 @@ export default function JournalPost({ post, morePosts, preview }) {
             <Heading
               as="h2"
               fontFamily="body"
-              fontSize={['2xl', '3xl', '4xl']}
+              fontSize={['2xl', '2xl', '3xl']}
               fontWeight="300"
-              lineHeight="1.1"
+              lineHeight="shorter"
               letterSpacing="tight"
               mb="4"
               maxW="4xl"

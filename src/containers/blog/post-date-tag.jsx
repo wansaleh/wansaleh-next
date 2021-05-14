@@ -11,9 +11,9 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
     <Flex
       wrap="wrap"
       align="center"
-      fontSize={!showFull ? '0.7rem' : 'xs'}
-      fontWeight="700"
-      letterSpacing="wider"
+      fontSize="xs"
+      fontWeight="600"
+      letterSpacing="widest"
       textTransform="uppercase"
       color="gray.500"
       {...props}
