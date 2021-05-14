@@ -40,9 +40,10 @@ export default function Home() {
           w="150vw"
           h="100%"
           zIndex="-1"
-          transform="translate(3%, 25%)"
+          // transform="translate(3%, 25%)"
           d={['none', 'none', 'block']}
-          transition="opacity 1s ease 0.5s"
+          transition="all 1s var(--ease-out-expo) 0.5s"
+          transform={heroLoaded ? 'translate(3%, 25%)' : 'translate(3%, 55%)'}
           opacity={heroLoaded ? 1 : 0}
           pointerEvents="none"
           userSelect="none"
