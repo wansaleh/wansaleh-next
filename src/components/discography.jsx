@@ -454,7 +454,7 @@ function Work({ work }) {
               fontWeight="800"
               pos="relative"
               w="full"
-              opacity="0.5"
+              opacity="0.65"
               letterSpacing="wide"
               textTransform="uppercase"
             >
