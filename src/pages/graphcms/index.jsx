@@ -2,9 +2,9 @@ import React from 'react';
 
 import Head from '../../components/head';
 import PageHeader from '../../components/page-header';
-import PostsList from '../../containers/contentful/posts-list';
-import PreviewAlert from '../../containers/contentful/preview-alert';
-import { getAllPostsForHome } from '../../lib/contentful';
+import PostsList from '../../containers/graphcms/posts-list';
+import PreviewAlert from '../../containers/graphcms/preview-alert';
+import { getAllPostsForHome } from '../../lib/graphcms';
 
 export default function Journal({ posts, preview }) {
   return (

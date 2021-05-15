@@ -34,6 +34,8 @@ export default function Img({
 
   const ratio = typeof height === 'number' ? width / height : naturalWidth / naturalHeight;
 
+  src = src.startsWith('//') ? `https:${src}` : src;
+
   const image = (
     <Image
       ref={imgRef}

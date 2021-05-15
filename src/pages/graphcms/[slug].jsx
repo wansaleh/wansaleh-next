@@ -7,10 +7,10 @@ import React from 'react';
 import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
 import Markdown from '../../components/markdown';
-import PostDateTags from '../../containers/contentful/post-date-tag';
-import PostsList from '../../containers/contentful/posts-list';
-import PreviewAlert from '../../containers/contentful/preview-alert';
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/contentful';
+import PostDateTags from '../../containers/graphcms/post-date-tag';
+import PostsList from '../../containers/graphcms/posts-list';
+import PreviewAlert from '../../containers/graphcms/preview-alert';
+import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/graphcms';
 
 export default function JournalPost({ post, morePosts, preview }) {
   const router = useRouter();
@@ -109,7 +109,7 @@ export default function JournalPost({ post, morePosts, preview }) {
             <CoverImage
               src={post.coverImage.url}
               title={post.title}
-              caption={post.coverImage.description || post.coverImage.title}
+              caption={post.coverImage.caption}
               width={1800}
               height={900}
             />

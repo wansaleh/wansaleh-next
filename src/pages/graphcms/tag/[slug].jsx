@@ -8,8 +8,8 @@ import React from 'react';
 import Head from '../../../components/head';
 import Markdown from '../../../components/markdown';
 import PageHeader from '../../../components/page-header';
-import PostsList from '../../../containers/contentful/posts-list';
-import { getAllPostsForTag, getAllTags } from '../../../lib/contentful';
+import PostsList from '../../../containers/graphcms/posts-list';
+import { getAllPostsForTag, getAllTags } from '../../../lib/graphcms';
 
 export default function Tag({ posts, tag }) {
   const router = useRouter();
@@ -59,7 +59,7 @@ export default function Tag({ posts, tag }) {
             }
           />
 
-          <PostsList posts={posts} />
+          <PostsList posts={posts} tag={tag} />
         </>
       )}
     </>
@@ -67,7 +67,7 @@ export default function Tag({ posts, tag }) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const { posts, tag } = await getAllPostsForTag(params.slug, preview);
+  const { posts, tag } = (await getAllPostsForTag(params.slug, preview)) ?? [];
 
   return {
     props: { preview, posts, tag },
@@ -76,10 +76,10 @@ export async function getStaticProps({ params, preview = false }) {
 }
 
 export async function getStaticPaths() {
-  const tags = await getAllTags();
+  const posts = await getAllTags();
 
   return {
-    paths: tags.map(({ slug }) => ({
+    paths: posts.map(({ slug }) => ({
       params: { slug }
     })),
     fallback: true
