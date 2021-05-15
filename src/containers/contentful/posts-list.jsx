@@ -15,7 +15,7 @@ import React from 'react';
 
 import CoverImage from '../../components/cover-image';
 import Markdown from '../../components/markdown';
-import PostDateTags from './post-date-tag';
+import PostDateTags from './post-date-tags';
 
 export default function PostsList({ posts, hero, excerpt = true, gridProps }) {
   const heroPost = hero ? posts[0] : null;
