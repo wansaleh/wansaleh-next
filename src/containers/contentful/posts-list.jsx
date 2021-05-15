@@ -8,16 +8,20 @@ import {
   LinkBox,
   LinkOverlay,
   SimpleGrid,
-  useColorModeValue
+  useColorModeValue,
+  useTheme
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { mix } from 'polished';
 import React from 'react';
 
 import CoverImage from '../../components/cover-image';
 import Markdown from '../../components/markdown';
 import PostDateTags from './post-date-tags';
 
-export default function PostsList({ posts, hero, excerpt = true, gridProps }) {
+export default function PostsList({ posts, hero = false, excerpt = true, gridProps }) {
+  const theme = useTheme();
+
   const heroPost = hero ? posts[0] : null;
   const otherPosts = hero ? posts.slice(1) : posts;
 
@@ -68,17 +72,27 @@ export default function PostsList({ posts, hero, excerpt = true, gridProps }) {
               key={post.slug}
               columns={[1, 1, 2]}
               role="group"
-              borderRadius="2xl"
+              borderRadius="xl"
               overflow="hidden"
               d="flex"
               flexDir="column"
-              bg={useColorModeValue('gray.100', 'brandGray.900')}
+              // bg={useColorModeValue(
+              //   mix(0.4, '#fff', theme.colors.brandGray[200]),
+              //   mix(0.4, '#000', theme.colors.brandGray[900])
+              // )}
               // border="1px solid"
               // borderColor={useColorModeValue('gray.200', 'trueGray.800')}
+              boxShadow={useColorModeValue(
+                `0 0 0 1px ${theme.colors.brandGray[300]}`,
+                `0 0 0 1px ${theme.colors.brandGray[900]}`
+              )}
               cursor="pointer"
               transition="all 0.3s ease"
               _hover={{
-                boxShadow: 'xl'
+                boxShadow: useColorModeValue(
+                  '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                  '0 20px 25px -5px rgba(255, 255, 255, 0.1), 0 10px 10px -5px rgba(255, 255, 255, 0.04)'
+                )
               }}
             >
               {post.coverImage && (
@@ -99,12 +113,12 @@ export default function PostsList({ posts, hero, excerpt = true, gridProps }) {
                 flex="1"
                 p="4"
                 // pb="6"
-                borderTop="3px solid"
-                borderColor="transparent"
-                transition="all 0.2s ease"
-                _groupHover={{
-                  borderColor: 'brand.500'
-                }}
+                // borderTop="3px solid"
+                // borderColor="transparent"
+                // transition="all 0.2s ease"
+                // _groupHover={{
+                //   borderColor: 'brand.500'
+                // }}
               >
                 <Heading
                   fontSize={['xl', '2xl']}
