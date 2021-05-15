@@ -247,23 +247,35 @@ export default function Discography() {
               ))}
             </Fragment>
           ))}
-      </SimpleGrid>
 
-      {!isReachingEnd && (
-        <Flex py="10" justify="center">
-          <Button
-            variant="outline"
+        {!isReachingEnd && (
+          <Flex
+            pos="relative"
+            textAlign="center"
+            justify="center"
+            align="center"
+            direction="column"
+            bg="brand.600"
+            bgGradient="linear(to-br, brand.600, brand.800)"
             color="white"
-            border="2px solid"
-            borderColor="currentColor"
-            bg="none"
-            _hover={{ opacity: 0.7 }}
-            onClick={() => setSize(size + 1)}
           >
-            Papar Lagi...
-          </Button>
-        </Flex>
-      )}
+            <Button
+              pos="absolute"
+              inset="0"
+              w="full"
+              h="full"
+              color="white"
+              size="lg"
+              fontSize="3xl"
+              variant="unstyled"
+              _hover={{ opacity: 0.7 }}
+              onClick={() => setSize(size + 1)}
+            >
+              Lagi...
+            </Button>
+          </Flex>
+        )}
+      </SimpleGrid>
     </>
   );
 }
