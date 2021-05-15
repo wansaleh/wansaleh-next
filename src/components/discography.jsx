@@ -16,13 +16,12 @@ import { usePalette } from 'color-thief-react';
 import { format, formatDistanceToNow, isAfter, parseISO, subMonths } from 'date-fns';
 import { ms } from 'date-fns/locale';
 import groupBy from 'lodash.groupby';
-import uniqBy from 'lodash.uniqby';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { readableColor } from 'polished';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { useMeasure } from 'react-use';
-import useSWR from 'swr';
+import { useSWRInfinite } from 'swr';
 
 import Img from './image';
 import SmallBadge from './small-badge';
@@ -30,30 +29,31 @@ import SmallBadge from './small-badge';
 const PALETTENUM = 0;
 
 const fetcher = (url, headers) => fetch(url, { headers }).then((r) => r.json());
+const getKey = (pageIndex, previousPageData) => {
+  // reached the end
+  if (previousPageData && !previousPageData.records) return null;
 
-function listArtists(names) {
-  return arrayToSentence(names, {
-    lastSeparator: ' & '
-  });
-}
+  // first page, we don't have `previousPageData`
+  if (pageIndex === 0) return `/api/works`;
 
-function listWriters(composers, writers) {
-  composers = composers || [];
-  writers = writers || [];
-
-  return arrayToSentence([...new Set([...composers, ...writers])], {
-    lastSeparator: ' & '
-  });
-}
+  // add the cursor to the API endpoint
+  return `/api/works?offset=${previousPageData.offset}`;
+};
 
 export default function Discography() {
   const router = useRouter();
   // const [works, setWorks] = useState([]);
   // const [pageOffset, setPageOffset] = useState(null);
-  const { data } = useSWR(`/api/works`, fetcher);
-  const { offset, records: works } = data || { offset: null, records: [] };
+  // const { data } = useSWR(`/api/works`, fetcher);
+  const { data, size, setSize } = useSWRInfinite(getKey, fetcher);
 
   const [currentArtist, setCurrentArtist] = useState(null);
+
+  const works = data
+    ? [].concat(...data).reduce((out, page) => out.concat(...page.records), [])
+    : [];
+
+  const isReachingEnd = data ? !data[data.length - 1].offset : false;
 
   const allWorks = works
     .map((work) => ({
@@ -249,19 +249,21 @@ export default function Discography() {
           ))}
       </SimpleGrid>
 
-      {/* <Flex py="10" justify="center">
-        <Button
-          variant="outline"
-          color="white"
-          border="2px solid"
-          borderColor="currentColor"
-          bg="none"
-          _hover={{ opacity: 0.7 }}
-          onClick={() => setPageOffset(offset)}
-        >
-          Papar Lagi...
-        </Button>
-      </Flex> */}
+      {!isReachingEnd && (
+        <Flex py="10" justify="center">
+          <Button
+            variant="outline"
+            color="white"
+            border="2px solid"
+            borderColor="currentColor"
+            bg="none"
+            _hover={{ opacity: 0.7 }}
+            onClick={() => setSize(size + 1)}
+          >
+            Papar Lagi...
+          </Button>
+        </Flex>
+      )}
     </>
   );
 }
@@ -547,4 +549,19 @@ function Work({ work }) {
       )} */}
     </LinkBox>
   );
+}
+
+function listArtists(names) {
+  return arrayToSentence(names, {
+    lastSeparator: ' & '
+  });
+}
+
+function listWriters(composers, writers) {
+  composers = composers || [];
+  writers = writers || [];
+
+  return arrayToSentence([...new Set([...composers, ...writers])], {
+    lastSeparator: ' & '
+  });
 }
