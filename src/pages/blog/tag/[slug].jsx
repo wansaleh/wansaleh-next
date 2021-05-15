@@ -45,7 +45,7 @@ export default function Tag({ posts, tag }) {
                 // bg={useColorModeValue('black', 'white')}
                 // color={useColorModeValue('white', 'black')}
               >
-                {tag.title}
+                {tag.name}
               </Heading>
             }
             subtitle={

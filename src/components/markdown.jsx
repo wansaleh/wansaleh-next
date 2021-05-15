@@ -61,7 +61,7 @@ const components = {
     //   ? `https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`
     //   : src;
 
-    return <Img src={src} alt={alt} width={800} intrinsic caption={alt} {...props} />;
+    return <Img src={src} alt={alt} width={800} intrinsic zoom caption={alt} {...props} />;
   }
 };
 
