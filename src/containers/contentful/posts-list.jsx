@@ -12,7 +12,6 @@ import {
   useTheme
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { mix } from 'polished';
 import React from 'react';
 
 import CoverImage from '../../components/cover-image';
