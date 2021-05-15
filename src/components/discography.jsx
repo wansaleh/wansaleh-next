@@ -1,6 +1,7 @@
 import {
   AspectRatio,
   Box,
+  Button,
   Flex,
   Heading,
   HStack,
@@ -15,10 +16,11 @@ import { usePalette } from 'color-thief-react';
 import { format, formatDistanceToNow, isAfter, parseISO, subMonths } from 'date-fns';
 import { ms } from 'date-fns/locale';
 import groupBy from 'lodash.groupby';
+import uniqBy from 'lodash.uniqby';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { readableColor } from 'polished';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useMeasure } from 'react-use';
 import useSWR from 'swr';
 
@@ -27,7 +29,7 @@ import SmallBadge from './small-badge';
 
 const PALETTENUM = 0;
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = (url, headers) => fetch(url, { headers }).then((r) => r.json());
 
 function listArtists(names) {
   return arrayToSentence(names, {
@@ -45,20 +47,21 @@ function listWriters(composers, writers) {
 }
 
 export default function Discography() {
-  const { data: works } = useSWR('/api/works', fetcher);
+  const router = useRouter();
+  // const [works, setWorks] = useState([]);
+  // const [pageOffset, setPageOffset] = useState(null);
+  const { data } = useSWR(`/api/works`, fetcher);
+  const { offset, records: works } = data || { offset: null, records: [] };
 
   const [currentArtist, setCurrentArtist] = useState(null);
-  const router = useRouter();
 
-  const allWorks = !works
-    ? []
-    : works
-        .map((work) => ({
-          ...work,
-          released: parseISO(work.released, new Date())
-        }))
-        .sort((a, b) => b.released - a.released)
-        .filter((work) => !work.hide);
+  const allWorks = works
+    .map((work) => ({
+      ...work,
+      released: parseISO(work.released, new Date())
+    }))
+    .sort((a, b) => b.released - a.released)
+    .filter((work) => !work.hide);
 
   let filteredWorks = allWorks.slice();
 
@@ -114,136 +117,152 @@ export default function Discography() {
   const groupedByYear = groupBy(filteredWorks, (work) => work.released.getFullYear());
 
   return (
-    <SimpleGrid
-      columns={[1, 2, 3, 3, 4, 5]}
-      spacing="0"
-      // mx="3"
-      // shadow="0 -10px 30px rgba(0,0,0,0.07)"
-      maxW="1800px"
-      mx="auto"
-    >
-      <Flex
-        p="8"
-        textAlign="center"
-        justify="center"
-        align="center"
-        direction="column"
-        bg="brand.600"
-        bgGradient="linear(to-br, brand.600, brand.800)"
-        color="white"
+    <>
+      <SimpleGrid
+        columns={[1, 2, 3, 3, 4, 5]}
+        spacing="0"
+        // mx="3"
+        // shadow="0 -10px 30px rgba(0,0,0,0.07)"
+        maxW="1800px"
+        mx="auto"
       >
-        <Heading as="h2" lineHeight="0.9">
-          Diskografi Pilihan
-        </Heading>
-
-        <Box
-          mt="4"
-          lineHeight="1.3"
-          fontSize="sm"
-          fontWeight="400"
-          sx={{ b: { fontSize: 'xs', fontWeight: '600' } }}
-        >
-          Lagu-lagu pilihan yang telah saya terbitkan <b>PRO</b>, cipta/tulis <b>COM</b>, gubah{' '}
-          <b>ARR</b>, jurutera <b>ENG</b>, adun <b>MIX</b> atau masterkan <b>MAS</b>.
-        </Box>
-
         <Flex
-          as="ul"
-          mt="4"
-          lineHeight="1.3"
-          fontSize="11px"
-          wrap="wrap"
+          p="8"
+          textAlign="center"
           justify="center"
-          sx={{ rowGap: 2, columnGap: 10 }}
+          align="center"
+          direction="column"
+          bg="brand.600"
+          bgGradient="linear(to-br, brand.600, brand.800)"
+          color="white"
         >
-          <Box as="li">
-            <NextLink href="/" shallow>
-              <Link
-                textTransform="uppercase"
-                fontWeight="800"
-                // letterSpacing="wide"
-                color={!genre ? 'brand.200' : 'white'}
-                tw="hover:underline!"
-              >
-                Semua
-              </Link>
-            </NextLink>
+          <Heading as="h2" lineHeight="0.9">
+            Diskografi Pilihan
+          </Heading>
+
+          <Box
+            mt="4"
+            lineHeight="1.3"
+            fontSize="sm"
+            fontWeight="400"
+            sx={{ b: { fontSize: 'xs', fontWeight: '600' } }}
+          >
+            Lagu-lagu pilihan yang telah saya terbitkan <b>PRO</b>, cipta/tulis <b>COM</b>, gubah{' '}
+            <b>ARR</b>, jurutera <b>ENG</b>, adun <b>MIX</b> atau masterkan <b>MAS</b>.
           </Box>
 
-          {genres.map(({ slug, title }) => (
-            <Box as="li" key={slug}>
-              <NextLink href={`/?genre=${slug}`} shallow>
+          <Flex
+            as="ul"
+            mt="4"
+            lineHeight="1.3"
+            fontSize="11px"
+            wrap="wrap"
+            justify="center"
+            sx={{ rowGap: 2, columnGap: 10 }}
+          >
+            <Box as="li">
+              <NextLink href="/" shallow>
                 <Link
                   textTransform="uppercase"
                   fontWeight="800"
                   // letterSpacing="wide"
-                  color={genre === title ? 'brand.200' : 'white'}
+                  color={!genre ? 'brand.200' : 'white'}
                   tw="hover:underline!"
                 >
-                  {title}
+                  Semua
                 </Link>
               </NextLink>
             </Box>
-          ))}
+
+            {genres.map(({ slug, title }) => (
+              <Box as="li" key={slug}>
+                <NextLink href={`/?genre=${slug}`} shallow>
+                  <Link
+                    textTransform="uppercase"
+                    fontWeight="800"
+                    // letterSpacing="wide"
+                    color={genre === title ? 'brand.200' : 'white'}
+                    tw="hover:underline!"
+                  >
+                    {title}
+                  </Link>
+                </NextLink>
+              </Box>
+            ))}
+          </Flex>
+
+          <Box mt="4">
+            <Select
+              size="sm"
+              onChange={(e) => setCurrentArtist(e.target.value !== 'all' ? e.target.value : null)}
+              borderRadius="md"
+              borderWidth="2px"
+              borderColor="rgba(255,255,255,0.25) !important"
+            >
+              <option value="all">Semua Artis</option>
+              {artists.map(({ slug, name, total }) => (
+                <option key={slug} value={name}>
+                  {name} ({total})
+                </option>
+              ))}
+            </Select>
+          </Box>
         </Flex>
 
-        <Box mt="4">
-          <Select
-            size="sm"
-            onChange={(e) => setCurrentArtist(e.target.value !== 'all' ? e.target.value : null)}
-            borderRadius="md"
-            borderWidth="2px"
-            borderColor="rgba(255,255,255,0.25) !important"
-          >
-            <option value="all">Semua Artis</option>
-            {artists.map(({ slug, name, total }) => (
-              <option key={slug} value={name}>
-                {name} ({total})
-              </option>
-            ))}
-          </Select>
-        </Box>
-      </Flex>
-
-      {Object.entries(groupedByYear)
-        .sort((a, b) => b[0] - a[0])
-        .map(([year, yearWorks]) => (
-          <Fragment key={year}>
-            {/* <LazyLoad height={cellHeight} classNamePrefix="ll">
-              <Flex
-                key={year}
-                p="8"
-                h={cellHeight}
-                textAlign="center"
-                justify="center"
-                align="center"
-                direction="column"
-                bgGradient={useColorModeValue(
-                  'linear(-6deg, brand.500 50%, white 50.2%)',
-                  'linear(-6deg, brand.500 50%, black 50.2%)'
-                )}
-              >
-                <Heading
-                  as="h3"
-                  lineHeight="0.9"
-                  fontSize="7xl"
-                  color="brand.500"
-                  transform="rotate(-6deg)"
-                  textShadow="5px 5px 0 white"
-                  // opacity="0.5"
-                  // sx={{ mixBlendMode: 'overlay' }}
+        {Object.entries(groupedByYear)
+          .sort((a, b) => b[0] - a[0])
+          .map(([year, yearWorks]) => (
+            <Fragment key={year}>
+              {/* <LazyLoad height={cellHeight} classNamePrefix="ll">
+                <Flex
+                  key={year}
+                  p="8"
+                  h={cellHeight}
+                  textAlign="center"
+                  justify="center"
+                  align="center"
+                  direction="column"
+                  bgGradient={useColorModeValue(
+                    'linear(-6deg, brand.500 50%, white 50.2%)',
+                    'linear(-6deg, brand.500 50%, black 50.2%)'
+                  )}
                 >
-                  {year}
-                </Heading>
-              </Flex>
-            </LazyLoad> */}
+                  <Heading
+                    as="h3"
+                    lineHeight="0.9"
+                    fontSize="7xl"
+                    color="brand.500"
+                    transform="rotate(-6deg)"
+                    textShadow="5px 5px 0 white"
+                    // opacity="0.5"
+                    // sx={{ mixBlendMode: 'overlay' }}
+                  >
+                    {year}
+                  </Heading>
+                </Flex>
+              </LazyLoad> */}
 
-            {yearWorks.map((work) => (
-              <Work work={work} key={work.youtube} />
-            ))}
-          </Fragment>
-        ))}
-    </SimpleGrid>
+              {yearWorks.map((work) => (
+                <Work work={work} key={work.youtube} />
+              ))}
+            </Fragment>
+          ))}
+      </SimpleGrid>
+
+      {/* <Flex py="10" justify="center">
+        <Button
+          variant="outline"
+          color="white"
+          border="2px solid"
+          borderColor="currentColor"
+          bg="none"
+          _hover={{ opacity: 0.7 }}
+          onClick={() => setPageOffset(offset)}
+        >
+          Papar Lagi...
+        </Button>
+      </Flex> */}
+    </>
   );
 }
 
