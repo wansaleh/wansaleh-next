@@ -258,6 +258,7 @@ export default function Discography() {
             bg="brand.600"
             bgGradient="linear(to-br, brand.600, brand.800)"
             color="white"
+            minH="100px"
           >
             <Button
               pos="absolute"
@@ -266,12 +267,12 @@ export default function Discography() {
               h="full"
               color="white"
               size="lg"
-              fontSize="3xl"
+              // fontSize="3xl"
               variant="unstyled"
               _hover={{ opacity: 0.7 }}
               onClick={() => setSize(size + 1)}
             >
-              Lagi...
+              Load More
             </Button>
           </Flex>
         )}
