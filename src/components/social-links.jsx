@@ -79,7 +79,11 @@ export default function SocialLinks({ showContact }) {
 
       {links.map(({ key, href, label, icon }, i) => (
         <Fragment key={key}>
-          {i > 0 && <Slash />}
+          {i > 0 && (
+            <li>
+              <Slash />
+            </li>
+          )}
           <li key={key}>
             {href.startsWith('https://') ? (
               <Link href={href} p="1" d="block">
