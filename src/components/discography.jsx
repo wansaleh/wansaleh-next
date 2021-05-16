@@ -46,7 +46,7 @@ export default function Discography() {
   // const { data } = useSWR(`/api/works`, fetcher);
   const { data, size, setSize } = useSWRInfinite(getKey, fetcher);
 
-  const [currentArtist, setCurrentArtist] = useState(null);
+  const [currentPerson, setCurrentPerson] = useState(null);
 
   const works = data
     ? data
@@ -86,22 +86,14 @@ export default function Discography() {
 
   filteredWorks = filteredWorks.filter((work) => (genre ? work.genres.includes(genre) : true));
 
-  const _artists = [...new Set(filteredWorks.map((work) => work.artists).flat())].sort((a, b) => {
-    if (a > b) {
-      return 1;
-    }
-    if (b > a) {
-      return -1;
-    }
-    return 0;
-  });
-
-  const artists = _artists
-    .map((art) => ({
-      slug: art.toLowerCase().replace(/ /g, '-'),
-      name: art,
-      total: filteredWorks.filter((work) => work.artists.includes(art)).length
-    }))
+  const _artists = [
+    ...new Set([
+      ...filteredWorks.map((work) => work.artists).flat(),
+      ...filteredWorks.map((work) => work.composers).flat(),
+      ...filteredWorks.map((work) => work.writers).flat()
+    ])
+  ]
+    .filter(Boolean)
     .sort((a, b) => {
       if (a > b) {
         return 1;
@@ -112,8 +104,21 @@ export default function Discography() {
       return 0;
     });
 
+  const artists = _artists.map((art) => ({
+    slug: art.toLowerCase().replace(/ /g, '-'),
+    name: art,
+    total: filteredWorks.filter(
+      (work) =>
+        work.artists.includes(art) || work.composers?.includes(art) || work.writers?.includes(art)
+    ).length
+  }));
+
   filteredWorks = filteredWorks.filter((work) =>
-    currentArtist ? work.artists.includes(currentArtist) : true
+    currentPerson
+      ? work.artists.includes(currentPerson) ||
+        work.composers?.includes(currentPerson) ||
+        work.writers?.includes(currentPerson)
+      : true
   );
 
   const groupedByYear = groupBy(filteredWorks, (work) => work.released.getFullYear());
@@ -196,15 +201,15 @@ export default function Discography() {
           <Box mt="4">
             <Select
               size="sm"
-              onChange={(e) => setCurrentArtist(e.target.value !== 'all' ? e.target.value : null)}
+              onChange={(e) => setCurrentPerson(e.target.value !== 'all' ? e.target.value : null)}
               borderRadius="md"
               borderWidth="2px"
               borderColor="rgba(255,255,255,0.25) !important"
             >
-              <option value="all">Semua Artis</option>
-              {artists.map(({ slug, name, total }) => (
+              <option value="all">Semua</option>
+              {artists.map(({ slug, name }) => (
                 <option key={slug} value={name}>
-                  {name} ({total})
+                  {name}
                 </option>
               ))}
             </Select>
