@@ -1,5 +1,5 @@
 import { Badge } from '@chakra-ui/react';
-import { readableColor } from 'polished';
+import { readableColor, rgba } from 'polished';
 import React from 'react';
 
 export default function SmallBadge({ children, color, ...props }) {
@@ -8,7 +8,7 @@ export default function SmallBadge({ children, color, ...props }) {
       // bg="rgba(0,0,0,0.7)"
       d="inline-block"
       bg={color || '#fff'}
-      color={color ? readableColor(color) : '#000'}
+      color={color ? rgba(readableColor(color), 0.65) : rgba('#000', 0.65)}
       fontSize="0.6rem"
       fontFamily="body"
       // fontFamily="heading"
