@@ -435,6 +435,7 @@ function Work({ work }) {
                 <SmallBadge
                   color={palette && palette[PALETTENUM + 1]}
                   ml="1.5"
+                  mt="-0.5"
                   // mt="0.5"
                 >
                   New
