@@ -1,6 +1,7 @@
 import {
   AspectRatio,
   Box,
+  Button,
   // Button,
   Flex,
   Heading,
@@ -14,7 +15,6 @@ import {
 import { usePalette } from 'color-thief-react';
 import { format, formatDistanceToNow, isAfter, parseISO, subMonths } from 'date-fns';
 import { ms } from 'date-fns/locale';
-import groupBy from 'lodash.groupby';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { readableColor } from 'polished';
@@ -28,37 +28,15 @@ import SmallBadge from './small-badge';
 const PALETTENUM = 0;
 
 const fetcher = (url, headers) => fetch(url, { headers }).then((r) => r.json());
-// const getKey = (pageIndex, previousPageData) => {
-//   // reached the end
-//   if (previousPageData && !previousPageData.works) return null;
-
-//   // first page, we don't have `previousPageData`
-//   if (pageIndex === 0) return `/api/works`;
-
-//   // add the cursor to the API endpoint
-//   return `/api/works?offset=${previousPageData.offset}`;
-// };
 
 export default function Discography({ initialData }) {
   const router = useRouter();
-  // const [works, setWorks] = useState([]);
-  // const [pageOffset, setPageOffset] = useState(null);
+
+  const [curPerson, setPerson] = useState('all');
+  const [curGenre, setGenre] = useState('all');
+
   const { data } = useSWR(`/api/works`, fetcher, { initialData });
-  // const { data, size, setSize } = useSWRInfinite(getKey, fetcher);
-
-  const [currentPerson, setCurrentPerson] = useState(null);
-
   const { works } = data || {};
-  // const works = data
-  //   ? data
-  //       .flat()
-  //       .map((page) => page.works)
-  //       .flat()
-  //   : [];
-
-  // console.log(works);
-
-  // const isReachingEnd = data ? !data[data.length - 1].offset : false;
 
   const allWorks = works
     .map((work) => ({
@@ -80,14 +58,7 @@ export default function Discography({ initialData }) {
     }))
     .sort((a, b) => b.total - a.total);
 
-  let genre = null;
-  if (router.query.genre) {
-    genre = genres.find((g) => g.slug === router.query.genre).title;
-  }
-
-  filteredWorks = filteredWorks.filter((work) => (genre ? work.genres.includes(genre) : true));
-
-  const _artists = [
+  const _people = [
     ...new Set([
       ...filteredWorks.map((work) => work.artists).flat(),
       ...filteredWorks.map((work) => work.composers).flat(),
@@ -105,7 +76,7 @@ export default function Discography({ initialData }) {
       return 0;
     });
 
-  const artists = _artists.map((art) => ({
+  const people = _people.map((art) => ({
     slug: art.toLowerCase().replace(/ /g, '-'),
     name: art,
     total: filteredWorks.filter(
@@ -114,15 +85,21 @@ export default function Discography({ initialData }) {
     ).length
   }));
 
+  // Filtering stage
+
+  console.log(curGenre);
+
   filteredWorks = filteredWorks.filter((work) =>
-    currentPerson
-      ? work.artists.includes(currentPerson) ||
-        work.composers?.includes(currentPerson) ||
-        work.writers?.includes(currentPerson)
-      : true
+    curGenre !== 'all' ? work.genres.includes(curGenre) : true
   );
 
-  const groupedByYear = groupBy(filteredWorks, (work) => work.released.getFullYear());
+  filteredWorks = filteredWorks.filter((work) =>
+    curPerson !== 'all'
+      ? work.artists.includes(curPerson) ||
+        work.composers?.includes(curPerson) ||
+        work.writers?.includes(curPerson)
+      : true
+  );
 
   return (
     <>
@@ -169,32 +146,52 @@ export default function Discography({ initialData }) {
             sx={{ rowGap: 2, columnGap: 10 }}
           >
             <Box as="li">
-              <NextLink href="/" shallow>
-                <Link
-                  textTransform="uppercase"
-                  fontWeight="800"
-                  // letterSpacing="wide"
-                  color={!genre ? 'brand.200' : 'white'}
-                  tw="hover:underline!"
-                >
-                  Semua
-                </Link>
-              </NextLink>
+              <Button
+                variant="link"
+                textTransform="uppercase"
+                fontWeight="800"
+                fontSize="inherit"
+                p="0"
+                minW="unset"
+                // letterSpacing="wide"
+                color={curGenre === 'all' ? 'brand.200' : 'white'}
+                _hover={{
+                  color: curGenre === 'all' ? 'brand.200' : 'white',
+                  textDecoration: 'underline'
+                }}
+                _active={{
+                  color: curGenre === 'all' ? 'brand.200' : 'white',
+                  opacity: 0.7
+                }}
+                onClick={() => setGenre('all')}
+              >
+                Semua
+              </Button>
             </Box>
 
             {genres.map(({ slug, title }) => (
               <Box as="li" key={slug}>
-                <NextLink href={`/?genre=${slug}`} shallow>
-                  <Link
-                    textTransform="uppercase"
-                    fontWeight="800"
-                    // letterSpacing="wide"
-                    color={genre === title ? 'brand.200' : 'white'}
-                    tw="hover:underline!"
-                  >
-                    {title}
-                  </Link>
-                </NextLink>
+                <Button
+                  variant="link"
+                  textTransform="uppercase"
+                  fontWeight="800"
+                  fontSize="inherit"
+                  p="0"
+                  minW="unset"
+                  // letterSpacing="wide"
+                  color={curGenre === title ? 'brand.200' : 'white'}
+                  _hover={{
+                    color: curGenre === title ? 'brand.200' : 'white',
+                    textDecoration: 'underline'
+                  }}
+                  _active={{
+                    color: curGenre === title ? 'brand.200' : 'white',
+                    opacity: 0.7
+                  }}
+                  onClick={() => setGenre(title)}
+                >
+                  {title}
+                </Button>
               </Box>
             ))}
           </Flex>
@@ -202,13 +199,13 @@ export default function Discography({ initialData }) {
           <Box mt="4">
             <Select
               size="sm"
-              onChange={(e) => setCurrentPerson(e.target.value !== 'all' ? e.target.value : null)}
+              onChange={(e) => setPerson(e.target.value)}
               borderRadius="md"
               borderWidth="2px"
               borderColor="rgba(255,255,255,0.25) !important"
             >
               <option value="all">Semua</option>
-              {artists.map(({ slug, name, total }) => (
+              {people.map(({ slug, name, total }) => (
                 <option key={slug} value={name}>
                   {name} ({total})
                 </option>
@@ -217,44 +214,9 @@ export default function Discography({ initialData }) {
           </Box>
         </Flex>
 
-        {Object.entries(groupedByYear)
-          .sort((a, b) => b[0] - a[0])
-          .map(([year, yearWorks]) => (
-            <Fragment key={year}>
-              {/* <LazyLoad height={cellHeight} classNamePrefix="ll">
-                <Flex
-                  key={year}
-                  p="8"
-                  h={cellHeight}
-                  textAlign="center"
-                  justify="center"
-                  align="center"
-                  direction="column"
-                  bgGradient={useColorModeValue(
-                    'linear(-6deg, brand.500 50%, white 50.2%)',
-                    'linear(-6deg, brand.500 50%, black 50.2%)'
-                  )}
-                >
-                  <Heading
-                    as="h3"
-                    lineHeight="0.9"
-                    fontSize="7xl"
-                    color="brand.500"
-                    transform="rotate(-6deg)"
-                    textShadow="5px 5px 0 white"
-                    // opacity="0.5"
-                    // sx={{ mixBlendMode: 'overlay' }}
-                  >
-                    {year}
-                  </Heading>
-                </Flex>
-              </LazyLoad> */}
-
-              {yearWorks.map((work) => (
-                <Work work={work} key={work.youtube} />
-              ))}
-            </Fragment>
-          ))}
+        {filteredWorks.map((work) => (
+          <Work work={work} key={work.youtube} />
+        ))}
 
         {/* {!isReachingEnd && (
           <Flex
