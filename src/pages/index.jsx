@@ -145,7 +145,7 @@ export default function Home() {
                 borderRadius="full"
                 letterSpacing="tight"
                 colorScheme="brand"
-                onClick={() => router.push('/discography')}
+                onClick={() => router.push('/works')}
               >
                 Diskografi
               </Button>
@@ -162,7 +162,7 @@ export default function Home() {
                 borderRadius="full"
                 letterSpacing="tight"
                 colorScheme="yellow"
-                onClick={() => router.push('/discography')}
+                onClick={() => router.push('/blog')}
               >
                 Blog
               </Button>
@@ -182,7 +182,7 @@ export default function Home() {
                 bg="none!important"
                 boxShadow="inset 0 0 0 3px currentColor !important"
                 _hover={{ opacity: 0.7 }}
-                onClick={() => router.push('/discography')}
+                onClick={() => router.push('/tools')}
               >
                 Tools
               </Button>
