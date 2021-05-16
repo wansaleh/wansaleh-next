@@ -25,6 +25,7 @@ export default function Nav() {
 
   return (
     <Box
+      id="navbar"
       pos="absolute"
       // top="0"
       // left="0"

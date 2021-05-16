@@ -1,7 +1,7 @@
 import {
   AspectRatio,
   Box,
-  Button,
+  // Button,
   Flex,
   Heading,
   HStack,
@@ -20,7 +20,7 @@ import { useRouter } from 'next/router';
 import { readableColor } from 'polished';
 import { Fragment, useState } from 'react';
 import { useMeasure } from 'react-use';
-import { useSWRInfinite } from 'swr';
+import useSWR from 'swr';
 
 import Img from './image';
 import SmallBadge from './small-badge';
@@ -28,36 +28,37 @@ import SmallBadge from './small-badge';
 const PALETTENUM = 0;
 
 const fetcher = (url, headers) => fetch(url, { headers }).then((r) => r.json());
-const getKey = (pageIndex, previousPageData) => {
-  // reached the end
-  if (previousPageData && !previousPageData.works) return null;
+// const getKey = (pageIndex, previousPageData) => {
+//   // reached the end
+//   if (previousPageData && !previousPageData.works) return null;
 
-  // first page, we don't have `previousPageData`
-  if (pageIndex === 0) return `/api/works`;
+//   // first page, we don't have `previousPageData`
+//   if (pageIndex === 0) return `/api/works`;
 
-  // add the cursor to the API endpoint
-  return `/api/works?offset=${previousPageData.offset}`;
-};
+//   // add the cursor to the API endpoint
+//   return `/api/works?offset=${previousPageData.offset}`;
+// };
 
-export default function Discography() {
+export default function Discography({ initialData }) {
   const router = useRouter();
   // const [works, setWorks] = useState([]);
   // const [pageOffset, setPageOffset] = useState(null);
-  // const { data } = useSWR(`/api/works`, fetcher);
-  const { data, size, setSize } = useSWRInfinite(getKey, fetcher);
+  const { data } = useSWR(`/api/works`, fetcher, { initialData });
+  // const { data, size, setSize } = useSWRInfinite(getKey, fetcher);
 
   const [currentPerson, setCurrentPerson] = useState(null);
 
-  const works = data
-    ? data
-        .flat()
-        .map((page) => page.works)
-        .flat()
-    : [];
+  const { works } = data || {};
+  // const works = data
+  //   ? data
+  //       .flat()
+  //       .map((page) => page.works)
+  //       .flat()
+  //   : [];
 
-  console.log(works);
+  // console.log(works);
 
-  const isReachingEnd = data ? !data[data.length - 1].offset : false;
+  // const isReachingEnd = data ? !data[data.length - 1].offset : false;
 
   const allWorks = works
     .map((work) => ({
@@ -255,7 +256,7 @@ export default function Discography() {
             </Fragment>
           ))}
 
-        {!isReachingEnd && (
+        {/* {!isReachingEnd && (
           <Flex
             pos="relative"
             textAlign="center"
@@ -282,7 +283,7 @@ export default function Discography() {
               Load More
             </Button>
           </Flex>
-        )}
+        )} */}
       </SimpleGrid>
     </>
   );
@@ -352,6 +353,7 @@ function Work({ work }) {
                 bg="#000"
                 objectFit="contain"
                 pointerEvents="none"
+                opacity="1"
               />
 
               {/* <Box

@@ -8,14 +8,14 @@ import {
   LightMode,
   useColorModeValue
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import TextLoop from 'react-text-loop';
 
-import Discography from '../components/discography';
 import Head from '../components/head';
-// import { fetchDiscograpySheet } from '../lib/google-sheet-helpers';
 
 export default function Home() {
+  const router = useRouter();
   const [heroLoaded, setHeroLoaded] = useState(false);
 
   return (
@@ -142,30 +142,13 @@ export default function Home() {
               px="6"
               mt="8"
               colorScheme="brand"
-              onClick={() =>
-                document.getElementById('discography').scrollIntoView({ behavior: 'smooth' })
-              }
+              onClick={() => router.push('/discography')}
             >
               Diskografi
             </Button>
           </LightMode>
         </Container>
       </Flex>
-
-      <Box pos="relative" zIndex="2" id="discography" bg="brand.900">
-        <Discography />
-      </Box>
     </>
   );
 }
-
-// export async function getStaticProps() {
-//   const works = await fetchDiscograpySheet();
-
-//   return {
-//     props: {
-//       works
-//     },
-//     revalidate: 1
-//   };
-// }
