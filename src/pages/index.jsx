@@ -6,8 +6,10 @@ import {
   Heading,
   Image,
   LightMode,
+  Link,
   useColorModeValue
 } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import TextLoop from 'react-text-loop';
@@ -84,14 +86,13 @@ export default function Home() {
           />
         </Box>
 
-        <Container maxW="6xl" textAlign={['center', 'center', 'left']}>
+        <Container maxW="6xl">
           <Heading
             as="h1"
             pb="2"
             fontSize={['3rem', '4rem', '5rem', '8rem']}
             fontWeight="600"
-            // fontFamily="body"
-            lineHeight="0.8"
+            lineHeight="0.9"
             letterSpacing="tighter"
             ml="-0.025em"
           >
@@ -116,7 +117,7 @@ export default function Home() {
             as="h2"
             mt="4"
             pb="4"
-            fontSize={['3xl', '5xl']}
+            fontSize={['2xl', '5xl']}
             fontWeight="300"
             fontFamily="body"
             lineHeight="1"
@@ -133,74 +134,55 @@ export default function Home() {
             </TextLoop>
           </Heading>
 
-          <LightMode>
-            <Flex align="center" mt="8">
-              <Button
-                fontSize="xl"
-                h="unset"
-                w="unset"
-                maxW="unset"
-                py="2"
-                px="5"
-                borderRadius="full"
-                letterSpacing="tight"
-                // colorScheme="gray"
-                bg={useColorModeValue('black', 'white')}
-                color={useColorModeValue('white', 'black')}
-                _hover={{
-                  bg: useColorModeValue('brandGray.700', 'brandGray.400'),
-                  color: useColorModeValue('white', 'black')
-                }}
-                _active={{
-                  bg: useColorModeValue('black', 'white'),
-                  color: useColorModeValue('white', 'black'),
-                  opacity: 0.7
-                }}
-                onClick={() => router.push('/works')}
-              >
-                Diskografi
-              </Button>
+          <Flex align="center" mt="8" fontSize={['md', 'lg', 'xl', '2xl']} sx={{ gap: '0.35em' }}>
+            <NextLink href="/works" passHref>
+              <CTALink>Diskografi</CTALink>
+            </NextLink>
 
-              <Slash size="3em" />
+            {/* <Slash size="2em" /> */}
 
-              <Button
-                fontSize="xl"
-                h="unset"
-                w="unset"
-                maxW="unset"
-                py="2"
-                px="5"
-                borderRadius="full"
-                letterSpacing="tight"
-                colorScheme="yellow"
-                onClick={() => router.push('/blog')}
-              >
+            <NextLink href="/blog" passHref>
+              <CTALink bg="yellow.400" color="black">
                 Blog
-              </Button>
+              </CTALink>
+            </NextLink>
 
-              <Slash size="3em" />
+            {/* <Slash size="2em" /> */}
 
-              <Button
-                fontSize="xl"
-                h="unset"
-                w="unset"
-                maxW="unset"
-                py="2"
-                px="5"
-                borderRadius="full"
-                letterSpacing="tight"
-                // colorScheme="brand"
-                bg="none!important"
+            <NextLink href="/tools" passHref>
+              <CTALink
+                bg="none"
+                color={useColorModeValue('black', 'white')}
                 boxShadow="inset 0 0 0 3px currentColor !important"
-                _hover={{ opacity: 0.7 }}
-                onClick={() => router.push('/tools')}
               >
                 Tools
-              </Button>
-            </Flex>
-          </LightMode>
+              </CTALink>
+            </NextLink>
+          </Flex>
         </Container>
       </Flex>
     </>
+  );
+}
+
+function CTALink({ children, ...props }) {
+  return (
+    <Link
+      h="unset"
+      w="unset"
+      maxW="unset"
+      py="0.25em"
+      px="1em"
+      fontWeight="800"
+      borderRadius="full"
+      letterSpacing="tight"
+      // colorScheme="gray"
+      bg={useColorModeValue('black', 'white')}
+      color={useColorModeValue('white', 'black')}
+      _hover={{ opacity: 0.8 }}
+      {...props}
+    >
+      {children}
+    </Link>
   );
 }
