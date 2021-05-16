@@ -207,9 +207,9 @@ export default function Discography() {
               borderColor="rgba(255,255,255,0.25) !important"
             >
               <option value="all">Semua</option>
-              {artists.map(({ slug, name }) => (
+              {artists.map(({ slug, name, total }) => (
                 <option key={slug} value={name}>
-                  {name}
+                  {name} ({total})
                 </option>
               ))}
             </Select>
