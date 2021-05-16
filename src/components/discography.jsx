@@ -11,7 +11,6 @@ import {
   Select,
   SimpleGrid
 } from '@chakra-ui/react';
-import arrayToSentence from 'array-to-sentence';
 import { usePalette } from 'color-thief-react';
 import { format, formatDistanceToNow, isAfter, parseISO, subMonths } from 'date-fns';
 import { ms } from 'date-fns/locale';
@@ -31,7 +30,7 @@ const PALETTENUM = 0;
 const fetcher = (url, headers) => fetch(url, { headers }).then((r) => r.json());
 const getKey = (pageIndex, previousPageData) => {
   // reached the end
-  if (previousPageData && !previousPageData.records) return null;
+  if (previousPageData && !previousPageData.works) return null;
 
   // first page, we don't have `previousPageData`
   if (pageIndex === 0) return `/api/works`;
@@ -50,8 +49,13 @@ export default function Discography() {
   const [currentArtist, setCurrentArtist] = useState(null);
 
   const works = data
-    ? [].concat(...data).reduce((out, page) => out.concat(...page.records), [])
+    ? data
+        .flat()
+        .map((page) => page.works)
+        .flat()
     : [];
+
+  console.log(works);
 
   const isReachingEnd = data ? !data[data.length - 1].offset : false;
 
@@ -65,7 +69,7 @@ export default function Discography() {
 
   let filteredWorks = allWorks.slice();
 
-  const _genres = [...new Set(filteredWorks.reduce((out, work) => out.concat(work.genres), []))];
+  const _genres = [...new Set(filteredWorks.map((work) => work.genres).flat())];
 
   const genres = _genres
     .map((g) => ({
@@ -82,9 +86,7 @@ export default function Discography() {
 
   filteredWorks = filteredWorks.filter((work) => (genre ? work.genres.includes(genre) : true));
 
-  const _artists = [
-    ...new Set(filteredWorks.reduce((out, work) => out.concat(work.artists), []))
-  ].sort((a, b) => {
+  const _artists = [...new Set(filteredWorks.map((work) => work.artists).flat())].sort((a, b) => {
     if (a > b) {
       return 1;
     }
@@ -565,16 +567,14 @@ function Work({ work }) {
 }
 
 function listArtists(names) {
-  return arrayToSentence(names, {
-    lastSeparator: ' & '
-  });
+  return names.map((name) => name.replace(/ /g, '\u00A0')).join(', ');
 }
 
 function listWriters(composers, writers) {
   composers = composers || [];
   writers = writers || [];
 
-  return arrayToSentence([...new Set([...composers, ...writers])], {
-    lastSeparator: ' & '
-  });
+  return [...new Set([...composers, ...writers])]
+    .map((name) => name.replace(/ /g, '\u00A0'))
+    .join(', ');
 }
