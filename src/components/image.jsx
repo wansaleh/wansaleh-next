@@ -16,6 +16,7 @@ export default function Img({
   bg = useColorModeValue('gray.200', 'gray.800'),
   cloudinary = false,
   zoom = false,
+  darkModeDim = true,
   ...props
 }) {
   const imgRef = useRef();
@@ -53,7 +54,7 @@ export default function Img({
       position="relative"
       d="block"
       transition="opacity 0.5s ease"
-      opacity={loaded ? useColorModeValue(1, 0.75) : 0}
+      opacity={loaded ? useColorModeValue(1, darkModeDim ? 0.75 : 1) : 0}
       // visibility={alreadyVisible ? 'visible' : 'hidden'}
       onLoad={showImage}
       data-natural-width={naturalWidth}

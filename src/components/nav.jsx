@@ -96,8 +96,18 @@ export default function Nav() {
             }}
           >
             <li>
+              <NextLink href="/discography" passHref>
+                <Link className={router.pathname.includes('/discography') && 'active'}>Works</Link>
+              </NextLink>
+            </li>
+
+            <li>
+              <Slash />
+            </li>
+
+            <li>
               <NextLink href="/blog" passHref>
-                <Link className={router.pathname.includes('/blog') && 'active'}>In The Studio</Link>
+                <Link className={router.pathname.includes('/blog') && 'active'}>Blog</Link>
               </NextLink>
             </li>
 

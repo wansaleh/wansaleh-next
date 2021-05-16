@@ -1,14 +1,14 @@
 import { Box } from '@chakra-ui/react';
 import React from 'react';
 
-export function Slash({ color = 'currentColor', ...props }) {
+export function Slash({ size = '1.5em', color = 'currentColor', ...props }) {
   return (
     <Box
       as="svg"
       d="inline-block"
       viewBox="0 0 24 24"
-      width="1.5em"
-      height="1.5em"
+      width={size}
+      height={size}
       stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"

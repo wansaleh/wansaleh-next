@@ -353,7 +353,7 @@ function Work({ work }) {
                 bg="#000"
                 objectFit="contain"
                 pointerEvents="none"
-                opacity="1"
+                darkModeDim={false}
               />
 
               {/* <Box

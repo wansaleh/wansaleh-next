@@ -13,6 +13,7 @@ import React, { useState } from 'react';
 import TextLoop from 'react-text-loop';
 
 import Head from '../components/head';
+import { Slash } from '../components/slash';
 
 export default function Home() {
   const router = useRouter();
@@ -133,19 +134,59 @@ export default function Home() {
           </Heading>
 
           <LightMode>
-            <Button
-              fontSize="2xl"
-              h="unset"
-              w="unset"
-              maxW="unset"
-              py="3"
-              px="6"
-              mt="8"
-              colorScheme="brand"
-              onClick={() => router.push('/discography')}
-            >
-              Diskografi
-            </Button>
+            <Flex align="center" mt="8">
+              <Button
+                fontSize="xl"
+                h="unset"
+                w="unset"
+                maxW="unset"
+                py="2"
+                px="5"
+                borderRadius="full"
+                letterSpacing="tight"
+                colorScheme="brand"
+                onClick={() => router.push('/discography')}
+              >
+                Diskografi
+              </Button>
+
+              <Slash size="3em" />
+
+              <Button
+                fontSize="xl"
+                h="unset"
+                w="unset"
+                maxW="unset"
+                py="2"
+                px="5"
+                borderRadius="full"
+                letterSpacing="tight"
+                colorScheme="yellow"
+                onClick={() => router.push('/discography')}
+              >
+                Blog
+              </Button>
+
+              <Slash size="3em" />
+
+              <Button
+                fontSize="xl"
+                h="unset"
+                w="unset"
+                maxW="unset"
+                py="2"
+                px="5"
+                borderRadius="full"
+                letterSpacing="tight"
+                // colorScheme="brand"
+                bg="none!important"
+                boxShadow="inset 0 0 0 3px currentColor !important"
+                _hover={{ opacity: 0.7 }}
+                onClick={() => router.push('/discography')}
+              >
+                Tools
+              </Button>
+            </Flex>
           </LightMode>
         </Container>
       </Flex>
