@@ -144,7 +144,18 @@ export default function Home() {
                 px="5"
                 borderRadius="full"
                 letterSpacing="tight"
-                colorScheme="brand"
+                // colorScheme="gray"
+                bg={useColorModeValue('black', 'white')}
+                color={useColorModeValue('white', 'black')}
+                _hover={{
+                  bg: useColorModeValue('brandGray.700', 'brandGray.400'),
+                  color: useColorModeValue('white', 'black')
+                }}
+                _active={{
+                  bg: useColorModeValue('black', 'white'),
+                  color: useColorModeValue('white', 'black'),
+                  opacity: 0.7
+                }}
                 onClick={() => router.push('/works')}
               >
                 Diskografi
