@@ -54,6 +54,10 @@ export default function Discography({ initialData }) {
     }))
     .sort((a, b) => b.total - a.total);
 
+  filteredWorks = filteredWorks.filter((work) =>
+    curGenre !== 'all' ? work.genres.includes(curGenre) : true
+  );
+
   const _people = [
     ...new Set([
       ...filteredWorks.map((work) => work.artists).flat(),
@@ -81,14 +85,6 @@ export default function Discography({ initialData }) {
     ).length
   }));
 
-  // Filtering stage
-
-  console.log(curGenre);
-
-  filteredWorks = filteredWorks.filter((work) =>
-    curGenre !== 'all' ? work.genres.includes(curGenre) : true
-  );
-
   filteredWorks = filteredWorks.filter((work) =>
     curPerson !== 'all'
       ? work.artists.includes(curPerson) ||
@@ -102,7 +98,7 @@ export default function Discography({ initialData }) {
       <Box bg="brand.600" bgGradient="linear(to-br, brand.600, brand.800)">
         <Container maxW="6xl">
           <Flex
-            py="16"
+            py="24"
             textAlign="center"
             justify="center"
             align="center"

@@ -23,6 +23,8 @@ export default function Nav() {
   const router = useRouter();
   const { y } = useWindowScroll();
 
+  const isColoredHeader = router.pathname.includes('/works');
+
   return (
     <Box
       id="navbar"
@@ -45,7 +47,12 @@ export default function Nav() {
       //   backdropFilter: isReady() && y > 20 ? 'blur(20px)' : 'none'
       // }}
     >
-      <Container maxW="6xl" pos="relative" fontSize="sm">
+      <Container
+        maxW="6xl"
+        pos="relative"
+        fontSize="sm"
+        color={isColoredHeader ? 'white' : 'inherit'}
+      >
         <Flex as="nav" zIndex="100" justify="space-between" align="center">
           <Flex as="ul" justify="space-between" align="center">
             <li>
@@ -54,7 +61,9 @@ export default function Nav() {
                   <Flex align="center">
                     <Logo
                       w="1.75em"
-                      fill={useColorModeValue('brand.500', 'brand.500')}
+                      fill={
+                        !isColoredHeader ? useColorModeValue('brand.500', 'brand.500') : 'brand.200'
+                      }
                       transition="all 0.25s ease"
                       transform={y > 20 ? 'scale(1.2)' : 'none'}
                       // opacity={y > 20 ? 0.5 : 1}
@@ -92,7 +101,7 @@ export default function Nav() {
                 borderRadius: '5px'
                 // border: '2px solid transparent'
               },
-              'a:hover, a:active, a.active': { color: 'brand.500' }
+              'a:hover, a:active, a.active': { color: isColoredHeader ? 'brand.200' : 'brand.500' }
             }}
           >
             <li>
