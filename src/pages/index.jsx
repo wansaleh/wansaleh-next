@@ -1,26 +1,12 @@
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  Image,
-  LightMode,
-  Link,
-  useColorModeValue
-} from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Image, Link, useColorModeValue } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import TextLoop from 'react-text-loop';
 
 import Head from '../components/head';
-import { Slash } from '../components/slash';
 
 export default function Home() {
-  const router = useRouter();
   const [heroLoaded, setHeroLoaded] = useState(false);
-
   return (
     <>
       <Head title="By Wan Saleh" />
@@ -173,7 +159,8 @@ function CTALink({ children, ...props }) {
       maxW="unset"
       py="0.25em"
       px="1em"
-      fontWeight="800"
+      fontFamily="heading"
+      fontWeight="600"
       borderRadius="full"
       letterSpacing="tight"
       // colorScheme="gray"
@@ -182,7 +169,9 @@ function CTALink({ children, ...props }) {
       _hover={{ opacity: 0.8 }}
       {...props}
     >
-      {children}
+      <Box as="span" transform="skew(-5deg)" d="block">
+        {children}
+      </Box>
     </Link>
   );
 }

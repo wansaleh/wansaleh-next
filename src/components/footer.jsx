@@ -6,8 +6,13 @@ import SocialLinks from './social-links';
 export default function Footer() {
   return (
     <Box
+      id="footer"
+      pos="fixed"
+      zIndex="0"
+      bottom="0"
+      left="0"
+      right="0"
       py="4"
-      boxShadow="inset 0 20px 10px rgba(0,0,0,0.05)"
       borderTop="1px solid"
       borderColor={useColorModeValue('brandGray.300', 'brandGray.900')}
     >

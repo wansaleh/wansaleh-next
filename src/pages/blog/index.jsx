@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react';
 import React from 'react';
 
 import Head from '../../components/head';
@@ -6,7 +7,7 @@ import PostsList from '../../containers/contentful/posts-list';
 import PreviewAlert from '../../containers/contentful/preview-alert';
 import { getAllPostsForHome } from '../../lib/contentful';
 
-export default function Journal({ posts, preview }) {
+export default function BlogPage({ posts, preview }) {
   return (
     <>
       <Head title="By Wan Saleh • In The Studio" />
@@ -15,7 +16,9 @@ export default function Journal({ posts, preview }) {
 
       <PageHeader title="In The Studio" subtitle="Pencarianku ke arah kecemerlangan bunyi." />
 
-      <PostsList hero posts={posts} />
+      <Box pb="10">
+        <PostsList hero posts={posts} />
+      </Box>
     </>
   );
 }

@@ -6,7 +6,6 @@ import {
   Flex,
   Heading,
   HStack,
-  Link,
   LinkBox,
   LinkOverlay,
   Select,
@@ -15,8 +14,6 @@ import {
 import { usePalette } from 'color-thief-react';
 import { format, formatDistanceToNow, isAfter, parseISO, subMonths } from 'date-fns';
 import { ms } from 'date-fns/locale';
-import NextLink from 'next/link';
-import { useRouter } from 'next/router';
 import { readableColor } from 'polished';
 import { Fragment, useState } from 'react';
 import { useMeasure } from 'react-use';
@@ -30,8 +27,6 @@ const PALETTENUM = 0;
 const fetcher = (url, headers) => fetch(url, { headers }).then((r) => r.json());
 
 export default function Discography({ initialData }) {
-  const router = useRouter();
-
   const [curPerson, setPerson] = useState('all');
   const [curGenre, setGenre] = useState('all');
 
@@ -121,8 +116,17 @@ export default function Discography({ initialData }) {
           bgGradient="linear(to-br, brand.600, brand.800)"
           color="white"
         >
-          <Heading as="h2" lineHeight="0.9">
-            Diskografi Pilihan
+          <Heading
+            as="h2"
+            lineHeight="0.9"
+            fontWeight="600"
+            transform="skew(-5deg)"
+            letterSpacing="tighter"
+          >
+            Diskografi{' '}
+            <Box as="span" fontSize="1.475em" color="yellow.300">
+              Pilihan
+            </Box>
           </Heading>
 
           <Box
@@ -264,7 +268,7 @@ function Work({ work }) {
 
   const [ref, { height: coverHeight }] = useMeasure();
 
-  const cellHeight = coverHeight + 120;
+  const cellHeight = coverHeight + 130;
 
   return (
     <LinkBox key={work.youtube} role="group" h={`${cellHeight}px`}>
@@ -283,7 +287,7 @@ function Work({ work }) {
           color={palette ? readableColor(palette[PALETTENUM]) : 'white'}
           transition="all 0.2s ease"
           textAlign="center"
-          p="5"
+          p="6"
           h="full"
         >
           <AspectRatio
@@ -297,13 +301,14 @@ function Work({ work }) {
             // }}
           >
             <Box
-              bg="black"
-              shadow="md"
+              bg="none"
               borderRadius="md"
               overflow="hidden"
               transition="all 0.5s ease"
+              shadow="lg"
+              border="1px solid rgba(0,0,0,0.1)"
               _groupHover={{
-                shadow: 'lg',
+                shadow: 'xl',
                 transform: 'translateY(-3px)'
               }}
             >
@@ -312,7 +317,7 @@ function Work({ work }) {
                 width={300}
                 height={300}
                 alt={work.song}
-                bg="#000"
+                bg="none"
                 objectFit="contain"
                 pointerEvents="none"
                 darkModeDim={false}
