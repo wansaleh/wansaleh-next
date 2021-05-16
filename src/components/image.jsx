@@ -1,10 +1,10 @@
-import { AspectRatio, Box, chakra, Image, useColorModeValue } from '@chakra-ui/react';
+import { AspectRatio, Box, Image, useColorModeValue } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useRef, useState } from 'react';
 import { useInView } from 'react-hook-inview';
 import ImageZoom from 'react-medium-image-zoom';
 
-const CImageZoom = chakra(ImageZoom);
+// const CImageZoom = chakra(ImageZoom);
 
 export default function Img({
   src,
