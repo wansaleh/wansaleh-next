@@ -22,6 +22,10 @@ export default function Home() {
         overflow="hidden"
         zIndex="0"
         minH="100vh"
+        bgGradient={useColorModeValue(
+          'linear(to-tr, white, brand.100)',
+          'linear(to-tr, black, brand.900)'
+        )}
       >
         <Box
           pos="absolute"

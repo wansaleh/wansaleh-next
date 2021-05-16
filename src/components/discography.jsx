@@ -2,6 +2,7 @@ import {
   AspectRatio,
   Box,
   Button,
+  Container,
   // Button,
   Flex,
   Heading,
@@ -98,83 +99,51 @@ export default function Discography({ initialData }) {
 
   return (
     <>
-      <SimpleGrid
-        columns={[1, 2, 3, 3, 4, 5]}
-        spacing="0"
-        // mx="3"
-        // shadow="0 -10px 30px rgba(0,0,0,0.07)"
-        maxW="1800px"
-        mx="auto"
-      >
-        <Flex
-          p="8"
-          textAlign="center"
-          justify="center"
-          align="center"
-          direction="column"
-          bg="brand.600"
-          bgGradient="linear(to-br, brand.600, brand.800)"
-          color="white"
-        >
-          <Heading
-            as="h2"
-            lineHeight="0.9"
-            fontWeight="600"
-            transform="skew(-5deg)"
-            letterSpacing="tighter"
-          >
-            Diskografi{' '}
-            <Box as="span" fontSize="1.475em" color="yellow.300">
-              Pilihan
-            </Box>
-          </Heading>
-
-          <Box
-            mt="4"
-            lineHeight="1.3"
-            fontSize="sm"
-            fontWeight="400"
-            sx={{ b: { fontSize: 'xs', fontWeight: '600' } }}
-          >
-            Lagu-lagu pilihan yang telah saya terbitkan <b>PRO</b>, cipta/tulis <b>COM</b>, gubah{' '}
-            <b>ARR</b>, jurutera <b>ENG</b>, adun <b>MIX</b> atau masterkan <b>MAS</b>.
-          </Box>
-
+      <Box bg="brand.600" bgGradient="linear(to-br, brand.600, brand.800)">
+        <Container maxW="6xl">
           <Flex
-            as="ul"
-            mt="4"
-            lineHeight="1.3"
-            fontSize="11px"
-            wrap="wrap"
+            py="16"
+            textAlign="center"
             justify="center"
-            sx={{ rowGap: 2, columnGap: 10 }}
+            align="center"
+            direction="column"
+            color="white"
           >
-            <Box as="li">
-              <Button
-                variant="link"
-                textTransform="uppercase"
-                fontWeight="800"
-                fontSize="inherit"
-                p="0"
-                minW="unset"
-                // letterSpacing="wide"
-                color={curGenre === 'all' ? 'brand.200' : 'white'}
-                _hover={{
-                  color: curGenre === 'all' ? 'brand.200' : 'white',
-                  textDecoration: 'underline'
-                }}
-                _active={{
-                  color: curGenre === 'all' ? 'brand.200' : 'white',
-                  opacity: 0.7
-                }}
-                onClick={() => setGenre('all')}
-              >
-                Semua
-              </Button>
+            <Heading
+              as="h2"
+              fontSize={['4xl', '5xl', '6xl']}
+              fontWeight="600"
+              lineHeight="1"
+              letterSpacing="tighter"
+              transform="skew(-5deg)"
+            >
+              Diskografi{' '}
+              <Box as="span" color="yellow.300">
+                Pilihan
+              </Box>
+            </Heading>
+
+            <Box
+              mt="4"
+              fontSize={['2xl', '3xl']}
+              lineHeight="1.1"
+              fontWeight="400"
+              sx={{ b: { fontSize: '0.75em', fontWeight: '800' } }}
+            >
+              Lagu-lagu pilihan yang telah saya terbitkan <b>PRO</b>, cipta/tulis <b>COM</b>, gubah{' '}
+              <b>ARR</b>, jurutera <b>ENG</b>, adun <b>MIX</b> atau masterkan <b>MAS</b>.
             </Box>
 
-            {genres.map(({ slug, title }) => (
-              <Box as="li" key={slug}>
+            <Flex
+              as="ul"
+              mt="4"
+              lineHeight="1.3"
+              fontSize="11px"
+              wrap="wrap"
+              justify="center"
+              sx={{ rowGap: 2, columnGap: 10 }}
+            >
+              <Box as="li">
                 <Button
                   variant="link"
                   textTransform="uppercase"
@@ -183,41 +152,91 @@ export default function Discography({ initialData }) {
                   p="0"
                   minW="unset"
                   // letterSpacing="wide"
-                  color={curGenre === title ? 'brand.200' : 'white'}
+                  color={curGenre === 'all' ? 'brand.200' : 'white'}
                   _hover={{
-                    color: curGenre === title ? 'brand.200' : 'white',
+                    color: curGenre === 'all' ? 'brand.200' : 'white',
                     textDecoration: 'underline'
                   }}
                   _active={{
-                    color: curGenre === title ? 'brand.200' : 'white',
+                    color: curGenre === 'all' ? 'brand.200' : 'white',
                     opacity: 0.7
                   }}
-                  onClick={() => setGenre(title)}
+                  onClick={() => setGenre('all')}
                 >
-                  {title}
+                  Semua
                 </Button>
               </Box>
-            ))}
-          </Flex>
 
-          <Box mt="4">
-            <Select
-              size="sm"
-              onChange={(e) => setPerson(e.target.value)}
-              borderRadius="md"
-              borderWidth="2px"
-              borderColor="rgba(255,255,255,0.25) !important"
-            >
-              <option value="all">Semua</option>
-              {people.map(({ slug, name, total }) => (
-                <option key={slug} value={name}>
-                  {name} ({total})
-                </option>
+              {genres.map(({ slug, title }) => (
+                <Box as="li" key={slug}>
+                  <Button
+                    variant="link"
+                    textTransform="uppercase"
+                    fontWeight="800"
+                    fontSize="inherit"
+                    p="0"
+                    minW="unset"
+                    // letterSpacing="wide"
+                    color={curGenre === title ? 'brand.200' : 'white'}
+                    _hover={{
+                      color: curGenre === title ? 'brand.200' : 'white',
+                      textDecoration: 'underline'
+                    }}
+                    _active={{
+                      color: curGenre === title ? 'brand.200' : 'white',
+                      opacity: 0.7
+                    }}
+                    onClick={() => setGenre(title)}
+                  >
+                    {title}
+                  </Button>
+                </Box>
               ))}
-            </Select>
-          </Box>
-        </Flex>
+            </Flex>
 
+            <Box mt="4">
+              <Select
+                size="sm"
+                onChange={(e) => setPerson(e.target.value)}
+                borderRadius="md"
+                borderWidth="2px"
+                borderColor="rgba(255,255,255,0.25) !important"
+                value={curPerson}
+              >
+                <option value="all">Semua</option>
+                {people.map(({ slug, name, total }) => (
+                  <option key={slug} value={name}>
+                    {name} ({total})
+                  </option>
+                ))}
+              </Select>
+            </Box>
+          </Flex>
+        </Container>
+      </Box>
+
+      {filteredWorks.length === 0 && (
+        <Container maxW="6xl" py="10" textAlign="center">
+          <Button
+            letterSpacing="tight"
+            onClick={() => {
+              setGenre('all');
+              setPerson('all');
+            }}
+          >
+            Tiada keputusan. Reset filter.
+          </Button>
+        </Container>
+      )}
+
+      <SimpleGrid
+        columns={[1, 2, 3, 3, 4, 5]}
+        spacing="0"
+        // mx="3"
+        // shadow="0 -10px 30px rgba(0,0,0,0.07)"
+        maxW="1800px"
+        mx="auto"
+      >
         {filteredWorks.map((work) => (
           <Work work={work} key={work.youtube} />
         ))}
