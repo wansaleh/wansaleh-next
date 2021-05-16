@@ -13,7 +13,7 @@ export default function Img({
   height,
   intrinsic = false,
   caption,
-  bg = useColorModeValue('gray.200', 'gray.800'),
+  bg = useColorModeValue('gray.200', 'gray.900'),
   cloudinary = false,
   zoom = false,
   darkModeDim = true,
