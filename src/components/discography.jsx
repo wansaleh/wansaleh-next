@@ -33,7 +33,7 @@ export default function Discography() {
   const [curPerson, setPerson] = useState('all');
   const [curGenre, setGenre] = useState('all');
 
-  const { data } = useQuery('works', fetchWorks);
+  const { data } = useQuery('works', () => fetch('/api/works').then((r) => r.json()));
   // const { data } = useSWR(`/api/works`, fetcher);
   const { works } = data || { works: [] };
 
