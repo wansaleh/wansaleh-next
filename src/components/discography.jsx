@@ -17,22 +17,25 @@ import { format, formatDistanceToNow, isAfter, parseISO, subMonths } from 'date-
 import { ms } from 'date-fns/locale';
 import { readableColor } from 'polished';
 import { Fragment, useState } from 'react';
+import { useQuery } from 'react-query';
 import { useMeasure } from 'react-use';
-import useSWR from 'swr';
 
+import { fetchWorks } from '../lib/airtable';
+// import useSWR from 'swr';
 import Img from './image';
 import SmallBadge from './small-badge';
 
 const PALETTENUM = 0;
 
-const fetcher = (url, headers) => fetch(url, { headers }).then((r) => r.json());
+// const fetcher = (url, headers) => fetch(url, { headers }).then((r) => r.json());
 
-export default function Discography({ initialData }) {
+export default function Discography() {
   const [curPerson, setPerson] = useState('all');
   const [curGenre, setGenre] = useState('all');
 
-  const { data } = useSWR(`/api/works`, fetcher, { initialData });
-  const { works } = data || {};
+  const { data } = useQuery('works', fetchWorks);
+  // const { data } = useSWR(`/api/works`, fetcher);
+  const { works } = data || { works: [] };
 
   const allWorks = works
     .map((work) => ({

@@ -7,6 +7,7 @@ import Head from '../components/head';
 
 export default function Home() {
   const [heroLoaded, setHeroLoaded] = useState(false);
+
   return (
     <>
       <Head title="By Wan Saleh" />
@@ -125,29 +126,20 @@ export default function Home() {
           </Heading>
 
           <Flex align="center" mt="8" fontSize={['md', 'lg', 'xl', '2xl']} sx={{ gap: '0.35em' }}>
-            <NextLink href="/works" passHref>
-              <CTALink>Diskografi</CTALink>
-            </NextLink>
+            <CTALink href="/works">Diskografi</CTALink>
 
-            {/* <Slash size="2em" /> */}
+            <CTALink href="/blog" bg="yellow.400" color="black">
+              Blog
+            </CTALink>
 
-            <NextLink href="/blog" passHref>
-              <CTALink bg="yellow.400" color="black">
-                Blog
-              </CTALink>
-            </NextLink>
-
-            {/* <Slash size="2em" /> */}
-
-            <NextLink href="/tools" passHref>
-              <CTALink
-                bg="none"
-                color={useColorModeValue('black', 'white')}
-                boxShadow="inset 0 0 0 3px currentColor !important"
-              >
-                Tools
-              </CTALink>
-            </NextLink>
+            <CTALink
+              href="/tools"
+              bg="none"
+              color={useColorModeValue('black', 'white')}
+              boxShadow="inset 0 0 0 3px currentColor !important"
+            >
+              Tools
+            </CTALink>
           </Flex>
         </Container>
       </Flex>
@@ -155,27 +147,29 @@ export default function Home() {
   );
 }
 
-function CTALink({ children, ...props }) {
+function CTALink({ href, children, ...props }) {
   return (
-    <Link
-      h="unset"
-      w="unset"
-      maxW="unset"
-      py="0.25em"
-      px="1em"
-      fontFamily="heading"
-      fontWeight="600"
-      borderRadius="full"
-      letterSpacing="tight"
-      // colorScheme="gray"
-      bg={useColorModeValue('black', 'white')}
-      color={useColorModeValue('white', 'black')}
-      _hover={{ opacity: 0.8 }}
-      {...props}
-    >
-      <Box as="span" transform="skew(-5deg)" d="block">
-        {children}
-      </Box>
-    </Link>
+    <NextLink href={href}>
+      <Link
+        h="unset"
+        w="unset"
+        maxW="unset"
+        py="0.25em"
+        px="1em"
+        fontFamily="heading"
+        fontWeight="600"
+        borderRadius="full"
+        letterSpacing="tight"
+        // colorScheme="gray"
+        bg={useColorModeValue('black', 'white')}
+        color={useColorModeValue('white', 'black')}
+        _hover={{ opacity: 0.8 }}
+        {...props}
+      >
+        <Box as="span" transform="skew(-5deg)" d="block">
+          {children}
+        </Box>
+      </Link>
+    </NextLink>
   );
 }

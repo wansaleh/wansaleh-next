@@ -1,5 +1,9 @@
 import qs from 'qs';
 
+export async function fetchWorks() {
+  return fetch('/api/works').then((r) => r.json());
+}
+
 export default async function fetchDiscographyAirtable(reqQuery = {}) {
   const query = qs.stringify({
     view: 'All',
