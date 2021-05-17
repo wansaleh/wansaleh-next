@@ -27,7 +27,7 @@ export default async function fetchDiscographyAirtable(reqQuery = {}) {
       total: works.filter((work) => work.artists.includes(art)).length
     }));
 
-    return { offset: data.offset, works, artists };
+    return { offset: data.offset || null, works, artists };
   }
   return { error: data.error };
 }
