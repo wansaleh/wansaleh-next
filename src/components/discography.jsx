@@ -20,7 +20,6 @@ import { Fragment, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useMeasure } from 'react-use';
 
-import { fetchWorks } from '../lib/airtable';
 // import useSWR from 'swr';
 import Img from './image';
 import SmallBadge from './small-badge';
