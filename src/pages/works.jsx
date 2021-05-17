@@ -4,8 +4,7 @@ import { dehydrate } from 'react-query/hydration';
 
 import Discography from '../components/discography';
 import Head from '../components/head';
-import fetchDiscographyAirtable, { fetchWorks } from '../lib/airtable';
-// import fetchDiscographyAirtable from '../lib/airtable';
+import fetchDiscographyAirtable from '../lib/airtable';
 
 export default function DiscographyPage() {
   return (
