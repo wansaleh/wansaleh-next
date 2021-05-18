@@ -41,8 +41,8 @@ export default function Discography({ initialWorks }) {
         released: parseISO(work.fields.released, new Date())
       }
     }))
-    .sort((a, b) => b.released - a.released)
-    .filter((work) => !work.hidden);
+    .sort((a, b) => b.released - a.released);
+  // .filter((work) => !work.hidden);
 
   let filteredWorks = allWorks.slice();
 
