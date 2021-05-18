@@ -36,32 +36,35 @@ export default function Discography({ initialWorks }) {
   const allWorks = works
     .map((work) => ({
       ...work,
-      released: parseISO(work.released, new Date())
+      fields: {
+        ...work.fields,
+        released: parseISO(work.fields.released, new Date())
+      }
     }))
     .sort((a, b) => b.released - a.released)
     .filter((work) => !work.hidden);
 
   let filteredWorks = allWorks.slice();
 
-  const _genres = [...new Set(filteredWorks.map((work) => work.genres).flat())];
+  const _genres = [...new Set(filteredWorks.map((work) => work.fields.genres).flat())];
 
   const genres = _genres
     .map((g) => ({
       slug: g.toLowerCase().replace(/ /g, '-'),
       title: g,
-      total: filteredWorks.filter((work) => work.genres.includes(g)).length
+      total: filteredWorks.filter((work) => work.fields.genres.includes(g)).length
     }))
     .sort((a, b) => b.total - a.total);
 
   filteredWorks = filteredWorks.filter((work) =>
-    curGenre !== 'all' ? work.genres.includes(curGenre) : true
+    curGenre !== 'all' ? work.fields.genres.includes(curGenre) : true
   );
 
   const _people = [
     ...new Set([
-      ...filteredWorks.map((work) => work.artists).flat(),
-      ...filteredWorks.map((work) => work.composers).flat(),
-      ...filteredWorks.map((work) => work.writers).flat()
+      ...filteredWorks.map((work) => work.fields.artists).flat(),
+      ...filteredWorks.map((work) => work.fields.composers).flat(),
+      ...filteredWorks.map((work) => work.fields.writers).flat()
     ])
   ]
     .filter(Boolean)
@@ -80,15 +83,17 @@ export default function Discography({ initialWorks }) {
     name: art,
     total: filteredWorks.filter(
       (work) =>
-        work.artists.includes(art) || work.composers?.includes(art) || work.writers?.includes(art)
+        work.fields.artists.includes(art) ||
+        work.fields.composers?.includes(art) ||
+        work.fields.writers?.includes(art)
     ).length
   }));
 
   filteredWorks = filteredWorks.filter((work) =>
     curPerson !== 'all'
-      ? work.artists.includes(curPerson) ||
-        work.composers?.includes(curPerson) ||
-        work.writers?.includes(curPerson)
+      ? work.fields.artists.includes(curPerson) ||
+        work.fields.composers?.includes(curPerson) ||
+        work.fields.writers?.includes(curPerson)
       : true
   );
 
@@ -233,7 +238,7 @@ export default function Discography({ initialWorks }) {
         mx="auto"
       >
         {filteredWorks.map((work) => (
-          <Work work={work} key={work.youtube} />
+          <Work work={work} key={work.fields.youtube} />
         ))}
 
         {/* {!isReachingEnd && (
@@ -270,13 +275,17 @@ export default function Discography({ initialWorks }) {
 }
 
 function Work({ work }) {
-  const coverURL = work.artwork
-    ? `https://res.cloudinary.com/wansaleh/image/fetch/w_400/${work.artwork}`
-    : `https://res.cloudinary.com/wansaleh/image/fetch/w_400/https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
-  // ? `${work.artwork}`
-  // : `https://i.ytimg.com/vi/${work.youtube}/hqdefault.jpg`;
+  const coverURL = work.fields.artwork
+    ? `https://res.cloudinary.com/wansaleh/image/fetch/w_400/${work.fields.artwork}`
+    : `https://res.cloudinary.com/wansaleh/image/fetch/w_400/https://i.ytimg.com/vi/${work.fields.youtube}/hqdefault.jpg`;
+  // ? `${work.fields.artwork}`
+  // : `https://i.ytimg.com/vi/${work.fields.youtube}/hqdefault.jpg`;
 
-  const { data: palette } = usePalette(coverURL, 5, 'hex', {
+  const coverURLorig = work.fields.artwork
+    ? `${work.fields.artwork}`
+    : `https://i.ytimg.com/vi/${work.fields.youtube}/hqdefault.jpg`;
+
+  const { data: palette } = usePalette(coverURLorig, 5, 'hex', {
     crossOrigin: 'anonymous'
   });
 
@@ -285,8 +294,8 @@ function Work({ work }) {
   const cellHeight = coverHeight + 130;
 
   return (
-    <LinkBox key={work.youtube} role="group" h={`${cellHeight}px`}>
-      <LinkOverlay href={`https://youtube.com/watch?v=${work.youtube}`} isExternal>
+    <LinkBox key={work.fields.youtube} role="group" h={`${cellHeight}px`}>
+      <LinkOverlay href={`https://youtube.com/watch?v=${work.fields.youtube}`} isExternal>
         <Flex
           direction="column"
           bg={palette ? palette[PALETTENUM] : 'gray.800'}
@@ -330,7 +339,7 @@ function Work({ work }) {
                 src={coverURL}
                 width={300}
                 height={300}
-                alt={work.song}
+                alt={work.fields.song}
                 bg="none"
                 objectFit="contain"
                 pointerEvents="none"
@@ -360,22 +369,22 @@ function Work({ work }) {
                 py="3.5"
                 lineHeight="1"
               >
-                {work.pro && (
+                {work.fields.pro && (
                   <SmallBadge color={palette && palette[PALETTENUM + 1]}>PRO</SmallBadge>
                 )}
-                {work.com && (
+                {work.fields.com && (
                   <SmallBadge color={palette && palette[PALETTENUM + 1]}>COM</SmallBadge>
                 )}
-                {work.arr && (
+                {work.fields.arr && (
                   <SmallBadge color={palette && palette[PALETTENUM + 1]}>ARR</SmallBadge>
                 )}
-                {work.eng && (
+                {work.fields.eng && (
                   <SmallBadge color={palette && palette[PALETTENUM + 1]}>ENG</SmallBadge>
                 )}
-                {work.mix && (
+                {work.fields.mix && (
                   <SmallBadge color={palette && palette[PALETTENUM + 1]}>MIX</SmallBadge>
                 )}
-                {work.mas && (
+                {work.fields.mas && (
                   <SmallBadge color={palette && palette[PALETTENUM + 1]}>MAS</SmallBadge>
                 )}
               </HStack>
@@ -411,10 +420,10 @@ function Work({ work }) {
                 overflow="hidden"
                 textOverflow="ellipsis"
               >
-                {work.song}
+                {work.fields.song}
               </Box>
 
-              {isAfter(work.released, subMonths(new Date(), 1)) && (
+              {isAfter(work.fields.released, subMonths(new Date(), 1)) && (
                 <SmallBadge
                   color={palette && palette[PALETTENUM + 1]}
                   ml="1.5"
@@ -446,15 +455,15 @@ function Work({ work }) {
                   opacity="1"
                   transition="all 0.2s ease-out"
                   _groupHover={
-                    (work.composers || work.writers) && {
+                    (work.fields.composers || work.fields.writers) && {
                       opacity: 0,
                       transform: 'translateY(-100%)'
                     }
                   }
                 >
-                  {listArtists(work.artists)}
+                  {listArtists(work.fields.artists)}
                 </Box>
-                {(work.composers || work.writers) && (
+                {(work.fields.composers || work.fields.writers) && (
                   <Box
                     // whiteSpace="nowrap"
                     // overflow="hidden"
@@ -467,7 +476,7 @@ function Work({ work }) {
                     _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
                   >
                     <span tw="font-medium opacity-70">Ciptaan</span>{' '}
-                    {listWriters(work.composers, work.writers)}
+                    {listWriters(work.fields.composers, work.fields.writers)}
                   </Box>
                 )}
               </Box>
@@ -488,7 +497,7 @@ function Work({ work }) {
                 _groupHover={{ opacity: 0 }}
                 // textTransform="capitalize"
               >
-                {formatDistanceToNow(work.released, { locale: ms })} lalu
+                {formatDistanceToNow(work.fields.released, { locale: ms })} lalu
               </Box>
               <Box
                 opacity="0"
@@ -497,14 +506,14 @@ function Work({ work }) {
                 transition="all 0.2s ease-out"
                 _groupHover={{ opacity: 1 }}
               >
-                {format(work.released, 'd MMMM yyy', { locale: ms })}
+                {format(work.fields.released, 'd MMMM yyy', { locale: ms })}
               </Box>
             </Box>
           </Flex>
         </Flex>
       </LinkOverlay>
 
-      {/* {work.spotify && (
+      {/* {work.fields.spotify && (
         <Box
           pos="absolute"
           left="6"
@@ -530,7 +539,7 @@ function Work({ work }) {
             d="block"
             cursor="pointer"
             // color="white"
-            onClick={() => window.open(`spotify:${work.spotify}`)}
+            onClick={() => window.open(`spotify:${work.fields.spotify}`)}
           >
             <Box
               as="svg"

@@ -1,33 +1,60 @@
 import qs from 'qs';
 
-export default async function fetchDiscographyAirtable(reqQuery = {}) {
-  const query = qs.stringify({
-    view: 'All',
-    pageSize: reqQuery.limit || 100,
-    // sort: [{ field: 'released', direction: 'desc' }],
-    offset: reqQuery.offset
-  });
-
-  const data = await fetch(`https://api.airtable.com/v0/app4IuhsxXqAX7tha/Work?${query}`, {
-    headers: { Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}` }
-  }).then((r) => r.json());
+async function fetchWorks({ works = [], limit = 100, offset = null } = {}) {
+  const data = await fetch(
+    `https://api.airtable.com/v0/app4IuhsxXqAX7tha/Work?${qs.stringify({
+      view: 'All',
+      pageSize: limit,
+      offset
+    })}`,
+    {
+      headers: { Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}` }
+    }
+  ).then((r) => r.json());
 
   if (!data.error) {
-    const works = data.records.map(({ id, createdTime, ...work }) => ({
-      id,
-      createdTime,
-      ...work.fields
-    }));
+    // const results = data.records.map(({ id, createdTime, ...work }) => ({
+    //   id,
+    //   createdTime,
+    //   ...work.fields
+    // }));
 
-    const _artists = [...new Set(...works.map((work) => work.artists))];
+    if (data.offset) {
+      return fetchWorks({ works: works.concat(data.records), limit, offset: data.offset });
+    }
 
-    const artists = _artists.map((art) => ({
-      slug: art.toLowerCase().replace(/ /g, '-'),
-      name: art,
-      total: works.filter((work) => work.artists.includes(art)).length
-    }));
-
-    return { offset: data.offset || null, works, artists };
+    return { works: works.concat(data.records) };
   }
+
   return { error: data.error };
+}
+
+export async function fetchWorksReq({ limit = 100 } = {}) {
+  return fetchWorks({ limit });
+
+  // const queryString = qs.stringify({
+  //   view: 'All',
+  //   pageSize: limit || 10,
+  //   // sort: [{ field: 'released', direction: 'desc' }],
+  //   offset
+  // });
+
+  // const data = await fetch(`https://api.airtable.com/v0/app4IuhsxXqAX7tha/Work?${queryString}`, {
+  //   headers: { Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}` }
+  // }).then((r) => r.json());
+
+  // if (!data.error) {
+  //   const works = data.records.map(({ id, createdTime, ...work }) => ({
+  //     id,
+  //     createdTime,
+  //     ...work.fields
+  //   }));
+
+  //   return {
+  //     offset: data.offset || null,
+  //     works
+  //   };
+  // }
+
+  // return { error: data.error };
 }
