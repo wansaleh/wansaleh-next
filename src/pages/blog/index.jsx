@@ -3,8 +3,8 @@ import React from 'react';
 
 import Head from '../../components/head';
 import PageHeader from '../../components/page-header';
-import PostsList from '../../containers/contentful/posts-list';
-import PreviewAlert from '../../containers/contentful/preview-alert';
+import PostsList from '../../containers/blog/posts-list';
+import PreviewAlert from '../../containers/blog/preview-alert';
 import { getAllPostsForHome } from '../../lib/contentful';
 
 export default function BlogPage({ posts, preview }) {

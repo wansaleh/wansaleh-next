@@ -7,9 +7,9 @@ import React from 'react';
 import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
 import Markdown from '../../components/markdown';
-import PostDateTags from '../../containers/contentful/post-date-tags';
-import PostsList from '../../containers/contentful/posts-list';
-import PreviewAlert from '../../containers/contentful/preview-alert';
+import PostDateTags from '../../containers/blog/post-date-tags';
+import PostsList from '../../containers/blog/posts-list';
+import PreviewAlert from '../../containers/blog/preview-alert';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/contentful';
 
 export default function JournalPost({ post, morePosts, preview }) {

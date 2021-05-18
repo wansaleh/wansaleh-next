@@ -79,7 +79,7 @@ function list(value) {
   return null;
 }
 
-export async function fetchDiscograpySheet() {
+export async function fetchWorksGoogleSheet() {
   const { rows } = await getSheetJSON({
     id: '1fNtaqKnsDYEoi9NG8-phPzFH_1Fwbeh0j8SqivlOkjY'
   });

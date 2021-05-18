@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import { getPreviewPostBySlug } from '../../lib/graphcms';
+import { getPreviewPostBySlug } from '../../lib/contentful';
 
 export default async function handler(req, res) {
   // Check the secret and next parameters

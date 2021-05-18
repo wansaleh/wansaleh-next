@@ -3,9 +3,7 @@ import React from 'react';
 
 import Head from '../components/head';
 import PageHeader from '../components/page-header';
-// import SectionTitle from '../components/section-title';
 import Tools from '../components/tools';
-// import devTools from '../data/tools/dev';
 import musicTools from '../data/tools/music';
 
 export default function Home() {

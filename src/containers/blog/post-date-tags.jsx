@@ -4,7 +4,7 @@ import { ms } from 'date-fns/locale';
 import NextLink from 'next/link';
 import React from 'react';
 
-import { Slash } from '../../components/slash';
+import Slash from '../../components/slash';
 
 export default function PostDateTags({ post, showFull = false, ...props }) {
   return (

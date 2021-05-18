@@ -2,7 +2,7 @@ import { Box, Link, VisuallyHidden } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import React, { Fragment } from 'react';
 
-import { Slash } from './slash';
+import Slash from './slash';
 
 const links = [
   {

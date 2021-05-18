@@ -16,7 +16,7 @@ import React from 'react';
 import { useWindowScroll } from 'react-use';
 
 import Logo from '../images/logo';
-import { Slash } from './slash';
+import Slash from './slash';
 
 export default function Nav() {
   // const [isReady] = useTimeout(50);
