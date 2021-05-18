@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
             href="https://api.fontshare.com/css?f[]=general-sans@1&f[]=satoshi@1&f[]=clash-display@1&f[]=gambetta@1,2&display=swap"
             rel="stylesheet"
           /> */}
-          <link rel="preload" href="/api/works" as="fetch" crossOrigin="anonymous" />
+          {/* <link rel="preload" href="/api/works" as="fetch" crossOrigin="anonymous" /> */}
         </Head>
         <body>
           <ColorModeScript initialColorMode="light" />
