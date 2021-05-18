@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 
-import Discography from '../components/discography';
 import Head from '../components/head';
+import Discography from '../containers/works/discography';
 import { fetchWorksReq } from '../lib/airtable';
 
 export default function DiscographyPage({ initialWorks }) {

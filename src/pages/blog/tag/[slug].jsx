@@ -59,7 +59,7 @@ export default function Tag({ posts, tag }) {
             }
           />
 
-          <Box mb="10">
+          <Box pb="10">
             <PostsList posts={posts} />
           </Box>
         </>

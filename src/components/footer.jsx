@@ -1,4 +1,4 @@
-import { Box, Container, Flex, HStack, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Container, Flex, HStack, Text } from '@chakra-ui/react';
 import React from 'react';
 
 import SocialLinks from './social-links';
@@ -13,8 +13,8 @@ export default function Footer() {
       left="0"
       right="0"
       py="4"
-      borderTop="1px solid"
-      borderColor={useColorModeValue('brandGray.300', 'brandGray.900')}
+      // borderTop="1px solid"
+      // borderColor={useColorModeValue('brandGray.300', 'brandGray.900')}
     >
       <Container maxW="6xl">
         <Flex

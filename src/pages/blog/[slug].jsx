@@ -4,9 +4,9 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import CoverImage from '../../components/cover-image';
 import Head from '../../components/head';
 import Markdown from '../../components/markdown';
+import CoverImage from '../../containers/blog/cover-image';
 import PostDateTags from '../../containers/blog/post-date-tags';
 import PostsList from '../../containers/blog/posts-list';
 import PreviewAlert from '../../containers/blog/preview-alert';
