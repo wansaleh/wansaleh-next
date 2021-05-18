@@ -1,45 +1,25 @@
 import { Box } from '@chakra-ui/react';
-import { QueryClient } from 'react-query';
-import { dehydrate } from 'react-query/hydration';
 
 import Discography from '../components/discography';
 import Head from '../components/head';
 import fetchDiscographyAirtable from '../lib/airtable';
 
-export default function DiscographyPage() {
+export default function DiscographyPage({ initialWorks }) {
   return (
     <>
       <Head title="By Wan Saleh | Discography" />
 
       <Box pos="relative" zIndex="2" id="discography" bg="brand.900">
-        <Discography />
+        <Discography initialWorks={initialWorks} />
       </Box>
     </>
   );
 }
 
 export async function getStaticProps() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery('works', fetchDiscographyAirtable);
+  const initialWorks = await fetchDiscographyAirtable();
 
   return {
-    props: {
-      dehydratedState: dehydrate(queryClient)
-    }
+    props: { initialWorks }
   };
 }
-
-// export async function getStaticProps() {
-//   const initialData = await fetchDiscographyAirtable();
-
-//   return {
-//     props: {
-//       initialData: {
-//         ...initialData,
-//         offset: initialData.offset || null
-//       }
-//     },
-//     revalidate: 1
-//   };
-// }

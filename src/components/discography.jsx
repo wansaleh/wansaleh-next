@@ -17,8 +17,8 @@ import { format, formatDistanceToNow, isAfter, parseISO, subMonths } from 'date-
 import { ms } from 'date-fns/locale';
 import { readableColor } from 'polished';
 import { Fragment, useState } from 'react';
-import { useQuery } from 'react-query';
 import { useMeasure } from 'react-use';
+import useSWR from 'swr';
 
 // import useSWR from 'swr';
 import Img from './image';
@@ -26,14 +26,11 @@ import SmallBadge from './small-badge';
 
 const PALETTENUM = 0;
 
-// const fetcher = (url, headers) => fetch(url, { headers }).then((r) => r.json());
-
-export default function Discography() {
+export default function Discography({ initialWorks }) {
   const [curPerson, setPerson] = useState('all');
   const [curGenre, setGenre] = useState('all');
 
-  const { data } = useQuery('works', () => fetch('/api/works').then((r) => r.json()));
-  // const { data } = useSWR(`/api/works`, fetcher);
+  const { data } = useSWR(`/api/works`, { initialData: initialWorks });
   const { works } = data || { works: [] };
 
   const allWorks = works

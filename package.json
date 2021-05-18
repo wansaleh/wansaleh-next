@@ -7,7 +7,7 @@
     "deploy": "git add . && git commit -m 'Updates.' && git push origin master"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.1",
+    "@chakra-ui/react": "^1.6.2",
     "@emotion/css": "^11.1.3",
     "@emotion/react": "^11.4.0",
     "@emotion/server": "^11.4.0",
@@ -34,7 +34,7 @@
     "qs": "^6.10.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.6.0",
+    "react-hook-form": "^7.6.1",
     "react-hook-inview": "^4.3.10",
     "react-lazyload": "^3.2.0",
     "react-markdown": "^6.0.2",
