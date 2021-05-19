@@ -3,7 +3,7 @@ import qs from 'qs';
 export async function fetchWorks({ works = [], limit = 100, offset = null } = {}) {
   const data = await fetch(
     `https://api.airtable.com/v0/app4IuhsxXqAX7tha/Works?${qs.stringify({
-      view: 'Show On Website',
+      view: 'Website',
       pageSize: limit,
       offset
     })}`,
