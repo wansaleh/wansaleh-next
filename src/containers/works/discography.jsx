@@ -17,6 +17,7 @@ export default function Discography({ initialWorks }) {
       ...work,
       fields: {
         ...work.fields,
+        com: work.fields.composers?.includes('Wan Saleh'),
         released: parseISO(work.fields.released, new Date())
       }
     }))
