@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react';
 
 import Head from '../components/head';
 import Discography from '../containers/works/discography';
-import { fetchWorksReq } from '../lib/airtable';
+import { fetchWorks } from '../lib/airtable';
 
 export default function DiscographyPage({ initialWorks }) {
   return (
@@ -17,7 +17,7 @@ export default function DiscographyPage({ initialWorks }) {
 }
 
 export async function getStaticProps() {
-  const initialWorks = await fetchWorksReq();
+  const initialWorks = await fetchWorks();
 
   return {
     props: { initialWorks }

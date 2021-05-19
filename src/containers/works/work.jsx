@@ -35,7 +35,7 @@ export default function Work({ work }) {
           direction="column"
           bg={palette ? palette[COLOR] : 'gray.800'}
           color={palette ? readableColor(palette[COLOR]) : 'white'}
-          transition="all 0.2s ease"
+          transition="all 0.5s ease"
           textAlign="center"
           p="6"
           h="full"

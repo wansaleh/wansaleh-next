@@ -35,7 +35,8 @@ const theme = extendTheme({
         fontFamily: 'body',
         fontWeight: 400,
         letterSpacing: '-0.01em',
-        color: props.colorMode === 'dark' ? 'white' : 'gray.900'
+        color: props.colorMode === 'dark' ? 'white' : 'gray.900',
+        transition: 'none'
       }
     })
   },

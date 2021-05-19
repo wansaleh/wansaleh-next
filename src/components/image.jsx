@@ -53,7 +53,7 @@ export default function Img({
       objectPosition="center"
       position="relative"
       d="block"
-      transition="opacity 0.5s ease"
+      transition="opacity 1s ease"
       opacity={loaded ? useColorModeValue(1, darkModeDim ? 0.75 : 1) : 0}
       // visibility={alreadyVisible ? 'visible' : 'hidden'}
       onLoad={showImage}
