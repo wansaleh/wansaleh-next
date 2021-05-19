@@ -2,7 +2,7 @@ import qs from 'qs';
 
 async function fetchWorks({ works = [], limit = 100, offset = null } = {}) {
   const data = await fetch(
-    `https://api.airtable.com/v0/app4IuhsxXqAX7tha/Work?${qs.stringify({
+    `https://api.airtable.com/v0/app4IuhsxXqAX7tha/Works?${qs.stringify({
       view: 'List',
       pageSize: limit,
       offset
@@ -39,7 +39,7 @@ export async function fetchWorksReq({ limit = 100 } = {}) {
   //   offset
   // });
 
-  // const data = await fetch(`https://api.airtable.com/v0/app4IuhsxXqAX7tha/Work?${queryString}`, {
+  // const data = await fetch(`https://api.airtable.com/v0/app4IuhsxXqAX7tha/Works?${queryString}`, {
   //   headers: { Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}` }
   // }).then((r) => r.json());
 
