@@ -14,10 +14,18 @@ export async function fetchWorks({ works = [], limit = 100, offset = null } = {}
   ).then((r) => r.json());
 
   if (!data.error) {
-    const records = data.records.map((record) => {
-      record.fields = camelcaseKeys(record.fields);
-      return record;
-    });
+    const records = data.records
+      .map((record) => {
+        record.fields = camelcaseKeys(record.fields);
+        return record;
+      })
+      .filter(
+        (record) =>
+          record.fields.artists &&
+          record.fields.genres &&
+          record.fields.released &&
+          record.fields.youtube
+      );
 
     if (data.offset) {
       return fetchWorks({ works: works.concat(records), limit, offset: data.offset });
