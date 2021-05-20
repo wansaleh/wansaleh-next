@@ -111,7 +111,7 @@ export default function Discography({ initialWorks }) {
               sx={{ b: { fontSize: '0.75em', fontWeight: '800' } }}
             >
               Lagu-lagu pilihan yang telah saya terbitkan <b>PRO</b>, cipta/tulis <b>COM</b>, gubah{' '}
-              <b>ARR</b>, jurutera <b>ENG</b>, adun <b>MIX</b> atau masterkan <b>MAS</b>.
+              <b>ARR</b>, juruterakan <b>ENG</b>, adun <b>MIX</b> atau masterkan <b>MAS</b>.
             </Box>
 
             <Flex
