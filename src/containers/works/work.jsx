@@ -33,7 +33,7 @@ export default function Work({ work }) {
       <LinkOverlay href={`https://youtube.com/watch?v=${work.fields.youtube}`} isExternal>
         <Flex
           direction="column"
-          bg={palette ? palette[COLOR] : 'gray.800'}
+          bg={palette ? palette[COLOR] : 'gray.500'}
           color={palette ? readableColor(palette[COLOR]) : 'white'}
           transition="all 0.5s ease"
           textAlign="center"
@@ -43,7 +43,7 @@ export default function Work({ work }) {
           <AspectRatio ref={ref} ratio={1} w="100%">
             <Box
               bg="none"
-              borderRadius="md"
+              borderRadius="lg"
               overflow="hidden"
               transition="all 0.5s ease"
               shadow="lg"

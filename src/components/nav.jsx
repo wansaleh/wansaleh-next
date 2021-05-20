@@ -23,7 +23,7 @@ export default function Nav() {
   const router = useRouter();
   const { y } = useWindowScroll();
 
-  const isColoredHeader = router.pathname.includes('/works');
+  const isColoredHeader = false; // router.pathname.includes('/works');
 
   return (
     <Box
