@@ -19,6 +19,7 @@
     "@silvenon/remark-smartypants": "^1.0.0",
     "@tailwindcss/typography": "^0.4.0",
     "array-to-sentence": "^2.0.0",
+    "camelcase-keys": "^6.2.2",
     "color-thief-react": "^2.0.12",
     "date-fns": "^2.21.3",
     "framer-motion": "^4.1.17",
