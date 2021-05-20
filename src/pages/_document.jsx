@@ -29,11 +29,11 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <WebFonts />
           <style
             data-emotion-css={this.props.ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: this.props.css }}
           />
-          <WebFonts />
           {/* <link
             href="https://api.fontshare.com/css?f[]=general-sans@1&f[]=satoshi@1&f[]=clash-display@1&f[]=gambetta@1,2&display=swap"
             rel="stylesheet"
