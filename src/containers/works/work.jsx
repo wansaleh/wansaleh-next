@@ -1,4 +1,13 @@
-import { AspectRatio, Box, Flex, Heading, HStack, LinkBox, LinkOverlay } from '@chakra-ui/react';
+import {
+  AspectRatio,
+  Box,
+  Flex,
+  Heading,
+  HStack,
+  LinkBox,
+  LinkOverlay,
+  Tooltip
+} from '@chakra-ui/react';
 import { usePalette } from 'color-thief-react';
 import { format, formatDistanceToNow, isAfter, subMonths } from 'date-fns';
 import { ms } from 'date-fns/locale';
@@ -31,179 +40,205 @@ export default function Work({ work }) {
   return (
     <LinkBox key={work.fields.youtube} role="group" h={`${cellHeight}px`}>
       <LinkOverlay href={`https://youtube.com/watch?v=${work.fields.youtube}`} isExternal>
-        <Flex
-          direction="column"
-          bg={palette ? palette[COLOR] : 'gray.500'}
-          color={palette ? readableColor(palette[COLOR]) : 'white'}
-          transition="all 0.5s ease"
-          textAlign="center"
-          p="6"
-          h="full"
-        >
-          <AspectRatio ref={ref} ratio={1} w="100%">
-            <Box
-              bg="none"
-              borderRadius="lg"
-              overflow="hidden"
-              transition="all 0.5s ease"
-              shadow="lg"
-              border="1px solid rgba(0,0,0,0.1)"
-              _groupHover={{
-                shadow: 'xl',
-                transform: 'translateY(-3px)'
-              }}
-            >
-              <Img
-                src={coverURL}
-                width={300}
-                height={300}
-                alt={work.fields.song}
-                bg="none"
-                objectFit="contain"
-                pointerEvents="none"
-                darkModeDim={false}
-              />
-
-              <HStack
-                justify="center"
-                spacing="1"
-                pos="absolute"
-                left="0"
-                right="0"
-                bottom="0"
-                px="3"
-                py="3.5"
-                lineHeight="1"
-              >
-                {work.fields.pro && (
-                  <SmallBadge color={palette && palette[COLORNEXT]}>PRO</SmallBadge>
-                )}
-                {work.fields.com && (
-                  <SmallBadge color={palette && palette[COLORNEXT]}>COM</SmallBadge>
-                )}
-                {work.fields.arr && (
-                  <SmallBadge color={palette && palette[COLORNEXT]}>ARR</SmallBadge>
-                )}
-                {work.fields.eng && (
-                  <SmallBadge color={palette && palette[COLORNEXT]}>ENG</SmallBadge>
-                )}
-                {work.fields.mix && (
-                  <SmallBadge color={palette && palette[COLORNEXT]}>MIX</SmallBadge>
-                )}
-                {work.fields.mas && (
-                  <SmallBadge color={palette && palette[COLORNEXT]}>MAS</SmallBadge>
-                )}
-              </HStack>
-            </Box>
-          </AspectRatio>
-
-          <Flex
-            w="full"
-            flex="1"
-            direction="column"
-            justify="center"
-            align="center"
-            px="4"
-            mt="3"
-            lineHeight="1"
-          >
-            <Heading
-              as="h3"
-              w="full"
-              fontSize="lg"
-              fontWeight="600"
-              d="flex"
-              justifyContent="center"
-              alignItems="center"
-              mb="0.5"
-            >
-              <Box
-                as="span"
-                d="inline-block"
-                maxW="90%"
-                whiteSpace="nowrap"
-                overflow="hidden"
-                textOverflow="ellipsis"
-              >
-                {work.fields.song}
+        <Tooltip
+          label={
+            <>
+              <Box fontWeight="bold">{work.fields.song}</Box>
+              <Box lineHeight="1.2" mb="1">
+                <Box fontSize="0.75em">Artis: {listArtists(work.fields.artists)}</Box>
+                <Box fontSize="0.75em">
+                  Ciptaan: {listWriters(work.fields.composers, work.fields.writers)}
+                </Box>
               </Box>
-
-              {isAfter(work.fields.released, subMonths(new Date(), 1)) && (
-                <SmallBadge
-                  color={palette && palette[COLORNEXT]}
-                  ml="1.5"
-                  mt="-0.5"
-                  // mt="0.5"
-                >
-                  New
-                </SmallBadge>
-              )}
-            </Heading>
-
-            <Flex justify="center" align="center" direction="column" w="full">
+            </>
+          }
+          aria-label={work.fields.song}
+          hasArrow
+          placement="top"
+        >
+          <Flex
+            direction="column"
+            bg={palette ? palette[COLOR] : 'gray.500'}
+            color={palette ? readableColor(palette[COLOR]) : 'white'}
+            transition="all 0.5s ease"
+            textAlign="center"
+            p="6"
+            h="full"
+          >
+            <AspectRatio ref={ref} ratio={1} w="100%">
               <Box
-                fontSize="xs"
-                fontWeight="600"
-                h="2.4em"
-                lineHeight="1.2"
-                w="full"
-                mb="2"
-                pos="relative"
-                zIndex="1"
+                bg="none"
+                borderRadius="lg"
                 overflow="hidden"
+                transition="all 0.5s ease"
+                shadow="lg"
+                border="1px solid rgba(0,0,0,0.1)"
+                _groupHover={{
+                  shadow: 'xl',
+                  transform: 'translateY(-3px)'
+                }}
+              >
+                <Img
+                  src={coverURL}
+                  width={300}
+                  height={300}
+                  alt={work.fields.song}
+                  bg="none"
+                  objectFit="contain"
+                  pointerEvents="none"
+                  darkModeDim={false}
+                />
+
+                <HStack
+                  justify="center"
+                  spacing="1"
+                  pos="absolute"
+                  left="0"
+                  right="0"
+                  bottom="0"
+                  px="3"
+                  py="3.5"
+                  lineHeight="1"
+                >
+                  {work.fields.pro && (
+                    <SmallBadge color={palette && palette[COLORNEXT]}>PRO</SmallBadge>
+                  )}
+                  {work.fields.com && (
+                    <SmallBadge color={palette && palette[COLORNEXT]}>COM</SmallBadge>
+                  )}
+                  {work.fields.arr && (
+                    <SmallBadge color={palette && palette[COLORNEXT]}>ARR</SmallBadge>
+                  )}
+                  {work.fields.eng && (
+                    <SmallBadge color={palette && palette[COLORNEXT]}>ENG</SmallBadge>
+                  )}
+                  {work.fields.mix && (
+                    <SmallBadge color={palette && palette[COLORNEXT]}>MIX</SmallBadge>
+                  )}
+                  {work.fields.mas && (
+                    <SmallBadge color={palette && palette[COLORNEXT]}>MAS</SmallBadge>
+                  )}
+                </HStack>
+              </Box>
+            </AspectRatio>
+
+            <Flex
+              w="full"
+              flex="1"
+              direction="column"
+              justify="center"
+              align="center"
+              px="4"
+              mt="3"
+              lineHeight="1"
+            >
+              <Heading
+                as="h3"
+                w="full"
+                fontSize="lg"
+                fontWeight="600"
+                d="flex"
+                justifyContent="center"
+                alignItems="center"
+                mb="0.5"
               >
                 <Box
-                  opacity="1"
-                  transition="all 0.2s ease-out"
-                  _groupHover={
-                    (work.fields.composers || work.fields.writers) && {
-                      opacity: 0,
-                      transform: 'translateY(-100%)'
-                    }
-                  }
+                  as="span"
+                  d="inline-block"
+                  maxW="90%"
+                  whiteSpace="nowrap"
+                  overflow="hidden"
+                  textOverflow="ellipsis"
                 >
-                  {listArtists(work.fields.artists)}
+                  {work.fields.song}
                 </Box>
-                {(work.fields.composers || work.fields.writers) && (
-                  <Box
-                    pos="absolute"
-                    inset="0"
-                    opacity="0"
-                    transition="all 0.2s ease-out"
-                    transform="translateY(50%)"
-                    _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
+
+                {isAfter(work.fields.released, subMonths(new Date(), 1)) && (
+                  <SmallBadge
+                    color={palette && palette[COLORNEXT]}
+                    ml="1.5"
+                    mt="-0.5"
+                    // mt="0.5"
                   >
-                    <span tw="font-medium opacity-70">Ciptaan</span>{' '}
-                    {listWriters(work.fields.composers, work.fields.writers)}
-                  </Box>
+                    New
+                  </SmallBadge>
                 )}
+              </Heading>
+
+              <Flex justify="center" align="center" direction="column" w="full">
+                <Box
+                  fontSize="xs"
+                  fontWeight="600"
+                  h="2.4em"
+                  lineHeight="1.2"
+                  w="full"
+                  mb="2"
+                  pos="relative"
+                  zIndex="1"
+                  overflow="hidden"
+                >
+                  <Box
+                    width="100%"
+                    whiteSpace="nowrap"
+                    overflow="hidden"
+                    textOverflow="ellipsis"
+                    opacity="1"
+                    transition="all 0.2s ease-out"
+                    _groupHover={
+                      (work.fields.composers || work.fields.writers) && {
+                        opacity: 0,
+                        transform: 'translateY(-100%)'
+                      }
+                    }
+                  >
+                    {listArtists(work.fields.artists)}
+                  </Box>
+
+                  {(work.fields.composers || work.fields.writers) && (
+                    <Box
+                      pos="absolute"
+                      inset="0"
+                      width="100%"
+                      whiteSpace="nowrap"
+                      overflow="hidden"
+                      textOverflow="ellipsis"
+                      opacity="0"
+                      transition="all 0.2s ease-out"
+                      transform="translateY(50%)"
+                      _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
+                    >
+                      <span tw="font-medium opacity-70">Ciptaan</span>{' '}
+                      {listWriters(work.fields.composers, work.fields.writers)}
+                    </Box>
+                  )}
+                </Box>
+              </Flex>
+
+              <Box
+                fontSize="11px"
+                fontWeight="800"
+                pos="relative"
+                w="full"
+                opacity="0.65"
+                letterSpacing="wide"
+                textTransform="uppercase"
+              >
+                <Box transition="all 0.2s ease-out" _groupHover={{ opacity: 0 }}>
+                  {formatDistanceToNow(work.fields.released, { locale: ms })} lalu
+                </Box>
+                <Box
+                  opacity="0"
+                  pos="absolute"
+                  inset="0"
+                  transition="all 0.2s ease-out"
+                  _groupHover={{ opacity: 1 }}
+                >
+                  {format(work.fields.released, 'd MMMM yyy', { locale: ms })}
+                </Box>
               </Box>
             </Flex>
-
-            <Box
-              fontSize="11px"
-              fontWeight="800"
-              pos="relative"
-              w="full"
-              opacity="0.65"
-              letterSpacing="wide"
-              textTransform="uppercase"
-            >
-              <Box transition="all 0.2s ease-out" _groupHover={{ opacity: 0 }}>
-                {formatDistanceToNow(work.fields.released, { locale: ms })} lalu
-              </Box>
-              <Box
-                opacity="0"
-                pos="absolute"
-                inset="0"
-                transition="all 0.2s ease-out"
-                _groupHover={{ opacity: 1 }}
-              >
-                {format(work.fields.released, 'd MMMM yyy', { locale: ms })}
-              </Box>
-            </Box>
           </Flex>
-        </Flex>
+        </Tooltip>
       </LinkOverlay>
     </LinkBox>
   );
