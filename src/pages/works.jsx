@@ -85,7 +85,14 @@ export default function DiscographyPage({ initialWorks }) {
 
       <Box>
         <Container maxW="3xl">
-          <Flex py="24" textAlign="center" justify="center" align="center" direction="column">
+          <Flex
+            pt="32"
+            pb="24"
+            textAlign="center"
+            justify="center"
+            align="center"
+            direction="column"
+          >
             <Heading
               as="h2"
               fontSize={['4xl', '5xl', '6xl']}
