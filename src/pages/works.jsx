@@ -183,11 +183,14 @@ export default function DiscographyPage({ initialWorks }) {
                 value={curPerson}
               >
                 <option value="all">Semua</option>
-                {people.map(({ slug, name, total }) => (
-                  <option key={slug} value={name}>
-                    {name} ({total})
-                  </option>
-                ))}
+                {people.map(({ slug, name, total }) => {
+                  const totalStr = total > 0 ? `(${total})` : '';
+                  return (
+                    <option key={slug} value={name}>
+                      {name} {totalStr}
+                    </option>
+                  );
+                })}
               </Select>
             </Box>
           </Flex>
