@@ -2,6 +2,7 @@ import 'tailwindcss/tailwind.css';
 import '../styles/font-sharp-grotesk.css';
 import '../styles/font-tiempos.css';
 import '../styles/main.css';
+import 'react-medium-image-zoom/dist/styles.css';
 
 import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';

@@ -2,7 +2,7 @@ import { AspectRatio, Box, Image, useColorModeValue } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useRef, useState } from 'react';
 import { useInView } from 'react-hook-inview';
-import ImageZoom from 'react-medium-image-zoom';
+import Zoom from 'react-medium-image-zoom';
 
 // const CImageZoom = chakra(ImageZoom);
 
@@ -44,7 +44,7 @@ export default function Img({
 
   src = src.startsWith('//') ? `https:${src}` : src;
 
-  const image = !zoom ? (
+  const image = (
     <Image
       ref={imgRef}
       src={cloudinary ? `https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}` : src}
@@ -64,21 +64,10 @@ export default function Img({
       data-natural-height={naturalHeight}
       {...props}
     />
-  ) : (
-    <ImageZoom
-      image={{
-        src: cloudinary ? `https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}` : src,
-        alt
-      }}
-      zoomImage={{
-        src: cloudinary ? `https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}` : src,
-        alt
-      }}
-    />
   );
   const imageCaption = caption ? (
     <Box as="figure">
-      {image}
+      {zoom ? <Zoom>{image}</Zoom> : image}
       <Box as="figcaption">{caption}</Box>
     </Box>
   ) : (
