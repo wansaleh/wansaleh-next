@@ -1,10 +1,7 @@
 const withPlugins = require('next-compose-plugins');
-const withImages = require('next-optimized-images');
+// const withImages = require('next-optimized-images');
 
-module.exports = withPlugins([[withImages]], {
-  future: {
-    webpack5: true
-  }
+module.exports = withPlugins([], {
   // images: {
   //   domains: [
   //     'res.cloudinary.com',

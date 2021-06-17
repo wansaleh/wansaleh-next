@@ -13,6 +13,8 @@ import React from 'react';
 import Markdown from './markdown';
 
 export default function Tools({ tools, hideIcons = false }) {
+  const imgFilter = useColorModeValue('invert(0)', 'invert(1)');
+
   return (
     <Flex as="ul" mt="4" flexWrap="wrap" justify="center" className="prose article tools">
       {tools.map((tool, i) => (
@@ -60,7 +62,7 @@ export default function Tools({ tools, hideIcons = false }) {
                       // h="10"
                       alt={logo.title}
                       sx={{ height: '32px', w: 'auto', maxWidth: '5rem' }}
-                      filter={useColorModeValue('invert(0)', 'invert(1)')}
+                      filter={imgFilter}
                     />
 
                     {/* <Text

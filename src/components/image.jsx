@@ -13,7 +13,7 @@ export default function Img({
   height,
   intrinsic = false,
   caption,
-  bg = useColorModeValue('gray.200', 'gray.900'),
+  bg,
   cloudinary = false,
   zoom = false,
   darkModeDim = true,
@@ -28,6 +28,9 @@ export default function Img({
     threshold: 0.1,
     unobserveOnEnter: true
   });
+
+  const defaultBg = useColorModeValue('gray.200', 'gray.900');
+  const dimmedOpacity = useColorModeValue(1, darkModeDim ? 0.75 : 1);
 
   function showImage(loadEvent = null) {
     // https://reactjs.org/docs/legacy-event-pooling.html
@@ -54,7 +57,7 @@ export default function Img({
       position="relative"
       d="block"
       transition="opacity 1s ease"
-      opacity={loaded ? useColorModeValue(1, darkModeDim ? 0.75 : 1) : 0}
+      opacity={loaded ? dimmedOpacity : 0}
       // visibility={alreadyVisible ? 'visible' : 'hidden'}
       onLoad={showImage}
       data-natural-width={naturalWidth}
@@ -87,7 +90,7 @@ export default function Img({
   return intrinsic ? (
     <Box ref={wrapperRef}>{imageBox}</Box>
   ) : (
-    <AspectRatio ref={wrapperRef} d="block" ratio={ratio} w="full" h="full" bg={bg}>
+    <AspectRatio ref={wrapperRef} d="block" ratio={ratio} w="full" h="full" bg={bg || defaultBg}>
       {imageBox}
     </AspectRatio>
   );

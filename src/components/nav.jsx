@@ -6,7 +6,6 @@ import {
   HStack,
   Link,
   useColorMode,
-  useColorModeValue,
   VisuallyHidden
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
@@ -61,9 +60,7 @@ export default function Nav() {
                   <Flex align="center">
                     <Logo
                       w="1.75em"
-                      fill={
-                        !isColoredHeader ? useColorModeValue('brand.500', 'brand.500') : 'brand.200'
-                      }
+                      fill={!isColoredHeader ? 'brand.500' : 'brand.200'}
                       transition="all 0.25s ease"
                       transform={y > 20 ? 'scale(1.2)' : 'none'}
                       // opacity={y > 20 ? 0.5 : 1}

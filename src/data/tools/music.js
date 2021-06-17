@@ -18,12 +18,17 @@ export default [
   },
   {
     name: 'Digital Audio Workstation',
-    desc: 'Logic Pro X 10.6, PreSonus Studio One 5 &amp; Cubase Pro 11',
+    desc: 'Logic Pro X 10.6, Avid Pro Tools, PreSonus Studio One 5 &amp; Cubase Pro 11',
     logos: [
       {
         image: '/assets/images/logos/apple.svg',
         title: 'Apple',
         link: 'https://apple.com'
+      },
+      {
+        image: '/assets/images/logos/avid.svg',
+        title: 'Avid',
+        link: 'https://avid.com'
       },
       {
         image: '/assets/images/logos/presonus.svg',

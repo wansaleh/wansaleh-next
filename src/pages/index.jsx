@@ -49,7 +49,7 @@ export default function Home() {
             }}
             alt=""
             // eslint-disable-next-line import/no-unresolved
-            src={require('../images/hand.png?webp')}
+            src="https://res.cloudinary.com/wansaleh/image/upload/f_auto/site/hand.png"
             position="absolute"
             left="0"
             right="0"
@@ -65,7 +65,7 @@ export default function Home() {
             }}
             alt=""
             // eslint-disable-next-line import/no-unresolved
-            src={require('../images/hand2.png?webp')}
+            src="https://res.cloudinary.com/wansaleh/image/upload/f_auto/site/hand.png"
             position="absolute"
             left="0"
             right="0"
