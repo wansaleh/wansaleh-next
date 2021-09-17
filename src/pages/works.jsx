@@ -5,7 +5,6 @@ import useSWR from 'swr';
 
 import Head from '../components/head';
 import Work from '../containers/works/work';
-import { fetchWorks } from '../lib/airtable';
 
 export default function DiscographyPage({ initialWorks }) {
   const [curPerson, setPerson] = useState('all');
