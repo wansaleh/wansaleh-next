@@ -12,8 +12,6 @@ export default function DiscographyPage({ initialWorks }) {
 
   const { data: works } = useSWR(`/api/works/diskograf`, { initialData: initialWorks });
 
-  console.log(works);
-
   const allWorks = (works || [])
     .map((work) => ({
       ...work,
