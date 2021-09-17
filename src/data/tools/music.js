@@ -110,7 +110,7 @@ export default [
   },
   {
     name: 'Studio Monitors',
-    desc: 'Studio: Yamaha HS8 &amp; NS10 studio (the legend). Home: Adam Audio T7V, Yamaha HS5, IK Multimedia iLoud',
+    desc: 'Studio: Yamaha HS8 &amp; NS10 studio (the legend). Home: Yamaha HS80M, Adam Audio T7V, IK Multimedia iLoud',
     logos: [
       {
         image: '/assets/images/logos/yamaha.svg',

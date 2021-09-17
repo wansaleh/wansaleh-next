@@ -11,65 +11,42 @@ export default function DiscographyPage({ initialWorks }) {
   const [curPerson, setPerson] = useState('all');
   const [curGenre, setGenre] = useState('all');
 
-  const { data: works } = useSWR(`/api/works/diskograf`, { initialData: initialWorks });
+  const { data } = useSWR(`/api/works`, { initialData: initialWorks });
+  const { works } = data || { works: [] };
 
-  console.log(works);
-
-  const allWorks = (works || [])
+  const allWorks = works
     .map((work) => ({
       ...work,
-      artists: work.artists
-        .filter(({ role }) => role.tag === 'primary')
-        .map(({ artist }) => artist.name),
-      writers: work.artists
-        .filter(({ role }) => role.tag === 'writing')
-        .map(({ artist }) => artist.name),
-      genres: work.genres.map((genre) => genre.genre.title),
-      released_at: parseISO(work.released_at, new Date()),
-      me: {
-        // 87 is my id in diskograf
-        pro: work.artists
-          .filter(({ role }) => role.title === 'Producer')
-          .some(({ artist }) => artist.id === 87),
-        com: work.artists
-          .filter(({ role }) => role.title === 'Composer')
-          .some(({ artist }) => artist.id === 87),
-        arr: work.artists
-          .filter(({ role }) => role.title === 'Arranger')
-          .some(({ artist }) => artist.id === 87),
-        eng: work.artists
-          .filter(({ role }) => role.title === 'Recording')
-          .some(({ artist }) => artist.id === 87),
-        mix: work.artists
-          .filter(({ role }) => role.title === 'Mixing')
-          .some(({ artist }) => artist.id === 87),
-        mas: work.artists
-          .filter(({ role }) => role.title === 'Mastering')
-          .some(({ artist }) => artist.id === 87)
+      fields: {
+        ...work.fields,
+        com: work.fields.composers?.includes('Wan Saleh'),
+        released: parseISO(work.fields.released, new Date())
       }
     }))
-    .sort((a, b) => b.released_at - a.released_at);
+    .sort((a, b) => b.released - a.released);
+  // .filter((work) => !work.hidden);
 
   let filteredWorks = allWorks.slice();
 
-  const _genres = [...new Set(filteredWorks.map((work) => work.genres).flat())];
+  const _genres = [...new Set(filteredWorks.map((work) => work.fields.genres).flat())];
 
   const genres = _genres
     .map((g) => ({
       slug: g.toLowerCase().replace(/ /g, '-'),
       title: g,
-      total: filteredWorks.filter((work) => work.genres.includes(g)).length
+      total: filteredWorks.filter((work) => work.fields.genres.includes(g)).length
     }))
     .sort((a, b) => b.total - a.total);
 
   filteredWorks = filteredWorks.filter((work) =>
-    curGenre !== 'all' ? work.genres.includes(curGenre) : true
+    curGenre !== 'all' ? work.fields.genres.includes(curGenre) : true
   );
 
   const _people = [
     ...new Set([
-      ...filteredWorks.map((work) => work.artists).flat(),
-      ...filteredWorks.map((work) => work.writers).flat()
+      ...filteredWorks.map((work) => work.fields.artists).flat(),
+      ...filteredWorks.map((work) => work.fields.composers).flat(),
+      ...filteredWorks.map((work) => work.fields.writers).flat()
     ])
   ]
     .filter(Boolean)
@@ -86,13 +63,19 @@ export default function DiscographyPage({ initialWorks }) {
   const people = _people.map((art) => ({
     slug: art.toLowerCase().replace(/ /g, '-'),
     name: art,
-    total: filteredWorks.filter((work) => work.artists.includes(art) || work.writers.includes(art))
-      .length
+    total: filteredWorks.filter(
+      (work) =>
+        work.fields.artists.includes(art) ||
+        work.fields.composers?.includes(art) ||
+        work.fields.writers?.includes(art)
+    ).length
   }));
 
   filteredWorks = filteredWorks.filter((work) =>
     curPerson !== 'all'
-      ? work.artists.includes(curPerson) || work.writers.includes(curPerson)
+      ? work.fields.artists.includes(curPerson) ||
+        work.fields.composers?.includes(curPerson) ||
+        work.fields.writers?.includes(curPerson)
       : true
   );
 
@@ -245,7 +228,7 @@ export default function DiscographyPage({ initialWorks }) {
           mx="auto"
         >
           {filteredWorks.map((work) => (
-            <Work work={work} key={work.id} />
+            <Work work={work} key={work.fields.youtube} />
           ))}
         </SimpleGrid>
       </Box>
@@ -254,9 +237,7 @@ export default function DiscographyPage({ initialWorks }) {
 }
 
 export async function getStaticProps() {
-  const initialWorks = await fetch('https://diskograf.com/api/songs/artist/87').then((r) =>
-    r.json()
-  );
+  const initialWorks = await fetchWorks();
 
   return {
     props: { initialWorks }

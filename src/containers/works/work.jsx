@@ -8,63 +8,40 @@ import {
   LinkOverlay,
   Tooltip
 } from '@chakra-ui/react';
-import { usePalette } from 'color-thief-react';
 import { format, formatDistanceToNow, isAfter, subMonths } from 'date-fns';
 import { ms } from 'date-fns/locale';
-import { readableColor } from 'polished';
 import { useMeasure } from 'react-use';
 
 import Img from '../../components/image';
 import SmallBadge from '../../components/small-badge';
 
 export default function Work({ work }) {
-  const coverURL = work.fields.artwork
-    ? `https://res.cloudinary.com/wansaleh/image/fetch/w_400/${work.fields.artwork}`
-    : `https://res.cloudinary.com/wansaleh/image/fetch/w_400/https://i.ytimg.com/vi/${work.fields.youtube}/hqdefault.jpg`;
-
-  const coverURLorig = work.fields.artwork
-    ? `${work.fields.artwork}`
-    : `https://i.ytimg.com/vi/${work.fields.youtube}/hqdefault.jpg`;
-
-  const { data: palette } = usePalette(coverURLorig, 5, 'hex', {
-    crossOrigin: 'anonymous'
-  });
+  const coverURL = work.data.artworkMedium
+    ? `https://res.cloudinary.com/wansaleh/image/fetch/w_400/${work.data.artworkMedium}`
+    : `https://res.cloudinary.com/wansaleh/image/fetch/w_400/https://i.ytimg.com/vi/${work.data.youtube}/hqdefault.jpg`;
 
   const [ref, { height: coverHeight }] = useMeasure();
 
   const cellHeight = coverHeight + 130;
 
-  const COLOR = 0;
-  const COLORNEXT = palette ? (COLOR + 1) % palette.length : COLOR + 1;
-
   return (
-    <LinkBox key={work.fields.youtube} role="group" h={`${cellHeight}px`}>
-      <LinkOverlay href={`https://youtube.com/watch?v=${work.fields.youtube}`} isExternal>
+    <LinkBox key={work.data.youtube} role="group" h={`${cellHeight}px`}>
+      <LinkOverlay href={`https://youtube.com/watch?v=${work.data.youtube}`} isExternal>
         <Tooltip
           label={
             <>
-              <Box fontWeight="bold">{work.fields.song}</Box>
+              <Box fontWeight="bold">{work.title}</Box>
               <Box lineHeight="1.2" mb="1">
-                <Box fontSize="0.75em">Artis: {listArtists(work.fields.artists)}</Box>
-                <Box fontSize="0.75em">
-                  Ciptaan: {listWriters(work.fields.composers, work.fields.writers)}
-                </Box>
+                <Box fontSize="0.75em">Artis: {listArtists(work.artists)}</Box>
+                <Box fontSize="0.75em">Lagu &amp; Lirik: {listWriters(work.writers)}</Box>
               </Box>
             </>
           }
-          aria-label={work.fields.song}
+          aria-label={work.title}
           hasArrow
           placement="top"
         >
-          <Flex
-            direction="column"
-            bg={palette ? palette[COLOR] : 'gray.500'}
-            color={palette ? readableColor(palette[COLOR]) : 'white'}
-            transition="all 0.5s ease"
-            textAlign="center"
-            p="6"
-            h="full"
-          >
+          <Flex direction="column" transition="all 0.5s ease" textAlign="center" p="6" h="full">
             <AspectRatio ref={ref} ratio={1} w="100%">
               <Box
                 bg="none"
@@ -82,7 +59,7 @@ export default function Work({ work }) {
                   src={coverURL}
                   width={300}
                   height={300}
-                  alt={work.fields.song}
+                  alt={work.title}
                   bg="none"
                   objectFit="contain"
                   pointerEvents="none"
@@ -100,24 +77,12 @@ export default function Work({ work }) {
                   py="3.5"
                   lineHeight="1"
                 >
-                  {work.fields.pro && (
-                    <SmallBadge color={palette && palette[COLORNEXT]}>PRO</SmallBadge>
-                  )}
-                  {work.fields.com && (
-                    <SmallBadge color={palette && palette[COLORNEXT]}>COM</SmallBadge>
-                  )}
-                  {work.fields.arr && (
-                    <SmallBadge color={palette && palette[COLORNEXT]}>ARR</SmallBadge>
-                  )}
-                  {work.fields.eng && (
-                    <SmallBadge color={palette && palette[COLORNEXT]}>ENG</SmallBadge>
-                  )}
-                  {work.fields.mix && (
-                    <SmallBadge color={palette && palette[COLORNEXT]}>MIX</SmallBadge>
-                  )}
-                  {work.fields.mas && (
-                    <SmallBadge color={palette && palette[COLORNEXT]}>MAS</SmallBadge>
-                  )}
+                  {work.me.pro && <SmallBadge>PRO</SmallBadge>}
+                  {work.me.com && <SmallBadge>COM</SmallBadge>}
+                  {work.me.arr && <SmallBadge>ARR</SmallBadge>}
+                  {work.me.eng && <SmallBadge>ENG</SmallBadge>}
+                  {work.me.mix && <SmallBadge>MIX</SmallBadge>}
+                  {work.me.mas && <SmallBadge>MAS</SmallBadge>}
                 </HStack>
               </Box>
             </AspectRatio>
@@ -150,12 +115,11 @@ export default function Work({ work }) {
                   overflow="hidden"
                   textOverflow="ellipsis"
                 >
-                  {work.fields.song}
+                  {work.title}
                 </Box>
 
-                {isAfter(work.fields.released, subMonths(new Date(), 1)) && (
+                {isAfter(work.released_at, subMonths(new Date(), 1)) && (
                   <SmallBadge
-                    color={palette && palette[COLORNEXT]}
                     ml="1.5"
                     mt="-0.5"
                     // mt="0.5"
@@ -185,16 +149,16 @@ export default function Work({ work }) {
                     opacity="1"
                     transition="all 0.2s ease-out"
                     _groupHover={
-                      (work.fields.composers || work.fields.writers) && {
+                      work.writers && {
                         opacity: 0,
                         transform: 'translateY(-100%)'
                       }
                     }
                   >
-                    {listArtists(work.fields.artists)}
+                    {listArtists(work.artists)}
                   </Box>
 
-                  {(work.fields.composers || work.fields.writers) && (
+                  {work.writers && (
                     <Box
                       pos="absolute"
                       inset="0"
@@ -207,8 +171,8 @@ export default function Work({ work }) {
                       transform="translateY(50%)"
                       _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
                     >
-                      <span tw="font-medium opacity-70">Ciptaan</span>{' '}
-                      {listWriters(work.fields.composers, work.fields.writers)}
+                      <span tw="font-medium opacity-70">Lagu &amp; Lirik</span>{' '}
+                      {listWriters(work.writers)}
                     </Box>
                   )}
                 </Box>
@@ -224,7 +188,7 @@ export default function Work({ work }) {
                 textTransform="uppercase"
               >
                 <Box transition="all 0.2s ease-out" _groupHover={{ opacity: 0 }}>
-                  {formatDistanceToNow(work.fields.released, { locale: ms })} lalu
+                  {formatDistanceToNow(work.released_at, { locale: ms })} lalu
                 </Box>
                 <Box
                   opacity="0"
@@ -233,7 +197,7 @@ export default function Work({ work }) {
                   transition="all 0.2s ease-out"
                   _groupHover={{ opacity: 1 }}
                 >
-                  {format(work.fields.released, 'd MMMM yyy', { locale: ms })}
+                  {format(work.released_at, 'd MMMM yyy', { locale: ms })}
                 </Box>
               </Box>
             </Flex>

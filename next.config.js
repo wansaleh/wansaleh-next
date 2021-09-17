@@ -2,6 +2,7 @@ const withPlugins = require('next-compose-plugins');
 // const withImages = require('next-optimized-images');
 
 module.exports = withPlugins([], {
+  experimental: { esmExternals: true }
   // images: {
   //   domains: [
   //     'res.cloudinary.com',
