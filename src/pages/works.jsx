@@ -1,16 +1,13 @@
 import { Box, Button, Container, Flex, Heading, Select, SimpleGrid } from '@chakra-ui/react';
 import { parseISO } from 'date-fns';
 import { Fragment, useState } from 'react';
-import useSWR from 'swr';
 
 import Head from '../components/head';
 import Work from '../containers/works/work';
 
-export default function DiscographyPage({ initialWorks }) {
+export default function DiscographyPage({ works }) {
   const [curPerson, setPerson] = useState('all');
   const [curGenre, setGenre] = useState('all');
-
-  const { data: works } = useSWR(`/api/works/diskograf`, { initialData: initialWorks });
 
   const allWorks = (works || [])
     .map((work) => ({
@@ -101,7 +98,7 @@ export default function DiscographyPage({ initialWorks }) {
         <Container maxW="3xl">
           <Flex
             pt="32"
-            pb="24"
+            pb="8"
             textAlign="center"
             justify="center"
             align="center"
@@ -251,11 +248,9 @@ export default function DiscographyPage({ initialWorks }) {
 }
 
 export async function getStaticProps() {
-  const initialWorks = await fetch('https://diskograf.com/api/songs/artist/87').then((r) =>
-    r.json()
-  );
+  const works = await fetch('https://diskograf.com/api/songs/artist/87').then((r) => r.json());
 
   return {
-    props: { initialWorks }
+    props: { works }
   };
 }

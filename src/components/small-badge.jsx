@@ -7,8 +7,8 @@ export default function SmallBadge({ children, color, ...props }) {
     <Badge
       // bg="rgba(0,0,0,0.7)"
       d="inline-block"
-      bg={color || '#fff'}
-      color={color ? rgba(readableColor(color), 0.65) : rgba('#000', 0.65)}
+      bg={color || '#000'}
+      color={color ? rgba(readableColor(color), 0.65) : '#fff'}
       fontSize="0.6rem"
       fontFamily="body"
       // fontFamily="heading"

@@ -118,9 +118,10 @@ export default function Home() {
             <TextLoop>
               <span>penerbit muzik.</span>
               <span>pengadun lagu.</span>
+              <span>jurutera bunyi.</span>
               <span>pembina web.</span>
               {/* <span>drink soda.</span> */}
-              <span>pencinta mikrofon.</span>
+              {/* <span>pencinta mikrofon.</span> */}
               {/* <span>adore preamps.</span> */}
             </TextLoop>
           </Heading>
@@ -138,7 +139,7 @@ export default function Home() {
               color={useColorModeValue('black', 'white')}
               boxShadow="inset 0 0 0 3px currentColor !important"
             >
-              Tools
+              Alatan
             </CTALink>
           </Flex>
         </Container>

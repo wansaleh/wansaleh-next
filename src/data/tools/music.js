@@ -18,7 +18,7 @@ export default [
   },
   {
     name: 'Digital Audio Workstation',
-    desc: 'Logic Pro X 10.6, Avid Pro Tools, PreSonus Studio One 5 &amp; Cubase Pro 11',
+    desc: 'Logic Pro X 10.6, Avid Pro Tools 12, PreSonus Studio One 5 &amp; Cubase Pro 11',
     logos: [
       {
         image: '/assets/images/logos/apple.svg',
@@ -44,8 +44,13 @@ export default [
   },
   {
     name: 'Gears',
-    desc: 'Interfaces: UAD Apollo Twin X Quad, Apogee Duet 2, Focusrite Clarett 8Pre USB. Preamps: Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast. Mics: Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Audio Technica AT2035. Controllers: Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Compressors: Alesis 3630, dbx 166xs. Monitor controller: Mackie Big Knob Studio.',
+    desc: 'Interfaces: RME Fireface UFX II (Main interface), UAD Apollo Twin X Quad, Apogee Duet 2, Focusrite Clarett 8Pre USB. Preamps: Warm Audio WA-73EQ, Warm Audio TB12 Tone Beast. Mics: Neumann TLM103, Slate Digital VMS ML-1, Warm Audio WA-47jr., Audio Technica AT2035. Controllers: Native Instruments Komplete Kontrol A61 & M32, Roli Seaboard Block, Compressors: Alesis 3630, dbx 166xs. Monitor controller: Mackie Big Knob Studio.',
     logos: [
+      {
+        image: '/assets/images/logos/rme.svg',
+        title: 'RME',
+        link: 'https://www.rme-audio.de'
+      },
       {
         image: '/assets/images/logos/uad.svg',
         title: 'Universal Audio',
@@ -152,7 +157,7 @@ export default [
   },
   {
     name: 'Go-to mix plugins',
-    desc: 'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), UAD (Avalon VT-737sp, Neve 1073, LA-2A, 1176, Fairchild 660/670, Distressor, Capitol Chambers, Lexicon 480L, EMT 140), Slate Digital (VMR, VMC), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), SoundToys (Echoboy, Decapitator, Devil-Loc, Radiator, Microshift), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ), Native Instruments Guitar Rig 6, ValhallaDSP Reverbs/Delays, Oeksound Soothe 2 & Spiff, Denise Audio Perfect Room.',
+    desc: 'Fabfilter (Pro-Q3, Pro-R, Pro-DS, Pro-L), UAD (Avalon VT-737sp, Neve 1073, LA-2A, 1176, Fairchild 660/670, Distressor, Capitol Chambers, Lexicon 480L, EMT 140), Slate Digital (VMR, VMC), Waves (C6, API stuff, SSL stuff, Scheps Channel Strip, CLA stuff, Abbey Road Plates/Chambers), SoundTheory Gullfoss, SoundToys (Echoboy, Decapitator, Devil-Loc, Radiator, Microshift), Plugin Alliance (bx_consoles, bx_townhouse Buss Compressor, Shadow Hills Compressor, MAAG EQ), Native Instruments Guitar Rig 6, ValhallaDSP Reverbs/Delays, Oeksound Soothe 2, Denise Audio Perfect Room.',
     logos: [
       {
         image: '/assets/images/logos/fabfilter.svg',

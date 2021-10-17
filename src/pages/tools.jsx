@@ -9,9 +9,9 @@ import musicTools from '../data/tools/music';
 export default function Home() {
   return (
     <Box>
-      <Head title="By Wan Saleh • Peralatan • Tools" />
+      <Head title="By Wan Saleh • Alatan • Tools" />
 
-      <PageHeader title="Tools" subtitle="Keperluan harian yang membantu kerja saya." />
+      <PageHeader title="Alatan • Tools" subtitle="Keperluan harian yang membantu kerja saya." />
 
       <Container maxW="6xl" pb="10">
         <Tools tools={musicTools} />

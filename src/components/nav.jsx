@@ -103,7 +103,7 @@ export default function Nav() {
           >
             <li>
               <NextLink href="/works" passHref>
-                <Link className={router.pathname.includes('/works') && 'active'}>Works</Link>
+                <Link className={router.pathname.includes('/works') && 'active'}>Diskografi</Link>
               </NextLink>
             </li>
 
@@ -123,7 +123,7 @@ export default function Nav() {
 
             <li>
               <NextLink href="/tools" passHref>
-                <Link className={router.pathname.includes('/tools') && 'active'}>Tools</Link>
+                <Link className={router.pathname.includes('/tools') && 'active'}>Alatan</Link>
               </NextLink>
             </li>
 
