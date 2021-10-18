@@ -53,7 +53,7 @@ export default function Tag({ posts, tag }) {
                 {tag.description ? (
                   <Markdown>{tag.description}</Markdown>
                 ) : (
-                  'Pencarianku ke arah kecemerlangan bunyi.'
+                  'Perjalanan menuju kecemerlangan bunyi.'
                 )}
               </>
             }

@@ -14,7 +14,7 @@ export default function BlogPage({ posts, preview }) {
 
       <PreviewAlert preview={preview} />
 
-      <PageHeader title="In The Studio" subtitle="Pencarianku ke arah kecemerlangan bunyi." />
+      <PageHeader title="In The Studio" subtitle="Perjalanan menuju kecemerlangan bunyi." />
 
       <Box pb="10">
         <PostsList hero posts={posts} />
