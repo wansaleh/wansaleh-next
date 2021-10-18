@@ -1,7 +1,7 @@
 // .prettierrc.js
 module.exports = {
   // max 120 characters per line
-  printWidth: 100,
+  printWidth: 80,
   // use 2 spaces for indentation
   tabWidth: 2,
   // use spaces instead of indentations
@@ -15,7 +15,7 @@ module.exports = {
   // use double quotes instead of single quotes in jsx
   jsxSingleQuote: false,
   // no comma at the end
-  trailingComma: 'none',
+  trailingComma: 'all',
   // spaces are required at the beginning and end of the braces
   bracketSpacing: true,
   // end tag of jsx need to wrap

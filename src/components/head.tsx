@@ -6,7 +6,14 @@ const defaultDescription =
 const defaultOGURL = '';
 const defaultOGImage = '';
 
-export default function Head({ title, description, url, ogImage }) {
+type HeadProps = {
+  title?: string;
+  description?: string;
+  url?: string;
+  ogImage?: string;
+};
+
+export default function Head({ title, description, url, ogImage }: HeadProps) {
   return (
     <NextHead>
       <meta charSet="utf-8" />
@@ -17,13 +24,13 @@ export default function Head({ title, description, url, ogImage }) {
       <title>{title || ''}</title>
       <meta name="description" content={description || defaultDescription} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      {/* <link rel="icon" sizes="192x192" href="/touch-icon.png" />
-    <link rel="apple-touch-icon" href="/touch-icon.png" />
-    <link rel="mask-icon" href="/favicon-mask.svg" color="#49B882" /> */}
       <link rel="icon" href="/favicon2.png" />
       <meta property="og:url" content={url || defaultOGURL} />
       <meta property="og:title" content={title || ''} />
-      <meta property="og:description" content={description || defaultDescription} />
+      <meta
+        property="og:description"
+        content={description || defaultDescription}
+      />
       <meta name="twitter:site" content={url || defaultOGURL} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={ogImage || defaultOGImage} />

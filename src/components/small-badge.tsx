@@ -1,8 +1,15 @@
-import { Badge } from '@chakra-ui/react';
+import { Badge, HTMLChakraProps } from '@chakra-ui/react';
 import { readableColor, rgba } from 'polished';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-export default function SmallBadge({ children, color, ...props }) {
+export default function SmallBadge({
+  children,
+  color,
+  ...props
+}: {
+  children: ReactNode;
+  color?: string;
+} & HTMLChakraProps<'div'>) {
   return (
     <Badge
       // bg="rgba(0,0,0,0.7)"

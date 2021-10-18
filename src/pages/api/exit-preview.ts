@@ -1,4 +1,6 @@
-export default async function handler(_, res) {
+import { NextApiRequest, NextApiResponse } from 'next';
+
+export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   // Exit the current user from "Preview Mode". This function accepts no args.
   res.clearPreviewData();
 

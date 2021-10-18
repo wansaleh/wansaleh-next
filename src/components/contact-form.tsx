@@ -5,7 +5,7 @@ import {
   FormErrorMessage,
   FormLabel,
   Input,
-  Textarea
+  Textarea,
 } from '@chakra-ui/react';
 import { useForm, ValidationError } from '@formspree/react';
 import React from 'react';
@@ -21,7 +21,11 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <FormControl id="name" mb="8" isInvalid={state.errors.find((e) => e.field === 'name')}>
+      <FormControl
+        id="name"
+        mb="8"
+        isInvalid={state.errors.find((e) => e.field === 'name')}
+      >
         <FormLabel>Name</FormLabel>
         <Input
           type="text"
@@ -35,7 +39,11 @@ export default function ContactForm() {
         </FormErrorMessage>
       </FormControl>
 
-      <FormControl id="email" mb="8" isInvalid={state.errors.find((e) => e.field === 'email')}>
+      <FormControl
+        id="email"
+        mb="8"
+        isInvalid={state.errors.find((e) => e.field === 'email')}
+      >
         <FormLabel>Email</FormLabel>
         <Input
           type="text"
@@ -49,7 +57,11 @@ export default function ContactForm() {
         </FormErrorMessage>
       </FormControl>
 
-      <FormControl id="phone" mb="8" isInvalid={state.errors.find((e) => e.field === 'phone')}>
+      <FormControl
+        id="phone"
+        mb="8"
+        isInvalid={state.errors.find((e) => e.field === 'phone')}
+      >
         <FormLabel>Phone Number</FormLabel>
         <Input
           type="text"
@@ -63,7 +75,11 @@ export default function ContactForm() {
         </FormErrorMessage>
       </FormControl>
 
-      <FormControl id="message" mb="8" isInvalid={state.errors.find((e) => e.field === 'phone')}>
+      <FormControl
+        id="message"
+        mb="8"
+        isInvalid={state.errors.find((e) => e.field === 'phone')}
+      >
         <FormLabel>Message</FormLabel>
         <Textarea
           name="message"
@@ -73,7 +89,11 @@ export default function ContactForm() {
           css={{ backdropFilter: 'blur(15px)' }}
         />
         <FormErrorMessage>
-          <ValidationError field="message" prefix="Message" errors={state.errors} />
+          <ValidationError
+            field="message"
+            prefix="Message"
+            errors={state.errors}
+          />
         </FormErrorMessage>
       </FormControl>
 

@@ -10,23 +10,23 @@ export default function Img({
   src,
   alt,
   width,
-  height,
+  height = null,
   intrinsic = false,
-  caption,
-  bg,
+  caption = null,
+  bg = null,
   cloudinary = false,
   zoom = false,
   darkModeDim = true,
   ...props
 }) {
-  const imgRef = useRef();
+  const imgRef = useRef<HTMLImageElement>();
   const [loaded, setLoaded] = useState(false);
   const [naturalWidth, setNaturalWidth] = useState(null);
   const [naturalHeight, setNaturalHeight] = useState(null);
 
   const [wrapperRef, isVisible] = useInView({
     threshold: 0.1,
-    unobserveOnEnter: true
+    unobserveOnEnter: true,
   });
 
   const defaultBg = useColorModeValue('gray.200', 'gray.900');
@@ -40,14 +40,19 @@ export default function Img({
     setNaturalHeight(imgRef.current.naturalHeight);
   }
 
-  const ratio = typeof height === 'number' ? width / height : naturalWidth / naturalHeight;
+  const ratio =
+    typeof height === 'number' ? width / height : naturalWidth / naturalHeight;
 
   src = src.startsWith('//') ? `https:${src}` : src;
 
   const image = (
     <Image
       ref={imgRef}
-      src={cloudinary ? `https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}` : src}
+      src={
+        cloudinary
+          ? `https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`
+          : src
+      }
       // src={`https://res.cloudinary.com/wansaleh/image/fetch/w_${width}/${src}`}
       alt={alt}
       width="full"
@@ -79,7 +84,14 @@ export default function Img({
   return intrinsic ? (
     <Box ref={wrapperRef}>{imageBox}</Box>
   ) : (
-    <AspectRatio ref={wrapperRef} d="block" ratio={ratio} w="full" h="full" bg={bg || defaultBg}>
+    <AspectRatio
+      ref={wrapperRef}
+      d="block"
+      ratio={ratio}
+      w="full"
+      h="full"
+      bg={bg || defaultBg}
+    >
       {imageBox}
     </AspectRatio>
   );
@@ -92,5 +104,5 @@ Img.propTypes = {
   height: PropTypes.number,
   intrinsic: PropTypes.bool,
   caption: PropTypes.string,
-  bg: PropTypes.any
+  bg: PropTypes.any,
 };

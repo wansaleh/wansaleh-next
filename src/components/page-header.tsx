@@ -1,6 +1,17 @@
 import { Box, Container, Heading } from '@chakra-ui/react';
+import { ReactElement } from 'react';
 
-export default function PageHeader({ title, middle, subtitle }) {
+type PageHeaderProps = {
+  title?: string | ReactElement;
+  subtitle?: string | ReactElement;
+  middle?: string | ReactElement;
+};
+
+export default function PageHeader({
+  title,
+  middle,
+  subtitle,
+}: PageHeaderProps) {
   return (
     <Container maxW="6xl" mt="24" mb="10">
       <Heading
@@ -23,8 +34,8 @@ export default function PageHeader({ title, middle, subtitle }) {
               height: '58%',
               width: '9999px',
               transform: 'translateX(12px)',
-              bg: 'gray.500'
-            }
+              bg: 'gray.500',
+            },
           }}
         >
           {title}

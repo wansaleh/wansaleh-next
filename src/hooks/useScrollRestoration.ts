@@ -24,7 +24,7 @@ export default function useScrollRestoration() {
     console.log(url, pos);
     positions.current = {
       ...positions.current,
-      [url]: pos
+      [url]: pos,
     };
   };
 

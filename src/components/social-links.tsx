@@ -1,22 +1,29 @@
 import { Box, Link, VisuallyHidden } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import React, { Fragment } from 'react';
+import React, { Fragment, ReactElement } from 'react';
 
 import Slash from './slash';
 
-const links = [
+interface Link {
+  href: string;
+  label: string;
+  icon: string | ReactElement;
+  key?: string;
+}
+
+const links: Link[] = [
   {
     href: 'https://twitter.com/wansaleh',
     label: 'Twitter',
-    icon: <Twitter />
+    icon: <Twitter />,
   },
   {
     href: 'https://github.com/wansaleh',
     label: 'Github',
-    icon: <Github />
-  }
+    icon: <Github />,
+  },
   // { href: 'https://instagram.com/wansaleh', label: 'In' }
-].map((link) => {
+].map((link: Link) => {
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;
 });

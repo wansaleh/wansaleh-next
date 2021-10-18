@@ -1,5 +1,15 @@
-/* eslint-disable import/no-unresolved */
-export default [
+interface Logo {
+  image: string;
+  title: string;
+  link: string;
+}
+export interface Tool {
+  name: string;
+  desc: string;
+  logos: Logo[];
+}
+
+const musicTools: Tool[] = [
   {
     name: 'Workstation',
     desc: 'i9-9900K 64GB Hackintosh (December 2019 build) &amp; MacBook Pro 15&quot; 2018 (homestudio) &amp; iMac Retina 2015 (studio)',
@@ -207,3 +217,5 @@ export default [
     ]
   }
 ];
+
+export default musicTools;

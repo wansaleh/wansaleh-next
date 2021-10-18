@@ -6,15 +6,24 @@ import PageHeader from '../../components/page-header';
 import PostsList from '../../containers/blog/posts-list';
 import PreviewAlert from '../../containers/blog/preview-alert';
 import { getAllPostsForHome } from '../../lib/contentful';
+import { PostType } from '../../types/post';
 
-export default function BlogPage({ posts, preview }) {
+type BlogPageProps = {
+  posts: PostType[];
+  preview: boolean;
+};
+
+export default function BlogPage({ posts, preview }: BlogPageProps) {
   return (
     <>
       <Head title="By Wan Saleh • In The Studio" />
 
       <PreviewAlert preview={preview} />
 
-      <PageHeader title="In The Studio" subtitle="Perjalanan menuju kecemerlangan bunyi." />
+      <PageHeader
+        title="In The Studio"
+        subtitle="Perjalanan menuju kecemerlangan bunyi."
+      />
 
       <Box pb="10">
         <PostsList hero posts={posts} />
@@ -28,6 +37,6 @@ export async function getStaticProps({ preview = false }) {
 
   return {
     props: { preview, posts },
-    revalidate: 1
+    revalidate: 1,
   };
 }

@@ -1,4 +1,11 @@
-import { Box, Container, Heading, Link, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Heading,
+  Link,
+  SimpleGrid,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import React from 'react';
 
 import Head from '../components/head';
@@ -10,9 +17,20 @@ export default function ContactPage() {
       <Head title="By Wan Saleh • Contact" />
 
       <Container maxW="6xl">
-        <SimpleGrid columns={[1, 1, 2]} gap="16" py="20" pos="relative" alignItems="center">
+        <SimpleGrid
+          columns={[1, 1, 2]}
+          gap="16"
+          py="20"
+          pos="relative"
+          alignItems="center"
+        >
           <Box zIndex="0">
-            <Heading fontSize="6xl" lineHeight="0.9" letterSpacing="tight" mb="2">
+            <Heading
+              fontSize="6xl"
+              lineHeight="0.9"
+              letterSpacing="tight"
+              mb="2"
+            >
               Contact me.
             </Heading>
 
@@ -28,7 +46,9 @@ export default function ContactPage() {
             </Heading>
 
             <Box mt="16" pos="relative" fontSize="xl">
-              Drop a line to my email. It&apos;s wansaleh [at] gmail [dot] com.
+              Drop a line to my email.
+              <br />
+              It&apos;s <b>wansaleh [at] gmail [dot] com</b>.
               <br />
               Or DM me on{' '}
               <Link href="https://twitter.com/wansaleh" isExternal>

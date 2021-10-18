@@ -46,7 +46,7 @@ const components = {
           strokeWidth="2"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
-          tw="inline-block -mt-1"
+          className="inline-block -mt-1"
         >
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
           <polyline points="15 3 21 3 21 9" />
@@ -61,16 +61,36 @@ const components = {
     //   ? `https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`
     //   : src;
 
-    return <Img src={src} alt={alt} width={800} intrinsic zoom caption={alt} {...props} />;
-  }
+    return (
+      <Img
+        src={src}
+        alt={alt}
+        width={800}
+        intrinsic
+        zoom
+        caption={alt}
+        {...props}
+      />
+    );
+  },
 };
 
-export default function Markdown({ noTOC, children }) {
+export default function Markdown({ noTOC = false, children }) {
   return (
     <ReactMarkdown
       components={components}
-      remarkPlugins={[remarkSmartypants, remarkGfm, remarkUnwrapImages, remarkBreaks]}
-      rehypePlugins={[rehypeSlug, rehypeHeadings, !noTOC && rehypeToc, rehypeRaw].filter(Boolean)}
+      remarkPlugins={[
+        remarkSmartypants,
+        remarkGfm,
+        remarkUnwrapImages,
+        remarkBreaks,
+      ]}
+      rehypePlugins={[
+        rehypeSlug,
+        rehypeHeadings,
+        !noTOC && rehypeToc,
+        rehypeRaw,
+      ].filter(Boolean)}
     >
       {children}
     </ReactMarkdown>

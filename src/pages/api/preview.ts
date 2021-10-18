@@ -1,10 +1,21 @@
 /* eslint-disable consistent-return */
+import { NextApiRequest, NextApiResponse } from 'next';
 import { getPreviewPostBySlug } from '../../lib/contentful';
 
-export default async function handler(req, res) {
+type Data = {
+  message?: string;
+};
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>,
+) {
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
-  if (req.query.secret !== process.env.GRAPHCMS_PREVIEW_SECRET || !req.query.slug) {
+  if (
+    req.query.secret !== process.env.GRAPHCMS_PREVIEW_SECRET ||
+    !req.query.slug
+  ) {
     return res.status(401).json({ message: 'Invalid token' });
   }
 

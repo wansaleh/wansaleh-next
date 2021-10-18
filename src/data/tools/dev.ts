@@ -1,7 +1,6 @@
-/* eslint-disable import/no-unresolved */
-import musicTools from './music';
+import musicTools, { Tool } from './music';
 
-export default [
+const devTools: Tool[] = [
   musicTools[0],
   {
     name: 'Code Editor',
@@ -123,3 +122,5 @@ export default [
     ]
   }
 ];
+
+export default devTools;

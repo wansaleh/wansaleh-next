@@ -6,7 +6,7 @@ import {
   HStack,
   Link,
   useColorMode,
-  VisuallyHidden
+  VisuallyHidden,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -95,15 +95,21 @@ export default function Nav() {
                 // px: 1.5,
                 lineHeight: 1,
                 d: 'block',
-                borderRadius: '5px'
+                borderRadius: '5px',
                 // border: '2px solid transparent'
               },
-              'a:hover, a:active, a.active': { color: isColoredHeader ? 'brand.200' : 'brand.500' }
+              'a:hover, a:active, a.active': {
+                color: isColoredHeader ? 'brand.200' : 'brand.500',
+              },
             }}
           >
             <li>
               <NextLink href="/works" passHref>
-                <Link className={router.pathname.includes('/works') && 'active'}>Diskografi</Link>
+                <Link
+                  className={router.pathname.includes('/works') && 'active'}
+                >
+                  Diskografi
+                </Link>
               </NextLink>
             </li>
 
@@ -113,7 +119,9 @@ export default function Nav() {
 
             <li>
               <NextLink href="/blog" passHref>
-                <Link className={router.pathname.includes('/blog') && 'active'}>Blog</Link>
+                <Link className={router.pathname.includes('/blog') && 'active'}>
+                  Blog
+                </Link>
               </NextLink>
             </li>
 
@@ -123,7 +131,11 @@ export default function Nav() {
 
             <li>
               <NextLink href="/tools" passHref>
-                <Link className={router.pathname.includes('/tools') && 'active'}>Alatan</Link>
+                <Link
+                  className={router.pathname.includes('/tools') && 'active'}
+                >
+                  Alatan
+                </Link>
               </NextLink>
             </li>
 

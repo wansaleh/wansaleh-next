@@ -25,7 +25,10 @@ const POST_GRAPHQL_FIELDS = `
   }
 `;
 
-async function fetchAPI(query, { variables, preview } = {}) {
+async function fetchAPI(
+  query: string,
+  { variables = null, preview = null }: { variables?: any; preview?: any } = {},
+) {
   const res = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
     {
@@ -36,13 +39,13 @@ async function fetchAPI(query, { variables, preview } = {}) {
           preview
             ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
             : process.env.CONTENTFUL_ACCESS_TOKEN
-        }`
+        }`,
       },
       body: JSON.stringify({
         query,
-        variables
-      })
-    }
+        variables,
+      }),
+    },
   );
   const json = await res.json();
 
@@ -58,7 +61,7 @@ function processPost({ sys, contentfulMetadata, ...post }) {
   return {
     ...sys,
     ...post,
-    sysTags: contentfulMetadata.tags
+    sysTags: contentfulMetadata.tags,
   };
 }
 function processPosts(posts) {
@@ -79,9 +82,9 @@ export async function getPreviewPostBySlug(slug) {
     {
       preview: true,
       variables: {
-        slug
-      }
-    }
+        slug,
+      },
+    },
   );
   return processPosts(data.postCollection);
 }
@@ -110,7 +113,7 @@ export async function getAllPostsForHome(preview) {
         }
       }
     `,
-    { preview }
+    { preview },
   );
   return processPosts(data.postCollection);
 }
@@ -135,14 +138,14 @@ export async function getPostAndMorePosts(slug, preview) {
       preview,
       variables: {
         preview,
-        slug
-      }
-    }
+        slug,
+      },
+    },
   );
 
   return {
     post: processPost(data.post.items[0]),
-    morePosts: processPosts(data.morePosts)
+    morePosts: processPosts(data.morePosts),
   };
 }
 
@@ -168,14 +171,14 @@ export async function getAllPostsForTag(tag, preview) {
       preview,
       variables: {
         preview,
-        tag
-      }
-    }
+        tag,
+      },
+    },
   );
 
   return {
     posts: processPosts(data.postCollection),
-    tag: data.tagCollection.items[0]
+    tag: data.tagCollection.items[0],
   };
 }
 
@@ -191,7 +194,7 @@ export async function getAllTags() {
           }
         }
       }
-    `
+    `,
   );
 
   return data.tagCollection.items;

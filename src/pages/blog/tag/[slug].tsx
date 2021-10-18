@@ -10,8 +10,14 @@ import Markdown from '../../../components/markdown';
 import PageHeader from '../../../components/page-header';
 import PostsList from '../../../containers/blog/posts-list';
 import { getAllPostsForTag, getAllTags } from '../../../lib/contentful';
+import { PostType, TagType } from '../../../types/post';
 
-export default function Tag({ posts, tag }) {
+type TagProps = {
+  posts: PostType[];
+  tag: TagType;
+};
+
+export default function Tag({ posts, tag }: TagProps) {
   const router = useRouter();
 
   if (!router.isFallback && !tag?.slug) {
@@ -73,7 +79,7 @@ export async function getStaticProps({ params, preview = false }) {
 
   return {
     props: { preview, posts, tag },
-    revalidate: 1
+    revalidate: 1,
   };
 }
 
@@ -82,8 +88,8 @@ export async function getStaticPaths() {
 
   return {
     paths: tags.map(({ slug }) => ({
-      params: { slug }
+      params: { slug },
     })),
-    fallback: true
+    fallback: true,
   };
 }

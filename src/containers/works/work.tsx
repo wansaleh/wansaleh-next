@@ -1,4 +1,12 @@
-import { AspectRatio, Box, Flex, Heading, HStack, LinkBox, LinkOverlay } from '@chakra-ui/react';
+import {
+  AspectRatio,
+  Box,
+  Flex,
+  Heading,
+  HStack,
+  LinkBox,
+  LinkOverlay,
+} from '@chakra-ui/react';
 import { format, formatDistanceToNow, isAfter, subMonths } from 'date-fns';
 import { ms } from 'date-fns/locale';
 import { useMeasure } from 'react-use';
@@ -18,7 +26,13 @@ export default function Work({ work }) {
   return (
     <LinkBox key={work.data.youtube} role="group" h={`${cellHeight}px`}>
       <LinkOverlay href={work.url} isExternal>
-        <Flex direction="column" transition="all 0.5s ease" textAlign="center" p="6" h="full">
+        <Flex
+          direction="column"
+          transition="all 0.5s ease"
+          textAlign="center"
+          p="6"
+          h="full"
+        >
           <AspectRatio ref={ref} ratio={1} w="100%">
             <Box
               bg="none"
@@ -29,7 +43,7 @@ export default function Work({ work }) {
               border="1px solid rgba(0,0,0,0.1)"
               _groupHover={{
                 shadow: 'xl',
-                transform: 'translateY(-3px)'
+                transform: 'translateY(-3px)',
               }}
             >
               <Img
@@ -128,7 +142,7 @@ export default function Work({ work }) {
                   _groupHover={
                     work.writers && {
                       opacity: 0,
-                      transform: 'translateY(-100%)'
+                      transform: 'translateY(-100%)',
                     }
                   }
                 >
@@ -148,7 +162,9 @@ export default function Work({ work }) {
                     transform="translateY(50%)"
                     _groupHover={{ opacity: 1, transform: 'translateY(0)' }}
                   >
-                    <span tw="font-medium opacity-70">Lagu &amp; Lirik</span>{' '}
+                    <span className="font-medium opacity-70">
+                      Lagu &amp; Lirik
+                    </span>{' '}
                     {listWriters(work.writers)}
                   </Box>
                 )}
@@ -184,11 +200,11 @@ export default function Work({ work }) {
   );
 }
 
-function listArtists(names) {
+function listArtists(names?: string[]) {
   return names.map((name) => name.replace(/ /g, '\u00A0')).join(', ');
 }
 
-function listWriters(composers, writers) {
+function listWriters(composers?: string[], writers?: string[]) {
   composers = composers || [];
   writers = writers || [];
 

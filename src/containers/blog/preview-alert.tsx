@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import React from 'react';
 
-export default function PreviewAlert({ preview }) {
+export default function PreviewAlert({ preview }: { preview: boolean }) {
   if (!preview) return null;
 
   return (

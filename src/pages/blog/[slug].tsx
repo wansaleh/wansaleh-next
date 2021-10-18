@@ -11,8 +11,15 @@ import PostDateTags from '../../containers/blog/post-date-tags';
 import PostsList from '../../containers/blog/posts-list';
 import PreviewAlert from '../../containers/blog/preview-alert';
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/contentful';
+import { PostType } from '../../types/post';
 
-export default function JournalPost({ post, morePosts, preview }) {
+type PostProps = {
+  post: PostType;
+  morePosts: PostType[];
+  preview: boolean;
+};
+
+export default function Post({ post, morePosts, preview }: PostProps) {
   const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {
@@ -140,9 +147,9 @@ export async function getStaticProps({ params, preview = false }) {
     props: {
       preview,
       post: data.post,
-      morePosts: data.morePosts || []
+      morePosts: data.morePosts || [],
     },
-    revalidate: 1
+    revalidate: 1,
   };
 }
 
@@ -151,8 +158,8 @@ export async function getStaticPaths() {
 
   return {
     paths: posts.map(({ slug }) => ({
-      params: { slug }
+      params: { slug },
     })),
-    fallback: true
+    fallback: true,
   };
 }

@@ -1,4 +1,12 @@
-import { Box, Button, Container, Flex, Heading, Select, SimpleGrid } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  Select,
+  SimpleGrid,
+} from '@chakra-ui/react';
 import { parseISO } from 'date-fns';
 import { Fragment, useState } from 'react';
 import useSWR from 'swr';
@@ -11,7 +19,7 @@ export default function DiscographyPage({ initialWorks }) {
   const [curPerson, setPerson] = useState('all');
   const [curGenre, setGenre] = useState('all');
 
-  const { data } = useSWR(`/api/works`, { initialData: initialWorks });
+  const { data } = useSWR(`/api/works`, { fallbackData: initialWorks });
   const { works } = data || { works: [] };
 
   const allWorks = works
@@ -20,34 +28,37 @@ export default function DiscographyPage({ initialWorks }) {
       fields: {
         ...work.fields,
         com: work.fields.composers?.includes('Wan Saleh'),
-        released: parseISO(work.fields.released, new Date())
-      }
+        released: parseISO(work.fields.released),
+      },
     }))
     .sort((a, b) => b.released - a.released);
   // .filter((work) => !work.hidden);
 
   let filteredWorks = allWorks.slice();
 
-  const _genres = [...new Set(filteredWorks.map((work) => work.fields.genres).flat())];
+  const _genres = [
+    ...new Set(filteredWorks.map((work) => work.fields.genres).flat()),
+  ];
 
   const genres = _genres
-    .map((g) => ({
+    .map((g: string) => ({
       slug: g.toLowerCase().replace(/ /g, '-'),
       title: g,
-      total: filteredWorks.filter((work) => work.fields.genres.includes(g)).length
+      total: filteredWorks.filter((work) => work.fields.genres.includes(g))
+        .length,
     }))
     .sort((a, b) => b.total - a.total);
 
   filteredWorks = filteredWorks.filter((work) =>
-    curGenre !== 'all' ? work.fields.genres.includes(curGenre) : true
+    curGenre !== 'all' ? work.fields.genres.includes(curGenre) : true,
   );
 
   const _people = [
     ...new Set([
       ...filteredWorks.map((work) => work.fields.artists).flat(),
       ...filteredWorks.map((work) => work.fields.composers).flat(),
-      ...filteredWorks.map((work) => work.fields.writers).flat()
-    ])
+      ...filteredWorks.map((work) => work.fields.writers).flat(),
+    ]),
   ]
     .filter(Boolean)
     .sort((a, b) => {
@@ -67,8 +78,8 @@ export default function DiscographyPage({ initialWorks }) {
       (work) =>
         work.fields.artists.includes(art) ||
         work.fields.composers?.includes(art) ||
-        work.fields.writers?.includes(art)
-    ).length
+        work.fields.writers?.includes(art),
+    ).length,
   }));
 
   filteredWorks = filteredWorks.filter((work) =>
@@ -76,7 +87,7 @@ export default function DiscographyPage({ initialWorks }) {
       ? work.fields.artists.includes(curPerson) ||
         work.fields.composers?.includes(curPerson) ||
         work.fields.writers?.includes(curPerson)
-      : true
+      : true,
   );
 
   return (
@@ -114,8 +125,9 @@ export default function DiscographyPage({ initialWorks }) {
               fontWeight="400"
               sx={{ b: { fontSize: '0.75em', fontWeight: '800' } }}
             >
-              Lagu-lagu pilihan yang telah saya terbitkan <b>PRO</b>, cipta/tulis <b>COM</b>, gubah{' '}
-              <b>ARR</b>, jurutera <b>ENG</b>, adun <b>MIX</b> atau masterkan <b>MAS</b>.
+              Lagu-lagu pilihan yang telah saya terbitkan <b>PRO</b>,
+              cipta/tulis <b>COM</b>, gubah <b>ARR</b>, jurutera <b>ENG</b>,
+              adun <b>MIX</b> atau masterkan <b>MAS</b>.
             </Box>
 
             <Flex
@@ -136,15 +148,17 @@ export default function DiscographyPage({ initialWorks }) {
                   minW="unset"
                   border="2px solid transparent"
                   p="0 0.4em"
-                  borderColor={curGenre === 'all' ? 'currentColor' : 'transparent'}
+                  borderColor={
+                    curGenre === 'all' ? 'currentColor' : 'transparent'
+                  }
                   color={curGenre === 'all' ? 'brand.500' : 'currentcolor'}
                   _hover={{
                     color: curGenre === 'all' ? 'brand.500' : 'currentcolor',
-                    borderColor: 'currentColor'
+                    borderColor: 'currentColor',
                   }}
                   _active={{
                     color: curGenre === 'all' ? 'brand.500' : 'currentcolor',
-                    opacity: 0.7
+                    opacity: 0.7,
                   }}
                   onClick={() => setGenre('all')}
                 >
@@ -162,15 +176,17 @@ export default function DiscographyPage({ initialWorks }) {
                     minW="unset"
                     border="2px solid transparent"
                     p="0 0.4em"
-                    borderColor={curGenre === title ? 'currentColor' : 'transparent'}
+                    borderColor={
+                      curGenre === title ? 'currentColor' : 'transparent'
+                    }
                     color={curGenre === title ? 'brand.500' : 'currentcolor'}
                     _hover={{
                       color: curGenre === title ? 'brand.500' : 'currentcolor',
-                      borderColor: 'currentColor'
+                      borderColor: 'currentColor',
                     }}
                     _active={{
                       color: curGenre === title ? 'brand.500' : 'currentcolor',
-                      opacity: 0.7
+                      opacity: 0.7,
                     }}
                     onClick={() => setGenre(title)}
                   >
@@ -240,6 +256,6 @@ export async function getStaticProps() {
   const initialWorks = await fetchWorks();
 
   return {
-    props: { initialWorks }
+    props: { initialWorks },
   };
 }

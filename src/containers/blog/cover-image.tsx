@@ -5,9 +5,23 @@ import React from 'react';
 import Img from '../../components/image';
 import Markdown from '../../components/markdown';
 
-export default function CoverImage({ src, title, caption, slug, height, width, ...props }) {
+export default function CoverImage({
+  src,
+  title,
+  height,
+  width,
+  slug = null,
+  caption = null,
+  ...props
+}) {
   const image = (
-    <Img src={src} alt={`Cover Image for ${title}`} width={width} height={height} cloudinary />
+    <Img
+      src={src}
+      alt={`Cover Image for ${title}`}
+      width={width}
+      height={height}
+      cloudinary
+    />
   );
 
   return (
@@ -26,7 +40,12 @@ export default function CoverImage({ src, title, caption, slug, height, width, .
           </Link>
         </NextLink>
       ) : (
-        <Box shadow="lg" overflow="hidden" pos="relative" transition="all 0.3s ease">
+        <Box
+          shadow="lg"
+          overflow="hidden"
+          pos="relative"
+          transition="all 0.3s ease"
+        >
           {image}
         </Box>
       )}
@@ -43,8 +62,8 @@ export default function CoverImage({ src, title, caption, slug, height, width, .
           textAlign="center"
           sx={{
             a: {
-              color: useColorModeValue('gray.600', 'gray.400')
-            }
+              color: useColorModeValue('gray.600', 'gray.400'),
+            },
           }}
         >
           <Markdown noTOC>{caption}</Markdown>
