@@ -24,7 +24,7 @@ export default function ContactForm() {
       <FormControl
         id="name"
         mb="8"
-        isInvalid={state.errors.find((e) => e.field === 'name')}
+        isInvalid={Boolean(state.errors.find((e) => e.field === 'name'))}
       >
         <FormLabel>Name</FormLabel>
         <Input
@@ -42,7 +42,7 @@ export default function ContactForm() {
       <FormControl
         id="email"
         mb="8"
-        isInvalid={state.errors.find((e) => e.field === 'email')}
+        isInvalid={Boolean(state.errors.find((e) => e.field === 'email'))}
       >
         <FormLabel>Email</FormLabel>
         <Input
@@ -60,7 +60,7 @@ export default function ContactForm() {
       <FormControl
         id="phone"
         mb="8"
-        isInvalid={state.errors.find((e) => e.field === 'phone')}
+        isInvalid={Boolean(state.errors.find((e) => e.field === 'phone'))}
       >
         <FormLabel>Phone Number</FormLabel>
         <Input
@@ -78,7 +78,7 @@ export default function ContactForm() {
       <FormControl
         id="message"
         mb="8"
-        isInvalid={state.errors.find((e) => e.field === 'phone')}
+        isInvalid={Boolean(state.errors.find((e) => e.field === 'phone'))}
       >
         <FormLabel>Message</FormLabel>
         <Textarea
