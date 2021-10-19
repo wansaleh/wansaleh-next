@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 import {
   AspectRatio,
   Box,
@@ -15,9 +16,12 @@ import Img from '../../components/image';
 import SmallBadge from '../../components/small-badge';
 
 export default function Work({ work }) {
-  const coverURL = work.data.artworkMedium
-    ? `https://res.cloudinary.com/wansaleh/image/fetch/w_300/${work.data.artworkMedium}`
-    : `https://res.cloudinary.com/wansaleh/image/fetch/w_300/https://i.ytimg.com/vi/${work.data.youtube}/hqdefault.jpg`;
+  let coverURL = '';
+  if (work.data) {
+    coverURL = work.data?.artworkMedium
+      ? `https://res.cloudinary.com/wansaleh/image/fetch/w_300/${work.data.artworkMedium}`
+      : `https://res.cloudinary.com/wansaleh/image/fetch/w_300/https://i.ytimg.com/vi/${work.data.youtube}/hqdefault.jpg`;
+  }
 
   const [ref, { height: coverHeight }] = useMeasure();
 
@@ -68,12 +72,12 @@ export default function Work({ work }) {
                 py="3.5"
                 lineHeight="1"
               >
-                {work.me.pro && <SmallBadge>PRO</SmallBadge>}
-                {work.me.com && <SmallBadge>COM</SmallBadge>}
-                {work.me.arr && <SmallBadge>ARR</SmallBadge>}
-                {work.me.eng && <SmallBadge>ENG</SmallBadge>}
-                {work.me.mix && <SmallBadge>MIX</SmallBadge>}
-                {work.me.mas && <SmallBadge>MAS</SmallBadge>}
+                {work.me?.pro && <SmallBadge>PRO</SmallBadge>}
+                {work.me?.com && <SmallBadge>COM</SmallBadge>}
+                {work.me?.arr && <SmallBadge>ARR</SmallBadge>}
+                {work.me?.eng && <SmallBadge>ENG</SmallBadge>}
+                {work.me?.mix && <SmallBadge>MIX</SmallBadge>}
+                {work.me?.mas && <SmallBadge>MAS</SmallBadge>}
               </HStack>
             </Box>
           </AspectRatio>
@@ -201,7 +205,7 @@ export default function Work({ work }) {
 }
 
 function listArtists(names?: string[]) {
-  return names.map((name) => name.replace(/ /g, '\u00A0')).join(', ');
+  return names?.map((name) => name.replace(/ /g, '\u00A0')).join(', ');
 }
 
 function listWriters(composers?: string[], writers?: string[]) {
