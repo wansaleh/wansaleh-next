@@ -14,7 +14,7 @@ import remarkUnwrapImages from 'remark-unwrap-images';
 import Img from './image';
 
 const components = {
-  a({ href, title, children, node, ...props }) {
+  a({ href, title, children, ...props }) {
     const isAnchor = href.startsWith('#');
     const isExternal = href.includes('http://') || href.includes('https://');
 
@@ -56,7 +56,7 @@ const components = {
     );
   },
 
-  img({ src, alt, node, ...props }) {
+  img({ src, alt, ...props }) {
     // src = !src.startsWith('https://res.cloudinary.com')
     //   ? `https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`
     //   : src;

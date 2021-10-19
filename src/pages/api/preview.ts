@@ -1,5 +1,6 @@
 /* eslint-disable consistent-return */
 import { NextApiRequest, NextApiResponse } from 'next';
+
 import { getPreviewPostBySlug } from '../../lib/contentful';
 
 type Data = {

@@ -43,7 +43,11 @@ export default function FourOhFour() {
 
         <Box mt="8">
           <LightMode>
-            <Button colorScheme="brand" size="lg" onClick={() => router.push('/')}>
+            <Button
+              colorScheme="brand"
+              size="lg"
+              onClick={() => router.push('/')}
+            >
               Go back home
             </Button>
           </LightMode>
