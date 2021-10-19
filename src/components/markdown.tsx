@@ -2,7 +2,7 @@ import { Link } from '@chakra-ui/react';
 import rehypeToc from '@jsdevtools/rehype-toc';
 import remarkSmartypants from '@silvenon/remark-smartypants';
 import NextLink from 'next/link';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeHeadings from 'rehype-autolink-headings';
 import rehypeRaw from 'rehype-raw';
@@ -14,7 +14,7 @@ import remarkUnwrapImages from 'remark-unwrap-images';
 import Img from './image';
 
 const components = {
-  a({ href, title, children, ...props }) {
+  a({ href, title, children, ...props }): ReactElement {
     const isAnchor = href.startsWith('#');
     const isExternal = href.includes('http://') || href.includes('https://');
 
@@ -56,7 +56,7 @@ const components = {
     );
   },
 
-  img({ src, alt, ...props }) {
+  img({ src, alt, ...props }): ReactElement {
     // src = !src.startsWith('https://res.cloudinary.com')
     //   ? `https://res.cloudinary.com/wansaleh/image/fetch/w_800/${src}`
     //   : src;
@@ -78,6 +78,7 @@ const components = {
 export default function Markdown({ noTOC = false, children }) {
   return (
     <ReactMarkdown
+      // @ts-ignore
       components={components}
       remarkPlugins={[
         remarkSmartypants,
@@ -85,6 +86,7 @@ export default function Markdown({ noTOC = false, children }) {
         remarkUnwrapImages,
         remarkBreaks,
       ]}
+      // @ts-ignore
       rehypePlugins={[
         rehypeSlug,
         rehypeHeadings,

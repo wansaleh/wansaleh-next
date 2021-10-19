@@ -19,6 +19,7 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/ban-ts-comment': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
