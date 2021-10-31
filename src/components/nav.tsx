@@ -14,7 +14,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useWindowScroll } from 'react-use';
 
-import Logo from '../images/logo';
+import Logo from '../images/logo3';
 import Slash from './slash';
 
 export default function Nav() {
@@ -59,22 +59,13 @@ export default function Nav() {
                 <Link d="block">
                   <Flex align="center">
                     <Logo
-                      w="1.75em"
+                      w="4em"
                       fill={!isColoredHeader ? 'brand.500' : 'brand.200'}
                       transition="all 0.25s ease"
                       transform={y > 20 ? 'scale(1.2)' : 'none'}
                       // opacity={y > 20 ? 0.5 : 1}
                     />
-                    <Box
-                      ml="2"
-                      fontWeight="600"
-                      d={['none', 'block']}
-                      transition="all 0.15s ease-out"
-                      transform={y > 20 ? 'translateX(-10px)' : 'none'}
-                      opacity={y > 20 ? 0 : 1}
-                    >
-                      By Wan Saleh
-                    </Box>
+                    <VisuallyHidden>By Wan Saleh</VisuallyHidden>
                   </Flex>
                 </Link>
               </NextLink>
