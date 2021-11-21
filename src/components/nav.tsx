@@ -8,14 +8,15 @@ import {
   useColorMode,
   VisuallyHidden,
 } from '@chakra-ui/react';
+import clsx from 'clsx';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 // import { rgba } from 'polished';
 import React from 'react';
 import { useWindowScroll } from 'react-use';
 
-import Logo from '../images/logo3';
 import Slash from './slash';
+import Logo from '../images/logo3';
 
 export default function Nav() {
   // const [isReady] = useTimeout(50);
@@ -97,7 +98,9 @@ export default function Nav() {
             <li>
               <NextLink href="/works" passHref>
                 <Link
-                  className={router.pathname.includes('/works') && 'active'}
+                  className={clsx(
+                    router.pathname.includes('/works') && 'active',
+                  )}
                 >
                   Diskografi
                 </Link>
@@ -110,7 +113,11 @@ export default function Nav() {
 
             <li>
               <NextLink href="/blog" passHref>
-                <Link className={router.pathname.includes('/blog') && 'active'}>
+                <Link
+                  className={clsx(
+                    router.pathname.includes('/blog') && 'active',
+                  )}
+                >
                   Blog
                 </Link>
               </NextLink>
@@ -123,7 +130,9 @@ export default function Nav() {
             <li>
               <NextLink href="/tools" passHref>
                 <Link
-                  className={router.pathname.includes('/tools') && 'active'}
+                  className={clsx(
+                    router.pathname.includes('/tools') && 'active',
+                  )}
                 >
                   Alatan
                 </Link>
