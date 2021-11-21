@@ -31,7 +31,7 @@ export default function Img({
   darkModeDim?: boolean;
   [x: string]: any;
 }) {
-  const imgRef = useRef<HTMLImageElement>();
+  const imgRef = useRef<HTMLImageElement>(null);
   const [loaded, setLoaded] = useState(false);
   const [naturalWidth, setNaturalWidth] = useState<number>(0);
   const [naturalHeight, setNaturalHeight] = useState<number>(0);
