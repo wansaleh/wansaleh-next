@@ -1,12 +1,15 @@
 import { Box } from '@chakra-ui/react';
 import React from 'react';
 
-import Head from '../../components/head';
-import PageHeader from '../../components/page-header';
-import PostsList from '../../containers/blog/posts-list';
-import PreviewAlert from '../../containers/blog/preview-alert';
-import { getAllPostsForHome } from '../../lib/contentful';
-import { PostType } from '../../types/post';
+import { getAllPostsForHome } from '@/lib/contentful';
+
+import Head from '@/components/head';
+import PageHeader from '@/components/page-header';
+
+import PostsList from '@/containers/blog/posts-list';
+import PreviewAlert from '@/containers/blog/preview-alert';
+
+import { PostType } from '@/types/post';
 
 type BlogPageProps = {
   posts: PostType[];

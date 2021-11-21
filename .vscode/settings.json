@@ -14,10 +14,7 @@
     "statusBarItem.hoverBackground": "#3e00bb",
     "statusBar.foreground": "#e7e7e7",
     "activityBar.activeBackground": "#3e00bb",
-    "editorGroup.border": "#3e00bb",
-    "panel.border": "#3e00bb",
     "sash.hoverBorder": "#3e00bb",
-    "sideBar.border": "#3e00bb",
     "statusBarItem.remoteBackground": "#2d0088",
     "statusBarItem.remoteForeground": "#e7e7e7"
   },

@@ -10,9 +10,16 @@ export default function CoverImage({
   title,
   height,
   width,
-  slug = null,
-  caption = null,
+  slug,
+  caption,
   ...props
+}: {
+  src: string;
+  title: string;
+  height: number;
+  width: number;
+  slug?: string;
+  caption?: string;
 }) {
   const image = (
     <Img
@@ -23,6 +30,8 @@ export default function CoverImage({
       cloudinary
     />
   );
+
+  const aColor = useColorModeValue('gray.600', 'gray.400');
 
   return (
     <Box pos="relative" maxW="1800" mx="auto" {...props}>
@@ -62,7 +71,7 @@ export default function CoverImage({
           textAlign="center"
           sx={{
             a: {
-              color: useColorModeValue('gray.600', 'gray.400'),
+              color: aColor,
             },
           }}
         >

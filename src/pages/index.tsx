@@ -1,4 +1,12 @@
-import { Box, Container, Flex, Heading, Image, Link, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Image,
+  Link,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import NextLink from 'next/link';
 import React, { useState } from 'react';
 import TextLoop from 'react-text-loop';
@@ -25,7 +33,7 @@ export default function Home() {
         minH="100vh"
         bgGradient={useColorModeValue(
           'linear(to-tr, white, brand.100)',
-          'linear(to-tr, black, brand.900)'
+          'linear(to-tr, black, brand.900)',
         )}
       >
         <Box
@@ -126,7 +134,12 @@ export default function Home() {
             </TextLoop>
           </Heading>
 
-          <Flex align="center" mt="8" fontSize={['md', 'lg', 'xl', '2xl']} sx={{ gap: '0.35em' }}>
+          <Flex
+            align="center"
+            mt="8"
+            fontSize={['md', 'lg', 'xl', '2xl']}
+            sx={{ gap: '0.35em' }}
+          >
             <CTALink href="/works">Diskografi</CTALink>
 
             <CTALink href="/blog" bg="yellow.400" color="black">

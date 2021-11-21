@@ -1,5 +1,11 @@
 import { ColorModeScript } from '@chakra-ui/react';
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import Document, {
+  DocumentContext,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 import React from 'react';
 
 import WebFonts from '../styles/webfonts';

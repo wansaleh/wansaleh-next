@@ -5,12 +5,15 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import Head from '../../../components/head';
-import Markdown from '../../../components/markdown';
-import PageHeader from '../../../components/page-header';
-import PostsList from '../../../containers/blog/posts-list';
-import { getAllPostsForTag, getAllTags } from '../../../lib/contentful';
-import { PostType, TagType } from '../../../types/post';
+import { getAllPostsForTag, getAllTags } from '@/lib/contentful';
+
+import Head from '@/components/head';
+import Markdown from '@/components/markdown';
+import PageHeader from '@/components/page-header';
+
+import PostsList from '@/containers/blog/posts-list';
+
+import { PostType, TagType } from '@/types/post';
 
 type TagProps = {
   posts: PostType[];

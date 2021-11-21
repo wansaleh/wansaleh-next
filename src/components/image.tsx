@@ -10,19 +10,31 @@ export default function Img({
   src,
   alt,
   width,
-  height = null,
+  height,
   intrinsic = false,
-  caption = null,
-  bg = null,
+  caption,
+  bg,
   cloudinary = false,
   zoom = false,
   darkModeDim = true,
   ...props
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height?: number;
+  intrinsic?: boolean;
+  caption?: string;
+  bg?: string;
+  cloudinary?: boolean;
+  zoom?: boolean;
+  darkModeDim?: boolean;
+  [x: string]: any;
 }) {
   const imgRef = useRef<HTMLImageElement>();
   const [loaded, setLoaded] = useState(false);
-  const [naturalWidth, setNaturalWidth] = useState(null);
-  const [naturalHeight, setNaturalHeight] = useState(null);
+  const [naturalWidth, setNaturalWidth] = useState<number>(0);
+  const [naturalHeight, setNaturalHeight] = useState<number>(0);
 
   const [wrapperRef, isVisible] = useInView({
     threshold: 0.1,
@@ -32,12 +44,12 @@ export default function Img({
   const defaultBg = useColorModeValue('gray.200', 'gray.900');
   const dimmedOpacity = useColorModeValue(1, darkModeDim ? 0.75 : 1);
 
-  function showImage(loadEvent = null) {
+  function showImage(loadEvent: React.SyntheticEvent<HTMLImageElement, Event>) {
     // https://reactjs.org/docs/legacy-event-pooling.html
-    if (loadEvent !== null && loadEvent.persist) loadEvent.persist();
+    if (loadEvent?.persist) loadEvent.persist();
     setLoaded(true);
-    setNaturalWidth(imgRef.current.naturalWidth);
-    setNaturalHeight(imgRef.current.naturalHeight);
+    setNaturalWidth(imgRef.current?.naturalWidth || 0);
+    setNaturalHeight(imgRef.current?.naturalHeight || 0);
   }
 
   const ratio =

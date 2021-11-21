@@ -13,7 +13,7 @@ export default function Layout({ children }) {
 
   const [marginBottom, setMarginBottom] = useState(0);
   useEffect(() => {
-    setMarginBottom(document.getElementById('footer').clientHeight);
+    setMarginBottom(document.getElementById('footer')?.clientHeight || 0);
   }, []);
 
   return (
