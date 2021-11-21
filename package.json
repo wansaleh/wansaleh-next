@@ -4,7 +4,8 @@
     "dev": "next -p 3008",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "type-check": "tsc",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "deploy": "git add . && git commit -m 'Updates.' && git push origin master"
   },
   "dependencies": {

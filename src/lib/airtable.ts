@@ -1,16 +1,20 @@
 import camelcaseKeys from 'camelcase-keys';
 import qs from 'qs';
 
-export async function fetchWorks({ works = [], limit = 100, offset = null } = {}) {
+export async function fetchWorks({
+  works = [],
+  limit = 100,
+  offset = null,
+} = {}) {
   const data = await fetch(
     `https://api.airtable.com/v0/app4IuhsxXqAX7tha/Works?${qs.stringify({
       view: 'Website',
       pageSize: limit,
-      offset
+      offset,
     })}`,
     {
-      headers: { Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}` }
-    }
+      headers: { Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}` },
+    },
   ).then((r) => r.json());
 
   if (!data.error) {
@@ -24,11 +28,15 @@ export async function fetchWorks({ works = [], limit = 100, offset = null } = {}
           record.fields.artists &&
           record.fields.genres &&
           record.fields.released &&
-          record.fields.youtube
+          record.fields.youtube,
       );
 
     if (data.offset) {
-      return fetchWorks({ works: works.concat(records), limit, offset: data.offset });
+      return fetchWorks({
+        works: works.concat(records),
+        limit,
+        offset: data.offset,
+      });
     }
 
     return { works: works.concat(records) };

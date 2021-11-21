@@ -54,10 +54,12 @@ export default function DiscographyPage({ works }) {
 
   let filteredWorks = allWorks.slice();
 
-  const _genres = [...new Set(filteredWorks.map((work) => work.genres).flat())];
+  const _genres = [
+    ...new Set(filteredWorks.map((work) => work.genres).flat()),
+  ] as string[];
 
   const genres = _genres
-    .map((g: string) => ({
+    .map((g) => ({
       slug: g.toLowerCase().replace(/ /g, '-'),
       title: g,
       total: filteredWorks.filter((work) => work.genres.includes(g)).length,

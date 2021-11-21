@@ -14,10 +14,10 @@ import {
 import NextLink from 'next/link';
 import React from 'react';
 
-import Markdown from '../../components/markdown';
-import { PostType } from '../../types/post';
 import CoverImage from './cover-image';
 import PostDateTags from './post-date-tags';
+import Markdown from '../../components/markdown';
+import { PostType } from '../../types/post';
 
 type PostsListProps = {
   posts: PostType[];
@@ -37,10 +37,21 @@ export default function PostsList({
   const heroPost = hero ? posts[0] : null;
   const otherPosts = hero ? posts.slice(1) : posts;
 
+  const borderColor = useColorModeValue('gray.200', 'gray.800');
+  const borderColorDivider = useColorModeValue('trueGray.300', 'trueGray.700');
+  const boxShadow = useColorModeValue(
+    `0 0 0 1px ${theme.colors.brandGray[300]}`,
+    `0 0 0 1px ${theme.colors.brandGray[900]}`,
+  );
+  const boxShadowHover = useColorModeValue(
+    '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+    '0 20px 25px -5px rgba(255, 255, 255, 0.1), 0 10px 10px -5px rgba(255, 255, 255, 0.04)',
+  );
+
   return (
     <>
       <Container maxW="6xl" sx={{ 'a:hover': { color: 'brand.500' } }}>
-        {hero && (
+        {heroPost && (
           <LinkBox id="hero-post" mb="20" role="group">
             {heroPost.coverImage && (
               <CoverImage
@@ -53,7 +64,7 @@ export default function PostsList({
                 borderRadius="2xl"
                 overflow="hidden"
                 border="1px solid"
-                borderColor={useColorModeValue('gray.200', 'gray.800')}
+                borderColor={borderColor}
               />
             )}
 
@@ -105,17 +116,11 @@ export default function PostsList({
               // )}
               // border="1px solid"
               // borderColor={useColorModeValue('gray.200', 'trueGray.800')}
-              boxShadow={useColorModeValue(
-                `0 0 0 1px ${theme.colors.brandGray[300]}`,
-                `0 0 0 1px ${theme.colors.brandGray[900]}`,
-              )}
+              boxShadow={boxShadow}
               cursor="pointer"
               transition="all 0.3s ease"
               _hover={{
-                boxShadow: useColorModeValue(
-                  '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-                  '0 20px 25px -5px rgba(255, 255, 255, 0.1), 0 10px 10px -5px rgba(255, 255, 255, 0.04)',
-                ),
+                boxShadow: boxShadowHover,
               }}
             >
               {post.coverImage && (
@@ -173,10 +178,7 @@ export default function PostsList({
 
                 <Divider
                   my="4"
-                  borderColor={useColorModeValue(
-                    'trueGray.300',
-                    'trueGray.700',
-                  )}
+                  borderColor={borderColorDivider}
                   opacity="0.5"
                 />
 

@@ -6,7 +6,7 @@ import {
   Image,
   Link,
   useColorModeValue,
-  VisuallyHidden
+  VisuallyHidden,
 } from '@chakra-ui/react';
 import React from 'react';
 
@@ -16,7 +16,13 @@ export default function Tools({ tools, hideIcons = false }) {
   const imgFilter = useColorModeValue('invert(0)', 'invert(1)');
 
   return (
-    <Flex as="ul" mt="4" flexWrap="wrap" justify="center" className="prose article tools">
+    <Flex
+      as="ul"
+      mt="4"
+      flexWrap="wrap"
+      justify="center"
+      className="prose article tools"
+    >
       {tools.map((tool, i) => (
         <Box as="li" key={i} w="full">
           <Heading as="h4">{tool.name}</Heading>

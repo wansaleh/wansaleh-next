@@ -1,7 +1,11 @@
 import { Box } from '@chakra-ui/react';
 import React from 'react';
 
-export default function Slash({ size = '1.5em', color = 'currentColor', ...props }) {
+export default function Slash({
+  size = '1.5em',
+  color = 'currentColor',
+  ...props
+}) {
   return (
     <Box
       as="svg"

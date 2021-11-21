@@ -20,6 +20,7 @@ export default function CoverImage({
   width: number;
   slug?: string;
   caption?: string;
+  [x: string]: any;
 }) {
   const image = (
     <Img

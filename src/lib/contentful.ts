@@ -27,7 +27,7 @@ const POST_GRAPHQL_FIELDS = `
 
 async function fetchAPI(
   query: string,
-  { variables = null, preview = null } = {},
+  { variables = null, preview = null }: { [key: string]: any } = {},
 ) {
   const res = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,

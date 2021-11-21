@@ -86,6 +86,7 @@ module.exports = {
         //   },
         // ],
         '@next/next/no-img-element': 0,
+        '@typescript-eslint/ban-ts-comment': 0,
       },
     },
   ],

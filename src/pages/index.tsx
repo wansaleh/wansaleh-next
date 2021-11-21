@@ -13,6 +13,33 @@ import TextLoop from 'react-text-loop';
 
 import Head from '../components/head';
 
+function CTALink({ href, children, ...props }) {
+  return (
+    <NextLink href={href}>
+      <Link
+        h="unset"
+        w="unset"
+        maxW="unset"
+        py="0.25em"
+        px="1em"
+        fontFamily="heading"
+        fontWeight="600"
+        borderRadius="full"
+        letterSpacing="tight"
+        // colorScheme="gray"
+        bg={useColorModeValue('black', 'white')}
+        color={useColorModeValue('white', 'black')}
+        _hover={{ opacity: 0.8 }}
+        {...props}
+      >
+        <Box as="span" transform="skew(-5deg)" d="block">
+          {children}
+        </Box>
+      </Link>
+    </NextLink>
+  );
+}
+
 export default function Home() {
   const [heroLoaded, setHeroLoaded] = useState(false);
 
@@ -158,32 +185,5 @@ export default function Home() {
         </Container>
       </Flex>
     </>
-  );
-}
-
-function CTALink({ href, children, ...props }) {
-  return (
-    <NextLink href={href}>
-      <Link
-        h="unset"
-        w="unset"
-        maxW="unset"
-        py="0.25em"
-        px="1em"
-        fontFamily="heading"
-        fontWeight="600"
-        borderRadius="full"
-        letterSpacing="tight"
-        // colorScheme="gray"
-        bg={useColorModeValue('black', 'white')}
-        color={useColorModeValue('white', 'black')}
-        _hover={{ opacity: 0.8 }}
-        {...props}
-      >
-        <Box as="span" transform="skew(-5deg)" d="block">
-          {children}
-        </Box>
-      </Link>
-    </NextLink>
   );
 }

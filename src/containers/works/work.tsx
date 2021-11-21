@@ -15,6 +15,19 @@ import { useMeasure } from 'react-use';
 import Img from '../../components/image';
 import SmallBadge from '../../components/small-badge';
 
+function listArtists(names?: string[]) {
+  return names?.map((name) => name.replace(/ /g, '\u00A0')).join(', ');
+}
+
+function listWriters(composers?: string[], writers?: string[]) {
+  composers = composers || [];
+  writers = writers || [];
+
+  return [...new Set([...composers, ...writers])]
+    .map((name) => name.replace(/ /g, '\u00A0'))
+    .join(', ');
+}
+
 export default function Work({ work }) {
   let coverURL = '';
   if (work.data) {
@@ -23,7 +36,7 @@ export default function Work({ work }) {
       : `https://res.cloudinary.com/wansaleh/image/fetch/w_300/https://i.ytimg.com/vi/${work.data.youtube}/hqdefault.jpg`;
   }
 
-  const [ref, { height: coverHeight }] = useMeasure();
+  const [ref, { height: coverHeight }] = useMeasure<HTMLDivElement>();
 
   const cellHeight = coverHeight + 130;
 
@@ -202,17 +215,4 @@ export default function Work({ work }) {
       </LinkOverlay>
     </LinkBox>
   );
-}
-
-function listArtists(names?: string[]) {
-  return names?.map((name) => name.replace(/ /g, '\u00A0')).join(', ');
-}
-
-function listWriters(composers?: string[], writers?: string[]) {
-  composers = composers || [];
-  writers = writers || [];
-
-  return [...new Set([...composers, ...writers])]
-    .map((name) => name.replace(/ /g, '\u00A0'))
-    .join(', ');
 }

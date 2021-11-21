@@ -18,6 +18,66 @@ import { useWindowScroll } from 'react-use';
 import Slash from './slash';
 import Logo from '../images/logo3';
 
+function ToggleMode() {
+  const { colorMode, toggleColorMode } = useColorMode();
+  return (
+    <Button
+      minW="unset"
+      p="1"
+      bg="none"
+      variant="unstyled"
+      h="auto"
+      borderRadius="5px"
+      onClick={toggleColorMode}
+    >
+      <VisuallyHidden>Toggle Mode</VisuallyHidden>
+      <Box
+        as="svg"
+        height="1.1em"
+        width="1.1em"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="2.5"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        transition="transform 0.5s ease, opacity 0.2s"
+        opacity={colorMode !== 'dark' ? 1 : 0}
+        transform={colorMode !== 'dark' ? 'rotate(0)' : 'rotate(-180deg)'}
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </Box>
+      <Box
+        as="svg"
+        height="1.25em"
+        width="1.25em"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        pos="absolute"
+        top="calc(50% - 0.625em)"
+        left="calc(50% - 0.625em)"
+        transition="transform 0.5s ease, opacity 0.2s"
+        opacity={colorMode === 'dark' ? 1 : 0}
+        transform={colorMode === 'dark' ? 'rotate(0)' : 'rotate(180deg)'}
+      >
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" x2="12" y1="1" y2="3" />
+        <line x1="12" x2="12" y1="21" y2="23" />
+        <line x1="4.22" x2="5.64" y1="4.22" y2="5.64" />
+        <line x1="18.36" x2="19.78" y1="18.36" y2="19.78" />
+        <line x1="1" x2="3" y1="12" y2="12" />
+        <line x1="21" x2="23" y1="12" y2="12" />
+        <line x1="4.22" x2="5.64" y1="19.78" y2="18.36" />
+        <line x1="18.36" x2="19.78" y1="5.64" y2="4.22" />
+      </Box>
+    </Button>
+  );
+}
+
 export default function Nav() {
   // const [isReady] = useTimeout(50);
   const router = useRouter();
@@ -150,65 +210,5 @@ export default function Nav() {
         </Flex>
       </Container>
     </Box>
-  );
-}
-
-function ToggleMode() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  return (
-    <Button
-      minW="unset"
-      p="1"
-      bg="none"
-      variant="unstyled"
-      h="auto"
-      borderRadius="5px"
-      onClick={toggleColorMode}
-    >
-      <VisuallyHidden>Toggle Mode</VisuallyHidden>
-      <Box
-        as="svg"
-        height="1.1em"
-        width="1.1em"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="2.5"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        transition="transform 0.5s ease, opacity 0.2s"
-        opacity={colorMode !== 'dark' ? 1 : 0}
-        transform={colorMode !== 'dark' ? 'rotate(0)' : 'rotate(-180deg)'}
-      >
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-      </Box>
-      <Box
-        as="svg"
-        height="1.25em"
-        width="1.25em"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        pos="absolute"
-        top="calc(50% - 0.625em)"
-        left="calc(50% - 0.625em)"
-        transition="transform 0.5s ease, opacity 0.2s"
-        opacity={colorMode === 'dark' ? 1 : 0}
-        transform={colorMode === 'dark' ? 'rotate(0)' : 'rotate(180deg)'}
-      >
-        <circle cx="12" cy="12" r="5" />
-        <line x1="12" x2="12" y1="1" y2="3" />
-        <line x1="12" x2="12" y1="21" y2="23" />
-        <line x1="4.22" x2="5.64" y1="4.22" y2="5.64" />
-        <line x1="18.36" x2="19.78" y1="18.36" y2="19.78" />
-        <line x1="1" x2="3" y1="12" y2="12" />
-        <line x1="21" x2="23" y1="12" y2="12" />
-        <line x1="4.22" x2="5.64" y1="19.78" y2="18.36" />
-        <line x1="18.36" x2="19.78" y1="5.64" y2="4.22" />
-      </Box>
-    </Button>
   );
 }

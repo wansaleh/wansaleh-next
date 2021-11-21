@@ -11,23 +11,6 @@ interface Link {
   key?: string;
 }
 
-const links: Link[] = [
-  {
-    href: 'https://twitter.com/wansaleh',
-    label: 'Twitter',
-    icon: <Twitter />,
-  },
-  {
-    href: 'https://github.com/wansaleh',
-    label: 'Github',
-    icon: <Github />,
-  },
-  // { href: 'https://instagram.com/wansaleh', label: 'In' }
-].map((link: Link) => {
-  link.key = `nav-link-${link.href}-${link.label}`;
-  return link;
-});
-
 function Twitter(props) {
   return (
     <Box
@@ -65,6 +48,23 @@ function Github(props) {
     </Box>
   );
 }
+
+const links: Link[] = [
+  {
+    href: 'https://twitter.com/wansaleh',
+    label: 'Twitter',
+    icon: <Twitter />,
+  },
+  {
+    href: 'https://github.com/wansaleh',
+    label: 'Github',
+    icon: <Github />,
+  },
+  // { href: 'https://instagram.com/wansaleh', label: 'In' }
+].map((link: Link) => {
+  link.key = `nav-link-${link.href}-${link.label}`;
+  return link;
+});
 
 export default function SocialLinks({ showContact }) {
   return (
