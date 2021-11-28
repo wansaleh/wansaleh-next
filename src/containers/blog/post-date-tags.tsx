@@ -25,15 +25,23 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
       )}
       {showFull && (
         <>
-          {format(parseISO(post.date), 'EEEE, d MMMM yyy', { locale: ms })} <Slash /> Kemaskini{' '}
-          {format(parseISO(post.firstPublishedAt), 'd MMMM yyy, h:mm a', { locale: ms })} <Slash />{' '}
+          {format(parseISO(post.date), 'EEEE, d MMMM yyy', { locale: ms })}{' '}
+          <Slash /> Kemaskini{' '}
+          {format(parseISO(post.firstPublishedAt), 'd MMMM yyy, h:mm a', {
+            locale: ms,
+          })}{' '}
+          <Slash />{' '}
         </>
       )}
 
       <Box
         as="ul"
         d="inline"
-        sx={{ li: { ':not(:last-of-type):after': { content: '", "', opacity: 0.6 } } }}
+        sx={{
+          li: {
+            ':not(:last-of-type):after': { content: '", "', opacity: 0.6 },
+          },
+        }}
       >
         {post.sysTags.map((tag) => (
           <Box as="li" d="inline" key={tag.id}>
@@ -41,7 +49,7 @@ export default function PostDateTags({ post, showFull = false, ...props }) {
               <Link
                 color="brand.500"
                 _hover={{
-                  color: `${useColorModeValue('black', 'white')} !important`
+                  color: `${useColorModeValue('black', 'white')} !important`,
                 }}
               >
                 {tag.name}

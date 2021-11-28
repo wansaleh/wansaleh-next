@@ -8,7 +8,7 @@ const brand = tailwindColorPalette('#3497b5', {
   grayscale: true,
   ui: false,
   colorscale: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900],
-  grayscaleMix: 0.035
+  grayscaleMix: 0.035,
 });
 
 module.exports = {
@@ -21,17 +21,17 @@ module.exports = {
         brand: brand.brand,
         brandGray: brand.gray,
         black: brand.black,
-        trueGray: colors.trueGray
+        trueGray: colors.trueGray,
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         // sans: ['Sharp Grotesk', ...defaultTheme.fontFamily.sans],
         head: ['Sharp Grotesk', ...defaultTheme.fontFamily.sans],
         serif: ['Bespoke Serif', ...defaultTheme.fontFamily.sans],
-        mono: ['JetBrainsMono', 'monospace']
-      }
-    }
+        mono: ['JetBrainsMono', 'monospace'],
+      },
+    },
   },
   variants: {},
-  plugins: [require('@tailwindcss/typography')]
+  plugins: [require('@tailwindcss/typography')],
 };

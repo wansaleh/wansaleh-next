@@ -9,9 +9,9 @@ const devTools: Tool[] = [
       {
         image: '/assets/images/logos/Visual_Studio_Code_1.35_icon.svg',
         title: 'Visual Studio Code',
-        link: 'https://code.visualstudio.com'
-      }
-    ]
+        link: 'https://code.visualstudio.com',
+      },
+    ],
   },
   {
     name: 'Frontend Stack',
@@ -20,34 +20,34 @@ const devTools: Tool[] = [
       {
         image: '/assets/images/logos/React-icon.svg',
         title: 'React',
-        link: 'https://reactjs.org'
+        link: 'https://reactjs.org',
       },
       {
         image: '/assets/images/logos/next-js.svg',
         title: 'Next',
-        link: 'https://nextjs.org'
+        link: 'https://nextjs.org',
       },
       {
         image: '/assets/images/logos/Gatsby-Monogram.svg',
         title: 'Gatsby',
-        link: 'https://gatsbyjs.org'
+        link: 'https://gatsbyjs.org',
       },
       {
         image: '/assets/images/logos/GraphQL.svg',
         title: 'GraphQL',
-        link: 'https://graphql.org'
+        link: 'https://graphql.org',
       },
       {
         image: '/assets/images/logos/Vue.js_Logo_2.svg',
         title: 'Vue.js',
-        link: 'https://vuejs.org'
+        link: 'https://vuejs.org',
       },
       {
         image: '/assets/images/logos/svelte-logo.svg',
         title: 'Svelte',
-        link: 'https://svelte.dev'
-      }
-    ]
+        link: 'https://svelte.dev',
+      },
+    ],
   },
   {
     name: 'Backend Stack',
@@ -56,24 +56,24 @@ const devTools: Tool[] = [
       {
         image: '/assets/images/logos/nodejs-icon.svg',
         title: 'NodeJS',
-        link: 'https://nodejs.org'
+        link: 'https://nodejs.org',
       },
       {
         image: '/assets/images/logos/mongodb.svg',
         title: 'MongoDB',
-        link: 'https://mongodb.org'
+        link: 'https://mongodb.org',
       },
       {
         image: '/assets/images/logos/Postgresql_elephant.svg',
         title: 'PostgreSQL',
-        link: 'https://postgresql.org'
+        link: 'https://postgresql.org',
       },
       {
         image: '/assets/images/logos/hasura.svg',
         title: 'Hasura',
-        link: 'https://hasura.io'
-      }
-    ]
+        link: 'https://hasura.io',
+      },
+    ],
   },
   {
     name: 'SaaS',
@@ -82,45 +82,45 @@ const devTools: Tool[] = [
       {
         image: '/assets/images/logos/vercel.svg',
         title: 'Vercel',
-        link: 'https://vercel.com'
+        link: 'https://vercel.com',
       },
       {
         image: '/assets/images/logos/netlify.svg',
         title: 'Netlify',
-        link: 'https://netlify.com'
+        link: 'https://netlify.com',
       },
       {
         image: '/assets/images/logos/DO_Logo_icon_blue.svg',
         title: 'DigitalOcean',
-        link: 'https://digitalocean.com'
+        link: 'https://digitalocean.com',
       },
       {
         image: '/assets/images/logos/sygnet__on-white.svg',
         title: 'Vultr',
-        link: 'https://vultr.com'
+        link: 'https://vultr.com',
       },
       {
         image: '/assets/images/logos/Firebase_Logo_Logomark.svg',
         title: 'Firebase',
-        link: 'https://firebase.com'
+        link: 'https://firebase.com',
       },
       {
         image: '/assets/images/logos/bunnycdn-icon.svg',
         title: 'Bunny',
-        link: 'https://bunny.net'
+        link: 'https://bunny.net',
       },
       {
         image: '/assets/images/logos/wasabi-icon.svg',
         title: 'Wasabi',
-        link: 'https://wasabi.com'
+        link: 'https://wasabi.com',
       },
       {
         image: '/assets/images/logos/Amazon_Web_Services_Logo.svg',
         title: 'Amazon Web Services',
-        link: 'https://aws.amazon.com'
-      }
-    ]
-  }
+        link: 'https://aws.amazon.com',
+      },
+    ],
+  },
 ];
 
 export default devTools;
